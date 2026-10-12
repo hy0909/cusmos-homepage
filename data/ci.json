@@ -1,0 +1,11 @@
+{
+  "items": [
+    { "id": "ci-wordmark-white", "kind": "logo", "order": 1, "title": "워드마크 (흰색)", "desc": "어두운 배경에 사용", "bg": "dark", "preview": "uploads/ci/cusmos-wordmark-white.png", "files": [{ "name": "PNG", "path": "uploads/ci/cusmos-wordmark-white.png" }], "published": true },
+    { "id": "ci-wordmark-black", "kind": "logo", "order": 2, "title": "워드마크 (검정)", "desc": "밝은 배경에 사용", "bg": "light", "preview": "uploads/ci/cusmos-wordmark-black.png", "files": [{ "name": "PNG", "path": "uploads/ci/cusmos-wordmark-black.png" }], "published": true },
+    { "id": "ci-symbol", "kind": "logo", "order": 3, "title": "심볼", "desc": "파비콘·프로필 이미지에 사용", "bg": "dark", "preview": "uploads/ci/cusmos-symbol.png", "files": [{ "name": "PNG", "path": "uploads/ci/cusmos-symbol.png" }], "published": true },
+    { "id": "ci-c-navy", "kind": "color", "order": 10, "title": "Deep Navy", "hex": "#05060D", "desc": "배경", "published": true },
+    { "id": "ci-c-sky", "kind": "color", "order": 11, "title": "Sound Sky", "hex": "#7FA8FF", "desc": "그라데이션 시작", "published": true },
+    { "id": "ci-c-violet", "kind": "color", "order": 12, "title": "Signal Violet", "hex": "#A46BFF", "desc": "그라데이션 중간", "published": true },
+    { "id": "ci-c-pink", "kind": "color", "order": 13, "title": "Pulse Pink", "hex": "#F45FC8", "desc": "강조색", "published": true }
+  ]
+}
