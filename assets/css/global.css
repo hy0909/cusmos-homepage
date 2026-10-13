@@ -339,3 +339,12 @@ body[data-hero="dark"] .gh:not(.scrolled):not(.menu-open) .lang-btn { border-col
 .b-color span { font-size: 14px; color: var(--c-muted); }
 @media (max-width: 960px) { .b-ci { grid-template-columns: repeat(2, minmax(0, 1fr)); } .b-colors { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .b-ci { grid-template-columns: 1fr; } }
+
+/* 팀: 역할별 묶음 (en·ja·de 공통) */
+.team-group + .team-group { margin-top: 40px; }
+.team-group-label { font-size: 15px; font-weight: 700; color: var(--c-muted); margin: 0 0 14px; padding-bottom: 10px; border-bottom: 1px solid var(--c-line); }
+.team-group .cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.team-group .cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.team-group .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+@media (max-width: 960px) { .team-group .cols-3, .team-group .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 600px) { .team-group .cols-2, .team-group .cols-3, .team-group .cols-4 { grid-template-columns: 1fr; } }
