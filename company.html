@@ -132,7 +132,8 @@
 <script>
   getData("site", {}).then((s) => {
     const rows = [["주소", s.address], ["전화", s.phone], ["이메일", s.email]];
-    document.getElementById("loc").innerHTML = rows.map((r) => `<div><dt style="color:var(--muted)">${r[0]}</dt><dd>${r[1] ? esc(r[1]) : '<span style="color:var(--dim)">준비 중입니다</span>'}</dd></div>`).join("");
+    const map = s.address ? ` <a href="https://map.naver.com/p/search/${encodeURIComponent(s.address)}" target="_blank" rel="noopener" style="margin-left:8px;font-size:15px;color:var(--muted);text-decoration:underline;text-underline-offset:3px">지도 보기</a>` : "";
+    document.getElementById("loc").innerHTML = rows.map((r) => `<div><dt style="color:var(--muted)">${r[0]}</dt><dd>${r[1] ? esc(r[1]) + (r[0] === "주소" ? map : "") : '<span style="color:var(--dim)">준비 중입니다</span>'}</dd></div>`).join("");
   });
 </script>
 </body>
