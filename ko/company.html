@@ -7,24 +7,40 @@
 <meta name="description" content="커즈모스는 시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 사운드 인텔리전스 기업입니다.">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../assets/css/style.css?v=5">
+<link rel="stylesheet" href="../assets/css/style.css?v=8">
 </head>
 <body data-base="../">
 <header id="site-header"></header>
 <main>
   <section class="page-hero">
     <div class="wrap">
-      <div class="crumb reveal"><span>홈</span><span>/</span><span>회사소개</span></div>
+      <div class="crumb reveal"><span>회사소개</span></div>
       <h1 class="reveal d1">시민의 문제를 발견하고,<br><span class="grad-text">원인을 밝히고, 해결합니다</span></h1>
       <p class="reveal d2">커즈모스는 소리로 도시의 문제를 읽는 회사입니다. 소음 민원처럼 늘 있었지만 근거가 부족했던 문제를 데이터로 설명할 수 있게 만듭니다.</p>
     </div>
   </section>
 
   <nav class="sub-tabs"><div class="wrap"><ul>
-    <li><a href="#vision">비전</a></li><li><a href="#team">팀</a></li><li><a href="#history">연혁</a></li><li><a href="#patent">특허</a></li><li><a href="#location">오시는 길</a></li>
+    <li><a href="#about">회사 개요</a></li><li><a href="#vision">비전</a></li><li><a href="#team">팀</a></li><li><a href="#history">연혁</a></li><li><a href="#patent">특허</a></li><li><a href="#location">오시는 길</a></li>
   </ul></div></nav>
 
-  <section class="sec" id="vision">
+  <section class="sec" id="about">
+    <div class="wrap">
+      <div class="split top">
+        <div>
+          <span class="eyebrow reveal">About</span>
+          <h2 class="h2 reveal d1">도시·산업 현장·국방을 위한<br>청각지능 AI를 만듭니다</h2>
+        </div>
+        <div>
+          <p class="body-l reveal">커즈모스는 고감도 음향 센싱과 AI로 도시와 산업 현장의 위험 신호를 실시간으로 찾아내고 분석하는 회사입니다.</p>
+          <p class="body-l reveal d1">직접 개발한 멀티 마이크 배열, 엣지 AI 분석, 여러 센서를 함께 쓰는 융합 기술로 영상만으로는 놓치는 상황을 소리로 채웁니다. 카메라 중심의 감시 체계를 보완하는 청각 인프라를 만들고 있습니다.</p>
+          <p class="body-l reveal d2">도시, 산업 현장, 국방 분야에 먼저 들어가 실적을 쌓으면서 현장 데이터를 모으고 있습니다. 이 분야에서 쌓은 기술 개발 경험이 커즈모스만의 경쟁력입니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" id="vision" style="background:var(--bg-2)">
     <div class="wrap">
       <div class="split top">
         <div>
@@ -41,7 +57,7 @@
     </div>
   </section>
 
-  <section class="sec" id="team" style="background:var(--bg-2)">
+  <section class="sec" id="team">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow reveal">Team</span>
@@ -61,7 +77,7 @@
     </div>
   </section>
 
-  <section class="sec" id="history">
+  <section class="sec" id="history" style="background:var(--bg-2)">
     <div class="wrap">
       <div class="split top">
         <div>
@@ -80,7 +96,7 @@
     </div>
   </section>
 
-  <section class="sec" id="patent" style="background:var(--bg-2)">
+  <section class="sec" id="patent">
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow reveal">Patents</span>
@@ -98,7 +114,7 @@
     </div>
   </section>
 
-  <section class="sec" id="location">
+  <section class="sec" id="location" style="background:var(--bg-2)">
     <div class="wrap">
       <div class="split top">
         <div>
@@ -111,12 +127,13 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/common.js?v=5"></script>
+<script src="../assets/js/config.js?v=8"></script>
+<script src="../assets/js/common.js?v=8"></script>
 <script>
   getData("site", {}).then((s) => {
     const rows = [["주소", s.address], ["전화", s.phone], ["이메일", s.email]];
-    document.getElementById("loc").innerHTML = rows.map((r) => `<div><dt style="color:var(--muted)">${r[0]}</dt><dd>${r[1] ? esc(r[1]) : '<span style="color:var(--dim)">준비 중입니다</span>'}</dd></div>`).join("");
+    const map = s.address ? ` <a href="https://map.naver.com/p/search/${encodeURIComponent(s.address)}" target="_blank" rel="noopener" style="margin-left:8px;font-size:15px;color:var(--muted);text-decoration:underline;text-underline-offset:3px">지도 보기</a>` : "";
+    document.getElementById("loc").innerHTML = rows.map((r) => `<div><dt style="color:var(--muted)">${r[0]}</dt><dd>${r[1] ? esc(r[1]) + (r[0] === "주소" ? map : "") : '<span style="color:var(--dim)">준비 중입니다</span>'}</dd></div>`).join("");
   });
 </script>
 </body>

@@ -1,5 +1,8 @@
 /* CUSMOS 홈페이지 공통 스타일 */
 :root {
+  /* 목록 항목 제목 (예: 실시간 감지) */
+  --fs-item-title: 19px;
+  --gap-item-title: 2px;
   --bg: #05060d;
   --bg-2: #0b0d1a;
   --surface: #11132a;
@@ -50,7 +53,6 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
   display: inline-flex; align-items: center; gap: 10px;
   font-size: 13px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
 }
-.eyebrow::before { content: ""; width: 18px; height: 2px; background: var(--grad); border-radius: 2px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 
 /* 버튼 */
@@ -79,7 +81,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-header .bar .wrap { display: flex; align-items: center; height: 100%; }
 .site-header .logo { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; width: 180px; }
 .site-header .logo img.sym { width: 30px; height: 30px; }
-.site-header .logo img.word { height: 17px; width: auto; }
+.site-header .logo img.word { height: 21px; width: auto; }
 .gnb { display: flex; height: 100%; margin: 0 auto; }
 .gnb > li { position: relative; width: 150px; height: 100%; }
 .gnb > li > a {
@@ -217,7 +219,7 @@ section { position: relative; }
 .spot-img img { width: 100%; height: 100%; object-fit: cover; }
 .feat-list { display: grid; grid-template-columns: 1fr 1fr; gap: 28px 32px; margin-top: 48px; }
 .feat-list li { border-top: 1px solid var(--ink-line); padding-top: 18px; }
-.feat-list strong { display: block; font-size: 17px; margin-bottom: 6px; }
+.feat-list strong { display: block; font-size: var(--fs-item-title); margin-bottom: var(--gap-item-title); }
 .feat-list span { font-size: 15px; color: var(--ink-2); }
 
 /* 솔루션 카드 */
@@ -330,6 +332,10 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .light .card .ico { background: #f1eaff; }
 .light .card .ico svg { stroke: #7a45e6; }
 .card .k { font-size: 44px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 12px; }
+.card.area .tag { display: inline-block; margin: -2px 0 14px; font-size: 13px; font-weight: 600; color: #d6b8ff; }
+.card.area ul { display: grid; gap: 8px; margin-top: 4px; }
+.card.area li { position: relative; padding-left: 14px; font-size: 16px; color: var(--muted); }
+.card.area li::before { content: ""; position: absolute; left: 0; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--pink); }
 
 .spec { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 16px; }
 .spec th, .spec td { text-align: left; padding: 16px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
@@ -364,8 +370,7 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .search input { height: 48px; width: 300px; max-width: 100%; border-radius: 999px; border: 1px solid var(--ink-line); background: #fff; padding: 0 48px 0 22px; font: inherit; font-size: 15px; }
 .search svg { position: absolute; right: 18px; top: 14px; width: 20px; height: 20px; stroke: var(--ink-2); }
 .board { border-top: 2px solid var(--ink); }
-.board li a { display: grid; grid-template-columns: 80px 1fr 140px; align-items: center; gap: 16px; padding: 28px 8px; border-bottom: 1px solid var(--ink-line); transition: background .2s; }
-.board li a:hover { background: #fff; }
+.board li a { display: grid; grid-template-columns: 80px 1fr 140px; align-items: center; gap: 16px; padding: 28px 8px; border-bottom: 1px solid var(--ink-line); background: #fff; }
 .board .no { color: var(--ink-2); font-size: 15px; text-align: center; }
 .board .t { font-size: 18px; font-weight: 600; }
 .board .d { color: var(--ink-2); font-size: 15px; text-align: right; font-variant-numeric: tabular-nums; }
@@ -416,11 +421,11 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .color { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--ink-line); background: #fff; }
 .color .sw { height: 160px; }
 .color .info { padding: 20px 24px; }
-.color strong { display: block; font-size: 17px; }
+.color strong { display: block; font-size: var(--fs-item-title); margin-bottom: var(--gap-item-title); }
 .color span { font-size: 14px; color: var(--ink-2); font-variant-numeric: tabular-nums; }
 
 /* 채용 */
-.job-list li a { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 32px 8px; border-bottom: 1px solid var(--ink-line); }
+.job-list li a { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; padding: 32px 8px; border-bottom: 1px solid var(--ink-line); background: #fff; }
 .job-list li:first-child a { border-top: 2px solid var(--ink); }
 .job-list h3 { font-size: 21px; font-weight: 700; letter-spacing: -0.02em; margin-top: 10px; }
 .job-list .tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; font-size: 14px; color: var(--ink-2); }
@@ -443,7 +448,7 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 /* ───────── 푸터 ───────── */
 .site-footer { background: #03040a; border-top: 1px solid var(--line); padding: 72px 0 48px; color: var(--muted); font-size: 14px; }
 .site-footer .top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
-.site-footer .brand img.word { height: 18px; width: auto; margin-bottom: 18px; }
+.site-footer .brand img.word { height: 45px; width: auto; margin-bottom: 18px; }
 .site-footer .brand p { max-width: 320px; }
 .site-footer .cols { display: flex; gap: 64px; flex-wrap: wrap; }
 .site-footer .cols strong { display: block; color: var(--text); font-size: 15px; margin-bottom: 16px; }
