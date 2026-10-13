@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CUSMOS | 도시의 소리를 데이터로</title>
+<meta name="description" content="커즈모스는 엣지 AI 음향센서로 도시와 산업 현장의 소리를 감지하고, 소리의 종류와 위치를 찾아 알려 주는 스마트시티 사운드 인텔리전스 기업입니다.">
+<meta property="og:title" content="CUSMOS | 도시의 소리를 데이터로">
+<meta property="og:description" content="엣지 AI 음향센서로 소리의 종류와 위치를 찾아내는 스마트시티 사운드 인텔리전스">
+<meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="../assets/css/style.css?v=8">
+</head>
+<body data-base="../" data-hero="1">
+<header id="site-header"></header>
+
+<main>
+  <!-- 히어로 -->
+  <section class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <h1 class="reveal d1">도시의 소리를<br><span class="grad-text">데이터로</span> 바꿉니다</h1>
+      <p class="lead reveal d2">커즈모스는 도시와 산업 현장 곳곳에 작은 AI 음향센서를 설치합니다. 어떤 소리가 어디서 났는지 찾아내고, 판단에 필요한 기록을 남깁니다.</p>
+      <div class="cta reveal d3">
+        <a class="btn btn-primary" href="solutions.html">솔루션 보기 <i class="arr"></i></a>
+        <a class="btn btn-ghost" href="contact.html">도입 문의</a>
+      </div>
+    </div>
+    <div class="scroll-cue">SCROLL</div>
+  </section>
+
+  <!-- 문제 -->
+  <section class="sec problem">
+    <div class="wrap">
+      <span class="eyebrow reveal">Problem</span>
+      <p class="statement reveal d1" style="margin-top:28px">소음 민원은 환경 민원 가운데 가장 많습니다. <em>그런데 언제, 어디서, 어떤 소리 때문에 생겼는지 판단할 기록은 거의 없습니다.</em></p>
+      <div class="stats">
+        <div class="stat reveal">
+          <div class="num"><span data-count="46.5">0</span><small>%</small></div>
+          <div class="label">전체 환경 민원 중 소음·진동 민원</div>
+          <div class="src">2024년 기준, 환경 민원 유형 중 최다</div>
+        </div>
+        <div class="stat reveal d1">
+          <div class="num"><span data-count="96.6">0</span><small>%</small></div>
+          <div class="label">사람이 직접 재는 수동 측정망 비율</div>
+          <div class="src">전국 소음·진동 측정망 1,828곳 중 1,766곳</div>
+        </div>
+        <div class="stat reveal d2">
+          <div class="num"><span data-count="1000">0</span><small>만원</small></div>
+          <div class="label">자동 측정소 1곳 설치 비용</div>
+          <div class="src">2022 대전 자동측정망 사업, 반경 500m당 1곳</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 작동 방식 -->
+  <section class="sec how">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">How it works</span>
+        <h2 class="reveal d1">듣고, 찾고, 알립니다</h2>
+        <p class="reveal d2">센서가 현장에서 소리를 바로 분석하기 때문에 필요한 정보만 서버로 보냅니다. 담당자는 사건이 난 위치와 소리 종류를 한 화면에서 확인합니다.</p>
+      </div>
+      <div class="how-grid">
+        <div class="how-steps">
+          <div class="how-step active">
+            <span class="no grad-text">STEP 01</span>
+            <h3>24시간 소리를 듣습니다</h3>
+            <p>도시 곳곳에 설치한 소형 엣지 AI 센서가 사람 대신 쉬지 않고 소리를 측정합니다.</p>
+            <ul><li>실시간 상시 측정</li><li>태양광 패널 일체형 설계</li><li>CCTV 지주·차량검지 지주에 바로 설치</li></ul>
+          </div>
+          <div class="how-step">
+            <span class="no grad-text">STEP 02</span>
+            <h3>소리의 종류와 위치를 찾습니다</h3>
+            <p>여러 마이크로 들어온 소리를 비교해 소리가 난 방향과 위치를 계산하고, AI가 어떤 소리인지 나눕니다.</p>
+            <ul><li>이륜차·경적·공사·설비 이상음 분류</li><li>마이크 배열 기반 음원 위치 추정</li><li>영상 센서와 함께 판단</li></ul>
+          </div>
+          <div class="how-step">
+            <span class="no grad-text">STEP 03</span>
+            <h3>필요한 사람에게 알립니다</h3>
+            <p>사건이 생기면 관제 화면에 알림을 보내고 근처 카메라를 그쪽으로 돌립니다. 기록은 쌓여서 정책과 민원 대응의 근거가 됩니다.</p>
+            <ul><li>관제 시스템 알림·카메라 연동</li><li>시간대·장소별 소음 기록</li><li>민원 처리·정책 판단 근거 데이터</li></ul>
+          </div>
+        </div>
+        <div class="how-visual reveal">
+          <!-- 01 듣기 -->
+          <div class="layer active">
+            <svg viewBox="0 0 560 520" fill="none">
+              <defs>
+                <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#7fa8ff"/><stop offset=".5" stop-color="#a46bff"/><stop offset="1" stop-color="#f45fc8"/></linearGradient>
+                <radialGradient id="rg1"><stop offset="0" stop-color="#a46bff" stop-opacity=".35"/><stop offset="1" stop-color="#a46bff" stop-opacity="0"/></radialGradient>
+              </defs>
+              <circle cx="280" cy="230" r="200" fill="url(#rg1)"/>
+              <g stroke="url(#g1)" stroke-width="1.5">
+                <circle cx="280" cy="230" r="70" opacity=".9"><animate attributeName="r" values="60;190" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="3s" repeatCount="indefinite"/></circle>
+                <circle cx="280" cy="230" r="70" opacity=".9"><animate attributeName="r" values="60;190" dur="3s" begin="1s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="3s" begin="1s" repeatCount="indefinite"/></circle>
+                <circle cx="280" cy="230" r="70" opacity=".9"><animate attributeName="r" values="60;190" dur="3s" begin="2s" repeatCount="indefinite"/><animate attributeName="opacity" values=".9;0" dur="3s" begin="2s" repeatCount="indefinite"/></circle>
+              </g>
+              <rect x="220" y="190" width="120" height="80" rx="18" fill="#141631" stroke="rgba(255,255,255,.2)"/>
+              <rect x="262" y="212" width="36" height="36" rx="10" fill="#05060d" stroke="url(#g1)" stroke-width="2"/>
+              <circle cx="280" cy="230" r="7" fill="url(#g1)"/>
+              <g transform="translate(70 400)">
+                <text x="0" y="-18" fill="#9ba1bb" font-size="13" font-family="Pretendard Variable, sans-serif">실시간 음향 신호</text>
+                <g fill="url(#g1)">
+                  <rect x="0" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="12;40;20;34;12" dur="1.4s" repeatCount="indefinite"/></rect>
+                  <rect x="14" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="30;10;38;16;30" dur="1.2s" repeatCount="indefinite"/></rect>
+                  <rect x="28" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="18;36;12;40;18" dur="1.6s" repeatCount="indefinite"/></rect>
+                  <rect x="42" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="40;20;30;10;40" dur="1.3s" repeatCount="indefinite"/></rect>
+                  <rect x="56" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="14;30;40;22;14" dur="1.5s" repeatCount="indefinite"/></rect>
+                  <rect x="70" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="26;12;24;38;26" dur="1.1s" repeatCount="indefinite"/></rect>
+                  <rect x="84" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="36;22;14;30;36" dur="1.7s" repeatCount="indefinite"/></rect>
+                  <rect x="98" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="10;34;26;16;10" dur="1.25s" repeatCount="indefinite"/></rect>
+                </g>
+              </g>
+              <g transform="translate(330 380)" font-family="Pretendard Variable, sans-serif">
+                <rect width="160" height="70" rx="14" fill="#11132a" stroke="rgba(255,255,255,.12)"/>
+                <text x="18" y="28" fill="#9ba1bb" font-size="12">현재 소음도</text>
+                <text x="18" y="56" fill="#fff" font-size="26" font-weight="700">72.4 dB</text>
+              </g>
+            </svg>
+          </div>
+          <!-- 02 찾기 -->
+          <div class="layer">
+            <svg viewBox="0 0 560 520" fill="none" font-family="Pretendard Variable, sans-serif">
+              <g stroke="rgba(160,170,230,.12)">
+                <path d="M0 120H560M0 250H560M0 380H560M120 0V520M280 0V520M440 0V520"/>
+              </g>
+              <g fill="rgba(150,140,255,.06)"><rect x="20" y="20" width="85" height="85" rx="6"/><rect x="135" y="135" width="130" height="100" rx="6"/><rect x="295" y="265" width="130" height="100" rx="6"/><rect x="455" y="135" width="90" height="100" rx="6"/><rect x="135" y="395" width="130" height="110" rx="6"/></g>
+              <g stroke="url(#g1)" stroke-dasharray="5 6" stroke-width="1.5">
+                <path d="M120 120L330 300"/><path d="M440 120L330 300"/><path d="M280 470L330 300"/>
+              </g>
+              <g>
+                <circle cx="120" cy="120" r="18" fill="rgba(127,168,255,.18)"/><circle cx="120" cy="120" r="6" fill="#bccdff"/>
+                <circle cx="440" cy="120" r="18" fill="rgba(127,168,255,.18)"/><circle cx="440" cy="120" r="6" fill="#bccdff"/>
+                <circle cx="280" cy="470" r="18" fill="rgba(127,168,255,.18)"/><circle cx="280" cy="470" r="6" fill="#bccdff"/>
+              </g>
+              <circle cx="330" cy="300" r="40" fill="rgba(244,95,200,.18)"><animate attributeName="r" values="20;50;20" dur="2.4s" repeatCount="indefinite"/></circle>
+              <circle cx="330" cy="300" r="7" fill="#fff"/>
+              <g transform="translate(352 196)">
+                <rect width="178" height="80" rx="16" fill="#0c0d1c" stroke="rgba(244,95,200,.6)"/>
+                <circle cx="20" cy="26" r="4" fill="#f45fc8"/>
+                <text x="32" y="31" fill="#fff" font-size="15" font-weight="700">이륜차 소음</text>
+                <text x="20" y="58" fill="#9ba1bb" font-size="12">84 dB · 분류 신뢰도 0.93</text>
+              </g>
+              <text x="86" y="92" fill="#9ba1bb" font-size="12">센서 A</text><text x="408" y="92" fill="#9ba1bb" font-size="12">센서 B</text><text x="300" y="500" fill="#9ba1bb" font-size="12">센서 C</text>
+            </svg>
+          </div>
+          <!-- 03 알리기 -->
+          <div class="layer">
+            <svg viewBox="0 0 560 520" fill="none" font-family="Pretendard Variable, sans-serif">
+              <rect x="40" y="50" width="480" height="420" rx="20" fill="#0c0e20" stroke="rgba(255,255,255,.1)"/>
+              <circle cx="66" cy="76" r="5" fill="#f45fc8"/><circle cx="84" cy="76" r="5" fill="#a46bff"/><circle cx="102" cy="76" r="5" fill="#7fa8ff"/>
+              <text x="70" y="128" fill="#fff" font-size="18" font-weight="700">소음 관제 현황</text>
+              <text x="70" y="150" fill="#9ba1bb" font-size="12">시흥시 배곧 해송십리로 · 실시간</text>
+              <g transform="translate(70 172)">
+                <rect width="420" height="70" rx="14" fill="rgba(244,95,200,.1)" stroke="rgba(244,95,200,.5)"><animate attributeName="opacity" values="1;.55;1" dur="1.6s" repeatCount="indefinite"/></rect>
+                <circle cx="24" cy="35" r="6" fill="#f45fc8"/>
+                <text x="44" y="31" fill="#fff" font-size="15" font-weight="700">이륜차 소음 감지</text>
+                <text x="44" y="51" fill="#c9cde0" font-size="12">2번 지점 · 84dB · 카메라 회전 완료</text>
+                <text x="370" y="40" fill="#f45fc8" font-size="12" font-weight="700">방금</text>
+              </g>
+              <g transform="translate(70 254)">
+                <rect width="420" height="60" rx="14" fill="rgba(255,255,255,.04)"/>
+                <circle cx="24" cy="30" r="5" fill="#a46bff"/>
+                <text x="44" y="27" fill="#fff" font-size="14" font-weight="600">차량 경적</text>
+                <text x="44" y="45" fill="#9ba1bb" font-size="12">4번 지점 · 78dB</text>
+                <text x="364" y="35" fill="#9ba1bb" font-size="12">3분 전</text>
+              </g>
+              <g transform="translate(70 324)">
+                <rect width="420" height="60" rx="14" fill="rgba(255,255,255,.04)"/>
+                <circle cx="24" cy="30" r="5" fill="#7fa8ff"/>
+                <text x="44" y="27" fill="#fff" font-size="14" font-weight="600">공사장 타격음</text>
+                <text x="44" y="45" fill="#9ba1bb" font-size="12">1번 지점 · 91dB</text>
+                <text x="364" y="35" fill="#9ba1bb" font-size="12">12분 전</text>
+              </g>
+              <g transform="translate(70 404)" fill="url(#g1)">
+                <rect x="0" y="22" width="22" height="20" rx="3"/><rect x="30" y="12" width="22" height="30" rx="3"/><rect x="60" y="26" width="22" height="16" rx="3"/><rect x="90" y="4" width="22" height="38" rx="3"/><rect x="120" y="18" width="22" height="24" rx="3"/><rect x="150" y="30" width="22" height="12" rx="3"/><rect x="180" y="10" width="22" height="32" rx="3"/>
+              </g>
+              <text x="320" y="436" fill="#9ba1bb" font-size="12">시간대별 감지 건수</text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 제품 -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="spot-grid">
+        <div class="spot-img reveal"><img src="../assets/img/product-sensor.jpg" alt="커즈모스 엣지 AI 음향센서"></div>
+        <div>
+          <span class="eyebrow reveal">Product</span>
+          <h2 class="h2 reveal d1">작은 센서 하나로<br>소리의 종류와 위치를 구분합니다</h2>
+          <p class="body-l reveal d2">기존 자동 측정소는 반경 500m에 한 곳, 설치비는 1천만 원 수준입니다. 커즈모스 센서는 작고 설치가 쉬워서 필요한 곳마다 촘촘하게 둘 수 있습니다.</p>
+          <ul class="feat-list">
+            <li class="reveal"><strong>실시간 감지</strong><span>사람이 없어도 24시간 측정</span></li>
+            <li class="reveal d1"><strong>AI 소리 분류</strong><span>이륜차·경적·공사음 등 소리 종류 구분</span></li>
+            <li class="reveal"><strong>위치 추정</strong><span>마이크 배열로 소리가 난 곳 계산</span></li>
+            <li class="reveal d1"><strong>엣지 컴퓨팅</strong><span>기기 안에서 바로 분석</span></li>
+            <li class="reveal"><strong>멀티모달 AI</strong><span>영상 등 다른 센서와 함께 판단</span></li>
+            <li class="reveal d1"><strong>빅데이터 서비스</strong><span>쌓인 기록으로 지역 소음 분석</span></li>
+          </ul>
+          <a class="btn btn-sm reveal" style="margin-top:40px;background:var(--ink);color:#fff" href="technology.html">기술 자세히 보기 <i class="arr"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 솔루션 -->
+  <section class="sec">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Solutions</span>
+        <h2 class="reveal d1">도시에서 산업 현장까지,<br>소리로 문제를 먼저 찾습니다</h2>
+      </div>
+      <div class="sol-cards">
+        <a class="sol-card reveal" href="solutions.html#city">
+          <div class="thumb"><img src="../assets/img/case-siheung.jpg" alt="시흥 배곧 이륜차 소음 측정 장치" loading="lazy"></div>
+          <div class="body"><span class="tag">B2G · 스마트시티</span><h3>스마트시티 소음 관측</h3><p>이륜차·공사장 소음처럼 반복되는 민원 지역에 센서를 설치하고, 소음의 원인과 시간대를 기록합니다.</p><span class="more">자세히 보기 <i class="arr"></i></span></div>
+        </a>
+        <a class="sol-card reveal d1" href="solutions.html#industry">
+          <div class="thumb"><img src="../assets/img/product-cctv.jpg" alt="음향 연동형 CCTV 시제품" loading="lazy"></div>
+          <div class="body"><span class="tag">B2B · 산업안전</span><h3>산업안전 이상음 탐지</h3><p>카메라가 보지 못하는 곳의 위험을 소리로 잡아내고, CCTV를 그쪽으로 돌려 관제 화면에 알립니다.</p><span class="more">자세히 보기 <i class="arr"></i></span></div>
+        </a>
+        <a class="sol-card reveal d2" href="solutions.html#ucam">
+          <div class="thumb" style="background:#0b0c18;display:flex;align-items:center;justify-content:center"><img src="../assets/img/product-ucam-front.png" alt="휴대용 초음파 카메라" loading="lazy" style="object-fit:contain;width:86%;height:86%"></div>
+          <div class="body"><span class="tag">B2B · 설비 점검</span><h3>휴대용 초음파 카메라</h3><p>센서가 이상 징후를 알리면, 초음파를 영상 위에 겹쳐 보여 주는 카메라로 문제 지점을 정확히 확인합니다.</p><span class="more">자세히 보기 <i class="arr"></i></span></div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 실증 성과 -->
+  <section class="sec results" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head">
+        <span class="eyebrow reveal">Field results</span>
+        <h2 class="reveal d1">현장에서 확인한 숫자</h2>
+        <p class="reveal d2">지자체와 공공기관 현장에 직접 설치해 성능과 효과를 확인했습니다.</p>
+      </div>
+      <div class="result-grid">
+        <div class="result reveal"><div class="num grad-text">약 <span data-count="60">0</span><small>%</small></div><div class="what">소음 민원 감소</div><div class="where">시흥 배곧 이륜차 소음 실증<br>설치 지역 한정, 2025.12~2026.06</div></div>
+        <div class="result reveal d1"><div class="num grad-text"><span data-count="95">0</span><small>%+</small></div><div class="what">소리 분류 정확도</div><div class="where">시흥 실증 목표 달성 보고<br>2025 회사 최종보고서 기준</div></div>
+        <div class="result reveal d2"><div class="num grad-text"><span data-count="30">0</span><small>%↓</small></div><div class="what">감시 사각지대 감소</div><div class="where">한국전력공사<br>태안화력발전소 PoC</div></div>
+        <div class="result reveal d3"><div class="num grad-text"><span data-count="25">0</span><small>%↑</small></div><div class="what">이벤트 탐지율 증가</div><div class="where">한국전력공사<br>태안화력발전소 PoC</div></div>
+      </div>
+      <p class="note reveal">민원 감소는 센서를 설치한 지역에 한정한 수치이며, 단속 없이 관측과 안내만 운영한 기간의 결과입니다.</p>
+    </div>
+  </section>
+
+  <!-- 파트너 -->
+  <section class="partners">
+    <p class="label">함께한 기관</p>
+    <div class="marquee" aria-label="한국전력공사, 시흥시, 춘천시, 인제군, 범부처통합헬스케어협회, JHC케미컬">
+      <span>한국전력공사</span><span>시흥시</span><span>춘천시</span><span>인제군</span><span>범부처통합헬스케어협회</span><span>JHC케미컬</span>
+      <span aria-hidden="true">한국전력공사</span><span aria-hidden="true">시흥시</span><span aria-hidden="true">춘천시</span><span aria-hidden="true">인제군</span><span aria-hidden="true">범부처통합헬스케어협회</span><span aria-hidden="true">JHC케미컬</span>
+    </div>
+  </section>
+
+  <!-- 소식 -->
+  <section class="sec light">
+    <div class="wrap">
+      <div class="news-head">
+        <div class="sec-head"><span class="eyebrow reveal">Newsroom</span><h2 class="reveal d1">커즈모스 소식</h2></div>
+        <a class="btn btn-sm reveal" style="border:1px solid var(--ink-line)" href="news.html">전체 보기 <i class="arr"></i></a>
+      </div>
+      <div class="post-grid" id="latest"></div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="sec" style="padding-top:clamp(64px,8vw,120px)">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div class="bg"></div>
+        <div class="inner">
+          <h2>우리 지역의 소리,<br>데이터로 확인해 보세요</h2>
+          <p>설치 장소와 목적을 알려 주시면 맞는 구성을 제안해 드립니다.</p>
+          <a class="btn btn-primary" href="contact.html">도입 문의하기 <i class="arr"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="../assets/js/config.js?v=8"></script>
+<script src="../assets/js/common.js?v=8"></script>
+<script src="../assets/js/home.js?v=8"></script>
+</body>
+</html>

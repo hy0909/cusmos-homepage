@@ -193,7 +193,7 @@
 
   function menu(cur) {
     $("#menu").innerHTML = Object.entries(SCHEMAS).map(([k, s]) => `<a href="#${k}" class="${cur === k ? "on" : ""}">${s.label}<span class="cnt">${store[s.file] ? (store[s.file].items || []).length : ""}</span></a>`).join("")
-      + `<div class="sep"></div><a href="#site" class="${cur === "site" ? "on" : ""}">회사 정보</a><a href="../index.html" target="_blank">홈페이지 보기 ↗</a>`;
+      + `<div class="sep"></div><a href="#site" class="${cur === "site" ? "on" : ""}">회사 정보</a><a href="../ko/index.html" target="_blank">홈페이지 보기 ↗</a>`;
   }
 
   async function route() {

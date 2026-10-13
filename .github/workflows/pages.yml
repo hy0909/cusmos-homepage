@@ -26,7 +26,7 @@ jobs:
       - name: 배포할 파일 고르기
         run: |
           mkdir _site
-          cp -r *.html .nojekyll assets admin data uploads _site/
+          cp -r index.html compare.html .nojekyll assets admin data uploads ko en ja de _site/
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
         with:

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Technologie | CUSMOS</title>
+<meta name="description" content="Edge-KI-Schallsensor, Mikrofonarray, Verarbeitung im Gerät und Datenstruktur von CUSMOS. Mit Spezifikationen und Berechnung des Datenvolumens.">
+<meta property="og:title" content="Technologie | CUSMOS"><meta property="og:description" content="Vom Mikrofon bis zur Entscheidungsgrundlage: Sensor, Mikrofonarray, Edge-KI und Datenstruktur."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="en" href="../en/technology.html"><link rel="alternate" hreflang="ja" href="../ja/technology.html"><link rel="alternate" hreflang="de" href="technology.html"><link rel="alternate" hreflang="x-default" href="../en/technology.html">
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/global.css?v=1">
+<link rel="stylesheet" href="locale.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header id="site-header"></header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumb reveal" aria-label="Pfad"><a href="index.html">Startseite</a><span>/</span><span>Technologie</span></nav>
+      <h1 class="t-display reveal d1">Vom Mikrofon bis zur Entscheidungsgrundlage</h1>
+      <p class="t-lead reveal d2">CUSMOS entwickelt Sensorhardware, Mikrofonarray, Edge-KI und Datenstruktur selbst. Die Leistung wird unter realen Installationsbedingungen geprüft, nicht nur im Labor.</p>
+    </div>
+  </section>
+
+  <nav class="sub-nav" aria-label="Technologie auf dieser Seite">
+    <div class="wrap"><ul>
+      <li><a href="#sensor">Edge-KI-Schallsensor</a></li>
+      <li><a href="#array">Mikrofonarray</a></li>
+      <li><a href="#edge">Verarbeitung und Übertragung</a></li>
+      <li><a href="#data">Kontextdaten</a></li>
+    </ul></div>
+  </nav>
+
+  <!-- 센서 -->
+  <section class="sec" id="sensor">
+    <div class="wrap">
+      <div class="split">
+        <figure class="media reveal" style="aspect-ratio:1/1;margin:0"><img src="../assets/img/product-sensor.jpg" alt="Edge-KI-Schallsensor mit integriertem Solarpanel" loading="lazy"></figure>
+        <div>
+          <p class="eyebrow reveal">Edge-KI-Schallsensor</p>
+          <h2 class="t-h2 reveal d1">Ein kleiner Sensor für den Einsatz im öffentlichen Raum</h2>
+          <p class="t-lead reveal d2" style="margin-top:20px">Der Sensor wertet Schall direkt im Gerät aus. Dadurch müssen nicht alle Geräusche an einen Server gesendet werden. Das Solarpanel ist in das Gerät integriert. Dadurch fällt weniger Aufwand für die Stromversorgung an.</p>
+          <p class="reveal d2" style="margin-top:16px">Zum Vergleich: Eine automatische Messstation kostet etwa 10 Mio. KRW und deckt einen Radius von 500 m ab. Der Sensor ist kleiner und lässt sich an vielen Orten mit vorhandenen Masten montieren.</p>
+          <div class="table-wrap reveal" style="margin-top:32px">
+            <table class="table">
+              <tbody>
+                <tr><th scope="row">Erfassung</th><td>Dauerbetrieb rund um die Uhr, ohne Personal vor Ort</td></tr>
+                <tr><th scope="row">Ortung</th><td>Position und Richtung der Schallquelle</td></tr>
+                <tr><th scope="row">Klassifikation</th><td>Motorrad, Hupe, Baustelle, Anomalien an Anlagen</td></tr>
+                <tr><th scope="row">Verarbeitung</th><td>Edge-Inferenz, die KI läuft im Gerät</td></tr>
+                <tr><th scope="row">Multimodal</th><td>Gemeinsame Bewertung mit Videodaten</td></tr>
+                <tr><th scope="row">Datenauswertung</th><td>Auswertung nach Gebiet und Tageszeit über die gesammelten Daten</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 마이크 배열 -->
+  <section class="sec sec-alt" id="array">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Mikrofonarray</p>
+        <h2 class="t-h2 reveal d1">Der Mikrofonabstand richtet sich nach Ort und Geräuschart</h2>
+        <p class="reveal d2">Eine Anordnung gilt nicht für jeden Standort gleich. Abstand der Mikrofone und Signalverarbeitung werden danach festgelegt, welche Geräusche an welchem Ort erfasst werden sollen.</p>
+      </div>
+      <div class="grid g-3">
+        <div class="card reveal">
+          <div class="badge">Weiter Abstand</div>
+          <h3 class="t-h3" style="margin-top:16px">Für entfernte und tiefe Geräusche</h3>
+          <p>Die Richtung von fernen und tiefen Geräuschen lässt sich genauer bestimmen. Geeignet für breite Straßen und offene Flächen.</p>
+        </div>
+        <div class="card reveal d1">
+          <div class="badge">Enger Abstand</div>
+          <h3 class="t-h3" style="margin-top:16px">Für hohe und nahe Geräusche</h3>
+          <p>Hohe und nahe Geräusche werden präzise erfasst. Die Bauform bleibt klein, der Einbau ist an vielen Standorten möglich.</p>
+        </div>
+        <div class="card reveal d2">
+          <div class="badge">Gemischter Abstand</div>
+          <h3 class="t-h3" style="margin-top:16px">Für Standorte mit mehreren Geräuscharten</h3>
+          <p>Weite und enge Abstände werden kombiniert, wenn an einem Ort verschiedene Geräuscharten gleichzeitig auftreten.</p>
+        </div>
+      </div>
+      <div class="split" style="margin-top:clamp(64px,8vw,120px)">
+        <figure class="media reveal" style="aspect-ratio:4/3;margin:0"><img src="../assets/img/product-cctv.jpg" alt="Prototyp mit Mikrofonarray und Kamera" loading="lazy"></figure>
+        <div>
+          <h3 class="t-h3 reveal">Von der Felddatenerhebung bis zur Leistungsprüfung</h3>
+          <ol class="de-steps" style="margin-top:24px">
+            <li class="reveal"><span class="de-no">SCHRITT 01</span><h3 class="t-h3">Felddaten erheben</h3><p>Schalldaten werden an realen Installationsstandorten gesammelt, zum Beispiel in Siheung.</p></li>
+            <li class="reveal d1"><span class="de-no">SCHRITT 02</span><h3 class="t-h3">Signalverarbeitung und KI verbinden</h3><p>Die Arrayverarbeitung ermittelt die Position, ein KI-Modell ordnet die Geräusche den Klassen zu.</p></li>
+            <li class="reveal d2"><span class="de-no">SCHRITT 03</span><h3 class="t-h3">Leistung nach festgelegtem Prüfverfahren prüfen</h3><p>Die Klassifikationsleistung wird nach einem festgelegten Prüfverfahren gemessen.</p></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 현장 분석과 선별 전송 + 데이터량 계산 -->
+  <section class="sec" id="edge">
+    <div class="wrap">
+      <div class="split top">
+        <div>
+          <p class="eyebrow reveal">Verarbeitung und Übertragung</p>
+          <h2 class="t-h2 reveal d1">Vor Ort auswerten, nur die nötigen Daten übertragen</h2>
+          <p class="t-lead reveal d2" style="margin-top:20px">Wenn alle Daten wie bei einer CCTV-Anlage an einen Server gehen, steigen Übertragungs- und Speicherkosten mit jedem Gerät. Der CUSMOS-Sensor wertet vor Ort aus und überträgt die Analyseergebnisse sowie das Originalsignal des Ereignismoments.</p>
+        </div>
+        <div class="card reveal d1" style="padding:clamp(28px,3.4vw,40px)">
+          <p class="de-table-caption">Datenvolumen eines Sensors pro Tag</p>
+          <div class="de-bars">
+            <div>
+              <div class="row"><span>Dauerübertragung der Rohaudiodaten</span><b>2,76 GB</b></div>
+              <div class="track"><div class="fill" style="width:100%"></div></div>
+            </div>
+            <div>
+              <div class="row"><span>Selektive Übertragung (CUSMOS)</span><b>147 MB</b></div>
+              <div class="track"><div class="fill small" style="width:5.3%"></div></div>
+            </div>
+          </div>
+          <p class="row" style="margin-top:28px;font-size:15px"><span>Rechnerische Einsparung</span><b class="grad-text" style="font-size:24px">rund 95 %</b></p>
+          <div class="de-note-box">
+            <strong style="color:var(--c-ink)">Annahmen:</strong> 16 kHz, 16 Bit, Mono, 24 Stunden. Übertragen werden 5 % der Rohdaten (Originalsignal des Ereignismoments) und die Analyseergebnisse. Das Ergebnis ist ein Rechenwert. Die tatsächliche Kostenersparnis bei Übertragung hängt von Tarif und Betriebsbedingungen ab.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 맥락 데이터 -->
+  <section class="sec sec-alt" id="data">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow reveal">Kontextdaten</p>
+        <h2 class="t-h2 reveal d1">Schall, Ort und Entscheidung in einem Datensatz</h2>
+        <p class="reveal d2">Ein Dezibelwert allein erklärt nicht, warum ein Geräusch stört. CUSMOS speichert Ort, Zeit und Prüfergebnis zusammen. So lässt sich ein ähnlicher Fall später mit denselben Unterlagen beurteilen.</p>
+      </div>
+      <div class="grid g-4">
+        <div class="card reveal"><h3 class="t-h3">Beobachtung</h3><p>Geräuschart, Pegel, Ort und Zeitpunkt</p></div>
+        <div class="card reveal d1"><h3 class="t-h3">Umgebung</h3><p>Wohngebiet, Schule, Straße und andere Lebensräume in der Nähe</p></div>
+        <div class="card reveal d2"><h3 class="t-h3">Bewertung</h3><p>Prüfergebnis der zuständigen Stelle und Verlauf der Maßnahmen</p></div>
+        <div class="card reveal d3"><h3 class="t-h3">Kennzahlen</h3><p>Lärmbelastung nach Gebiet und Wirkung von Maßnahmen</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec" style="padding-top:0">
+    <div class="wrap">
+      <div class="cta-band reveal">
+        <div style="max-width:640px">
+          <h2 class="t-h2">Welche Konfiguration braucht Ihr Standort?</h2>
+          <p>Beschreiben Sie Standort, Geräuscharten und Ziel der Messung.</p>
+        </div>
+        <a class="btn btn-light" href="contact.html">Kontakt aufnehmen</a>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="site.js?v=1"></script>
+<script src="../assets/js/config.js?v=5"></script>
+<script src="../assets/js/global.js?v=1"></script>
+</body>
+</html>

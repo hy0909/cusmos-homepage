@@ -193,7 +193,7 @@
     if (!all.length) { box.innerHTML = '<p class="empty" style="grid-column:1/-1">새 소식을 준비하고 있습니다.</p>'; return; }
     box.innerHTML = all.map((n, i) => `
       <a class="post-card reveal d${i + 1}" href="${esc(n.href)}" ${n.ext ? 'target="_blank" rel="noopener"' : ""}>
-        <div class="thumb">${n.thumbnail ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : '<div class="ph"><img src="assets/img/logo-wordmark.png" alt=""></div>'}</div>
+        <div class="thumb">${n.thumbnail ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : '<div class="ph"><img src="' + (document.body.dataset.base || "") + 'assets/img/logo-wordmark.png" alt=""></div>'}</div>
         <div class="meta"><span>${n.kind}${n.source ? " · " + esc(n.source) : ""}</span><span>${fmtDate(n.date)}</span></div>
         <h3>${esc(n.title)}</h3>
       </a>`).join("");

@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kontakt | CUSMOS</title>
+<meta name="description" content="Kontakt zu CUSMOS: Anfragen zu Lärmmonitoring, Anomalieerkennung und Ultraschallkamera. Mit Datenschutzhinweis.">
+<meta property="og:title" content="Kontakt | CUSMOS"><meta property="og:description" content="Anfrage zu Schallsensorik für Kommunen und Industrie."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="en" href="../en/contact.html"><link rel="alternate" hreflang="ja" href="../ja/contact.html"><link rel="alternate" hreflang="de" href="contact.html"><link rel="alternate" hreflang="x-default" href="../en/contact.html">
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/global.css?v=1">
+<link rel="stylesheet" href="locale.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header id="site-header"></header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumb reveal" aria-label="Pfad"><a href="index.html">Startseite</a><span>/</span><span>Kontakt</span></nav>
+      <h1 class="t-display reveal d1">Kontakt</h1>
+      <p class="t-lead reveal d2">Beschreiben Sie Einsatzort, Geräuscharten und Ziel der Messung. Ihre Angaben werden geprüft, danach meldet sich ein Ansprechpartner bei Ihnen.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="split top de-contact-split">
+        <div class="reveal">
+          <h2 class="t-h3">Anschrift und Kontakt</h2>
+          <dl class="de-dl" id="info" style="margin-top:20px;grid-template-columns:1fr"></dl>
+          <div style="margin-top:28px">
+            <p class="t-small" style="font-weight:600;color:var(--c-ink)">Ansprechpartner</p>
+            <p class="t-small" style="margin-top:6px"><span class="tbd">[TBD: Name und Funktion]</span></p>
+          </div>
+        </div>
+
+        <form class="form reveal d1" id="form">
+          <div>
+            <label for="salutation">Anrede <span class="opt">(optional)</span></label>
+            <select id="salutation">
+              <option value="">Bitte wählen</option>
+              <option>Frau</option>
+              <option>Herr</option>
+              <option>Divers</option>
+            </select>
+          </div>
+          <div>
+            <label for="first">Vorname <span class="req">*</span></label>
+            <input id="first" autocomplete="given-name" required>
+          </div>
+          <div>
+            <label for="last">Nachname <span class="req">*</span></label>
+            <input id="last" autocomplete="family-name" required>
+          </div>
+          <div>
+            <label for="org">Organisation <span class="req">*</span></label>
+            <input id="org" autocomplete="organization" required>
+          </div>
+          <div>
+            <label for="mail">E-Mail <span class="req">*</span></label>
+            <input id="mail" type="email" autocomplete="email" required>
+          </div>
+          <div>
+            <label for="tel">Telefon <span class="opt">(optional)</span></label>
+            <input id="tel" type="tel" autocomplete="tel">
+          </div>
+          <div class="full">
+            <label for="topic">Thema <span class="req">*</span></label>
+            <select id="topic" required>
+              <option value="">Bitte wählen</option>
+              <option>Lärmmonitoring in Städten</option>
+              <option>Anomalieerkennung in der Industrie</option>
+              <option>Tragbare Ultraschallkamera</option>
+              <option>Sonstiges oder Kooperation</option>
+            </select>
+          </div>
+          <div class="full">
+            <label for="msg">Nachricht <span class="req">*</span></label>
+            <textarea id="msg" required placeholder="Standort, Geräuscharten, Größe des Messgebiets und gewünschter Zeitraum"></textarea>
+          </div>
+          <div class="full check">
+            <input id="consent" type="checkbox" required>
+            <label for="consent" style="font-weight:400;margin:0;color:var(--c-muted)">Ich habe die <a href="privacy.html">Datenschutzerklärung</a> gelesen und bin damit einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. <span class="req">*</span></label>
+          </div>
+          <div class="full">
+            <button class="btn btn-primary" type="submit">E-Mail-Programm öffnen <span aria-hidden="true">→</span></button>
+            <p class="de-form-note">Pflichtfelder sind mit * gekennzeichnet. Beim Absenden öffnet sich Ihr E-Mail-Programm mit den ausgefüllten Angaben. Die Angaben werden auf dieser Website nicht gespeichert.</p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="site.js?v=1"></script>
+<script src="../assets/js/config.js?v=5"></script>
+<script src="../assets/js/global.js?v=1"></script>
+<script>
+  // 회사 연락처: 값이 없으면 TBD로 표시
+  getSite().then((s) => {
+    const rows = [["Anschrift", s.address], ["Telefon", s.phone], ["E-Mail", s.email]];
+    document.getElementById("info").innerHTML = rows.map(([k, v]) =>
+      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">[TBD]</span>'}</dd></div>`).join("");
+  });
+
+  // 양식: 메일 프로그램을 열어 내용을 채운다 (서버 저장 없음)
+  bindMailForm(document.getElementById("form"), {
+    subject: (v) => `[Anfrage] ${v("org").trim()}`,
+    fields: [
+      ["salutation", "Anrede"], ["first", "Vorname"], ["last", "Nachname"], ["org", "Organisation"],
+      ["mail", "E-Mail"], ["tel", "Telefon"], ["topic", "Thema"], ["msg", "Nachricht"],
+    ],
+    noMail: "Die Kontaktadresse ist noch nicht hinterlegt. Bitte versuchen Sie es später noch einmal.",
+  });
+</script>
+</body>
+</html>

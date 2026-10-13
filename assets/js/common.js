@@ -12,6 +12,7 @@
 
   const ARROW = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"/></svg>';
   window.ARROW = ARROW;
+  const BASE = document.body.dataset.base || "";
   const page = location.pathname.split("/").pop() || "index.html";
   const pageGroup = { "notice.html": "news.html", "ci.html": "news.html", "culture.html": "careers.html" }[page] || page;
 
@@ -24,7 +25,7 @@
       <div class="gnb-line"></div>
       <div class="bar"><div class="wrap">
         <a class="logo" href="index.html" aria-label="CUSMOS 홈">
-          <img class="word" src="assets/img/logo-wordmark.png" alt="CUSMOS">
+          <img class="word" src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS">
         </a>
         <ul class="gnb">
           ${NAV.map((n) => `<li class="${n.href === pageGroup ? "current" : ""}"><a href="${n.href}">${n.label}</a>
@@ -70,7 +71,7 @@
     // 모바일 메뉴
     const m = document.createElement("div");
     m.className = "m-nav";
-    m.innerHTML = `<div class="m-top"><img src="assets/img/logo-wordmark.png" alt="CUSMOS" style="height:15px;width:auto"><button class="m-close" aria-label="메뉴 닫기">×</button></div>
+    m.innerHTML = `<div class="m-top"><img src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS" style="height:15px;width:auto"><button class="m-close" aria-label="메뉴 닫기">×</button></div>
       ${NAV.map((n) => `<details><summary>${n.label}</summary><ul>${n.children.map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></details>`).join("")}
       <a class="btn btn-grad" href="contact.html">도입 문의</a>`;
     document.body.appendChild(m);
@@ -88,7 +89,7 @@
     el.className = "site-footer";
     el.innerHTML = `<div class="wrap">
       <div class="top">
-        <div class="brand"><img class="word" src="assets/img/logo-wordmark.png" alt="CUSMOS"><p>시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 회사입니다.</p></div>
+        <div class="brand"><img class="word" src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS"><p>시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 회사입니다.</p></div>
         <div class="cols">${NAV.map((n) => `<div><strong>${n.label}</strong><ul>${n.children.slice(0, 4).map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></div>`).join("")}</div>
       </div>
       <div class="bottom">

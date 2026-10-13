@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Impressum | CUSMOS</title>
+<meta name="description" content="Impressum der CUSMOS-Website mit Anbieterkennzeichnung nach § 5 DDG und Angaben nach § 18 Abs. 2 MStV.">
+<meta property="og:title" content="Impressum | CUSMOS"><meta property="og:description" content="Anbieterkennzeichnung der CUSMOS-Website."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="de" href="impressum.html"><link rel="alternate" hreflang="x-default" href="../en/index.html">
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="../assets/css/global.css?v=1">
+<link rel="stylesheet" href="locale.css?v=1">
+</head>
+<body>
+<a class="skip" href="#main">Zum Inhalt springen</a>
+<header id="site-header"></header>
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <nav class="crumb reveal" aria-label="Pfad"><a href="index.html">Startseite</a><span>/</span><span>Impressum</span></nav>
+      <h1 class="t-display reveal d1">Impressum</h1>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap" style="max-width:880px">
+      <div class="de-notice reveal" role="note">
+        <strong>Entwurf, noch nicht rechtlich geprüft.</strong> Die Angaben müssen vor der Veröffentlichung von einer fachkundigen Person geprüft und vollständig ergänzt werden. Alle Felder mit [TBD] sind offen.
+      </div>
+
+      <div class="de-legal reveal" style="margin-top:48px">
+        <section>
+          <h2>Angaben gemäß § 5 DDG</h2>
+          <dl class="de-dl" style="grid-template-columns:minmax(0,1fr)">
+            <div><dt>Anbieter</dt><dd>
+              <span id="co">주식회사 커즈모스</span>
+              <br>Englische Bezeichnung: CUSMOS Inc. <span class="tbd">[TBD: Schreibweise prüfen]</span>
+            </dd></div>
+            <div><dt>Rechtsform</dt><dd>Kapitalgesellschaft (주식회사) nach dem Recht der Republik Korea <span class="tbd">[TBD: prüfen]</span></dd></div>
+            <div><dt>Anschrift</dt><dd id="addr"><span class="tbd">[TBD]</span></dd></div>
+            <div><dt>Vertreten durch</dt><dd>Vorstand bzw. CEO: <span id="ceo"><span class="tbd">[TBD]</span></span></dd></div>
+            <div><dt>Telefon</dt><dd id="tel"><span class="tbd">[TBD]</span></dd></div>
+            <div><dt>E-Mail</dt><dd id="mail"><span class="tbd">[TBD]</span></dd></div>
+            <div><dt>Registereintrag</dt><dd>Eintrag im koreanischen Unternehmensregister <span class="tbd">[TBD: Registergericht und Registernummer]</span></dd></div>
+            <div><dt>Unternehmensnummer</dt><dd>Business-Registrierungsnummer (사업자등록번호): <span id="bizno"><span class="tbd">[TBD]</span></span></dd></div>
+            <div><dt>Umsatzsteuer-ID</dt><dd><span class="tbd">[TBD: nur angeben, wenn vorhanden]</span></dd></div>
+          </dl>
+        </section>
+
+        <section>
+          <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+          <p><span class="tbd">[TBD: Name und Anschrift der verantwortlichen Person]</span></p>
+        </section>
+
+        <section>
+          <h2>Verbraucherstreitbeilegung</h2>
+          <p><span class="tbd">[TBD: Hinweis nach dem Verbraucherstreitbeilegungsgesetz, rechtlich prüfen]</span></p>
+        </section>
+
+        <section>
+          <h2>Bildnachweise</h2>
+          <p>Die Fotos auf dieser Website stammen von Unsplash und stehen unter der Unsplash-Lizenz. <span class="tbd">[TBD: Quellen und Rechte prüfen]</span></p>
+        </section>
+      </div>
+    </div>
+  </section>
+</main>
+<footer id="site-footer"></footer>
+<script src="site.js?v=1"></script>
+<script src="../assets/js/config.js?v=5"></script>
+<script src="../assets/js/global.js?v=1"></script>
+<script>
+  // 회사 정보: 값이 있으면 채우고, 없으면 TBD 그대로 둔다
+  getSite().then((s) => {
+    const put = (id, v) => { if (v) document.getElementById(id).textContent = v; };
+    put("co", s.company);
+    put("ceo", s.ceo);
+    put("bizno", s.bizNo);
+    if (s.address) document.getElementById("addr").textContent = s.address;
+    if (s.phone) document.getElementById("tel").textContent = s.phone;
+    if (s.email) document.getElementById("mail").textContent = s.email;
+  });
+</script>
+</body>
+</html>

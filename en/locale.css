@@ -1,0 +1,98 @@
+/* 영어 버전 토큰과 배치. 짙은 남색 배경, 보라 강조, Inter, 큰 제목.
+ * 공통 컴포넌트는 global.css를 그대로 쓰고, 여기서는 토큰과 en- 접두사 배치만 바꾼다. */
+:root {
+  --c-ink: #0b0c1a;
+  --c-bg-dark: #0a0b22;
+  --c-on-dark-muted: #b8bcd8;
+  --c-accent: #5b4dff;
+  --c-accent-soft: #eeecff;
+
+  --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-head: var(--font);
+  --fs-body: 18px;
+  --fs-display: clamp(46px, 7.2vw, 100px);
+  --fs-h2: clamp(32px, 4.4vw, 58px);
+  --fs-lead: clamp(18px, 1.5vw, 21px);
+  --tracking-head: -0.035em;
+  --radius: 20px;
+  --sec-pad: clamp(88px, 11vw, 156px);
+}
+
+/* 첫 화면: 어두운 도시 사진 위에 문구 하나 */
+.en-hero { min-height: min(100svh, 940px); display: flex; align-items: center; }
+.en-hero > .wrap { width: 100%; }
+.en-hero .hero-bg::after { background: linear-gradient(90deg, rgba(10,11,34,.94) 0%, rgba(10,11,34,.74) 48%, rgba(10,11,34,.38) 100%); }
+.en-hero .t-display { color: #fff; max-width: 13ch; }
+.en-hero .t-lead { max-width: 560px; }
+.hero-dark .eyebrow { color: #b9a8ff; }
+
+/* 숫자 근사 표기 (About 60%) */
+.en-approx { font-size: .42em; font-weight: 600; vertical-align: .9em; margin-right: 4px; letter-spacing: 0; }
+
+/* 작동 방식 3단계 */
+.en-steps { display: grid; gap: 36px; }
+.en-step { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; }
+.en-step-no { font-size: 15px; font-weight: 700; color: var(--c-accent); letter-spacing: .06em; padding-top: 4px; }
+.en-step h3 { font-size: var(--fs-h3); font-weight: 650; color: var(--c-ink); }
+.en-step p { margin-top: 8px; color: var(--c-muted); }
+
+/* 사례 조건 */
+.en-conditions { margin-top: 28px; padding: 20px 22px; background: var(--c-bg-alt); border-radius: var(--radius); font-size: 15px; color: var(--c-muted); }
+.en-conditions strong { color: var(--c-ink); }
+
+/* 비교 표 첫 열 */
+.en-compare th, .en-compare td { font-size: 16px; }
+.en-compare td:last-child { color: var(--c-ink); }
+
+/* 번호 카드 */
+.en-k { font-size: 15px; font-weight: 700; color: var(--c-accent); margin-bottom: 14px; letter-spacing: .06em; }
+.en-dark-media { background: #0b0c18; }
+.en-dark-panel { border-radius: 28px; background: #0b0c18; padding: clamp(28px, 4vw, 56px); }
+.en-dark-panel img { width: 100%; height: auto; }
+
+/* 배열 시각 */
+.en-wave { width: 100%; height: 60px; margin-bottom: 24px; }
+
+/* 데이터 전송 비교 막대 */
+.en-bar + .en-bar { margin-top: 22px; }
+.en-bar-top { display: flex; justify-content: space-between; gap: 16px; font-size: 15px; color: var(--c-ink); }
+.en-bar-top b { font-variant-numeric: tabular-nums; }
+.en-bar-track { height: 12px; border-radius: 6px; background: var(--c-bg-alt); margin-top: 10px; }
+.en-bar-fill { height: 100%; border-radius: 6px; background: var(--c-accent); }
+.en-bar-fill.is-small { background: var(--grad); }
+
+/* 연혁 */
+.en-timeline li { display: grid; grid-template-columns: 110px minmax(0, 1fr); gap: 24px; padding: 24px 0; border-top: 1px solid var(--c-line); }
+.en-timeline li:last-child { border-bottom: 1px solid var(--c-line); }
+.en-timeline .when { font-weight: 700; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.en-timeline .what { font-weight: 600; color: var(--c-ink); }
+.en-timeline .desc { margin-top: 6px; font-size: 15px; color: var(--c-muted); }
+
+/* 팀 */
+.en-team .role { display: inline-block; font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--c-accent); }
+.en-team .name { margin-top: 12px; font-size: var(--fs-h3); font-weight: 650; color: var(--c-ink); line-height: 1.35; }
+.en-team .desc { margin-top: 10px; font-size: 15px; color: var(--c-muted); }
+
+/* 문의 */
+.en-contact { display: grid; gap: clamp(40px, 6vw, 80px); }
+.en-contact .en-photo { margin-bottom: 40px; }
+.en-info { margin-top: 8px; }
+.en-info > div { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 4px 28px; padding: 16px 0; border-bottom: 1px solid var(--c-line); }
+.en-info > div:first-child { border-top: 1px solid var(--c-line); }
+.en-info dt { color: var(--c-muted); font-size: 15px; }
+.en-info dd { margin: 0; color: var(--c-ink); overflow-wrap: anywhere; }
+.en-form-note { margin-top: 12px; font-size: 14px; color: var(--c-muted); }
+@media (min-width: 961px) {
+  .en-contact { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); align-items: start; }
+}
+
+/* 하위 페이지 제목 */
+.page-hero .t-display { font-size: clamp(40px, 5.8vw, 76px); }
+.page-hero .t-lead { font-size: var(--fs-lead); }
+
+/* 작은 화면 */
+@media (max-width: 600px) {
+  .en-step { grid-template-columns: 44px minmax(0, 1fr); gap: 12px; }
+  .en-timeline li { grid-template-columns: 1fr; gap: 6px; }
+  .en-hero { min-height: auto; }
+}

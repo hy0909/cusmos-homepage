@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>お問い合わせ・資料請求 | CUSMOS</title>
+<meta name="description" content="CUSMOSの資料請求と導入のお問い合わせはこちらから。資料請求とお問い合わせを分けて掲載しています。">
+<meta property="og:title" content="お問い合わせ・資料請求 | CUSMOS"><meta property="og:description" content="資料請求とお問い合わせの窓口"><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="ja" href="contact.html">
+<link rel="alternate" hreflang="en" href="../en/contact.html">
+<link rel="alternate" hreflang="de" href="../de/contact.html">
+<link rel="alternate" hreflang="x-default" href="../en/contact.html">
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../assets/css/global.css?v=1">
+<link rel="stylesheet" href="locale.css?v=1">
+</head>
+<body class="ja">
+<a class="skip" href="#main">本文へ移動</a>
+<header id="site-header"></header>
+
+<main id="main">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb reveal"><a href="index.html">トップ</a><span>/</span><span>お問い合わせ・資料請求</span></div>
+      <h1 class="t-display reveal d1">導入のご相談と<br>資料のご請求</h1>
+      <p class="t-lead reveal d2">設置場所と解決したい課題をお知らせください。担当者が内容を確認して、メールでご連絡します。</p>
+    </div>
+  </section>
+
+  <nav class="sub-nav" aria-label="ページ内ナビゲーション"><div class="wrap"><ul>
+    <li><a href="#request">資料請求</a></li>
+    <li><a href="#inquiry">お問い合わせ</a></li>
+  </ul></div></nav>
+
+  <!-- 資料請求 -->
+  <section class="sec" id="request">
+    <div class="wrap ja-form-wrap">
+      <div>
+        <span class="eyebrow reveal">資料請求</span>
+        <h2 class="t-h2 reveal d1">会社案内・技術資料のご請求</h2>
+        <p class="t-lead reveal d2" style="margin-top:14px">資料は現在、PDFとして準備中です。ご希望の内容を送っていただくと、担当者がメールでご案内します。</p>
+        <p class="ja-note reveal d3">ボタンを押すと、お使いのメールソフトが開き、入力内容が下書きされます。送信はメールソフトでご自身が行ってください。</p>
+      </div>
+      <form class="form reveal d1" id="request-form">
+        <div><label for="rq-company">会社名・機関名 <span class="req">必須</span></label><input id="rq-company" name="company" autocomplete="organization" required></div>
+        <div><label for="rq-dept">部署名</label><input id="rq-dept" name="dept" autocomplete="organization-title"></div>
+        <div><label for="rq-name">氏名 <span class="req">必須</span></label><input id="rq-name" name="name" autocomplete="name" required></div>
+        <div><label for="rq-mail">メールアドレス <span class="req">必須</span></label><input id="rq-mail" type="email" name="mail" autocomplete="email" required></div>
+        <div><label for="rq-tel">電話番号</label><input id="rq-tel" type="tel" name="tel" autocomplete="tel"></div>
+        <div><label for="rq-topic">ご用件</label>
+          <select id="rq-topic" name="topic">
+            <option>会社案内・技術資料の希望</option>
+            <option>導入事例の詳しい内容を知りたい</option>
+            <option>その他</option>
+          </select>
+        </div>
+        <div class="full"><label for="rq-msg">ご希望の資料・内容</label><textarea id="rq-msg" name="msg" placeholder="例: 自治体向けのスマートシティ騒音観測の資料がほしい"></textarea></div>
+        <div class="full">
+          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。 <span class="tbd">個人情報保護方針: TBD</span></span></label>
+        </div>
+        <div class="full"><button class="btn btn-primary btn-lg" type="submit">資料を請求する（メール）</button></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- お問い合わせ -->
+  <section class="sec sec-alt" id="inquiry">
+    <div class="wrap ja-form-wrap">
+      <div class="ja-form-side">
+        <span class="eyebrow reveal">お問い合わせ</span>
+        <h2 class="t-h2 reveal d1">導入のご相談</h2>
+        <p class="t-lead reveal d2" style="margin-top:14px;font-size:14px">設置場所、対象となる音、規模などをお知らせください。内容を確認して、担当者からご連絡します。</p>
+        <dl class="reveal d3" style="margin-top:28px;display:grid;gap:14px">
+          <div><dt>所在地</dt><dd><span data-site="address" class="tbd">TBD</span></dd></div>
+          <div><dt>電話</dt><dd><span data-site="phone" class="tbd">TBD</span>（受付時間 <span class="tbd">TBD</span>）</dd></div>
+          <div><dt>メール</dt><dd><span data-site="email" class="tbd">TBD</span></dd></div>
+        </dl>
+      </div>
+      <form class="form reveal d1" id="inquiry-form">
+        <div><label for="iq-company">会社名・機関名 <span class="req">必須</span></label><input id="iq-company" name="company" autocomplete="organization" required></div>
+        <div><label for="iq-dept">部署名</label><input id="iq-dept" name="dept" autocomplete="organization-title"></div>
+        <div><label for="iq-name">担当者名 <span class="req">必須</span></label><input id="iq-name" name="name" autocomplete="name" required></div>
+        <div><label for="iq-mail">メールアドレス <span class="req">必須</span></label><input id="iq-mail" type="email" name="mail" autocomplete="email" required></div>
+        <div><label for="iq-tel">電話番号</label><input id="iq-tel" type="tel" name="tel" autocomplete="tel"></div>
+        <div><label for="iq-topic">ご用件</label>
+          <select id="iq-topic" name="topic">
+            <option>スマートシティ騒音観測の導入相談</option>
+            <option>産業安全 異常音検知の導入相談</option>
+            <option>携帯型超音波カメラの導入相談</option>
+            <option>自治体・公共機関からの相談</option>
+            <option>提携・その他</option>
+          </select>
+        </div>
+        <div class="full"><label for="iq-msg">お問い合わせ内容 <span class="req">必須</span></label><textarea id="iq-msg" name="msg" required placeholder="設置場所、対象となる音、予定している規模などを書いてください。"></textarea></div>
+        <div class="full">
+          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。 <span class="tbd">個人情報保護方針: TBD</span></span></label>
+        </div>
+        <div class="full"><button class="btn btn-primary btn-lg" type="submit">メールでお問い合わせる</button></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer id="site-footer"></footer>
+<script src="site.js?v=1"></script>
+<script src="../assets/js/config.js?v=5"></script>
+<script src="../assets/js/global.js?v=1"></script>
+<script>
+  // 양식 연결: 보내기 버튼을 누르면 메일 프로그램이 열리고 내용이 채워진다
+  window.addEventListener("DOMContentLoaded", () => {
+    const NO_MAIL = "メールアドレスを準備中です。しばらくしてから、もう一度お試しください。";
+    bindMailForm(document.getElementById("request-form"), {
+      subject: (v) => `【資料請求】${v("rq-company")}`,
+      fields: [["rq-company", "会社名・機関名"], ["rq-dept", "部署名"], ["rq-name", "氏名"], ["rq-mail", "メールアドレス"], ["rq-tel", "電話番号"], ["rq-topic", "ご用件"], ["rq-msg", "ご希望の資料・内容"]],
+      noMail: NO_MAIL,
+    });
+    bindMailForm(document.getElementById("inquiry-form"), {
+      subject: (v) => `【お問い合わせ】${v("iq-company")}`,
+      fields: [["iq-company", "会社名・機関名"], ["iq-dept", "部署名"], ["iq-name", "担当者名"], ["iq-mail", "メールアドレス"], ["iq-tel", "電話番号"], ["iq-topic", "ご用件"], ["iq-msg", "お問い合わせ内容"]],
+      noMail: NO_MAIL,
+    });
+  });
+</script>
+</body>
+</html>
