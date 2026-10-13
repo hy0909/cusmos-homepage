@@ -330,6 +330,10 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .light .card .ico { background: #f1eaff; }
 .light .card .ico svg { stroke: #7a45e6; }
 .card .k { font-size: 44px; font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 12px; }
+.card.area .tag { display: inline-block; margin: -2px 0 14px; font-size: 13px; font-weight: 600; color: #d6b8ff; }
+.card.area ul { display: grid; gap: 8px; margin-top: 4px; }
+.card.area li { position: relative; padding-left: 14px; font-size: 16px; color: var(--muted); }
+.card.area li::before { content: ""; position: absolute; left: 0; top: .7em; width: 4px; height: 4px; border-radius: 50%; background: var(--pink); }
 
 .spec { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 16px; }
 .spec th, .spec td { text-align: left; padding: 16px 0; border-bottom: 1px solid var(--line); vertical-align: top; }

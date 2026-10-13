@@ -1,9 +1,9 @@
 /* 헤더·푸터·공통 기능 */
 (function () {
   const NAV = [
-    { label: "회사소개", href: "company.html", children: [["비전", "company.html#vision"], ["팀", "company.html#team"], ["연혁", "company.html#history"], ["특허", "company.html#patent"], ["오시는 길", "company.html#location"]] },
+    { label: "회사소개", href: "company.html", children: [["회사 개요", "company.html#about"], ["비전", "company.html#vision"], ["팀", "company.html#team"], ["연혁", "company.html#history"], ["특허", "company.html#patent"], ["오시는 길", "company.html#location"]] },
     { label: "기술", href: "technology.html", children: [["엣지 AI 음향센서", "technology.html#sensor"], ["마이크 배열 설계", "technology.html#array"], ["현장 분석·선별 전송", "technology.html#edge"], ["소리 맥락 데이터", "technology.html#data"]] },
-    { label: "솔루션", href: "solutions.html", children: [["스마트시티 소음 관측", "solutions.html#city"], ["산업안전 이상음 탐지", "solutions.html#industry"], ["휴대용 초음파 카메라", "solutions.html#ucam"]] },
+    { label: "솔루션", href: "solutions.html", children: [["주요 사업 분야", "solutions.html#areas"], ["스마트시티 소음 관측", "solutions.html#city"], ["산업안전 이상음 탐지", "solutions.html#industry"], ["휴대용 초음파 카메라", "solutions.html#ucam"]] },
     { label: "도입 사례", href: "cases.html", children: [["시흥 배곧 이륜차 소음", "cases.html#siheung"], ["한전 태안화력 PoC", "cases.html#kepco"], ["도입 기관", "cases.html#clients"]] },
     { label: "홍보센터", href: "news.html", children: [["공지사항", "notice.html"], ["뉴스", "news.html"], ["CI", "ci.html"]] },
     { label: "채용", href: "careers.html", children: [["채용공고", "careers.html"], ["인재상", "culture.html"]] },
