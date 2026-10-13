@@ -89,3 +89,6 @@
   .en-timeline li { grid-template-columns: 1fr; gap: 6px; }
   .en-hero { min-height: auto; }
 }
+
+/* 하단 문의 박스: 일본어판과 같은 안쪽 여백 */
+.cta-band { padding: clamp(32px, 4.5vw, 56px); }
