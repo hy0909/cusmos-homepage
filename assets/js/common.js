@@ -123,10 +123,35 @@
     })(t0);
   }
 
-  // 데이터 읽기 (관리자 페이지에서 저장한 JSON)
+  // 데이터 읽기: Supabase가 연결돼 있으면 DB에서, 아니면 data/*.json에서 읽는다
   const cache = {};
+  const TABLES = { notices: "notices", news: "news", careers: "careers", ci: "ci_items", site: "site_settings" };
+  // DB 칸 이름을 화면에서 쓰는 이름으로 바꾸기
+  const fromRow = (r) => {
+    const o = { ...r };
+    if ("sort_order" in o) { o.order = o.sort_order; delete o.sort_order; }
+    if ("description" in o) { o.desc = o.description; delete o.description; }
+    if ("biz_no" in o) { o.bizNo = o.biz_no; delete o.biz_no; }
+    for (const k of Object.keys(o)) if (o[k] === null) delete o[k];
+    return o;
+  };
+  async function fromSupabase(name) {
+    const sb = window.CUSMOS_SUPABASE || {};
+    if (!sb.url || !sb.anonKey || !TABLES[name]) return null;
+    const r = await fetch(`${sb.url.replace(/\/$/, "")}/rest/v1/${TABLES[name]}?select=*`, {
+      headers: { apikey: sb.anonKey },
+      cache: "no-store",
+    });
+    if (!r.ok) throw new Error("supabase " + r.status);
+    const rows = (await r.json()).map(fromRow);
+    return name === "site" ? rows[0] || {} : { items: rows };
+  }
   async function getData(name, fallback) {
     if (cache[name]) return cache[name];
+    try {
+      const fromDb = await fromSupabase(name);
+      if (fromDb) return (cache[name] = fromDb);
+    } catch (e) { console.warn("Supabase 읽기 실패, JSON 파일로 대체", e); }
     try {
       const base = document.body.dataset.base || "";
       const r = await fetch(`${base}data/${name}.json?t=${Date.now()}`, { cache: "no-store" });

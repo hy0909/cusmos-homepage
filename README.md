@@ -18,13 +18,25 @@
 | 채용 | `careers.html` | 채용공고 목록과 상세, 인재상 |
 | 도입 문의 | `contact.html` | 문의 내용을 메일로 보내는 양식 |
 
-## 관리자 페이지 쓰는 법
+## 관리자 페이지 (Supabase)
 
-관리자 페이지에서 저장하면 `data/` 폴더의 JSON 파일과 `uploads/` 폴더에 바로 커밋되고, 1~2분 뒤 사이트에 반영됩니다.
+글은 Supabase DB에, 이미지와 첨부파일은 Supabase Storage의 `uploads` 버킷에 저장됩니다. 저장하면 사이트에 바로 반영됩니다.
 
-1. GitHub에서 fine-grained 토큰을 만듭니다. 저장소는 `hy0909/cusmos-homepage`만 고르고, 권한은 Contents를 Read and write, Pages를 Read-only로 줍니다.
-2. 관리자 페이지에 토큰을 붙여 넣고 로그인합니다.
-3. 다른 사람에게 관리를 맡기려면 그 사람의 GitHub 계정을 저장소 협업자로 초대하고, 본인 토큰을 만들게 합니다.
+| 위치 | 내용 |
+|---|---|
+| `assets/js/config.js` | Supabase Project URL과 Publishable(anon) 키 |
+| `supabase/migrations/` | 표, 접근 권한, 저장소 버킷, 처음 데이터를 만드는 SQL |
+| `data/*.json` | Supabase 연결 전에 쓰던 예비 데이터. 연결 후에는 읽지 않음 |
+
+처음 한 번만 하면 되는 설정입니다.
+
+1. Supabase 대시보드 > SQL Editor에 `supabase/migrations/20261013000000_init.sql` 내용을 붙여 넣고 실행합니다. GitHub 연동을 켜 두었다면 main에 올릴 때 자동으로 실행됩니다.
+2. Authentication > Users > Add user에서 관리자 계정을 만듭니다. Auto Confirm User를 켭니다.
+3. SQL Editor에서 `insert into public.admins (email) values ('관리자이메일');`를 실행해 그 계정을 관리자로 등록합니다.
+4. Authentication > Sign In / Providers에서 Allow new users to sign up을 끕니다. 꺼 두지 않아도 admins 표에 없는 계정은 글을 쓸 수 없습니다.
+5. Authentication > URL Configuration의 Redirect URLs에 `https://hy0909.github.io/cusmos-homepage/admin/`을 추가합니다. 비밀번호 재설정 메일 링크가 이 주소로 돌아옵니다.
+
+관리자를 더 늘리려면 2, 3번을 반복합니다.
 
 ## 처음에 채워야 할 것
 

@@ -1,12 +1,11 @@
 /* CUSMOS 홈페이지 관리자
- * 글과 파일은 GitHub 저장소(data/*.json, uploads/)에 바로 저장되고,
- * GitHub Pages가 1~2분 안에 사이트에 반영한다. */
+ * Supabase 계정으로 로그인하고, 글은 Supabase DB에, 파일은 Storage(uploads 버킷)에 저장한다.
+ * 저장하는 즉시 사이트에 반영된다. */
 (function () {
-  const CFG = { owner: "hy0909", repo: "cusmos-homepage", branch: "main" };
-  const API = "https://api.github.com";
-  const TOKEN_KEY = "cusmos_admin_token";
+  const CONF = window.CUSMOS_SUPABASE || {};
+  const BUCKET = "uploads";
   const MAX_FILE = 25 * 1024 * 1024;
-  let token = "";
+  let sb = null;
   const $ = (s, el = document) => el.querySelector(s);
 
   // ───────── 게시판 정의 ─────────
@@ -40,12 +39,12 @@
       row: (n) => [thumb(n.thumbnail), `<span class="t">${esc(n.title)}</span>`, `<span class="hide-m">${esc(n.source || "")}</span>`, fmtDate(n.date), pub(n)],
     },
     ci: {
-      label: "CI", file: "ci", prefix: "ci", desc: "로고 파일과 브랜드 컬러를 관리합니다. 순서 숫자가 작을수록 앞에 나옵니다.",
+      label: "CI", file: "ci_items", prefix: "ci", desc: "로고 파일과 브랜드 컬러를 관리합니다. 순서 숫자가 작을수록 앞에 나옵니다.",
       fields: [
         { k: "kind", label: "종류", type: "select", options: [["logo", "로고"], ["color", "컬러"]], def: "logo", half: true },
-        { k: "order", label: "순서", type: "number", def: 10, half: true },
+        { k: "sort_order", label: "순서", type: "number", def: 10, half: true },
         { k: "title", label: "이름", type: "text", req: true },
-        { k: "desc", label: "설명", type: "text", hint: "예: 어두운 배경에 사용" },
+        { k: "description", label: "설명", type: "text", hint: "예: 어두운 배경에 사용" },
         { k: "preview", label: "미리보기 이미지", type: "image", show: (d) => d.kind !== "color", hint: "투명 배경 PNG 또는 SVG" },
         { k: "bg", label: "미리보기 배경", type: "select", options: [["dark", "어두운 배경"], ["light", "밝은 배경"]], def: "dark", show: (d) => d.kind !== "color" },
         { k: "files", label: "다운로드 파일", type: "files", show: (d) => d.kind !== "color", hint: "AI·SVG·PNG 등 형식별로 올리고, 버튼에 보일 이름을 적어 주세요." },
@@ -53,8 +52,8 @@
         { k: "published", label: "사이트에 공개", type: "check", def: true },
       ],
       head: ["", "이름", "종류", "순서", "상태"],
-      row: (n) => [n.kind === "color" ? `<div class="sw" style="background:${esc(n.hex)}"></div>` : thumb(n.preview, true), `<span class="t">${esc(n.title)}</span>`, n.kind === "color" ? "컬러" : "로고", n.order ?? "", pub(n)],
-      sort: (a, b) => (a.order ?? 99) - (b.order ?? 99),
+      row: (n) => [n.kind === "color" ? `<div class="sw" style="background:${esc(n.hex)}"></div>` : thumb(n.preview, true), `<span class="t">${esc(n.title)}</span>`, n.kind === "color" ? "컬러" : "로고", n.sort_order ?? "", pub(n)],
+      sort: (a, b) => (a.sort_order ?? 99) - (b.sort_order ?? 99),
     },
     careers: {
       label: "채용", file: "careers", prefix: "j", desc: "마감일이 지나면 사이트에서 자동으로 마감 표시됩니다.",
@@ -78,7 +77,7 @@
   const SITE_FIELDS = [
     { k: "company", label: "상호", type: "text", half: true },
     { k: "ceo", label: "대표자", type: "text", half: true },
-    { k: "bizNo", label: "사업자등록번호", type: "text", half: true },
+    { k: "biz_no", label: "사업자등록번호", type: "text", half: true },
     { k: "phone", label: "대표 전화", type: "text", half: true },
     { k: "email", label: "문의 이메일", type: "text", hint: "도입 문의 메일이 이 주소로 갑니다." },
     { k: "address", label: "주소", type: "text" },
@@ -92,102 +91,57 @@
   const thumb = (p, contain) => (p ? `<img class="thumb" style="${contain ? "object-fit:contain;background:#05060d" : ""}" src="${esc(asset(p))}" alt="">` : '<div class="thumb"></div>');
   const today = () => new Date(Date.now() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, 10);
 
-  // 저장소 안 경로를 관리자 화면에서 볼 수 있는 주소로 바꾸기
+  // 저장된 경로를 관리자 화면에서 볼 수 있는 주소로 바꾸기
   function asset(p) {
     if (!p) return "";
     if (/^https?:/i.test(p)) return p;
-    if (p.startsWith("uploads/")) return `https://raw.githubusercontent.com/${CFG.owner}/${CFG.repo}/${CFG.branch}/${p}`;
     return "../" + p;
   }
 
-  // ───────── GitHub API ─────────
-  async function gh(path, opts = {}) {
-    const r = await fetch(API + path, {
-      ...opts,
-      cache: "no-store",
-      headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json", "X-GitHub-Api-Version": "2022-11-28", ...(opts.body ? { "Content-Type": "application/json" } : {}) },
+  // ───────── Supabase 데이터 ─────────
+  // 빈 칸은 DB에 null로 저장한다 (날짜·숫자 칸이 빈 문자열이면 오류가 나기 때문)
+  function toRow(d, s) {
+    const row = {};
+    s.fields.forEach((f) => {
+      let v = d[f.k];
+      if (v === "" || v === undefined) v = f.type === "files" ? [] : f.type === "check" ? false : null;
+      row[f.k] = v;
     });
-    if (r.status === 401) { logout(); throw new Error("로그인이 만료되었어요. 다시 로그인해 주세요."); }
-    if (!r.ok) {
-      let msg = "";
-      try { msg = (await r.json()).message; } catch (e) {}
-      const err = new Error(r.status === 403 ? "이 토큰에는 쓰기 권한이 없어요. 토큰의 Contents 권한을 Read and write로 바꿔 주세요." : msg || `요청 실패 (${r.status})`);
-      err.status = r.status;
-      throw err;
-    }
-    return r.status === 204 ? null : r.json();
+    if (d.id) row.id = d.id;
+    row.updated_at = new Date().toISOString();
+    return row;
   }
-  const repoPath = (p) => `/repos/${CFG.owner}/${CFG.repo}/contents/${p.split("/").map(encodeURIComponent).join("/")}`;
-
-  function b64encode(bytes) {
-    let s = "";
-    for (let i = 0; i < bytes.length; i += 0x8000) s += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
-    return btoa(s);
+  function fail(error) {
+    if (!error) return;
+    const m = error.message || "";
+    if (/row-level security|permission denied|violates row-level/i.test(m)) throw new Error("이 계정에는 저장 권한이 없어요. admins 표에 이메일이 등록돼 있는지 확인해 주세요.");
+    if (/JWT|session/i.test(m)) { logout(); throw new Error("로그인이 만료되었어요. 다시 로그인해 주세요."); }
+    throw new Error(m || "저장하지 못했어요.");
   }
-  const b64decode = (s) => new TextDecoder().decode(Uint8Array.from(atob(s.replace(/\n/g, "")), (c) => c.charCodeAt(0)));
-
-  async function readJson(name) {
-    try {
-      const f = await gh(repoPath(`data/${name}.json`) + `?ref=${CFG.branch}`);
-      return { data: JSON.parse(b64decode(f.content)), sha: f.sha };
-    } catch (e) {
-      if (e.status === 404) return { data: name === "site" ? {} : { items: [] }, sha: undefined };
-      throw e;
-    }
+  async function loadItems(table) {
+    const { data, error } = await sb.from(table).select("*");
+    fail(error);
+    for (const r of data) for (const k of Object.keys(r)) if (r[k] === null) delete r[k];
+    store[table] = { items: data };
+    return store[table];
   }
-
-  async function writeJson(name, mutate, message) {
-    for (let attempt = 0; attempt < 2; attempt++) {
-      const { data, sha } = await readJson(name);
-      mutate(data);
-      const content = b64encode(new TextEncoder().encode(JSON.stringify(data, null, 2) + "\n"));
-      try {
-        await gh(repoPath(`data/${name}.json`), { method: "PUT", body: JSON.stringify({ message, content, sha, branch: CFG.branch }) });
-        store[name] = data;
-        watchDeploy();
-        return data;
-      } catch (e) {
-        if ((e.status === 409 || e.status === 422) && attempt === 0) continue; // 다른 사람이 먼저 저장한 경우 다시 시도
-        throw e;
-      }
-    }
+  async function saveItem(s, d) {
+    const { error } = await sb.from(s.file).upsert(toRow(d, s));
+    fail(error);
   }
-
+  async function deleteItem(s, id) {
+    const { error } = await sb.from(s.file).delete().eq("id", id);
+    fail(error);
+  }
   async function uploadFile(file) {
     if (file.size > MAX_FILE) throw new Error("25MB보다 큰 파일은 올릴 수 없어요.");
-    const buf = new Uint8Array(await file.arrayBuffer());
     const ext = (file.name.match(/\.[a-z0-9]+$/i) || [""])[0].toLowerCase();
     const base = file.name.slice(0, file.name.length - ext.length).normalize("NFC").replace(/[^a-zA-Z0-9_-]+/g, "-").replace(/^-+|-+$/g, "").slice(0, 40) || "file";
     const d = new Date();
-    const path = `uploads/${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}/${Date.now().toString(36)}-${base}${ext}`;
-    await gh(repoPath(path), { method: "PUT", body: JSON.stringify({ message: `파일 업로드: ${file.name}`, content: b64encode(buf), branch: CFG.branch }) });
-    return path;
-  }
-
-  // ───────── 사이트 반영 상태 ─────────
-  let deployTimer, deployUntil = 0;
-  async function checkDeploy() {
-    const el = $("#deploy");
-    try {
-      const b = await gh(`/repos/${CFG.owner}/${CFG.repo}/pages/builds/latest`);
-      const busy = b.status === "building" || b.status === "queued";
-      el.className = "deploy " + (busy ? "busy" : b.status === "built" ? "ok" : "fail");
-      $(".txt", el).textContent = busy ? "사이트에 반영하는 중" : b.status === "built" ? "사이트 반영 완료" : "반영 실패, 다시 저장해 보세요";
-      return busy;
-    } catch (e) {
-      el.className = "deploy";
-      $(".txt", el).textContent = "저장 후 1~2분 뒤 반영";
-      return false;
-    }
-  }
-  function watchDeploy() {
-    deployUntil = Date.now() + 4 * 60 * 1000;
-    clearTimeout(deployTimer);
-    const loop = async () => {
-      const busy = await checkDeploy();
-      if (busy || Date.now() < deployUntil - 3.5 * 60 * 1000) deployTimer = setTimeout(loop, 6000);
-    };
-    deployTimer = setTimeout(loop, 3000);
+    const path = `${d.getFullYear()}/${String(d.getMonth() + 1).padStart(2, "0")}/${Date.now().toString(36)}-${base}${ext}`;
+    const { error } = await sb.storage.from(BUCKET).upload(path, file, { contentType: file.type || undefined, upsert: false });
+    fail(error);
+    return sb.storage.from(BUCKET).getPublicUrl(path).data.publicUrl;
   }
 
   // ───────── 공통 UI ─────────
@@ -207,25 +161,30 @@
   }
 
   // ───────── 로그인 ─────────
-  function savedToken() {
-    try { return localStorage.getItem(TOKEN_KEY) || sessionStorage.getItem(TOKEN_KEY) || ""; } catch (e) { return ""; }
-  }
-  function logout() {
-    try { localStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem(TOKEN_KEY); } catch (e) {}
-    token = "";
+  function showLogin(view) {
     $("#app").hidden = true;
     $("#login").hidden = false;
+    $("#login-form").hidden = view !== "login";
+    $("#reset-form").hidden = view !== "reset";
+    $("#newpw-form").hidden = view !== "newpw";
   }
-  async function tryLogin(t, remember) {
-    token = t;
-    const repo = await gh(`/repos/${CFG.owner}/${CFG.repo}`);
-    try { (remember ? localStorage : sessionStorage).setItem(TOKEN_KEY, t); } catch (e) {}
+  async function logout() {
+    try { await sb.auth.signOut(); } catch (e) {}
+    showLogin("login");
+  }
+  async function enter(session) {
+    const email = session.user.email;
+    const { data, error } = await sb.from("admins").select("email").limit(1);
+    if (error || !data.length) {
+      await sb.auth.signOut();
+      showLogin("login");
+      $("#login-err").textContent = `${email} 계정은 관리자로 등록돼 있지 않아요.`;
+      return;
+    }
     $("#login").hidden = true;
     $("#app").hidden = false;
-    gh("/user").then((u) => ($("#me").textContent = `${u.login} 로그인 중`)).catch(() => {});
-    checkDeploy();
+    $("#me").textContent = `${email} 로그인 중`;
     route();
-    return repo;
   }
 
   // ───────── 화면 ─────────
@@ -247,8 +206,7 @@
       if (k === "site") return await siteForm(main);
       const s = SCHEMAS[k];
       if (!s) return (location.hash = "#notices");
-      const { data } = await readJson(s.file);
-      store[s.file] = data;
+      const data = await loadItems(s.file);
       menu(k);
       if (mode === "new") return editForm(main, k, null);
       if (mode === "edit") {
@@ -291,8 +249,8 @@
       if (!e.target.closest("[data-del]")) return;
       if (!confirm(`‘${item.title}’을(를) 삭제할까요?\n사이트에서도 사라지고 되돌릴 수 없어요.`)) return;
       try {
-        await busy(() => writeJson(s.file, (d) => (d.items = (d.items || []).filter((i) => i.id !== id)), `${s.label} 삭제: ${item.title}`));
-        toast("삭제했어요. 1~2분 뒤 사이트에 반영됩니다.");
+        await busy(() => deleteItem(s, id));
+        toast("삭제했어요. 사이트에서도 바로 사라집니다.");
         route();
       } catch (err) { toast(err.message, true); }
     });
@@ -361,8 +319,8 @@
       const pv = $("#pv");
       if (k === "ci") {
         pv.innerHTML = `<div class="cap">미리보기</div>${d.kind === "color"
-          ? `<div style="height:160px;border-radius:14px;background:${/^#[0-9a-f]{3,8}$/i.test(d.hex || "") ? d.hex : "#ddd"}"></div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.hex || "")} ${esc(d.desc || "")}</div>`
-          : `<div style="height:220px;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:32px;background:${d.bg === "light" ? "#f5f6fa" : "#05060d"}">${d.preview ? `<img src="${esc(asset(d.preview))}" style="max-height:100%;max-width:70%">` : '<span style="color:#9aa0b5">이미지를 올려 주세요</span>'}</div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.desc || "")}</div>`}`;
+          ? `<div style="height:160px;border-radius:14px;background:${/^#[0-9a-f]{3,8}$/i.test(d.hex || "") ? d.hex : "#ddd"}"></div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.hex || "")} ${esc(d.description || "")}</div>`
+          : `<div style="height:220px;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:32px;background:${d.bg === "light" ? "#f5f6fa" : "#05060d"}">${d.preview ? `<img src="${esc(asset(d.preview))}" style="max-height:100%;max-width:70%">` : '<span style="color:#9aa0b5">이미지를 올려 주세요</span>'}</div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.description || "")}</div>`}`;
         return;
       }
       const meta = k === "careers" ? [d.team, d.type, d.career, d.location, d.deadline ? `마감 ${fmtDate(d.deadline)}` : "상시 채용"] : [d.source, fmtDate(d.date)];
@@ -450,15 +408,10 @@
       if (miss.length) return toast(`${miss.map((f) => f.label).join(", ")}을(를) 입력해 주세요.`, true);
       if (d.hex && !/^#[0-9a-f]{3,8}$/i.test(d.hex)) return toast("색상 값은 #A46BFF 같은 형식으로 입력해 주세요.", true);
       if (!d.id) d.id = `${s.prefix}-${Date.now().toString(36)}`;
-      d.updatedAt = new Date().toISOString();
       try {
-        await busy(() => writeJson(s.file, (data) => {
-          data.items = data.items || [];
-          const i = data.items.findIndex((x) => x.id === d.id);
-          i >= 0 ? (data.items[i] = d) : data.items.unshift(d);
-        }, `${s.label} ${isNew ? "등록" : "수정"}: ${d.title}`));
+        await busy(() => saveItem(s, d));
         dirty = false;
-        toast("저장했어요. 1~2분 뒤 사이트에 반영됩니다.");
+        toast("저장했어요. 사이트에 바로 반영됩니다.");
         location.hash = "#" + k;
       } catch (err) { toast(err.message, true); }
     });
@@ -466,7 +419,7 @@
     if (del) del.addEventListener("click", async () => {
       if (!confirm(`‘${item.title}’을(를) 삭제할까요?\n사이트에서도 사라지고 되돌릴 수 없어요.`)) return;
       try {
-        await busy(() => writeJson(s.file, (data) => (data.items = (data.items || []).filter((x) => x.id !== item.id)), `${s.label} 삭제: ${item.title}`));
+        await busy(() => deleteItem(s, item.id));
         dirty = false;
         toast("삭제했어요.");
         location.hash = "#" + k;
@@ -475,8 +428,10 @@
   }
 
   async function siteForm(main) {
-    const { data } = await readJson("site");
-    const d = { ...data };
+    const { data, error } = await sb.from("site_settings").select("*").eq("id", 1).maybeSingle();
+    fail(error);
+    const d = { ...(data || {}) };
+    for (const k of Object.keys(d)) if (d[k] === null) d[k] = "";
     dirty = false;
     main.innerHTML = `<div class="page-title"><div><h1>회사 정보</h1><p>사이트 아래쪽 정보, 오시는 길, 도입 문의에 쓰입니다. 비워 둔 항목은 사이트에 보이지 않아요.</p></div></div>
       <div class="editor single"><form class="panel" id="sf"><div class="form-panel">${renderFields(SITE_FIELDS, d)}</div>
@@ -485,9 +440,11 @@
     $("#sf").addEventListener("submit", async (e) => {
       e.preventDefault();
       try {
-        await busy(() => writeJson("site", (x) => Object.assign(x, d), "회사 정보 수정"));
+        const row = { id: 1, updated_at: new Date().toISOString() };
+        SITE_FIELDS.forEach((f) => (row[f.k] = String(d[f.k] ?? "").trim() || null));
+        await busy(async () => fail((await sb.from("site_settings").upsert(row)).error));
         dirty = false;
-        toast("저장했어요. 1~2분 뒤 사이트에 반영됩니다.");
+        toast("저장했어요. 사이트에 바로 반영됩니다.");
       } catch (err) { toast(err.message, true); }
     });
   }
@@ -506,16 +463,45 @@
   addEventListener("beforeunload", (e) => { if (dirty) { e.preventDefault(); e.returnValue = ""; } });
 
   document.addEventListener("DOMContentLoaded", async () => {
-    $("#repo-name").textContent = `${CFG.owner}/${CFG.repo}`;
+    if (!CONF.url || !CONF.anonKey || !window.supabase) {
+      showLogin("login");
+      $("#login-form").hidden = true;
+      $("#login-err").textContent = "Supabase 연결 정보가 없어요. assets/js/config.js에 Project URL과 anon 키를 넣어 주세요.";
+      return;
+    }
+    sb = window.supabase.createClient(CONF.url, CONF.anonKey, { auth: { persistSession: true, storageKey: "cusmos-admin-auth" } });
     $("#logout").addEventListener("click", logout);
+
     $("#login-form").addEventListener("submit", async (e) => {
       e.preventDefault();
       $("#login-err").textContent = "";
-      try { await tryLogin($("#token").value.trim(), $("#remember").checked); $("#token").value = ""; }
-      catch (err) { token = ""; $("#login-err").textContent = err.status === 404 ? "이 토큰으로는 저장소에 접근할 수 없어요. 저장소 선택을 확인해 주세요." : err.message; }
+      const { data, error } = await busy(() => sb.auth.signInWithPassword({ email: $("#email").value.trim(), password: $("#password").value }));
+      if (error) return ($("#login-err").textContent = /invalid/i.test(error.message) ? "이메일 또는 비밀번호가 맞지 않아요." : error.message);
+      $("#password").value = "";
+      enter(data.session);
     });
-    const t = savedToken();
-    if (!t) return ($("#login").hidden = false);
-    try { await tryLogin(t, !!localStorage.getItem(TOKEN_KEY)); } catch (e) { logout(); }
+    $("#to-reset").addEventListener("click", () => { showLogin("reset"); $("#reset-email").value = $("#email").value; });
+    $("#to-login").addEventListener("click", () => showLogin("login"));
+    $("#reset-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const { error } = await busy(() => sb.auth.resetPasswordForEmail($("#reset-email").value.trim(), { redirectTo: location.origin + location.pathname }));
+      $("#reset-msg").textContent = error ? error.message : "비밀번호 재설정 메일을 보냈어요. 메일의 링크를 눌러 주세요.";
+    });
+    $("#newpw-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const pw = $("#newpw").value;
+      if (pw.length < 8) return ($("#newpw-msg").textContent = "8자 이상으로 정해 주세요.");
+      const { data, error } = await busy(() => sb.auth.updateUser({ password: pw }));
+      if (error) return ($("#newpw-msg").textContent = error.message);
+      toast("비밀번호를 바꿨어요.");
+      const { data: s } = await sb.auth.getSession();
+      enter(s.session);
+    });
+
+    let recovering = false;
+    sb.auth.onAuthStateChange((event) => { if (event === "PASSWORD_RECOVERY") { recovering = true; showLogin("newpw"); } });
+    const { data } = await sb.auth.getSession();
+    if (recovering || /type=recovery/.test(location.hash)) return showLogin("newpw");
+    if (data.session) enter(data.session); else showLogin("login");
   });
 })();
