@@ -451,7 +451,7 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .site-footer { background: #03040a; border-top: 1px solid var(--line); padding: 72px 0 48px; color: var(--muted); font-size: 14px; }
 .site-footer .top { display: flex; justify-content: space-between; gap: 48px; flex-wrap: wrap; padding-bottom: 48px; border-bottom: 1px solid var(--line); }
 .site-footer .brand img.word { height: 45px; width: auto; margin-bottom: 18px; }
-.site-footer .brand p { max-width: 320px; }
+.site-footer .brand p { max-width: 320px; font-size: 18px; }
 .site-footer .cols { display: flex; gap: 64px; flex-wrap: wrap; }
 .site-footer .cols strong { display: block; color: var(--text); font-size: 15px; margin-bottom: 16px; }
 .site-footer .cols li + li { margin-top: 10px; }

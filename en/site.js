@@ -34,6 +34,8 @@ window.SITE = {
     ] },
     { label: "Board", href: "news.html", children: [["Notices", "notice.html"], ["News", "news.html"], ["CI", "ci.html"]] },
   ],
+  // 회사 주소를 이 나라 말로 적은 값. 관리자 DB의 한국어 주소 대신 보여 준다
+  address: "Room 208-1, 1 Gangwondaehak-gil, Chuncheon-si, Gangwon State, Republic of Korea",
   cta: { label: "Book a demo", href: "contact.html" },
   tagline: "Sound intelligence for cities and industrial sites. Edge AI acoustic sensors that identify a sound and locate where it came from.",
   legal: [],

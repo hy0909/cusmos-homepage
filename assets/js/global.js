@@ -119,6 +119,7 @@
     } catch (e) { console.warn("Supabase 읽기 실패, JSON 파일로 대체", e); }
     siteCache = { ...file };
     if (row) for (const [k, v] of Object.entries(row)) if (v !== null && v !== "") siteCache[k] = v;
+    if (S.address && siteCache.address) siteCache.address = S.address;
     return siteCache;
   }
   window.getSite = getSite;

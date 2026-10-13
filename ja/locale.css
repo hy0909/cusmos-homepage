@@ -32,6 +32,8 @@ body.ja .page-hero { padding-top: calc(var(--header-h) + 32px); padding-bottom: 
 body.ja .page-hero .t-lead { margin-top: 12px; }
 body.ja .crumb { font-size: 12px; margin-bottom: 12px; }
 body.ja .card { padding: clamp(18px, 2vw, 24px); }
+/* 이미지가 있는 카드: 글 영역 좌우 여백을 없애 이미지 너비와 맞춘다 */
+body.ja .card-link .body { padding: 18px 0 0; }
 body.ja .sec .card + .card { margin-top: 0; }
 body.ja .table { font-size: 14px; }
 body.ja .table th, body.ja .table td { padding: 10px 14px; }
@@ -70,7 +72,7 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-tile strong { font-size: 15px; font-weight: 700; color: var(--c-ink); }
 .ja-tile span { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 .ja-tile .link-arrow { margin-top: auto; padding-top: 6px; font-size: 13px; }
-.ja-tile-wide { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; }
+.ja-tile-wide { gap: 10px; }
 .ja-tile-wide > div { display: flex; flex-direction: column; gap: 4px; }
 
 /* 3. お知らせ 목록 */
@@ -88,14 +90,14 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-src-note { margin-top: 22px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
 
 /* 5. 導入の流れ (4단계) */
-.ja-steps { counter-reset: step; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.ja-steps { --step-gap: 48px; counter-reset: step; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--step-gap); }
 .ja-steps li { position: relative; background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 18px 18px 18px; }
 .ja-steps .no { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--c-accent); margin-bottom: 8px; }
 .ja-steps strong { display: block; font-size: 15px; color: var(--c-ink); margin-bottom: 6px; }
 .ja-steps p { font-size: 13px; color: var(--c-muted); line-height: 1.7; }
-.ja-steps li + li::before { content: "→"; position: absolute; left: -11px; top: 50%; transform: translateY(-50%); color: var(--c-accent); font-size: 14px; background: #fff; line-height: 1; }
+.ja-steps li + li::before { content: "→"; position: absolute; left: calc(var(--step-gap) / -2); top: 50%; transform: translate(-50%, -50%); color: var(--c-accent); font-size: 16px; line-height: 1; }
 .ja-steps-wrap { margin-top: 44px; }
-@media (max-width: 960px) { .ja-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ja-steps li + li::before { display: none; } }
+@media (max-width: 960px) { .ja-steps { --step-gap: 14px; grid-template-columns: repeat(2, minmax(0, 1fr)); } .ja-steps li + li::before { display: none; } }
 @media (max-width: 600px) { .ja-steps { grid-template-columns: 1fr; } }
 
 /* 6. 導入事例 카드 */
@@ -138,7 +140,6 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-faq details[open] summary::after { content: "−"; }
 .ja-faq .ans { padding: 0 4px 18px; font-size: 14px; color: var(--c-text); line-height: 1.8; }
 .ja-faq .ans p + p { margin-top: 8px; }
-.ja-faq-wrap { max-width: 880px; }
 
 /* 10. 문의 띠 */
 .ja-cta .cta-band { padding: clamp(32px, 4.5vw, 56px); }

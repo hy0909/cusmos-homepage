@@ -48,6 +48,8 @@ window.SITE = {
     },
     { label: "Aktuelles", href: "news.html", children: [["Mitteilungen", "notice.html"], ["Presse", "news.html"], ["CI", "ci.html"]] },
   ],
+  // 회사 주소를 이 나라 말로 적은 값. 관리자 DB의 한국어 주소 대신 보여 준다
+  address: "Gangwondaehak-gil 1, Raum 208-1, Chuncheon-si, Provinz Gangwon, Republik Korea",
   cta: { label: "Kontakt", href: "contact.html" },
   tagline: "Akustische Sensorik mit Edge-KI zur Erkennung und Ortung von Geräuschen in Städten und Industrieanlagen.",
   legal: [["Impressum", "impressum.html"], ["Datenschutz", "privacy.html"]],

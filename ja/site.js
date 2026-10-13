@@ -38,6 +38,8 @@ window.SITE = {
     ] },
     { label: "掲示板", href: "news.html", children: [["お知らせ", "notice.html"], ["ニュース", "news.html"], ["CI", "ci.html"]] },
   ],
+  // 회사 주소를 이 나라 말로 적은 값. 관리자 DB의 한국어 주소 대신 보여 준다
+  address: "大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号",
   cta: { label: "資料請求", href: "contact.html#request" },
   tagline: "CUSMOSは、小型のエッジAI音響センサーで都市と産業現場の音の種類と発生場所を特定する、サウンドインテリジェンス企業です。",
   legal: [],

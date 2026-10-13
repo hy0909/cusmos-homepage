@@ -147,3 +147,7 @@ main > .sec:first-of-type { border-top: 0; }
 /* 문의 페이지: 넓은 화면에서는 안내 1 : 양식 2, 좁은 화면에서는 한 줄 */
 .de-contact-split { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); }
 @media (max-width: 960px) { .de-contact-split { grid-template-columns: 1fr; } }
+
+/* 로고: 헤더 26px(기본보다 8px 크게), 푸터 45px(기본의 2.5배) */
+.gh .logo img { height: 26px; }
+.gf .brand img { height: 45px; }
