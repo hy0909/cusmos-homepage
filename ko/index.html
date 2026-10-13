@@ -104,23 +104,30 @@
               <rect x="220" y="190" width="120" height="80" rx="18" fill="#141631" stroke="rgba(255,255,255,.2)"/>
               <rect x="262" y="212" width="36" height="36" rx="10" fill="#05060d" stroke="url(#g1)" stroke-width="2"/>
               <circle cx="280" cy="230" r="7" fill="url(#g1)"/>
-              <g transform="translate(70 400)">
-                <text x="0" y="-18" fill="#9ba1bb" font-size="13" font-family="Pretendard Variable, sans-serif">실시간 음향 신호</text>
+              <!-- 실시간 음향 신호 · 현재 소음도: 같은 크기 박스 두 개, 간격 8 -->
+              <g transform="translate(40 372)" font-family="Pretendard Variable, sans-serif">
+                <rect width="236" height="96" rx="14" fill="#11132a" stroke="rgba(255,255,255,.12)"/>
+                <text x="18" y="28" fill="#9ba1bb" font-size="12">실시간 음향 신호</text>
                 <g fill="url(#g1)">
-                  <rect x="0" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="12;40;20;34;12" dur="1.4s" repeatCount="indefinite"/></rect>
-                  <rect x="14" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="30;10;38;16;30" dur="1.2s" repeatCount="indefinite"/></rect>
-                  <rect x="28" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="18;36;12;40;18" dur="1.6s" repeatCount="indefinite"/></rect>
-                  <rect x="42" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="40;20;30;10;40" dur="1.3s" repeatCount="indefinite"/></rect>
-                  <rect x="56" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="14;30;40;22;14" dur="1.5s" repeatCount="indefinite"/></rect>
-                  <rect x="70" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="26;12;24;38;26" dur="1.1s" repeatCount="indefinite"/></rect>
-                  <rect x="84" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="36;22;14;30;36" dur="1.7s" repeatCount="indefinite"/></rect>
-                  <rect x="98" y="0" width="6" height="40" rx="3"><animate attributeName="height" values="10;34;26;16;10" dur="1.25s" repeatCount="indefinite"/></rect>
+                  <rect x="18" y="55" width="6" height="14" rx="3"><animate attributeName="height" values="14;32;32;14;14" dur="1.4s" repeatCount="indefinite"/><animate attributeName="y" values="55;46;46;55;55" dur="1.4s" repeatCount="indefinite"/></rect>
+                  <rect x="33" y="52" width="6" height="20" rx="3"><animate attributeName="height" values="20;32;26;36;20" dur="1.2s" repeatCount="indefinite"/><animate attributeName="y" values="52;46;49;44;52" dur="1.2s" repeatCount="indefinite"/></rect>
+                  <rect x="48" y="46" width="6" height="32" rx="3"><animate attributeName="height" values="32;8;32;8;32" dur="1.6s" repeatCount="indefinite"/><animate attributeName="y" values="46;58;46;58;46" dur="1.6s" repeatCount="indefinite"/></rect>
+                  <rect x="63" y="49" width="6" height="26" rx="3"><animate attributeName="height" values="26;20;32;14;26" dur="1.3s" repeatCount="indefinite"/><animate attributeName="y" values="49;52;46;55;49" dur="1.3s" repeatCount="indefinite"/></rect>
+                  <rect x="78" y="55" width="6" height="14" rx="3"><animate attributeName="height" values="14;36;26;32;14" dur="1.5s" repeatCount="indefinite"/><animate attributeName="y" values="55;44;49;46;55" dur="1.5s" repeatCount="indefinite"/></rect>
+                  <rect x="93" y="46" width="6" height="32" rx="3"><animate attributeName="height" values="32;26;26;36;32" dur="1.1s" repeatCount="indefinite"/><animate attributeName="y" values="46;49;49;44;46" dur="1.1s" repeatCount="indefinite"/></rect>
+                  <rect x="108" y="55" width="6" height="14" rx="3"><animate attributeName="height" values="14;14;36;14;14" dur="1.7s" repeatCount="indefinite"/><animate attributeName="y" values="55;55;44;55;55" dur="1.7s" repeatCount="indefinite"/></rect>
+                  <rect x="123" y="46" width="6" height="32" rx="3"><animate attributeName="height" values="32;26;36;8;32" dur="1.25s" repeatCount="indefinite"/><animate attributeName="y" values="46;49;44;58;46" dur="1.25s" repeatCount="indefinite"/></rect>
+                  <rect x="138" y="44" width="6" height="36" rx="3"><animate attributeName="height" values="36;8;14;32;36" dur="1.45s" repeatCount="indefinite"/><animate attributeName="y" values="44;58;55;46;44" dur="1.45s" repeatCount="indefinite"/></rect>
+                  <rect x="153" y="58" width="6" height="8" rx="3"><animate attributeName="height" values="8;20;8;20;8" dur="1.35s" repeatCount="indefinite"/><animate attributeName="y" values="58;52;58;52;58" dur="1.35s" repeatCount="indefinite"/></rect>
+                  <rect x="168" y="49" width="6" height="26" rx="3"><animate attributeName="height" values="26;32;36;26;26" dur="1.55s" repeatCount="indefinite"/><animate attributeName="y" values="49;46;44;49;49" dur="1.55s" repeatCount="indefinite"/></rect>
+                  <rect x="183" y="44" width="6" height="36" rx="3"><animate attributeName="height" values="36;26;26;36;36" dur="1.15s" repeatCount="indefinite"/><animate attributeName="y" values="44;49;49;44;44" dur="1.15s" repeatCount="indefinite"/></rect>
+                  <rect x="198" y="46" width="6" height="32" rx="3"><animate attributeName="height" values="32;26;14;20;32" dur="1.65s" repeatCount="indefinite"/><animate attributeName="y" values="46;49;55;52;46" dur="1.65s" repeatCount="indefinite"/></rect>
                 </g>
               </g>
-              <g transform="translate(330 380)" font-family="Pretendard Variable, sans-serif">
-                <rect width="160" height="70" rx="14" fill="#11132a" stroke="rgba(255,255,255,.12)"/>
+              <g transform="translate(284 372)" font-family="Pretendard Variable, sans-serif">
+                <rect width="236" height="96" rx="14" fill="#11132a" stroke="rgba(255,255,255,.12)"/>
                 <text x="18" y="28" fill="#9ba1bb" font-size="12">현재 소음도</text>
-                <text x="18" y="56" fill="#fff" font-size="26" font-weight="700">72.4 dB</text>
+                <text x="18" y="72" fill="#fff" font-size="30" font-weight="700">72.4 dB</text>
               </g>
             </svg>
           </div>
