@@ -224,3 +224,6 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
   .ja-cta .btn-row { width: 100%; }
   .ja-badges li { font-size: 13px; }
 }
+
+/* 푸터 로고: 공통 18px의 2.5배 */
+.gf .brand img { height: 45px; }
