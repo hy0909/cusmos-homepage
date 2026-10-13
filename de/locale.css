@@ -1,5 +1,5 @@
 /* 독일어 버전: 토큰만 바꾸고, 독일어에서만 필요한 배치를 de- 접두사로 추가한다.
- * 색은 무채색과 짙은 파랑 하나, 모서리는 6px 이하, 그라디언트는 쓰지 않는다. */
+ * 색은 global.css의 브랜드 컬러를 그대로 쓰고, 모서리는 6px 이하로 각지게 한다. */
 :root {
   --font: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-head: var(--font);
