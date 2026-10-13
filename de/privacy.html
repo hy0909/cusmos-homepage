@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=2">
-<link rel="stylesheet" href="locale.css?v=2">
+<link rel="stylesheet" href="locale.css?v=3">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -62,8 +62,8 @@
         </section>
 
         <section>
-          <h2>6. Lokale Speicherung im Browser</h2>
-          <p>Wenn Sie die Sprache über das Menü wählen, speichert die Website diese Auswahl im Browser (Schlüssel <code>cusmos-lang</code>). Der Eintrag enthält keine personenbezogenen Daten. Sie können ihn in den Browsereinstellungen löschen. <span class="tbd">[TBD: Prüfung nach § 25 TDDDG]</span></p>
+          <h2>6. Ermittlung des Landes für die Spracheinstellung</h2>
+          <p>Wenn Sie die Startadresse der Website aufrufen, fragt Ihr Browser bei Cloudflare (<code>cloudflare.com/cdn-cgi/trace</code>) und, falls das nicht gelingt, bei GeoJS (<code>get.geojs.io</code>) ab, aus welchem Land der Zugriff erfolgt. Dabei wird Ihre IP-Adresse an diese Anbieter übertragen. Die Website verwendet nur den Ländercode, um Sie zur passenden Sprachversion weiterzuleiten, und speichert ihn nicht. Im Browser wird keine Sprachauswahl gespeichert. <span class="tbd">[TBD: Rechtsgrundlage und Prüfung der Drittlandübermittlung]</span></p>
         </section>
 
         <section>
@@ -93,7 +93,7 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=2"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=2"></script>
+<script src="../assets/js/global.js?v=3"></script>
 <script>
   // 연락처는 회사 정보에서 채운다. 값이 없으면 TBD 유지
   getSite().then((s) => {

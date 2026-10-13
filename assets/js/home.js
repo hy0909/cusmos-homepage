@@ -1,6 +1,17 @@
 /* 메인 페이지: 히어로 캔버스, 작동 방식 단계, 최신 소식 */
 (function () {
   // ── 히어로: 도시 위로 퍼지는 소리와 센서 감지 장면 ──
+  // 히어로 영상: 움직임 줄이기 설정이면 멈추고 첫 화면만 보여 준다
+  function heroVideo() {
+    const v = document.getElementById("hero-video");
+    if (!v) return;
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) { v.removeAttribute("autoplay"); v.pause(); return; }
+    // 백그라운드 탭에서 열리면 자동 재생이 미뤄지므로, 화면에 보일 때 다시 재생한다
+    const play = () => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+    play();
+    document.addEventListener("visibilitychange", () => { if (!document.hidden && v.paused) play(); });
+  }
+
   function hero() {
     const cv = document.getElementById("hero-canvas");
     if (!cv) return;
@@ -200,5 +211,5 @@
     observeReveal();
   }
 
-  document.addEventListener("DOMContentLoaded", () => { hero(); how(); latest(); });
+  document.addEventListener("DOMContentLoaded", () => { heroVideo(); hero(); how(); latest(); });
 })();

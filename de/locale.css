@@ -19,6 +19,12 @@
 .btn { border-radius: 6px; height: 46px; font-weight: 600; letter-spacing: 0; }
 .btn:hover { transform: none; }
 .btn-sm { height: 38px; }
+/* 버튼은 테두리 없이 면 색으로만 구분한다 */
+.btn { border: 0; }
+.btn-outline { background: var(--c-bg-alt); color: var(--c-ink); }
+.btn-outline:hover { background: var(--c-line); }
+.btn-ghost-light { background: rgba(255,255,255,.14); color: #fff; }
+.btn-ghost-light:hover { background: rgba(255,255,255,.22); }
 .lang-btn { border-radius: 6px; }
 
 /* 구조선: 섹션 사이에 얇은 선으로 격자를 드러낸다 */
@@ -75,7 +81,7 @@ main > .sec:first-of-type { border-top: 0; }
 .de-dark-media img { object-fit: contain; padding: 10%; }
 
 /* 주의 상자 (초안 표시) */
-.de-notice { background: #ffe6f6; border: 1px solid var(--pink); border-left-width: 4px; border-radius: 6px; padding: 16px 20px; color: var(--c-ink); font-size: 15px; }
+.de-notice { background: #ffe6f6; border: 1px solid var(--pink); border-radius: 6px; padding: 16px 20px; color: var(--c-ink); font-size: 15px; }
 .de-notice strong { color: var(--c-ink); }
 
 /* 데이터량 막대 */

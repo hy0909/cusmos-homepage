@@ -10,7 +10,7 @@
 <meta property="og:image" content="../assets/img/bg-ribbon.jpg">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../assets/css/style.css?v=9">
+<link rel="stylesheet" href="../assets/css/style.css?v=12">
 </head>
 <body data-base="../" data-hero="1">
 <header id="site-header"></header>
@@ -18,7 +18,10 @@
 <main>
   <!-- 히어로 -->
   <section class="hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <video class="hero-video" id="hero-video" autoplay muted loop playsinline preload="auto" poster="../assets/img/hero-city-poster.jpg" aria-hidden="true">
+      <source src="../assets/video/hero-city.webm" type="video/webm">
+      <source src="../assets/video/hero-city.mp4" type="video/mp4">
+    </video>
     <div class="wrap">
       <h1 class="reveal d1">도시의 소리를<br><span class="grad-text">데이터로</span> 바꿉니다</h1>
       <p class="lead reveal d2">커즈모스는 도시와 산업 현장 곳곳에 작은 AI 음향센서를 설치합니다. 어떤 소리가 어디서 났는지 찾아내고, 판단에 필요한 기록을 남깁니다.</p>
@@ -289,6 +292,6 @@
 <footer id="site-footer"></footer>
 <script src="../assets/js/config.js?v=8"></script>
 <script src="../assets/js/common.js?v=9"></script>
-<script src="../assets/js/home.js?v=8"></script>
+<script src="../assets/js/home.js?v=11"></script>
 </body>
 </html>

@@ -11,7 +11,6 @@
     { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "impressum.html", "privacy.html", "notice.html", "news.html", "ci.html"] },
   ];
   const OLD = { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html"] };
-  const KEY = "cusmos-lang";
   const page = location.pathname.split("/").pop() || "index.html";
   const IMG = "../assets/img/";
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -58,7 +57,6 @@
     lb.addEventListener("click", (e) => { e.stopPropagation(); const o = lang.classList.toggle("open"); lb.setAttribute("aria-expanded", o); });
     document.addEventListener("click", () => { lang.classList.remove("open"); lb.setAttribute("aria-expanded", false); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape") lang.classList.remove("open"); });
-    lang.querySelectorAll("[data-lang]").forEach((a) => a.addEventListener("click", () => { try { localStorage.setItem(KEY, a.dataset.lang); } catch (e) {} }));
 
     // 모바일 메뉴
     const m = document.createElement("div");

@@ -12,25 +12,40 @@
 <link rel="alternate" hreflang="ko" href="ko/">
 <link rel="alternate" hreflang="x-default" href="en/">
 <script>
-  /* 접속한 사람의 언어로 보낸다.
+  /* 접속한 국가로 언어를 정한다.
    * 1) 주소에 ?lang=ja 처럼 적었으면 그 언어
-   * 2) 언어 메뉴에서 직접 고른 적이 있으면 그 언어
-   * 3) 브라우저 언어 설정이 일본어·독일어면 그 언어
-   * 4) 나머지는 영어 */
+   * 2) 접속 국가가 일본이면 일본어, 독일·오스트리아·스위스·리히텐슈타인이면 독일어
+   * 3) 그 밖의 국가는 영어
+   * 국가는 Cloudflare 접속 정보로 알아내고, 안 되면 GeoJS로 한 번 더 묻는다.
+   * 둘 다 1.5초 안에 답이 없으면 브라우저 언어 설정으로 대신 판단한다. */
   (function () {
-    var ok = ["en", "ja", "de", "ko"];
-    var pick = new URLSearchParams(location.search).get("lang");
-    if (ok.indexOf(pick) < 0) { try { pick = localStorage.getItem("cusmos-lang"); } catch (e) { pick = null; } }
-    if (ok.indexOf(pick) < 0) {
-      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
-      pick = "en";
-      for (var i = 0; i < list.length; i++) {
-        var c = String(list[i]).toLowerCase().slice(0, 2);
-        if (c === "ja" || c === "de") { pick = c; break; }
-        if (c === "en") break;
-      }
+    var OK = ["en", "ja", "de", "ko"];
+    var BY_COUNTRY = { JP: "ja", DE: "de", AT: "de", CH: "de", LI: "de" };
+    var done = false;
+    function go(lang) {
+      if (done) return;
+      done = true;
+      location.replace((OK.indexOf(lang) < 0 ? "en" : lang) + "/" + location.hash);
     }
-    location.replace(pick + "/" + location.hash);
+    var pick = new URLSearchParams(location.search).get("lang");
+    if (OK.indexOf(pick) >= 0) return go(pick);
+
+    function byBrowser() {
+      var list = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || "en"];
+      var c = String(list[0]).toLowerCase().slice(0, 2);
+      return c === "ja" || c === "de" ? c : "en";
+    }
+    function ask(url, read) {
+      var ctl = window.AbortController ? new AbortController() : null;
+      var t = setTimeout(function () { if (ctl) ctl.abort(); }, 1500);
+      return fetch(url, { cache: "no-store", signal: ctl && ctl.signal })
+        .then(function (r) { if (!r.ok) throw 0; return r.text(); })
+        .then(function (txt) { clearTimeout(t); var cc = read(txt); if (!cc) throw 0; return cc.toUpperCase(); });
+    }
+    ask("https://www.cloudflare.com/cdn-cgi/trace", function (txt) { var m = txt.match(/^loc=([A-Z]{2})$/m); return m && m[1]; })
+      .catch(function () { return ask("https://get.geojs.io/v1/ip/country.json", function (txt) { return JSON.parse(txt).country; }); })
+      .then(function (cc) { go(BY_COUNTRY[cc] || "en"); })
+      .catch(function () { go(byBrowser()); });
   })();
 </script>
 <style>body{font:16px/1.6 system-ui,sans-serif;display:grid;place-items:center;min-height:100vh;margin:0;color:#23263a}a{color:#5b4dff;margin:0 8px}</style>
