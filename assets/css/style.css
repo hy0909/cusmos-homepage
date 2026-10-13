@@ -79,7 +79,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-header .bar .wrap { display: flex; align-items: center; height: 100%; }
 .site-header .logo { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; width: 180px; }
 .site-header .logo img.sym { width: 30px; height: 30px; }
-.site-header .logo img.word { height: 17px; width: auto; }
+.site-header .logo img.word { height: 21px; width: auto; }
 .gnb { display: flex; height: 100%; margin: 0 auto; }
 .gnb > li { position: relative; width: 150px; height: 100%; }
 .gnb > li > a {
