@@ -92,7 +92,7 @@
         <div class="cols">${NAV.map((n) => `<div><strong>${n.label}</strong><ul>${n.children.slice(0, 4).map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></div>`).join("")}</div>
       </div>
       <div class="bottom">
-        <dl>${[["상호", site.company || "주식회사 커즈모스"], ...info].map((r) => `<div><dt>${r[0]}</dt><dd>${esc(r[1])}</dd></div>`).join("")}</dl>
+        <dl>${[["", site.company || "주식회사 커즈모스"], ...info].map((r) => `<div>${r[0] ? `<dt>${r[0]}</dt>` : ""}<dd>${esc(r[1])}</dd></div>`).join("")}</dl>
         <span>© ${new Date().getFullYear()} CUSMOS. All rights reserved.</span>
       </div></div>`;
   }
