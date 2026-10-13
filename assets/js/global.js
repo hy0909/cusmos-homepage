@@ -104,16 +104,21 @@
 
   // 회사 정보: 관리자 페이지에서 저장한 값(Supabase)을 먼저, 없으면 data/site.json
   let siteCache;
+  // DB 칸이 비어 있으면 data/site.json 값으로 채운다
   async function getSite() {
     if (siteCache) return siteCache;
+    let file = {};
+    try { file = await (await fetch("../data/site.json", { cache: "no-store" })).json(); } catch (e) {}
     const sb = window.CUSMOS_SUPABASE || {};
+    let row = null;
     try {
       if (sb.url && sb.anonKey) {
         const r = await fetch(`${sb.url.replace(/\/$/, "")}/rest/v1/site_settings?select=*`, { headers: { apikey: sb.anonKey } });
-        if (r.ok) { const row = (await r.json())[0]; if (row) return (siteCache = { ...row, bizNo: row.biz_no }); }
+        if (r.ok) { row = (await r.json())[0] || null; if (row) row = { ...row, bizNo: row.biz_no }; }
       }
     } catch (e) { console.warn("Supabase 읽기 실패, JSON 파일로 대체", e); }
-    try { siteCache = await (await fetch("../data/site.json")).json(); } catch (e) { siteCache = {}; }
+    siteCache = { ...file };
+    if (row) for (const [k, v] of Object.entries(row)) if (v !== null && v !== "") siteCache[k] = v;
     return siteCache;
   }
   window.getSite = getSite;

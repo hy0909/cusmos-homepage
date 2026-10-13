@@ -7,7 +7,8 @@
 <meta name="description" content="커즈모스는 시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 사운드 인텔리전스 기업입니다.">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../assets/css/style.css?v=12">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="stylesheet" href="../assets/css/style.css?v=13">
 </head>
 <body data-base="../">
 <header id="site-header"></header>
@@ -123,13 +124,31 @@
         </div>
         <dl class="contact-info reveal" id="loc" style="color:var(--text)"></dl>
       </div>
+      <div class="loc-map reveal" id="map" role="img" aria-label="커즈모스 위치 지도: 강원대학교 춘천캠퍼스"></div>
     </div>
   </section>
 </main>
 <footer id="site-footer"></footer>
 <script src="../assets/js/config.js?v=8"></script>
-<script src="../assets/js/common.js?v=9"></script>
+<script src="../assets/js/common.js?v=10"></script>
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
 <script>
+  // 지도: OpenFreeMap(무료, 키 없음) 밝은 회색 지도를 무채색으로 바꿔 쓴다
+  // 좌표는 주소(강원 춘천시 강원대학길 1, 강원대학교)를 미리 찾아 둔 값이다. 주소가 바뀌면 함께 바꾼다
+  (function () {
+    const box = document.getElementById("map");
+    if (!box || !window.maplibregl) return;
+    const pos = [127.7447, 37.8673];
+    const map = new maplibregl.Map({
+      container: box, style: "https://tiles.openfreemap.org/styles/positron",
+      center: pos, zoom: 15.2, attributionControl: { compact: true }, cooperativeGestures: true,
+    });
+    map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+    const pin = document.createElement("div");
+    pin.className = "loc-pin";
+    new maplibregl.Marker({ element: pin }).setLngLat(pos).addTo(map);
+  })();
+
   getData("site", {}).then((s) => {
     const rows = [["주소", s.address], ["전화", s.phone], ["이메일", s.email]];
     const map = s.address ? ` <a href="https://map.naver.com/p/search/${encodeURIComponent(s.address)}" target="_blank" rel="noopener" style="margin-left:8px;font-size:15px;color:var(--muted);text-decoration:underline;text-underline-offset:3px">지도 보기</a>` : "";

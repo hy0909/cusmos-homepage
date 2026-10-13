@@ -13,6 +13,17 @@
   const ARROW = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"/></svg>';
   window.ARROW = ARROW;
   const BASE = document.body.dataset.base || "";
+  // 언어 메뉴: 같은 페이지가 그 언어에 있으면 그 페이지로, 없으면 메인으로 간다
+  const LANGS = [
+    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html", "careers.html", "culture.html"] },
+    { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+    { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+    { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+  ];
+  const langHref = (l) => {
+    const cur = location.pathname.split("/").pop() || "index.html";
+    return `${BASE}${l.code}/${l.pages.includes(cur) ? cur : "index.html"}`;
+  };
   const page = location.pathname.split("/").pop() || "index.html";
   const pageGroup = { "notice.html": "news.html", "ci.html": "news.html", "culture.html": "careers.html" }[page] || page;
 
@@ -32,10 +43,20 @@
             <div class="sub">${n.children.map((c) => `<a href="${c[1]}">${c[0]}</a>`).join("")}</div></li>`).join("")}
         </ul>
         <div class="util">
+          <div class="lang">
+            <button class="lang-btn" type="button" aria-haspopup="true" aria-expanded="false" aria-label="언어 바꾸기"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.6 3.8 5.6 3.8 9s-1.3 6.4-3.8 9c-2.5-2.6-3.8-5.6-3.8-9S9.5 5.6 12 3z"/></svg><span>KO</span></button>
+            <div class="lang-menu" role="menu">${LANGS.map((l) => `<a role="menuitem" href="${langHref(l)}" hreflang="${l.code}" ${l.code === "ko" ? 'aria-current="true"' : ""}>${l.label}</a>`).join("")}</div>
+          </div>
           <a class="btn btn-ghost btn-sm" href="contact.html">도입 문의</a>
           <button class="menu-btn" aria-label="메뉴 열기"><span></span></button>
         </div>
       </div></div>`;
+
+    // 언어 메뉴
+    const lang = el.querySelector(".lang"), lb = lang.querySelector(".lang-btn");
+    lb.addEventListener("click", (e) => { e.stopPropagation(); const o = lang.classList.toggle("open"); lb.setAttribute("aria-expanded", o); });
+    document.addEventListener("click", () => { lang.classList.remove("open"); lb.setAttribute("aria-expanded", false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") lang.classList.remove("open"); });
 
     const gnb = el.querySelector(".gnb");
     const subs = el.querySelectorAll(".gnb .sub");
@@ -154,6 +175,8 @@
     if (cache[name]) return cache[name];
     try {
       const fromDb = await fromSupabase(name);
+      // 회사 정보는 DB 칸이 비어 있으면 data/site.json 값으로 채운다
+      if (fromDb && name === "site") return (cache[name] = fillBlank(fromDb, await readJson("site")));
       if (fromDb) return (cache[name] = fromDb);
     } catch (e) { console.warn("Supabase 읽기 실패, JSON 파일로 대체", e); }
     try {
@@ -166,6 +189,17 @@
     return cache[name];
   }
   window.getData = getData;
+  async function readJson(name) {
+    try {
+      const r = await fetch(`${document.body.dataset.base || ""}data/${name}.json?t=${Date.now()}`, { cache: "no-store" });
+      return r.ok ? await r.json() : {};
+    } catch (e) { return {}; }
+  }
+  function fillBlank(main, extra) {
+    const o = { ...extra, ...main };
+    for (const k of Object.keys(extra || {})) if (o[k] === undefined || o[k] === null || o[k] === "") o[k] = extra[k];
+    return o;
+  }
 
   function esc(s) { return String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
   window.esc = esc;
