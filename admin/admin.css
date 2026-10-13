@@ -28,7 +28,23 @@ input, select, textarea { font: inherit; color: inherit; }
 .login h1 { font-size: 24px; margin: 0; }
 .login .sub { color: var(--ink-2); margin: 8px 0 28px; line-height: 1.6; }
 .login label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 8px; }
-.login input[type=password], .login input[type=email] { width: 100%; height: 48px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; }
+/* 로그인 입력 칸: 이메일·비밀번호 공통 */
+.login input[type=email], .login input[type=password], .login input[type=text] {
+  display: block; width: 100%; height: 52px; margin: 0; padding: 0 16px;
+  border: 1px solid var(--line); border-radius: 12px; background: #f7f8fb;
+  font: inherit; font-size: 15px; color: var(--ink); line-height: 52px;
+  -webkit-appearance: none; appearance: none; box-shadow: none;
+  transition: border-color .2s, background .2s, box-shadow .2s;
+}
+.login input::placeholder { color: var(--dim); }
+.login input[type=email]:hover, .login input[type=password]:hover { border-color: #c9ccd8; }
+.login input[type=email]:focus, .login input[type=password]:focus {
+  outline: none; background: #fff; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(122, 69, 230, .12);
+}
+/* 브라우저 자동완성 배경색 덮기 */
+.login input:-webkit-autofill { -webkit-box-shadow: 0 0 0 40px #f7f8fb inset; -webkit-text-fill-color: var(--ink); }
+.login input:-webkit-autofill:focus { -webkit-box-shadow: 0 0 0 4px rgba(122, 69, 230, .12), 0 0 0 40px #fff inset; }
+.login .fld + .fld { margin-top: 16px; }
 .login .chk { display: flex; align-items: center; gap: 8px; font-weight: 500; margin: 14px 0 20px; color: var(--ink-2); }
 .login .btn { width: 100%; height: 48px; }
 .err { color: var(--danger); font-size: 14px; min-height: 20px; margin: 12px 0 0; }
