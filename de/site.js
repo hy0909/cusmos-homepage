@@ -46,11 +46,12 @@ window.SITE = {
         ["Standort", "company.html#location"],
       ],
     },
+    { label: "Aktuelles", href: "news.html", children: [["Mitteilungen", "notice.html"], ["Presse", "news.html"], ["CI", "ci.html"]] },
   ],
   cta: { label: "Kontakt", href: "contact.html" },
   tagline: "Akustische Sensorik mit Edge-KI zur Erkennung und Ortung von Geräuschen in Städten und Industrieanlagen.",
   legal: [["Impressum", "impressum.html"], ["Datenschutz", "privacy.html"]],
   // 값이 없는 항목은 global.js가 숨긴다
   companyRows: (s) => [["E-Mail", s.email], ["Tel.", s.phone], ["Anschrift", s.address]],
-  pageGroup: {},
+  pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },
 };

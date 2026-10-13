@@ -6,11 +6,11 @@
 
   // 언어별 실제로 있는 페이지. 언어를 바꿀 때 같은 페이지가 있으면 그대로, 없으면 메인으로 간다
   const LANGS = [
-    { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html"] },
-    { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html"] },
-    { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "impressum.html", "privacy.html"] },
+    { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+    { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+    { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "impressum.html", "privacy.html", "notice.html", "news.html", "ci.html"] },
   ];
-  const OLD = { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html"] };
+  const OLD = { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html"] };
   const KEY = "cusmos-lang";
   const page = location.pathname.split("/").pop() || "index.html";
   const IMG = "../assets/img/";

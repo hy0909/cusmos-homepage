@@ -36,12 +36,13 @@ window.SITE = {
       ["特許・商標", "company.html#patent"],
       ["アクセス", "company.html#access"],
     ] },
+    { label: "掲示板", href: "news.html", children: [["お知らせ", "notice.html"], ["ニュース", "news.html"], ["CI", "ci.html"]] },
   ],
   cta: { label: "資料請求", href: "contact.html#request" },
   tagline: "CUSMOSは、小型のエッジAI音響センサーで都市と産業現場の音の種類と発生場所を特定する、サウンドインテリジェンス企業です。",
   legal: [],
   companyRows: (s) => [["メール", s.email], ["電話", s.phone], ["所在地", s.address]],
-  pageGroup: {},
+  pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },
 };
 
 // 회사 정보(주소·전화·메일)를 data-site 칸에 채운다. 값이 없으면 TBD 표시를 그대로 둔다

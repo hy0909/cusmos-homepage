@@ -1,4 +1,4 @@
-/* 홍보센터·채용 게시판 렌더링 */
+/* 게시판(공지·뉴스·CI)·채용 렌더링 */
 (function () {
   const PER = 10;
   const params = new URLSearchParams(location.search);

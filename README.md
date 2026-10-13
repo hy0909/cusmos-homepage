@@ -14,7 +14,7 @@
 | `en/` | 영어. 기본값 |
 | `ja/` | 일본어 |
 | `de/` | 독일어. 법적으로 필요한 Impressum, Datenschutz 포함 |
-| `ko/` | 개선 전 한국어 원본. 공지·뉴스·CI·채용 게시판은 여기에만 있음 |
+| `ko/` | 개선 전 한국어 원본. 채용은 여기에만 있음 |
 | `compare.html` | 개선 전 한국어와 개선 후 언어별 화면을 나란히 보는 비교 페이지 |
 
 나라마다 메뉴 순서, 메인 섹션 순서, 정보량, 색과 글꼴, 사람 이미지가 다릅니다. 기준과 사이트맵은 [docs/information-architecture.md](docs/information-architecture.md)에, 이미지 자리와 생성 프롬프트는 [docs/image-prompts.md](docs/image-prompts.md)에 있습니다.
@@ -24,7 +24,8 @@
 | `assets/css/global.css` | 세 언어가 같이 쓰는 스타일 |
 | `assets/js/global.js` | 헤더, 푸터, 언어 선택, 모션 |
 | `{언어}/site.js` | 그 언어의 메뉴와 문구 |
-| `{언어}/locale.css` | 그 언어의 색, 글꼴, 섹션 배치 |
+| `{언어}/locale.css` | 그 언어의 글꼴, 정보량, 섹션 배치. 색은 넣지 않음 |
+| `assets/js/board-i18n.js` | 영어·일본어·독일어 게시판(공지·뉴스·CI) |
 | `assets/css/style.css`, `assets/js/common.js` | 한국어 원본 전용 |
 
 ## 관리자 페이지 (Supabase)
@@ -46,6 +47,8 @@
 5. Authentication > URL Configuration의 Redirect URLs에 `https://hy0909.github.io/cusmos-homepage/admin/`을 추가합니다. 비밀번호 재설정 메일 링크가 이 주소로 돌아옵니다.
 
 관리자를 더 늘리려면 2, 3번을 반복합니다.
+
+게시판을 언어별로 쓰려면 `supabase/migrations/20261014000000_board_lang.sql`도 SQL Editor에서 한 번 실행합니다. 실행 전에도 한국어 글은 그대로 쓸 수 있습니다. 다른 언어를 골라 저장하면 이 SQL을 실행하라는 안내가 뜹니다.
 
 ## 처음에 채워야 할 것
 

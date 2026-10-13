@@ -32,10 +32,11 @@ window.SITE = {
       ["History", "company.html#history"],
       ["Patents", "company.html#patents"],
     ] },
+    { label: "Board", href: "news.html", children: [["Notices", "notice.html"], ["News", "news.html"], ["CI", "ci.html"]] },
   ],
   cta: { label: "Book a demo", href: "contact.html" },
   tagline: "Sound intelligence for cities and industrial sites. Edge AI acoustic sensors that identify a sound and locate where it came from.",
   legal: [],
   companyRows: (s) => [["Address", s.address], ["Tel", s.phone], ["Email", s.email]],
-  pageGroup: {},
+  pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },
 };

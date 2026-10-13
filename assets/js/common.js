@@ -5,7 +5,7 @@
     { label: "기술", href: "technology.html", children: [["엣지 AI 음향센서", "technology.html#sensor"], ["마이크 배열 설계", "technology.html#array"], ["현장 분석·선별 전송", "technology.html#edge"], ["소리 맥락 데이터", "technology.html#data"]] },
     { label: "솔루션", href: "solutions.html", children: [["주요 사업 분야", "solutions.html#areas"], ["스마트시티 소음 관측", "solutions.html#city"], ["산업안전 이상음 탐지", "solutions.html#industry"], ["휴대용 초음파 카메라", "solutions.html#ucam"]] },
     { label: "도입 사례", href: "cases.html", children: [["시흥 배곧 이륜차 소음", "cases.html#siheung"], ["한전 태안화력 PoC", "cases.html#kepco"], ["도입 기관", "cases.html#clients"]] },
-    { label: "홍보센터", href: "news.html", children: [["공지사항", "notice.html"], ["뉴스", "news.html"], ["CI", "ci.html"]] },
+    { label: "게시판", href: "news.html", children: [["공지사항", "notice.html"], ["뉴스", "news.html"], ["CI", "ci.html"]] },
     { label: "채용", href: "careers.html", children: [["채용공고", "careers.html"], ["인재상", "culture.html"], ["복리후생", "culture.html#benefits"]] },
   ];
   window.CUSMOS_NAV = NAV;
@@ -136,6 +136,9 @@
     for (const k of Object.keys(o)) if (o[k] === null) delete o[k];
     return o;
   };
+  // 공지·뉴스·CI는 언어별로 따로 쓴다. 언어 칸이 없는 예전 글은 한국어로 본다
+  const LANG_TABLES = ["notices", "news", "ci"];
+  const byLang = (name, rows) => (LANG_TABLES.includes(name) ? rows.filter((r) => (r.lang || "ko") === "ko") : rows);
   async function fromSupabase(name) {
     const sb = window.CUSMOS_SUPABASE || {};
     if (!sb.url || !sb.anonKey || !TABLES[name]) return null;
@@ -145,7 +148,7 @@
     });
     if (!r.ok) throw new Error("supabase " + r.status);
     const rows = (await r.json()).map(fromRow);
-    return name === "site" ? rows[0] || {} : { items: rows };
+    return name === "site" ? rows[0] || {} : { items: byLang(name, rows) };
   }
   async function getData(name, fallback) {
     if (cache[name]) return cache[name];
@@ -157,7 +160,8 @@
       const base = document.body.dataset.base || "";
       const r = await fetch(`${base}data/${name}.json?t=${Date.now()}`, { cache: "no-store" });
       if (!r.ok) throw 0;
-      cache[name] = await r.json();
+      const json = await r.json();
+      cache[name] = json.items ? { ...json, items: byLang(name, json.items) } : json;
     } catch (e) { cache[name] = fallback; }
     return cache[name];
   }

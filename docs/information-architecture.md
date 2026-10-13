@@ -46,12 +46,14 @@
 | 신뢰를 얻는 방법 | 성과 숫자, 대표 사례 하나를 크게 | 도입 기관, 회사 개요표, 연혁, 특허, 자주 묻는 질문 | 측정 기준과 출처, 개인정보 처리 방식, 특허 |
 | 문의 방법 | 데모 요청 하나로 모음 | 자료 요청과 문의를 나눠서, 전화번호도 함께 | 문의 양식과 개인정보 동의 확인 |
 | 사람 이미지 | 여러 인종이 섞인 서양 팀 | 동양인 | 서양인 |
-| 색과 글꼴 | 짙은 남색과 보라 강조, Inter, 큰 제목 | 흰 배경과 남색, Noto Sans JP, 본문 15px 촘촘하게 | 회색과 진한 파랑, 장식 적게, IBM Plex Sans, 모서리 각지게 |
+| 글꼴과 모양 | Inter, 큰 제목 | Noto Sans JP, 본문 15px 촘촘하게 | IBM Plex Sans, 장식 적게, 모서리 각지게 |
 | 법적으로 꼭 필요한 페이지 | 없음 | 없음 | Impressum(회사 표기), Datenschutz(개인정보 처리 방침) |
+
+색은 나라별로 바꾸지 않는다. 한국어 사이트와 CI에 정한 브랜드 컬러(Deep Navy #05060D, Sound Sky #7FA8FF, Signal Violet #A46BFF, Pulse Pink #F45FC8와 그라데이션)를 모든 언어에 그대로 쓴다. 색 값은 `assets/css/global.css` 한 곳에만 있고, 언어별 `locale.css`에는 색을 적지 않는다.
 
 ## 3. 사이트맵
 
-게시판(공지·뉴스·CI·채용)은 관리자 페이지에서 한국어로만 올리기 때문에 한국어 원본에만 둔다.
+게시판(공지·뉴스·CI)은 모든 언어에 있다. 관리자에서 글을 쓸 때 언어를 고르면 그 언어 사이트의 게시판에만 올라간다. CI는 그 언어로 쓴 항목이 없으면 한국어 항목을 보여 준다. 채용은 한국어 원본에만 둔다.
 
 | 페이지 | 파일 | 영어 | 일본어 | 독일어 | 한국어 원본 |
 |---|---|---|---|---|---|
@@ -63,7 +65,8 @@
 | 문의 | `contact.html` | Book a demo | お問い合わせ・資料請求 | Kontakt | 도입 문의 |
 | 회사 표기 | `impressum.html` | | | Impressum | |
 | 개인정보 처리 방침 | `privacy.html` | | | Datenschutz | |
-| 게시판 | `notice.html` 등 | | | | 공지·뉴스·CI·채용 |
+| 게시판 | `notice.html`, `news.html`, `ci.html` | Board | 掲示板 | Aktuelles | 게시판 |
+| 채용 | `careers.html`, `culture.html` | | | | 채용 |
 
 메뉴 순서도 나라마다 다르다.
 
@@ -73,6 +76,7 @@
 | 2 | Technology | 導入事例 | Lösungen |
 | 3 | Case studies | 技術 | Referenzen |
 | 4 | About | 会社情報 | Unternehmen |
+| 5 | Board | 掲示板 | Aktuelles |
 | 오른쪽 버튼 | Book a demo | 資料請求 | Kontakt |
 
 일본어는 도입 사례를 기술보다 앞에 둔다. 일본 기업 담당자는 다른 기관이 이미 쓰고 있는지를 먼저 보기 때문이다. 독일어는 기술을 맨 앞에 둔다. 작동 원리를 납득해야 다음 단계로 넘어가는 경향이 있어서다.

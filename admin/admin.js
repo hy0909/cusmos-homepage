@@ -10,10 +10,15 @@
 
   // ───────── 게시판 정의 ─────────
   const OPEN_CLOSED = [["open", "채용 중"], ["closed", "마감"]];
+  // 공지·뉴스·CI는 언어별로 따로 쓴다. 고른 언어의 사이트 게시판에만 올라간다
+  const LANGS = [["ko", "한국어"], ["en", "English"], ["ja", "日本語"], ["de", "Deutsch"]];
+  const LANG_FIELD = { k: "lang", label: "언어", type: "select", options: LANGS, def: "ko", hint: "고른 언어 사이트의 게시판에만 올라갑니다." };
+  let listLang = "";
   const SCHEMAS = {
     notices: {
-      label: "공지사항", file: "notices", prefix: "n", desc: "사이트의 홍보센터 > 공지사항에 올라갑니다.",
+      label: "공지사항", file: "notices", prefix: "n", desc: "사이트의 게시판 > 공지사항에 올라갑니다.",
       fields: [
+        LANG_FIELD,
         { k: "title", label: "제목", type: "text", req: true },
         { k: "date", label: "게시일", type: "date", req: true, half: true },
         { k: "pinned", label: "목록 맨 위에 고정", type: "check", half: true },
@@ -27,6 +32,7 @@
     news: {
       label: "뉴스", file: "news", prefix: "w", desc: "언론 기사는 링크만 넣어도 되고, 본문을 직접 써도 됩니다.",
       fields: [
+        LANG_FIELD,
         { k: "title", label: "기사 제목", type: "text", req: true },
         { k: "source", label: "언론사", type: "text", half: true, hint: "예: 전자신문" },
         { k: "date", label: "보도일", type: "date", req: true, half: true },
@@ -41,6 +47,7 @@
     ci: {
       label: "CI", file: "ci_items", prefix: "ci", desc: "로고 파일과 브랜드 컬러를 관리합니다. 순서 숫자가 작을수록 앞에 나옵니다.",
       fields: [
+        LANG_FIELD,
         { k: "kind", label: "종류", type: "select", options: [["logo", "로고"], ["color", "컬러"]], def: "logo", half: true },
         { k: "sort_order", label: "순서", type: "number", def: 10, half: true },
         { k: "title", label: "이름", type: "text", req: true },
@@ -115,6 +122,7 @@
     if (!error) return;
     const m = error.message || "";
     if (/row-level security|permission denied|violates row-level/i.test(m)) throw new Error("이 계정에는 저장 권한이 없어요. admins 표에 이메일이 등록돼 있는지 확인해 주세요.");
+    if (/'lang' column|column .*lang/i.test(m)) throw new Error("DB에 언어 칸이 아직 없어요. supabase/migrations/20261014000000_board_lang.sql을 SQL Editor에서 실행해 주세요.");
     if (/JWT|session/i.test(m)) { logout(); throw new Error("로그인이 만료되었어요. 다시 로그인해 주세요."); }
     throw new Error(m || "저장하지 못했어요.");
   }
@@ -126,7 +134,13 @@
     return store[table];
   }
   async function saveItem(s, d) {
-    const { error } = await sb.from(s.file).upsert(toRow(d, s));
+    const row = toRow(d, s);
+    let { error } = await sb.from(s.file).upsert(row);
+    // DB에 언어 칸이 아직 없을 때: 한국어 글은 언어 칸을 빼고 다시 저장한다
+    if (error && /lang/i.test(error.message || "") && (row.lang || "ko") === "ko" && "lang" in row) {
+      delete row.lang;
+      ({ error } = await sb.from(s.file).upsert(row));
+    }
     fail(error);
   }
   async function deleteItem(s, id) {
@@ -222,25 +236,31 @@
 
   function listView(main, k, data) {
     const s = SCHEMAS[k];
+    const hasLang = s.fields.includes(LANG_FIELD);
+    const langName = (v) => (LANGS.find((l) => l[0] === (v || "ko")) || LANGS[0])[1];
     const all = [...(data.items || [])].sort(s.sort || ((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || String(b.date).localeCompare(String(a.date))));
     main.innerHTML = `
       <div class="page-title"><div><h1>${s.label}</h1><p>${s.desc}</p></div><a class="btn primary" href="#${k}/new">+ 새로 쓰기</a></div>
       <div class="panel">
-        <div class="tools"><input type="search" id="q" placeholder="제목으로 찾기"><select id="st"><option value="">전체</option><option value="on">공개</option><option value="off">비공개</option></select></div>
+        <div class="tools"><input type="search" id="q" placeholder="제목으로 찾기">${hasLang ? `<select id="lg"><option value="">모든 언어</option>${LANGS.map((l) => `<option value="${l[0]}" ${l[0] === listLang ? "selected" : ""}>${l[1]}</option>`).join("")}</select>` : ""}<select id="st"><option value="">전체</option><option value="on">공개</option><option value="off">비공개</option></select></div>
         <div id="rows"></div>
       </div>`;
     const draw = () => {
       const q = $("#q").value.trim().toLowerCase(), st = $("#st").value;
-      const rows = all.filter((n) => (!q || String(n.title).toLowerCase().includes(q)) && (!st || (st === "on") === (n.published !== false)));
+      if (hasLang) listLang = $("#lg").value;
+      const rows = all.filter((n) => (!q || String(n.title).toLowerCase().includes(q)) && (!st || (st === "on") === (n.published !== false)) && (!listLang || !hasLang || (n.lang || "ko") === listLang));
+      const head = hasLang ? ["언어", ...s.head] : s.head;
+      const cells = (n) => (hasLang ? [`<span class="pill">${langName(n.lang)}</span>`, ...s.row(n)] : s.row(n));
       $("#rows").innerHTML = rows.length
-        ? `<table class="list"><thead><tr>${s.head.map((h) => `<th>${h}</th>`).join("")}<th></th></tr></thead><tbody>
-          ${rows.map((n) => `<tr data-id="${esc(n.id)}">${s.row(n).map((c) => `<td>${c}</td>`).join("")}<td class="act"><a class="btn sm" href="#${k}/edit/${encodeURIComponent(n.id)}">수정</a><button class="btn sm danger" data-del>삭제</button></td></tr>`).join("")}
+        ? `<table class="list"><thead><tr>${head.map((h) => `<th>${h}</th>`).join("")}<th></th></tr></thead><tbody>
+          ${rows.map((n) => `<tr data-id="${esc(n.id)}">${cells(n).map((c) => `<td>${c}</td>`).join("")}<td class="act"><a class="btn sm" href="#${k}/edit/${encodeURIComponent(n.id)}">수정</a><button class="btn sm danger" data-del>삭제</button></td></tr>`).join("")}
           </tbody></table>`
         : `<p class="empty">${all.length ? "조건에 맞는 글이 없어요." : "아직 올린 글이 없어요. 오른쪽 위 ‘새로 쓰기’를 눌러 시작하세요."}</p>`;
     };
     draw();
     $("#q").addEventListener("input", draw);
     $("#st").addEventListener("change", draw);
+    if (hasLang) $("#lg").addEventListener("change", draw);
     $("#rows").addEventListener("click", async (e) => {
       const tr = e.target.closest("tr[data-id]");
       if (!tr) return;
@@ -306,6 +326,7 @@
     const isNew = !item;
     const d = item ? JSON.parse(JSON.stringify(item)) : {};
     if (isNew) s.fields.forEach((f) => { if (f.def !== undefined) d[f.k] = f.def; if (f.type === "date" && f.req) d[f.k] = today(); });
+    if (isNew && listLang && s.fields.includes(LANG_FIELD)) d.lang = listLang;
     dirty = false;
     main.innerHTML = `
       <div class="page-title"><div><h1>${s.label} ${isNew ? "새로 쓰기" : "수정"}</h1><p>${s.desc}</p></div><a class="btn" href="#${k}">← 목록</a></div>

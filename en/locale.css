@@ -1,12 +1,6 @@
 /* 영어 버전 토큰과 배치. 짙은 남색 배경, 보라 강조, Inter, 큰 제목.
  * 공통 컴포넌트는 global.css를 그대로 쓰고, 여기서는 토큰과 en- 접두사 배치만 바꾼다. */
 :root {
-  --c-ink: #0b0c1a;
-  --c-bg-dark: #0a0b22;
-  --c-on-dark-muted: #b8bcd8;
-  --c-accent: #5b4dff;
-  --c-accent-soft: #eeecff;
-
   --font: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-head: var(--font);
   --fs-body: 18px;
@@ -21,10 +15,9 @@
 /* 첫 화면: 어두운 도시 사진 위에 문구 하나 */
 .en-hero { min-height: min(100svh, 940px); display: flex; align-items: center; }
 .en-hero > .wrap { width: 100%; }
-.en-hero .hero-bg::after { background: linear-gradient(90deg, rgba(10,11,34,.94) 0%, rgba(10,11,34,.74) 48%, rgba(10,11,34,.38) 100%); }
+.en-hero .hero-bg::after { background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.74) 48%, rgba(5,6,13,.38) 100%); }
 .en-hero .t-display { color: #fff; max-width: 13ch; }
 .en-hero .t-lead { max-width: 560px; }
-.hero-dark .eyebrow { color: #b9a8ff; }
 
 /* 숫자 근사 표기 (About 60%) */
 .en-approx { font-size: .42em; font-weight: 600; vertical-align: .9em; margin-right: 4px; letter-spacing: 0; }
@@ -46,8 +39,8 @@
 
 /* 번호 카드 */
 .en-k { font-size: 15px; font-weight: 700; color: var(--c-accent); margin-bottom: 14px; letter-spacing: .06em; }
-.en-dark-media { background: #0b0c18; }
-.en-dark-panel { border-radius: 28px; background: #0b0c18; padding: clamp(28px, 4vw, 56px); }
+.en-dark-media { background: var(--c-bg-dark); }
+.en-dark-panel { border-radius: 28px; background: var(--c-bg-dark); padding: clamp(28px, 4vw, 56px); }
 .en-dark-panel img { width: 100%; height: auto; }
 
 /* 배열 시각 */

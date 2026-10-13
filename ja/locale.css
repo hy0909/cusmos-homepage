@@ -1,21 +1,6 @@
 /* 일본어 버전 토큰과 배치. 공통 컴포넌트는 global.css를 쓰고, 여기서는 토큰과 일본어 전용 배치만 덮어쓴다.
  * 흰 배경, 남색 기본색, 정보가 촘촘한 기업 사이트 느낌. */
 :root {
-  --c-bg: #ffffff;
-  --c-bg-alt: #f3f7fb;
-  --c-bg-dark: #0b2a5b;
-  --c-ink: #0b1f3d;
-  --c-text: #1f2a3c;
-  --c-muted: #55617a;
-  --c-line: #d9e2ee;
-  --c-line-strong: #b5c3d6;
-  --c-accent: #0b2a5b;
-  --c-accent-ink: #ffffff;
-  --c-accent-soft: #e6f1fb;
-  --c-on-dark: #f2f6fc;
-  --c-on-dark-muted: #c3d3e8;
-  --grad: linear-gradient(90deg, #0b2a5b 0%, #2f72b8 100%);
-
   --font: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
   --font-head: var(--font);
   --fs-body: 15px;
@@ -64,7 +49,7 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-sec-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
 
 /* 1. 히어로 (밝은 배경, 왼쪽 문구·오른쪽 사진) */
-.ja-hero { padding: calc(var(--header-h) + 40px) 0 44px; background: linear-gradient(180deg, #f1f7fd 0%, #ffffff 75%); }
+.ja-hero { padding: calc(var(--header-h) + 40px) 0 44px; background: linear-gradient(180deg, var(--c-bg-alt) 0%, #ffffff 75%); }
 .ja-hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
 .ja-hero .eyebrow { margin-bottom: 14px; }
 .ja-hero .t-display { font-size: var(--fs-display); }
@@ -180,7 +165,7 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-bars .row { display: flex; justify-content: space-between; font-size: 14px; gap: 12px; }
 .ja-bars .bar { height: 10px; border-radius: 5px; background: var(--c-bg-alt); margin-top: 8px; overflow: hidden; }
 .ja-bars .bar i { display: block; height: 100%; border-radius: 5px; background: var(--c-accent); }
-.ja-bars .bar.on i { background: #2f72b8; }
+.ja-bars .bar.on i { background: var(--grad); }
 .ja-k { font-size: 26px; font-weight: 700; color: var(--c-accent); margin-top: 22px; }
 .ja-team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .ja-team .card { padding: 16px 18px; }
