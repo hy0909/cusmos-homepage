@@ -6,14 +6,14 @@
     { label: "솔루션", href: "solutions.html", children: [["스마트시티 소음 관측", "solutions.html#city"], ["산업안전 이상음 탐지", "solutions.html#industry"], ["휴대용 초음파 카메라", "solutions.html#ucam"]] },
     { label: "도입 사례", href: "cases.html", children: [["시흥 배곧 이륜차 소음", "cases.html#siheung"], ["한전 태안화력 PoC", "cases.html#kepco"], ["도입 기관", "cases.html#clients"]] },
     { label: "홍보센터", href: "news.html", children: [["공지사항", "notice.html"], ["뉴스", "news.html"], ["CI", "ci.html"]] },
-    { label: "채용", href: "careers.html", children: [["채용공고", "careers.html"], ["인재상", "careers.html#culture"]] },
+    { label: "채용", href: "careers.html", children: [["채용공고", "careers.html"], ["인재상", "culture.html"]] },
   ];
   window.CUSMOS_NAV = NAV;
 
   const ARROW = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 10h12M11 5l5 5-5 5"/></svg>';
   window.ARROW = ARROW;
   const page = location.pathname.split("/").pop() || "index.html";
-  const pageGroup = { "notice.html": "news.html", "ci.html": "news.html" }[page] || page;
+  const pageGroup = { "notice.html": "news.html", "ci.html": "news.html", "culture.html": "careers.html" }[page] || page;
 
   function header() {
     const el = document.getElementById("site-header");
