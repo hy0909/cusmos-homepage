@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>개선 전후 비교 | CUSMOS</title>
+<link rel="icon" href="assets/img/logo-symbol.png">
+<style>
+  /* 개선 전 한국어 원본과 개선 후 언어별 버전을 나란히 보는 화면 */
+  :root { --bg: #f4f5f9; --ink: #0b0c17; --muted: #5b6078; --line: #e2e4ec; --accent: #5b4dff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; height: 100vh; display: flex; flex-direction: column; background: var(--bg); color: var(--ink); font: 15px/1.5 system-ui, -apple-system, sans-serif; }
+  header { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 20px; padding: 12px 16px; background: #fff; border-bottom: 1px solid var(--line); }
+  header strong { font-size: 16px; }
+  .tabs { display: flex; gap: 6px; flex-wrap: wrap; }
+  .tabs button, .tabs select { height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; font: inherit; cursor: pointer; }
+  .tabs button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .spacer { flex: 1; }
+  main { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 12px; min-height: 0; }
+  section { display: flex; flex-direction: column; min-height: 0; background: #fff; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  section h2 { margin: 0; padding: 10px 14px; font-size: 14px; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; }
+  section h2 a { color: var(--accent); font-weight: 500; text-decoration: none; }
+  iframe { flex: 1; width: 100%; border: 0; }
+  @media (max-width: 800px) { main { grid-template-columns: 1fr; grid-template-rows: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<header>
+  <strong>개선 전후 비교</strong>
+  <div class="tabs" id="langs">
+    <button data-lang="en" aria-pressed="true">English</button>
+    <button data-lang="ja" aria-pressed="false">日本語</button>
+    <button data-lang="de" aria-pressed="false">Deutsch</button>
+  </div>
+  <div class="spacer"></div>
+  <div class="tabs">
+    <select id="page" aria-label="페이지">
+      <option value="index.html">메인</option>
+      <option value="solutions.html">솔루션</option>
+      <option value="technology.html">기술</option>
+      <option value="cases.html">도입 사례</option>
+      <option value="company.html">회사 소개</option>
+      <option value="contact.html">문의</option>
+    </select>
+  </div>
+</header>
+<main>
+  <section><h2>개선 전 · 한국어 <a id="open-before" href="ko/" target="_blank">새 창 ↗</a></h2><iframe id="before" title="개선 전 한국어 사이트"></iframe></section>
+  <section><h2><span id="after-label">개선 후 · English</span> <a id="open-after" href="en/" target="_blank">새 창 ↗</a></h2><iframe id="after" title="개선 후 사이트"></iframe></section>
+</main>
+<script>
+  const q = new URLSearchParams(location.search);
+  let lang = ["en", "ja", "de"].includes(q.get("lang")) ? q.get("lang") : "en";
+  const pageSel = document.getElementById("page");
+  if (q.get("page")) pageSel.value = q.get("page");
+  const names = { en: "English", ja: "日本語", de: "Deutsch" };
+  function render() {
+    const p = pageSel.value;
+    document.getElementById("before").src = "ko/" + p;
+    document.getElementById("after").src = lang + "/" + p;
+    document.getElementById("open-before").href = "ko/" + p;
+    document.getElementById("open-after").href = lang + "/" + p;
+    document.getElementById("after-label").textContent = "개선 후 · " + names[lang];
+    document.querySelectorAll("#langs button").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === lang));
+    history.replaceState(null, "", `?lang=${lang}&page=${p}`);
+  }
+  document.querySelectorAll("#langs button").forEach((b) => b.addEventListener("click", () => { lang = b.dataset.lang; render(); }));
+  pageSel.addEventListener("change", render);
+  render();
+</script>
+</body>
+</html>

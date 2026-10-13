@@ -1,0 +1,240 @@
+/* 일본어 버전 토큰과 배치. 공통 컴포넌트는 global.css를 쓰고, 여기서는 토큰과 일본어 전용 배치만 덮어쓴다.
+ * 흰 배경, 남색 기본색, 정보가 촘촘한 기업 사이트 느낌. */
+:root {
+  --c-bg: #ffffff;
+  --c-bg-alt: #f3f7fb;
+  --c-bg-dark: #0b2a5b;
+  --c-ink: #0b1f3d;
+  --c-text: #1f2a3c;
+  --c-muted: #55617a;
+  --c-line: #d9e2ee;
+  --c-line-strong: #b5c3d6;
+  --c-accent: #0b2a5b;
+  --c-accent-ink: #ffffff;
+  --c-accent-soft: #e6f1fb;
+  --c-on-dark: #f2f6fc;
+  --c-on-dark-muted: #c3d3e8;
+  --grad: linear-gradient(90deg, #0b2a5b 0%, #2f72b8 100%);
+
+  --font: "Noto Sans JP", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Yu Gothic", sans-serif;
+  --font-head: var(--font);
+  --fs-body: 15px;
+  --lh-body: 1.8;
+  --fs-display: clamp(28px, 3.4vw, 42px);
+  --fs-h2: clamp(22px, 2.5vw, 30px);
+  --fs-h3: clamp(16px, 1.3vw, 18px);
+  --fs-lead: clamp(14px, 1.2vw, 16px);
+  --fs-small: 13px;
+  --tracking-head: 0.02em;
+
+  --radius: 10px;
+  --radius-sm: 6px;
+  --wrap: 1120px;
+  --sec-pad: clamp(48px, 6vw, 80px);
+  --header-h: 64px;
+}
+
+body.ja { letter-spacing: 0.04em; line-break: strict; word-break: normal; overflow-wrap: break-word; }
+body.ja h1, body.ja h2, body.ja h3, body.ja .t-display, body.ja .t-h2, body.ja .t-h3 { font-feature-settings: "palt"; }
+body.ja .t-lead, body.ja .sec-head p, body.ja .card p, body.ja .note { line-height: 1.7; }
+body.ja .sec-head { margin-bottom: clamp(24px, 3vw, 36px); }
+body.ja .sec-head p { margin-top: 10px; }
+body.ja .gh nav > ul > li > a { font-size: 14px; padding: 8px 12px; }
+body.ja .gh .btn-sm { height: 36px; font-size: 13px; }
+body.ja .sub-nav a { font-size: 14px; padding: 13px 0; }
+body.ja .sub-nav ul { gap: 22px; }
+body.ja .page-hero { padding-top: calc(var(--header-h) + 32px); padding-bottom: 28px; }
+body.ja .page-hero .t-lead { margin-top: 12px; }
+body.ja .crumb { font-size: 12px; margin-bottom: 12px; }
+body.ja .card { padding: clamp(18px, 2vw, 24px); }
+body.ja .sec .card + .card { margin-top: 0; }
+body.ja .table { font-size: 14px; }
+body.ja .table th, body.ja .table td { padding: 10px 14px; }
+body.ja .table tbody th { width: 30%; }
+body.ja .btn { font-size: 15px; height: 44px; }
+body.ja .btn-lg { height: 50px; font-size: 16px; }
+body.ja .stat .num { font-size: clamp(32px, 3.6vw, 48px); }
+body.ja .link-arrow { font-size: 14px; }
+body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px; }
+
+/* 보조 라벨 */
+.ja-label { display: inline-block; font-size: 12px; font-weight: 500; color: var(--c-accent); background: var(--c-accent-soft); padding: 2px 8px; border-radius: 4px; }
+.ja-note { font-size: 13px; color: var(--c-muted); margin-top: 16px; line-height: 1.7; }
+.ja-sub-h { font-size: var(--fs-h3); font-weight: 700; color: var(--c-ink); margin-bottom: 16px; }
+.ja-sec-cta { margin-top: 24px; display: flex; flex-wrap: wrap; gap: 12px 20px; align-items: center; }
+
+/* 1. 히어로 (밝은 배경, 왼쪽 문구·오른쪽 사진) */
+.ja-hero { padding: calc(var(--header-h) + 40px) 0 44px; background: linear-gradient(180deg, #f1f7fd 0%, #ffffff 75%); }
+.ja-hero-grid { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 4vw, 56px); align-items: center; }
+.ja-hero .eyebrow { margin-bottom: 14px; }
+.ja-hero .t-display { font-size: var(--fs-display); }
+.ja-hero .t-lead { margin-top: 18px; max-width: 600px; }
+.ja-hero .btn-row { margin-top: 28px; }
+.ja-hero-badges { margin-top: 28px; padding-top: 22px; border-top: 1px solid var(--c-line); }
+.ja-hero-badges > span { display: block; font-size: 12px; font-weight: 700; color: var(--c-muted); margin-bottom: 10px; }
+.ja-badges { display: flex; flex-wrap: wrap; gap: 8px; }
+.ja-badges li { display: inline-flex; align-items: center; min-height: 34px; padding: 4px 14px; border: 1px solid var(--c-line-strong); border-radius: 999px; font-size: 14px; font-weight: 500; color: var(--c-ink); background: #fff; }
+.ja-badges li b { color: var(--c-accent); font-weight: 700; margin-right: 4px; }
+.ja-hero-img { aspect-ratio: 4 / 3.4; border-radius: 14px; }
+
+/* 2. 바로가기 타일 */
+.ja-tiles { padding: 28px 0 0; }
+.ja-tiles .grid + .grid { margin-top: 14px; }
+.ja-tile { display: flex; flex-direction: column; gap: 6px; padding: 18px 20px; transition: border-color .2s, transform .2s var(--ease); }
+.ja-tile:hover { border-color: var(--c-accent); transform: translateY(-2px); }
+.ja-tile strong { font-size: 15px; font-weight: 700; color: var(--c-ink); }
+.ja-tile span { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+.ja-tile .link-arrow { margin-top: auto; padding-top: 6px; font-size: 13px; }
+.ja-tile-wide { flex-direction: row; align-items: center; justify-content: space-between; gap: 20px; }
+.ja-tile-wide > div { display: flex; flex-direction: column; gap: 4px; }
+
+/* 3. お知らせ 목록 */
+.news-list li { display: grid; grid-template-columns: 84px 96px minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 4px; border-bottom: 1px solid var(--c-line); font-size: 14px; }
+.news-list li:first-child { border-top: 1px solid var(--c-line); }
+.news-list time { color: var(--c-muted); font-variant-numeric: tabular-nums; }
+.news-list .ja-label { justify-self: start; }
+.news-list a { color: var(--c-ink); font-weight: 500; line-height: 1.6; }
+.news-list a:hover { color: var(--c-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* 4. 課題 */
+.ja-issue-stats .stat { background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 22px 22px 20px; }
+.ja-issue-stats .stat .label { font-size: 15px; line-height: 1.6; }
+.ja-issue-stats .stat .num small { font-size: .42em; }
+.ja-src-note { margin-top: 22px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+
+/* 5. 導入の流れ (4단계) */
+.ja-steps { counter-reset: step; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.ja-steps li { position: relative; background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 18px 18px 18px; }
+.ja-steps .no { display: inline-block; font-size: 12px; font-weight: 700; letter-spacing: .08em; color: var(--c-accent); margin-bottom: 8px; }
+.ja-steps strong { display: block; font-size: 15px; color: var(--c-ink); margin-bottom: 6px; }
+.ja-steps p { font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+.ja-steps li + li::before { content: "→"; position: absolute; left: -11px; top: 50%; transform: translateY(-50%); color: var(--c-accent); font-size: 14px; background: #fff; line-height: 1; }
+.ja-steps-wrap { margin-top: 44px; }
+@media (max-width: 960px) { .ja-steps { grid-template-columns: repeat(2, minmax(0, 1fr)); } .ja-steps li + li::before { display: none; } }
+@media (max-width: 600px) { .ja-steps { grid-template-columns: 1fr; } }
+
+/* 6. 導入事例 카드 */
+.ja-case { display: flex; flex-direction: column; gap: 12px; }
+.ja-case .media { margin-bottom: 6px; aspect-ratio: 16 / 9; }
+.ja-case h3 { font-size: var(--fs-h3); font-weight: 700; color: var(--c-ink); line-height: 1.5; }
+.ja-case p { color: var(--c-muted); font-size: 14px; }
+.ja-kpis { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 8px; }
+.ja-kpis div { background: var(--c-bg-alt); border-radius: var(--radius-sm); padding: 14px 14px 12px; }
+.ja-kpis b { display: block; font-size: 28px; line-height: 1.1; color: var(--c-accent); font-weight: 700; letter-spacing: -0.01em; }
+.ja-kpis span { display: block; margin-top: 6px; font-size: 13px; font-weight: 700; color: var(--c-ink); line-height: 1.5; }
+.ja-kpis small { display: block; margin-top: 4px; font-size: 12px; color: var(--c-muted); line-height: 1.5; }
+.ja-case .link-arrow { margin-top: auto; }
+
+/* 7. 技術・特許 */
+.ja-tech .card h3 { font-size: 16px; font-weight: 700; }
+.ja-tech .card p { font-size: 14px; }
+.ja-patent-wrap { margin-top: 44px; }
+.ja-patent-table th, .ja-patent-table td { font-size: 14px; }
+.ja-patent-table td:nth-child(3) { font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+/* 8. 会社概要 + 沿革 */
+.ja-split-info { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.ja-split-info h3 { margin-bottom: 14px; }
+.ja-timeline { display: grid; gap: 0; border-left: 2px solid var(--c-line); margin-left: 6px; }
+.ja-timeline li { position: relative; padding: 0 0 20px 22px; }
+.ja-timeline li::before { content: ""; position: absolute; left: -7px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--c-accent); box-shadow: 0 0 0 3px #fff; }
+.ja-timeline .when { font-size: 13px; font-weight: 700; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.ja-timeline .what { margin-top: 2px; font-size: 15px; font-weight: 500; color: var(--c-ink); line-height: 1.6; }
+.ja-timeline .desc { margin-top: 2px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+.ja-timeline li:last-child { padding-bottom: 0; }
+@media (max-width: 960px) { .ja-split-info { grid-template-columns: 1fr; } }
+
+/* 9. FAQ */
+.ja-faq { border-top: 1px solid var(--c-line); }
+.ja-faq details { border-bottom: 1px solid var(--c-line); }
+.ja-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 16px 4px; font-size: 15px; font-weight: 700; color: var(--c-ink); line-height: 1.6; }
+.ja-faq summary::-webkit-details-marker { display: none; }
+.ja-faq summary::after { content: "+"; flex: none; font-size: 20px; line-height: 1; color: var(--c-accent); }
+.ja-faq details[open] summary::after { content: "−"; }
+.ja-faq .ans { padding: 0 4px 18px; font-size: 14px; color: var(--c-text); line-height: 1.8; }
+.ja-faq .ans p + p { margin-top: 8px; }
+.ja-faq-wrap { max-width: 880px; }
+
+/* 10. 문의 띠 */
+.ja-cta .cta-band { padding: clamp(32px, 4.5vw, 56px); }
+.ja-cta .cta-band .tbd { color: var(--c-on-dark-muted); }
+.ja-cta .cta-band p { font-size: 14px; }
+.ja-cta .cta-band .t-h2 { font-size: clamp(20px, 2.4vw, 28px); }
+.ja-cta-phone { font-size: 14px; }
+.ja-cta .btn-row { gap: 10px; }
+
+/* 서브 페이지 공통 */
+.ja-sec-mini { padding: clamp(36px, 4.5vw, 60px) 0; }
+.ja-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
+.ja-two .media { aspect-ratio: 4 / 3; }
+.ja-table-h { font-size: var(--fs-h3); font-weight: 700; color: var(--c-ink); margin: 0 0 12px; }
+.ja-block + .ja-block { margin-top: 40px; }
+.ja-result-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ja-result-grid .result { background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius); padding: 18px; }
+.ja-result-grid .num { font-size: 30px; font-weight: 700; line-height: 1.1; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.ja-result-grid .num small { font-size: 14px; margin-left: 2px; }
+.ja-result-grid .what { margin-top: 10px; font-size: 14px; font-weight: 700; color: var(--c-ink); line-height: 1.5; }
+.ja-result-grid .where { margin-top: 6px; font-size: 12px; color: var(--c-muted); line-height: 1.6; }
+.ja-cond { margin-top: 12px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+.ja-bars > div + div { margin-top: 16px; }
+.ja-bars .row { display: flex; justify-content: space-between; font-size: 14px; gap: 12px; }
+.ja-bars .bar { height: 10px; border-radius: 5px; background: var(--c-bg-alt); margin-top: 8px; overflow: hidden; }
+.ja-bars .bar i { display: block; height: 100%; border-radius: 5px; background: var(--c-accent); }
+.ja-bars .bar.on i { background: #2f72b8; }
+.ja-k { font-size: 26px; font-weight: 700; color: var(--c-accent); margin-top: 22px; }
+.ja-team { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ja-team .card { padding: 16px 18px; }
+.ja-team .role { display: inline-block; font-size: 12px; font-weight: 700; color: var(--c-accent); background: var(--c-accent-soft); padding: 2px 8px; border-radius: 4px; }
+.ja-team strong { display: block; margin-top: 8px; font-size: 14px; color: var(--c-ink); line-height: 1.5; }
+.ja-team p { margin-top: 4px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+.ja-vision { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.ja-vision .card h3 { font-size: 16px; font-weight: 700; }
+.ja-vision .k { font-size: 12px; font-weight: 700; color: var(--c-accent); letter-spacing: .08em; }
+.ja-flow-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.ja-flow-list .card { padding: 16px 18px; }
+.ja-flow-list .k { font-size: 12px; font-weight: 700; color: var(--c-accent); }
+.ja-flow-list h3 { margin-top: 6px; font-size: 15px; font-weight: 700; color: var(--c-ink); }
+.ja-flow-list p { margin-top: 6px; font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+.ja-steps-v { display: grid; gap: 10px; }
+.ja-steps-v li { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; background: #fff; border: 1px solid var(--c-line); border-radius: var(--radius-sm); padding: 12px 14px; }
+.ja-steps-v .no { font-size: 13px; font-weight: 700; color: var(--c-accent); }
+.ja-steps-v strong { font-size: 14px; color: var(--c-ink); }
+.ja-steps-v p { font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* 문의 양식 */
+.ja-form-wrap { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.ja-form-block + .ja-form-block { margin-top: 56px; }
+.ja-form-side { position: sticky; top: calc(var(--header-h) + 20px); }
+.ja-form-side dl { display: grid; gap: 14px; }
+.ja-form-side dt { font-size: 12px; font-weight: 700; color: var(--c-muted); }
+.ja-form-side dd { margin: 2px 0 0; font-size: 14px; color: var(--c-ink); line-height: 1.6; }
+.form { gap: 14px 16px; }
+.form label { font-size: 13px; margin-bottom: 6px; }
+.form input, .form select, .form textarea { height: 44px; font-size: 15px; }
+.form textarea { height: 140px; }
+.form .check { font-size: 13px; font-weight: 400; color: var(--c-text); margin-bottom: 0; line-height: 1.6; }
+.form .check input { width: 16px; height: 16px; }
+.form .btn { font-size: 15px; }
+.form .sub-note { font-size: 12px; color: var(--c-muted); line-height: 1.6; }
+.ja-req-note { font-size: 12px; color: var(--c-muted); margin-bottom: 14px; }
+@media (max-width: 960px) {
+  .ja-hero-grid, .ja-two, .ja-form-wrap { grid-template-columns: 1fr; }
+  .ja-form-side { position: static; }
+  .ja-result-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ja-team { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ja-vision, .ja-flow-list { grid-template-columns: 1fr; }
+  .ja-flow-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+  .ja-tile-wide { flex-direction: column; align-items: flex-start; }
+  .news-list li { grid-template-columns: 1fr; gap: 6px; }
+  .news-list li:first-child { border-top: 1px solid var(--c-line); }
+  .ja-kpis { grid-template-columns: 1fr; }
+  .ja-result-grid, .ja-team, .ja-flow-list { grid-template-columns: 1fr; }
+  .ja-hero { padding-bottom: 32px; }
+  .ja-hero-img { aspect-ratio: 4 / 3; }
+  .ja-cta .cta-band { padding: 28px 22px; }
+  .ja-cta .btn { width: 100%; }
+  .ja-cta .btn-row { width: 100%; }
+  .ja-badges li { font-size: 13px; }
+}

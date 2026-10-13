@@ -5,18 +5,27 @@
 - 사이트: https://hy0909.github.io/cusmos-homepage/
 - 관리자: https://hy0909.github.io/cusmos-homepage/admin/
 
-## 페이지 구성
+## 언어별 사이트
 
-| 메뉴 | 파일 | 내용 |
-|---|---|---|
-| 메인 | `index.html` | 히어로, 문제 제기, 작동 방식, 제품, 솔루션, 실증 성과, 최신 소식 |
-| 회사소개 | `company.html` | 비전, 팀, 연혁, 특허, 오시는 길 |
-| 기술 | `technology.html` | 엣지 AI 음향센서, 마이크 배열, 선별 전송, 맥락 데이터 |
-| 솔루션 | `solutions.html` | 스마트시티 소음 관측, 산업안전 이상음 탐지, 휴대용 초음파 카메라 |
-| 도입 사례 | `cases.html` | 시흥 배곧 실증, 한전 태안화력 PoC, 도입 기관 |
-| 홍보센터 | `notice.html`, `news.html`, `ci.html` | 관리자 페이지에서 올린 글이 자동으로 보임 |
-| 채용 | `careers.html` | 채용공고 목록과 상세, 인재상 |
-| 도입 문의 | `contact.html` | 문의 내용을 메일로 보내는 양식 |
+첫 주소(`/`)로 들어오면 브라우저 언어를 보고 해당 언어 폴더로 보냅니다. 일본어면 `/ja/`, 독일어면 `/de/`, 나머지는 `/en/`입니다. 헤더 언어 메뉴에서 고른 언어는 기억해 두었다가 다음 방문 때 그대로 엽니다.
+
+| 폴더 | 내용 |
+|---|---|
+| `en/` | 영어. 기본값 |
+| `ja/` | 일본어 |
+| `de/` | 독일어. 법적으로 필요한 Impressum, Datenschutz 포함 |
+| `ko/` | 개선 전 한국어 원본. 공지·뉴스·CI·채용 게시판은 여기에만 있음 |
+| `compare.html` | 개선 전 한국어와 개선 후 언어별 화면을 나란히 보는 비교 페이지 |
+
+나라마다 메뉴 순서, 메인 섹션 순서, 정보량, 색과 글꼴, 사람 이미지가 다릅니다. 기준과 사이트맵은 [docs/information-architecture.md](docs/information-architecture.md)에, 이미지 자리와 생성 프롬프트는 [docs/image-prompts.md](docs/image-prompts.md)에 있습니다.
+
+| 파일 | 역할 |
+|---|---|
+| `assets/css/global.css` | 세 언어가 같이 쓰는 스타일 |
+| `assets/js/global.js` | 헤더, 푸터, 언어 선택, 모션 |
+| `{언어}/site.js` | 그 언어의 메뉴와 문구 |
+| `{언어}/locale.css` | 그 언어의 색, 글꼴, 섹션 배치 |
+| `assets/css/style.css`, `assets/js/common.js` | 한국어 원본 전용 |
 
 ## 관리자 페이지 (Supabase)
 
@@ -41,7 +50,8 @@
 ## 처음에 채워야 할 것
 
 - 관리자 > 회사 정보: 문의 이메일, 전화, 주소, 사업자등록번호. 문의 이메일이 비어 있으면 도입 문의 양식이 동작하지 않습니다.
-- 회사소개 > 연혁: IR 자료에 날짜가 있는 항목만 넣었습니다. 설립일과 한전 PoC 시기를 확인해 `company.html`에 추가해 주세요.
+- 회사소개 > 연혁: IR 자료에 날짜가 있는 항목만 넣었습니다. 설립일과 한전 PoC 시기를 확인해 각 언어의 `company.html`에 추가해 주세요.
+- 다국어 버전에서 `TBD`로 표시한 항목: [docs/information-architecture.md](docs/information-architecture.md) 7장 목록을 봐 주세요.
 - 브랜드 컬러: 홈페이지에 쓴 색을 넣어 두었습니다. 공식 CI 색상 값이 따로 있으면 관리자 > CI에서 바꿔 주세요.
 
 ## 로컬에서 보기
@@ -50,4 +60,4 @@
 python3 -m http.server 4173
 ```
 
-브라우저에서 http://localhost:4173 을 엽니다.
+브라우저에서 http://localhost:4173 을 엽니다. 특정 언어로 보려면 http://localhost:4173/?lang=ja 처럼 엽니다.
