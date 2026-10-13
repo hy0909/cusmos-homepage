@@ -364,8 +364,7 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 .search input { height: 48px; width: 300px; max-width: 100%; border-radius: 999px; border: 1px solid var(--ink-line); background: #fff; padding: 0 48px 0 22px; font: inherit; font-size: 15px; }
 .search svg { position: absolute; right: 18px; top: 14px; width: 20px; height: 20px; stroke: var(--ink-2); }
 .board { border-top: 2px solid var(--ink); }
-.board li a { display: grid; grid-template-columns: 80px 1fr 140px; align-items: center; gap: 16px; padding: 28px 8px; border-bottom: 1px solid var(--ink-line); transition: background .2s; }
-.board li a:hover { background: #fff; }
+.board li a { display: grid; grid-template-columns: 80px 1fr 140px; align-items: center; gap: 16px; padding: 28px 8px; border-bottom: 1px solid var(--ink-line); background: #fff; }
 .board .no { color: var(--ink-2); font-size: 15px; text-align: center; }
 .board .t { font-size: 18px; font-weight: 600; }
 .board .d { color: var(--ink-2); font-size: 15px; text-align: right; font-variant-numeric: tabular-nums; }
