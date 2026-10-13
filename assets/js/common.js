@@ -24,7 +24,7 @@
       <div class="gnb-line"></div>
       <div class="bar"><div class="wrap">
         <a class="logo" href="index.html" aria-label="CUSMOS 홈">
-          <img class="sym" src="assets/img/logo-symbol.png" alt=""><img class="word" src="assets/img/logo-wordmark.png" alt="CUSMOS">
+          <img class="word" src="assets/img/logo-wordmark.png" alt="CUSMOS">
         </a>
         <ul class="gnb">
           ${NAV.map((n) => `<li class="${n.href === pageGroup ? "current" : ""}"><a href="${n.href}">${n.label}</a>

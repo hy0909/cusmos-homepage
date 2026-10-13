@@ -79,7 +79,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .site-header .bar .wrap { display: flex; align-items: center; height: 100%; }
 .site-header .logo { display: flex; align-items: center; gap: 10px; flex: 0 0 auto; width: 180px; }
 .site-header .logo img.sym { width: 30px; height: 30px; }
-.site-header .logo img.word { height: 15px; width: auto; }
+.site-header .logo img.word { height: 17px; width: auto; }
 .gnb { display: flex; height: 100%; margin: 0 auto; }
 .gnb > li { position: relative; width: 150px; height: 100%; }
 .gnb > li > a {
@@ -272,7 +272,7 @@ section { position: relative; }
 .post-card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
 .post-card:hover .thumb img { transform: scale(1.05); }
 .post-card .thumb .ph { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #e9ecff, #fbe8f6); }
-.post-card .thumb .ph img { width: 64px; height: 64px; object-fit: contain; opacity: .5; filter: invert(1); }
+.post-card .thumb .ph img { width: 120px; height: auto; opacity: .35; filter: invert(1); }
 .post-card .meta { font-size: 14px; color: var(--ink-2); display: flex; gap: 10px; }
 .post-card h3 { font-size: 21px; font-weight: 700; line-height: 1.45; letter-spacing: -0.02em; }
 .post-card:hover h3 { text-decoration: underline; text-underline-offset: 4px; }

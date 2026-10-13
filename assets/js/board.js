@@ -63,7 +63,7 @@
     list(box, items, (n) => {
       const ext = n.link && !n.body;
       return `<a class="post-card" href="${ext ? esc(safeUrl(n.link)) : "news.html?id=" + esc(n.id)}" ${ext ? 'target="_blank" rel="noopener"' : ""}>
-        <div class="thumb">${n.thumbnail ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : '<div class="ph"><img src="assets/img/logo-symbol.png" alt=""></div>'}</div>
+        <div class="thumb">${n.thumbnail ? `<img src="${esc(n.thumbnail)}" alt="" loading="lazy">` : '<div class="ph"><img src="assets/img/logo-wordmark.png" alt=""></div>'}</div>
         <div class="meta"><span>${esc(n.source || "커즈모스")}</span><span>${fmtDate(n.date)}</span></div>
         <h3>${esc(n.title)}</h3></a>`;
     }, "post-grid");
