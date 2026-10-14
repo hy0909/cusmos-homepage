@@ -92,3 +92,6 @@
 
 /* 하단 문의 박스: 일본어판과 같은 안쪽 여백 */
 .cta-band { padding: clamp(32px, 4.5vw, 56px); }
+
+/* 푸터 로고: 일본어·독일어판과 같은 45px (공통 18px의 2.5배) */
+.gf .brand img { height: 45px; }
