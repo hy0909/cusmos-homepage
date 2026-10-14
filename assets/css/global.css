@@ -328,10 +328,10 @@ body[data-hero="dark"] .gh:not(.scrolled):not(.menu-open) .lang-btn { border-col
 .b-ci-item .pv.dark { background: var(--c-bg-dark); }
 .b-ci-item .pv.light { background: var(--c-bg-alt); }
 .b-ci-item .pv img { max-height: 100%; width: auto; }
-.b-ci-item .info { padding: 18px 20px; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; }
+.b-ci-item .info { padding: 18px 20px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }
 .b-ci-item h3 { font-size: 16px; font-weight: 700; color: var(--c-ink); }
 .b-ci-item p { font-size: 14px; color: var(--c-muted); margin-top: 2px; }
-.b-ci-item .dl { display: flex; flex-wrap: wrap; gap: 6px; }
+.b-ci-item .dl { display: flex; flex-shrink: 0; flex-wrap: wrap; gap: 6px; }
 .b-ci-item .dl a { font-size: 13px; font-weight: 600; padding: 6px 10px; border: 1px solid var(--c-line); border-radius: 999px; color: var(--c-ink); }
 .b-colors { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; }
 .b-color .sw { aspect-ratio: 4 / 3; border-radius: 14px; border: 1px solid var(--c-line); margin-bottom: 12px; }
