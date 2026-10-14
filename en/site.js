@@ -7,7 +7,6 @@ window.SITE = {
     language: "Change language",
     menu: "Open menu",
     overview: "Overview",
-    original: "original (before redesign)",
   },
   nav: [
     { label: "Solutions", href: "solutions.html", children: [

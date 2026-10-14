@@ -8,7 +8,6 @@ window.SITE = {
     language: "言語を変更",
     menu: "メニューを開く",
     overview: "概要",
-    original: "リニューアル前",
   },
   // 메뉴 순서는 docs/information-architecture.md 3번 기준: ソリューション → 導入事例 → 技術 → 会社情報
   nav: [

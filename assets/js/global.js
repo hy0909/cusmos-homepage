@@ -6,11 +6,11 @@
 
   // 언어별 실제로 있는 페이지. 언어를 바꿀 때 같은 페이지가 있으면 그대로, 없으면 메인으로 간다
   const LANGS = [
+    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html"] },
     { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
     { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
     { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "impressum.html", "privacy.html", "notice.html", "news.html", "ci.html"] },
   ];
-  const OLD = { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html"] };
   const page = location.pathname.split("/").pop() || "index.html";
   const IMG = "../assets/img/";
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
@@ -44,8 +44,6 @@
           <button class="lang-btn" aria-haspopup="true" aria-expanded="false" aria-label="${esc(S.labels.language)}">${ICON.globe}<span>${S.lang.toUpperCase()}</span></button>
           <div class="lang-menu" role="menu">
             ${LANGS.map((l) => `<a role="menuitem" href="${langHref(l)}" data-lang="${l.code}" hreflang="${l.code}" ${l.code === S.lang ? 'aria-current="true"' : ""}>${l.label}</a>`).join("")}
-            <div class="sep"></div>
-            <a role="menuitem" class="old" href="${langHref(OLD)}" hreflang="ko">${OLD.label} · ${esc(S.labels.original)}</a>
           </div>
         </div>
         <a class="btn btn-primary btn-sm cta" href="${S.cta.href}">${esc(S.cta.label)}</a>

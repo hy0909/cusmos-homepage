@@ -7,7 +7,6 @@ window.SITE = {
     language: "Sprache wechseln",
     menu: "Menü öffnen",
     overview: "Übersicht",
-    original: "Original (vor der Überarbeitung)",
   },
   // 메뉴 순서: 기술 → 솔루션 → 레퍼런스 → 회사 (IA 문서 3장)
   nav: [
