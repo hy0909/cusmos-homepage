@@ -164,7 +164,7 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .crumb a:hover { color: var(--c-ink); }
 .sub-nav { position: sticky; top: var(--header-h); z-index: 20; background: rgba(255,255,255,.92); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c-line); transition: top .3s var(--ease); }
 body.header-hidden .sub-nav { top: 0; }
-.sub-nav ul { display: flex; gap: 28px; overflow-x: auto; scrollbar-width: none; }
+.sub-nav ul { display: flex; gap: 28px; overflow-x: auto; scrollbar-width: none; margin-bottom: -1px; } /* 선택된 탭의 검정 선이 회색 선 위에 겹치도록 1px 내린다 */
 .sub-nav a { display: block; padding: 16px 0; font-size: 15px; font-weight: 500; color: var(--c-muted); white-space: nowrap; border-bottom: 2px solid transparent; }
 .sub-nav a:hover, .sub-nav a.on { color: var(--c-ink); border-color: var(--c-ink); }
 
