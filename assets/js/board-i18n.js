@@ -7,6 +7,13 @@
     ja: { total: (n) => `全${n}件`, search: "キーワード検索", empty: "まだ投稿はありません。", noResult: "該当する投稿はありません。", notFound: "投稿が見つかりません。", back: "一覧に戻る", files: "添付ファイル", original: "元の記事を読む", pinned: "重要", source: "CUSMOS", logo: "ロゴ", logoLead: "ロゴの比率や色は変更せずにご使用ください。", colors: "ブランドカラー", soon: "準備中です。" },
     de: { total: (n) => `${n} ${n === 1 ? "Beitrag" : "Beiträge"}`, search: "Suchen", empty: "Noch keine Beiträge.", noResult: "Keine Treffer.", notFound: "Beitrag nicht gefunden.", back: "Zur Übersicht", files: "Anhänge", original: "Originalartikel lesen", pinned: "Angeheftet", source: "CUSMOS", logo: "Logo", logoLead: "Bitte verwenden Sie das Logo unverändert in Proportion und Farbe.", colors: "Markenfarben", soon: "In Vorbereitung." },
   }[S.lang];
+  // 한국어 CI 항목을 대신 보여 줄 때 쓰는 이름·설명 번역 (id 기준)
+  const HANGUL = /[ㄱ-ㆎ가-힣]/;
+  const CI_TEXT = {
+    en: { "ci-wordmark-white": ["Wordmark (white)", "For dark backgrounds"], "ci-wordmark-black": ["Wordmark (black)", "For light backgrounds"], "ci-symbol": ["Symbol", "For favicons and profile images"], "ci-c-navy": ["", "Background"], "ci-c-sky": ["", "Gradient start"], "ci-c-violet": ["", "Gradient middle"], "ci-c-pink": ["", "Accent"] },
+    ja: { "ci-wordmark-white": ["ワードマーク（白）", "暗い背景に使用"], "ci-wordmark-black": ["ワードマーク（黒）", "明るい背景に使用"], "ci-symbol": ["シンボル", "ファビコン・プロフィール画像に使用"], "ci-c-navy": ["", "背景"], "ci-c-sky": ["", "グラデーションの始点"], "ci-c-violet": ["", "グラデーションの中間"], "ci-c-pink": ["", "アクセントカラー"] },
+    de: { "ci-wordmark-white": ["Wortmarke (weiß)", "Für dunkle Hintergründe"], "ci-wordmark-black": ["Wortmarke (schwarz)", "Für helle Hintergründe"], "ci-symbol": ["Symbol", "Für Favicons und Profilbilder"], "ci-c-navy": ["", "Hintergrund"], "ci-c-sky": ["", "Verlaufsbeginn"], "ci-c-violet": ["", "Verlaufsmitte"], "ci-c-pink": ["", "Akzentfarbe"] },
+  };
   const PER = 10;
   const params = new URLSearchParams(location.search);
   const id = params.get("id");
@@ -63,7 +70,11 @@
     rows = rows.map((r) => ({ ...r, order: r.order ?? r.sort_order, desc: r.desc ?? r.description })).filter((r) => r.published !== false);
     let mine = rows.filter((r) => (r.lang || "ko") === S.lang);
     // CI는 로고 파일이 언어와 상관없어서, 그 언어로 쓴 항목이 없으면 한국어 항목을 보여 준다
-    if (!mine.length && fallbackKo) mine = rows.filter((r) => (r.lang || "ko") === "ko");
+    // 이때 한국어 이름·설명은 위 CI_TEXT 번역으로 바꾸고, 번역이 없는 한국어 글은 지운다
+    if (!mine.length && fallbackKo) mine = rows.filter((r) => (r.lang || "ko") === "ko").map((r) => {
+      const t = (CI_TEXT[S.lang] || {})[r.id] || [];
+      return { ...r, title: t[0] || (HANGUL.test(r.title) ? "" : r.title), desc: t[1] || (HANGUL.test(r.desc) ? "" : r.desc) };
+    });
     return mine
       .sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0) || String(b.date).localeCompare(String(a.date)));
   }

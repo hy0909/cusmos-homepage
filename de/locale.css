@@ -30,6 +30,8 @@
 /* 구조선: 섹션 사이에 얇은 선으로 격자를 드러낸다 */
 main > .sec { border-top: 1px solid var(--c-line); }
 main > .sec:first-of-type { border-top: 0; }
+/* 문의 박스 섹션은 박스 위에 선이 붙어 보이지 않게 구분선을 뺀다 */
+main > .sec:has(> .wrap > .cta-band) { border-top: 0; }
 
 /* 히어로: 차분한 어두운 오버레이 */
 .hero-dark .hero-bg::after { background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.8) 50%, rgba(5,6,13,.55) 100%); }

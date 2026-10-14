@@ -34,7 +34,7 @@
         <section>
           <h2>1. Verantwortlicher</h2>
           <p>Verantwortlich für die Datenverarbeitung auf dieser Website ist:</p>
-          <p style="margin-top:12px"><span id="ctl">주식회사 커즈모스 (CUSMOS Inc.)</span>, E-Mail: <span class="tbd" id="ctl-mail">[TBD]</span>, Anschrift: <span class="tbd" id="ctl-addr">[TBD]</span></p>
+          <p style="margin-top:12px"><span id="ctl">CUSMOS Inc.</span>, E-Mail: <span class="tbd" id="ctl-mail">[TBD]</span>, Anschrift: <span class="tbd" id="ctl-addr">[TBD]</span></p>
           <p>Datenschutzbeauftragte Person: <span class="tbd">[TBD: nur angeben, wenn benannt]</span></p>
           <p>Vertreter in der EU nach Art. 27 DSGVO: <span class="tbd">[TBD: prüfen, ob erforderlich]</span></p>
         </section>
@@ -97,7 +97,6 @@
 <script>
   // 연락처는 회사 정보에서 채운다. 값이 없으면 TBD 유지
   getSite().then((s) => {
-    if (s.company) document.getElementById("ctl").textContent = `${s.company} (CUSMOS Inc.)`;
     if (s.email) document.getElementById("ctl-mail").textContent = s.email;
     if (s.address) document.getElementById("ctl-addr").textContent = s.address;
   });

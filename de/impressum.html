@@ -35,16 +35,16 @@
           <h2>Angaben gemäß § 5 DDG</h2>
           <dl class="de-dl" style="grid-template-columns:minmax(0,1fr)">
             <div><dt>Anbieter</dt><dd>
-              <span id="co">주식회사 커즈모스</span>
+              <span id="co">CUSMOS Inc.</span>
               <br>Englische Bezeichnung: CUSMOS Inc. <span class="tbd">[TBD: Schreibweise prüfen]</span>
             </dd></div>
-            <div><dt>Rechtsform</dt><dd>Kapitalgesellschaft (주식회사) nach dem Recht der Republik Korea <span class="tbd">[TBD: prüfen]</span></dd></div>
+            <div><dt>Rechtsform</dt><dd>Kapitalgesellschaft nach dem Recht der Republik Korea <span class="tbd">[TBD: prüfen]</span></dd></div>
             <div><dt>Anschrift</dt><dd id="addr"><span class="tbd">[TBD]</span></dd></div>
             <div><dt>Vertreten durch</dt><dd>Vorstand bzw. CEO: <span id="ceo"><span class="tbd">[TBD]</span></span></dd></div>
             <div><dt>Telefon</dt><dd id="tel"><span class="tbd">[TBD]</span></dd></div>
             <div><dt>E-Mail</dt><dd id="mail"><span class="tbd">[TBD]</span></dd></div>
             <div><dt>Registereintrag</dt><dd>Eintrag im koreanischen Unternehmensregister <span class="tbd">[TBD: Registergericht und Registernummer]</span></dd></div>
-            <div><dt>Unternehmensnummer</dt><dd>Business-Registrierungsnummer (사업자등록번호): <span id="bizno"><span class="tbd">[TBD]</span></span></dd></div>
+            <div><dt>Unternehmensnummer</dt><dd>koreanische Unternehmensregisternummer (Business Registration Number): <span id="bizno"><span class="tbd">[TBD]</span></span></dd></div>
             <div><dt>Umsatzsteuer-ID</dt><dd><span class="tbd">[TBD: nur angeben, wenn vorhanden]</span></dd></div>
           </dl>
         </section>
@@ -75,8 +75,7 @@
   // 회사 정보: 값이 있으면 채우고, 없으면 TBD 그대로 둔다
   getSite().then((s) => {
     const put = (id, v) => { if (v) document.getElementById(id).textContent = v; };
-    put("co", s.company);
-    put("ceo", s.ceo);
+    put("ceo", "Changwoo Lee"); // fixed Latin-script name for the German page
     put("bizno", s.bizNo);
     if (s.address) document.getElementById("addr").textContent = s.address;
     if (s.phone) document.getElementById("tel").textContent = s.phone;
