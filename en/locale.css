@@ -16,7 +16,7 @@
 .en-hero { min-height: min(100svh, 940px); display: flex; align-items: center; }
 .en-hero > .wrap { width: 100%; }
 .en-hero .hero-bg::after { background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.74) 48%, rgba(5,6,13,.38) 100%); }
-.en-hero .t-display { color: #fff; max-width: 13ch; font-size: calc(var(--fs-display) - 6px); }
+.en-hero .t-display { color: #fff; font-size: calc(var(--fs-display) - 6px); }
 .en-hero .t-lead { max-width: 560px; }
 
 /* 숫자 근사 표기 (About 60%) */
