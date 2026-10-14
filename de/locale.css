@@ -119,6 +119,7 @@ main > .sub-nav + .sec { border-top: 0; }
 
 /* 연표·팀 */
 .de-team { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 0; border-top: 1px solid var(--c-line); }
+.team-group .de-team { border-top: 0; } /* 그룹 제목 밑줄과 겹쳐 두 줄로 보이지 않게 */
 .de-team > div { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--c-line); }
 .de-team .role { font-size: 13px; font-weight: 600; color: var(--c-accent); letter-spacing: .04em; }
 .de-team .name { margin-top: 6px; font-size: 18px; font-weight: 600; color: var(--c-ink); }
