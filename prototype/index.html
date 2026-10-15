@@ -1,0 +1,291 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>언어별 개선 전후 비교 | CUSMOS</title>
+<link rel="icon" href="../assets/img/logo-symbol.png">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  /* 개선 전(현재 사이트)과 개선 후(프로토타입) 메인 페이지를 버튼으로 바꿔 보는 화면 */
+  :root {
+    --navy: #05060d; --ink: #0b0c17; --muted: #4a4f68; --line: #e3e5ee; --bg: #f5f6fa;
+    --violet: #a46bff; --pink: #f45fc8; --sky: #7fa8ff;
+    --grad: linear-gradient(100deg, #7fa8ff 0%, #a46bff 45%, #f45fc8 100%);
+    --bar-h: 64px;
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body { margin: 0; display: flex; flex-direction: column; background: var(--bg); color: var(--ink); font: 15px/1.5 "Pretendard Variable", Pretendard, system-ui, sans-serif; }
+  button { font: inherit; cursor: pointer; }
+
+  /* 상단 조작 막대 */
+  .bar { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 12px 16px; background: var(--navy); color: #fff; }
+  .bar h1 { margin: 0 8px 0 0; font-size: 15px; font-weight: 700; white-space: nowrap; }
+  .bar h1 span { color: #9ba1bb; font-weight: 500; margin-left: 6px; }
+  .seg { display: inline-flex; padding: 3px; border-radius: 999px; background: rgba(255,255,255,.08); }
+  .seg button { height: 34px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; color: #c9cde0; font-size: 14px; font-weight: 600; }
+  .seg button:hover { color: #fff; }
+  .seg button[aria-pressed="true"] { background: #fff; color: var(--ink); }
+  .seg.mode button[aria-pressed="true"][data-mode="after"] { background: var(--grad); color: #fff; }
+  .seg.mode button[aria-pressed="true"][data-mode="fable"] { background: var(--navy); color: #fff; box-shadow: inset 0 0 0 2px var(--violet); }
+  .spacer { flex: 1; }
+  .ghost { height: 36px; padding: 0 14px; border: 1px solid rgba(255,255,255,.25); border-radius: 999px; background: transparent; color: #fff; font-size: 14px; font-weight: 600; }
+  .ghost[aria-pressed="true"] { background: rgba(255,255,255,.14); }
+  .hint { width: 100%; font-size: 12px; color: #9ba1bb; }
+  .hint kbd { display: inline-block; min-width: 20px; padding: 0 5px; border: 1px solid rgba(255,255,255,.25); border-radius: 4px; text-align: center; font: 11px/18px system-ui; color: #fff; }
+
+  /* 화면 영역 */
+  .stage { flex: 1; min-height: 0; display: flex; }
+  .views { flex: 1; min-width: 0; display: grid; gap: 12px; padding: 12px; }
+  .views.split { grid-template-columns: 1fr 1fr 1fr; }
+  .view { position: relative; min-height: 0; display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; }
+  .view[hidden] { display: none; }
+  .view header { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 12px; border-bottom: 1px solid var(--line); font-size: 13px; }
+  .tag { display: inline-flex; align-items: center; height: 24px; padding: 0 10px; border-radius: 999px; font-size: 12px; font-weight: 700; background: #eceef4; color: var(--muted); }
+  .tag.after { background: var(--grad); color: #fff; }
+  .tag.fable { background: var(--navy); color: #fff; box-shadow: inset 0 0 0 1.5px var(--violet); }
+  .view header a { color: var(--muted); text-decoration: none; }
+  .view header a:hover { color: var(--ink); }
+  .frame { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #e9eaf0; }
+  .frame iframe { position: absolute; top: 0; left: 0; border: 0; background: #fff; transform-origin: 0 0; }
+  .frame.mobile iframe { left: 50%; top: 16px; border-radius: 22px; box-shadow: 0 0 0 10px var(--navy), 0 20px 40px rgba(5,6,13,.25); }
+
+  /* 변경 내용 패널 */
+  .panel { width: 420px; flex: none; overflow-y: auto; background: #fff; border-left: 1px solid var(--line); padding: 20px; }
+  .panel[hidden] { display: none; }
+  .panel h2 { margin: 0 0 4px; font-size: 18px; }
+  .panel .lead { margin: 0 0 16px; color: var(--muted); font-size: 13px; }
+  .sum { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 18px; }
+  .sum div { padding: 10px; border-radius: 10px; background: var(--bg); }
+  .sum b { display: block; font-size: 18px; }
+  .sum span { font-size: 12px; color: var(--muted); }
+  .panel table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .panel th, .panel td { text-align: left; vertical-align: top; padding: 9px 6px; border-bottom: 1px solid var(--line); }
+  .panel th { font-size: 12px; color: var(--muted); font-weight: 600; }
+  .panel td:first-child { font-weight: 700; white-space: nowrap; }
+  .lv { display: inline-block; padding: 1px 8px; border-radius: 999px; font-size: 11px; font-weight: 700; background: #eceef4; color: var(--muted); }
+  .lv.hi { background: #ffe6f6; color: #c2289a; }
+  .lv.md { background: #f1eaff; color: #7a45e6; }
+  .src { margin-top: 16px; font-size: 12px; color: var(--muted); }
+  .panel h3 { margin: 22px 0 6px; font-size: 14px; display: flex; align-items: center; gap: 8px; }
+  .panel h3 .tag { height: 20px; font-size: 11px; }
+  @media (max-width: 1100px) { .panel { position: fixed; right: 0; top: var(--bar-h); bottom: 0; z-index: 5; box-shadow: -10px 0 30px rgba(5,6,13,.15); } }
+  @media (max-width: 760px) { .views.split { grid-template-columns: 1fr; } .panel { width: 100%; } }
+</style>
+</head>
+<body>
+<div class="bar" id="bar">
+  <h1>CUSMOS 메인 페이지<span>언어별 개선 전후</span></h1>
+  <div class="seg" role="group" aria-label="언어">
+    <button data-lang="en" aria-pressed="true">English</button>
+    <button data-lang="ja" aria-pressed="false">日本語</button>
+    <button data-lang="de" aria-pressed="false">Deutsch</button>
+  </div>
+  <div class="seg mode" role="group" aria-label="보기">
+    <button data-mode="before" aria-pressed="false">개선 전</button>
+    <button data-mode="after" aria-pressed="true">개선 후</button>
+    <button data-mode="fable" aria-pressed="false">Fable 개선</button>
+    <button data-mode="split" aria-pressed="false">나란히</button>
+  </div>
+  <div class="seg" role="group" aria-label="화면 크기">
+    <button data-device="desktop" aria-pressed="true">데스크톱</button>
+    <button data-device="mobile" aria-pressed="false">모바일</button>
+  </div>
+  <div class="spacer"></div>
+  <button class="ghost" id="toggle-panel" aria-pressed="true">변경 내용</button>
+  <p class="hint">단축키 <kbd>B</kbd> 개선 전 <kbd>A</kbd> 개선 후 <kbd>F</kbd> Fable 개선 <kbd>S</kbd> 나란히 <kbd>1</kbd><kbd>2</kbd><kbd>3</kbd> 언어. 화면 안의 메뉴를 누르면 지금 사이트의 하위 페이지로 이동합니다.</p>
+</div>
+
+<div class="stage">
+  <div class="views" id="views">
+    <section class="view" id="v-before">
+      <header><span class="tag">개선 전 · 현재 사이트</span><a id="open-before" target="_blank" rel="noopener">새 창 ↗</a></header>
+      <div class="frame"><iframe title="개선 전 화면"></iframe></div>
+    </section>
+    <section class="view" id="v-after">
+      <header><span class="tag after">개선 후 · 프로토타입</span><a id="open-after" target="_blank" rel="noopener">새 창 ↗</a></header>
+      <div class="frame"><iframe title="개선 후 화면"></iframe></div>
+    </section>
+    <section class="view" id="v-fable">
+      <header><span class="tag fable">Fable 개선 · 맥락 반영 시안</span><a id="open-fable" target="_blank" rel="noopener">새 창 ↗</a></header>
+      <div class="frame"><iframe title="Fable 개선 화면"></iframe></div>
+    </section>
+  </div>
+  <aside class="panel" id="panel" aria-label="변경 내용"></aside>
+</div>
+
+<script>
+  // 언어별 변경 내용: docs/localization-improvement-plan.md 2·3장과 같은 내용
+  const PLAN = {
+    en: {
+      name: "영어", title: "명확성과 단순함",
+      lead: "여백과 강한 대비로 핵심 가치를 먼저 보여 주고, 정보 구역은 중간 수준으로 줄였습니다.",
+      sum: [["7 → 5", "섹션 수"], ["약 60%", "바뀐 구역 비율"], ["51%", "바뀐 글 비율"]],
+      rows: [
+        ["첫 화면", "해결하는 문제 한 줄과 대표 기능 3개 요약. 주요 버튼만 브랜드 그라데이션으로 가장 강하게", "중"],
+        ["성과 숫자", "브랜드 그라데이션 띠 위 숫자 3개. 화면에서 채도가 가장 높은 구역", "중"],
+        ["작동 방식 + 솔루션", "기능 요약 블록 3개로 합치고 상세 페이지 링크", "대"],
+        ["대표 사례", "효과 숫자 먼저, 조건은 한 줄로", "소"],
+        ["비교표", "메인에서 빼고 기술 페이지로 옮길 항목", "대"],
+        ["하단 문의", "짧은 문장 하나와 그라데이션 버튼", "소"],
+      ],
+      src: "Nordhoff 외(2018), Marcus & Gould(2000), Kralisch 외(2005)",
+      fable: {
+        title: "더 짧게, 더 비우고, 색은 두 곳에만",
+        lead: "1차 시안에서 남아 있던 설명문과 보조 링크를 빼고, 브랜드 색을 성과 띠와 주요 버튼에만 남겼습니다.",
+        rows: [
+          ["첫 화면", "문제 한 줄, 제목 6단어, 버튼 1개, 아이콘 바로가기 3개(City Noise·Industrial Safety·Fault Inspection). 보조 링크와 칩 설명문 삭제", "첫 화면: 문제와 대표 기능 요약, 강조색 주요 버튼"],
+          ["여백", "섹션 여백 96px 이상, 섹션마다 메시지 하나, 본문은 2줄 이내", "명확성·단순함"],
+          ["로딩", "첫 화면 사진 1200px·q60, 아래 사진은 lazy, 영상 없음, 이미지 서버 preconnect", "빠른 로딩"],
+          ["색", "브랜드 색은 성과 띠와 버튼에만. 배지·링크·체크 표시는 무채색으로", "색상·배치: 핵심 영역에만 강조색"],
+          ["기능 블록", "굵은 효과 한 줄(약 60% 민원 감소 등) → 한 줄 설명 → Learn more. 항목 목록 삭제", "정보 표현: 효과 먼저, 상세는 링크로"],
+          ["버튼 대비", "흰 글자 아래 남색 막 35%를 깔아 대비 약 4.7:1", "본문과 버튼 대비"],
+        ],
+      },
+    },
+    ja: {
+      name: "일본어", title: "정보 밀도와 상세함",
+      lead: "정보 구역은 늘리되, 모든 구역을 같은 틀과 낮은 채도 배경으로 나눠 찾기 쉽게 했습니다.",
+      sum: [["10 → 12", "섹션 수"], ["약 55%", "바뀐 구역 비율"], ["38%", "바뀐 글 비율"]],
+      rows: [
+        ["첫 화면", "제품 개요와 인물 사진은 유지, 그 아래 주제별 바로가기 6개(機能·仕様·設置·運用·導入事例·会社概要)", "중"],
+        ["구역 틀", "모든 구역을 번호·제목(왼쪽) + 내용(오른쪽) 한 가지 틀로. 배경은 흰색과 연한 회색", "대"],
+        ["機能", "새 구역. 항목명과 설명을 짝지은 목록 6개와 센서 사진", "대"],
+        ["仕様", "새 구역. 측정·분류·전원·설치·데이터량·카메라 사양표", "대"],
+        ["設置", "새 구역. 설치 조건 목록, 모르는 값은 TBD", "대"],
+        ["運用", "새 구역. 알림·카메라 연동·기록·지원 범위", "대"],
+        ["導入事例", "숫자를 항목명·값·조건 목록으로", "중"],
+        ["主なページ", "첫 화면 바로가기로 합쳐 삭제", "중"],
+      ],
+      src: "Nordhoff 외(2018), Cyr & Trevor-Smith(2004), Baughan 외(2021), Vishwanath(2003), Cyr 외(2005, 2009)",
+      fable: {
+        title: "정보 위치를 항상 보이게, 모든 항목에 조건 붙이기",
+        lead: "1차 시안 위에 전략 표의 '정보 위치 제시', '항목별 비교', '배치 규칙 유지'를 눈에 보이는 요소로 더했습니다.",
+        rows: [
+          ["첫 화면", "바로가기 아래 「このページの構成」 한 줄(01~09)을 두어 모든 구역의 위치를 첫 화면에서 보여 줌", "첫 화면"],
+          ["구역 바", "헤더 아래 고정 바에 01~09 구역 이름. 지금 보는 구역이 표시됨", "색상·배치: 배치 규칙 유지, Baughan 영역 구분"],
+          ["구역 헤더", "모든 구역을 번호 + 제목 + 「この区域でわかること」 세 요소로 통일", "본문 구성: 제목 있는 구역"],
+          ["機能", "항목명·내용·関連ページ 3열 표. 사진은 같은 구역에 캡션과 함께", "정보 표현, 설명과 이미지 같은 구역"],
+          ["仕様·設置", "표에 条件・備考 열 추가. 조건을 모르면 TBD", "정보 표현: 사양·도입 조건 항목별 비교"],
+          ["運用·導入の流れ", "번호와 担当·期間 열이 있는 표로. 모르는 값은 TBD", "절차를 빠짐없이"],
+          ["문의", "導入実績 줄(自治体3団体·韓国電力公社 PoC·特許3件) 반복, FAQ 3개 추가", "신뢰"],
+          ["색", "태그·연혁·FAQ 기호를 잉크색으로. 브랜드 색은 번호·라벨·버튼에만", "색상·배치: 낮은 채도"],
+        ],
+      },
+    },
+    de: {
+      name: "독일어", title: "구조적 신뢰와 기능성",
+      lead: "장식 사진을 빼고, 설명 문단과 근거 자료를 나란히 둔 번호 장으로 다시 짰습니다. 법적 고지와 개인정보 정보를 위로 올렸습니다.",
+      sum: [["9 → 10", "섹션 수"], ["약 85%", "바뀐 구역 비율"], ["65%", "바뀐 글 비율"]],
+      rows: [
+        ["첫 화면", "사진 대신 용도와 작동 방식 설명 문단, 기술 자료·개인정보·Impressum 링크", "대"],
+        ["투명성 줄", "새 구역. 제공자, 데이터 처리 위치, 법적 문서 링크, 검토 상태", "중"],
+        ["본문 흐름", "1 Problem → 2 Funktionsweise → 3 Einsatzbedingungen → 4 Technische Daten → 5 Ergebnisse → 6 Datenschutz → 7 Unternehmen", "대"],
+        ["장 틀", "모든 장을 설명 문단(왼쪽) + 근거 자료(오른쪽)로 통일", "대"],
+        ["수치", "문장으로 설명하고 수치는 같은 형식의 표(Merkmal · Wert · Bedingung/Quelle)로", "대"],
+        ["활용 분야 카드", "3장 Einsatzbedingungen 문단과 표로 흡수", "중"],
+        ["개인정보", "어떤 데이터를 어디서 처리하는지 표로", "중"],
+      ],
+      src: "Cyr & Trevor-Smith(2004), Cyr 외(2009), Cyr(2013), Fraunhofer IDMT StadtLärm(2019)",
+      fable: {
+        title: "문단과 근거를 번호로 묶고, 법적 정보를 한곳에",
+        lead: "1차 시안의 장 구조는 그대로 두고, 전략 표의 '문단과 근거의 연결', '표현 규칙 통일', '투명성'을 눈에 보이게 했습니다.",
+        rows: [
+          ["투명성 줄", "Stand: 2026-10 표기와 Technische Daten (Kapitel 4) 링크 추가", "법적 고지·투명성"],
+          ["Inhalt", "투명성 줄 아래 1~7장 목차. 각 장으로 바로 이동", "본문 구성: 문제 → 작동 방식 → 적용 조건 흐름"],
+          ["근거 번호", "모든 표·도식·숫자 카드에 Tabelle 1~7, Abbildung 1 캡션. 문단에서 'siehe Tabelle 3'처럼 가리킴", "문단과 근거의 연결"],
+          ["수치", "본문 숫자는 표 번호를 가리키고, 표와 숫자 카드에는 Quelle/Stand 열", "정보 표현: 수치는 별도 사양표"],
+          ["Rechtliche Hinweise", "페이지 끝에 Impressum·Datenschutzerklärung·Prüfstatus(Entwurf) 상자", "법적 고지와 개인정보 보호 정보 명확히"],
+          ["장식", "버튼 그림자·이동 효과 제거, 표에 격자선 통일, 글로벌 강조색을 남색으로", "장식보다 기능, 표현 규칙 통일"],
+        ],
+      },
+    },
+  };
+
+  const q = new URLSearchParams(location.search);
+  const state = {
+    lang: PLAN[q.get("lang")] ? q.get("lang") : "en",
+    mode: ["before", "after", "fable", "split"].includes(q.get("mode")) ? q.get("mode") : "after",
+    device: q.get("device") === "mobile" ? "mobile" : "desktop",
+    panel: q.get("panel") !== "0",
+  };
+  const $ = (s) => document.querySelector(s);
+  const DESKTOP_W = 1280, MOBILE_W = 390, MOBILE_H = 800;
+
+  // before: 현재 사이트, after: 1차 프로토타입, fable: 전략 표를 다시 반영한 2차 시안
+  function src(which) {
+    if (which === "before") return `../${state.lang}/index.html`;
+    if (which === "fable") return `${state.lang}/fable.html`;
+    return `${state.lang}/index.html`;
+  }
+
+  // 데스크톱은 1280px로 그린 뒤 칸 너비에 맞게 줄이고, 모바일은 390px 실제 크기로 보여 준다
+  function fit() {
+    document.querySelectorAll(".frame").forEach((fr) => {
+      const f = fr.querySelector("iframe");
+      const W = fr.clientWidth, H = fr.clientHeight;
+      fr.classList.toggle("mobile", state.device === "mobile");
+      if (state.device === "mobile") {
+        const s = Math.min(1, (H - 32) / MOBILE_H, (W - 32) / MOBILE_W);
+        f.style.width = MOBILE_W + "px"; f.style.height = MOBILE_H + "px";
+        f.style.transform = `translateX(-50%) scale(${s})`; f.style.transformOrigin = "50% 0";
+      } else {
+        const s = W / DESKTOP_W;
+        f.style.width = DESKTOP_W + "px"; f.style.height = H / s + "px";
+        f.style.transform = `scale(${s})`; f.style.transformOrigin = "0 0";
+      }
+    });
+  }
+
+  function load(which) {
+    const f = $(`#v-${which} iframe`);
+    const url = src(which);
+    if (f.dataset.src !== url) { f.dataset.src = url; f.src = url; }
+    $(`#open-${which}`).href = url;
+  }
+
+  function panel() {
+    const p = PLAN[state.lang];
+    $("#panel").hidden = !state.panel;
+    $("#toggle-panel").setAttribute("aria-pressed", state.panel);
+    $("#panel").innerHTML = `<h2>${p.name} · ${p.title}</h2><p class="lead">${p.lead}</p>
+      <div class="sum">${p.sum.map((s) => `<div><b>${s[0]}</b><span>${s[1]}</span></div>`).join("")}</div>
+      <table><thead><tr><th>위치</th><th>개선</th><th>변경량</th></tr></thead><tbody>
+      ${p.rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td><span class="lv ${r[2] === "대" ? "hi" : r[2] === "중" ? "md" : ""}">${r[2]}</span></td></tr>`).join("")}
+      </tbody></table>
+      ${(state.mode === "fable" || state.mode === "split") && p.fable ? `<h3><span class="tag fable">Fable 개선</span>${p.fable.title}</h3><p class="lead">${p.fable.lead}</p>
+      <table><thead><tr><th>위치</th><th>1차 시안과 달라진 점</th><th>전략 표 항목</th></tr></thead><tbody>
+      ${p.fable.rows.map((r) => `<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`).join("")}
+      </tbody></table>` : ""}
+      <p class="src">근거: ${p.src}<br>자세한 내용: docs/localization-improvement-plan.md</p>`;
+  }
+
+  function render() {
+    document.querySelectorAll("[data-lang]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.lang === state.lang));
+    document.querySelectorAll("[data-mode]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.mode === state.mode));
+    document.querySelectorAll("[data-device]").forEach((b) => b.setAttribute("aria-pressed", b.dataset.device === state.device));
+    $("#views").classList.toggle("split", state.mode === "split");
+    const show = state.mode === "split" ? ["before", "after", "fable"] : [state.mode];
+    ["before", "after", "fable"].forEach((w) => { $(`#v-${w}`).hidden = !show.includes(w); if (show.includes(w)) load(w); });
+    panel();
+    history.replaceState(null, "", `?lang=${state.lang}&mode=${state.mode}&device=${state.device}${state.panel ? "" : "&panel=0"}`);
+    requestAnimationFrame(fit);
+  }
+
+  document.querySelectorAll("[data-lang]").forEach((b) => b.addEventListener("click", () => { state.lang = b.dataset.lang; render(); }));
+  document.querySelectorAll("[data-mode]").forEach((b) => b.addEventListener("click", () => { state.mode = b.dataset.mode; render(); }));
+  document.querySelectorAll("[data-device]").forEach((b) => b.addEventListener("click", () => { state.device = b.dataset.device; render(); }));
+  $("#toggle-panel").addEventListener("click", () => { state.panel = !state.panel; render(); });
+  addEventListener("keydown", (e) => {
+    if (e.target.closest("input, textarea, select")) return;
+    const k = e.key.toLowerCase();
+    const map = { b: ["mode", "before"], a: ["mode", "after"], f: ["mode", "fable"], s: ["mode", "split"], 1: ["lang", "en"], 2: ["lang", "ja"], 3: ["lang", "de"], m: ["device", state.device === "mobile" ? "desktop" : "mobile"] };
+    if (map[k]) { state[map[k][0]] = map[k][1]; render(); }
+  });
+  addEventListener("resize", fit);
+  document.documentElement.style.setProperty("--bar-h", $("#bar").offsetHeight + "px");
+  render();
+</script>
+</body>
+</html>
