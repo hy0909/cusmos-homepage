@@ -94,10 +94,12 @@
 .f-conditions { margin-top: 20px; padding-left: 14px; border-left: 2px solid var(--c-line-strong); font-size: 14px; line-height: 1.55; color: var(--c-muted); }
 .f-case-body .f-learn { margin-top: 28px; }
 
-/* 5. 마지막 행동 유도: 남색 면에 한 문장과 버튼 1개. 성과 띠와 같은 세로 여백·제목 크기로 한 묶음처럼 보이게 한다 */
+/* 5. 마지막 행동 유도: 남색 면 위에 성과 상자와 같은 그라데이션 상자(E-1 안). 상자 안 버튼은 흰 바탕에 남색 글자 */
 .f-final { background: var(--c-bg-dark); padding: var(--sec-pad) 0; }
-.f-final-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px; }
-.f-final .f-h2-light { max-width: 640px; color: var(--c-on-dark); }
+.f-final-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px; padding: 48px clamp(24px, 4vw, 56px); border-radius: 20px; background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); }
+.f-final .f-h2-light { max-width: 640px; color: #fff; }
+.f-final .f-btn-main { background: #fff; color: var(--c-bg-dark); text-shadow: none; }
+.f-final .f-btn-main:hover { color: var(--c-bg-dark); box-shadow: 0 12px 30px -10px rgba(5,6,13,.6); }
 
 /* 작은 화면 (375px 기준) */
 @media (max-width: 960px) {
@@ -112,6 +114,7 @@
   .f-jump { flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; min-height: 0; padding: 18px 20px; }
   .f-grid { grid-template-columns: 1fr; }
   .f-actions .f-btn-main, .f-final-inner .f-btn-main { width: 100%; }
+  .f-final-inner { padding: 32px 22px; }
 }
 @media (max-width: 600px) {
   :root { --sec-pad: 72px; }
