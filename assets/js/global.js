@@ -173,3 +173,33 @@
     addEventListener("resize", onView);
   });
 })();
+
+/* 관제 화면 라이브 임베드: 1440px 너비의 iframe을 칸 너비에 맞춰 줄인다. 칸이 바뀌면 다시 맞춘다. 실패해도 페이지는 그대로 둔다. */
+(function () {
+  try {
+    const fit = (el) => {
+      const frame = el.querySelector("iframe");
+      const w = el.clientWidth;
+      if (!frame || !w) return;
+      frame.style.transform = "scale(" + (w / 1440) + ")";
+      el.classList.add("is-live");
+    };
+    const start = () => {
+      const embeds = document.querySelectorAll(".dash-embed");
+      if (!embeds.length) return;
+      embeds.forEach((el) => {
+        const frame = el.querySelector("iframe");
+        if (frame) frame.addEventListener("load", () => fit(el));
+        fit(el);
+      });
+      if ("ResizeObserver" in window) {
+        const ro = new ResizeObserver((entries) => entries.forEach((e) => fit(e.target)));
+        embeds.forEach((el) => ro.observe(el));
+      } else {
+        addEventListener("resize", () => embeds.forEach(fit));
+      }
+    };
+    if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", start);
+    else start();
+  } catch (e) {}
+})();

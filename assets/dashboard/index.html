@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=1440">
+<title>CUSMOS 관제 화면 시안</title>
+<style>
+  /* 관제 화면(대시보드) 시안. 1440×900 데스크톱 비율. 홈페이지용 제품 이미지를 찍는 데 쓴다.
+   * 색은 브랜드 4색과 무채색만. 한쪽 면만 칠하는 강조선은 쓰지 않는다. */
+  :root {
+    --navy: #05060D; --panel: #0b0c17; --panel-2: #10121f; --line: rgba(255,255,255,.08); --line-2: rgba(255,255,255,.14);
+    --ink: #E6E8F0; --muted: #9AA0B8; --dim: #5d6381;
+    --sky: #7FA8FF; --violet: #A46BFF; --pink: #F45FC8;
+    --grad: linear-gradient(100deg, #7FA8FF 0%, #A46BFF 45%, #F45FC8 100%);
+    --mono: "JetBrains Mono", "SF Mono", Menlo, monospace;
+  }
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1440px; height: 900px; overflow: hidden; background: var(--navy); color: var(--ink);
+    font: 13px/1.4 "Pretendard", "Inter", "Noto Sans JP", "Apple SD Gothic Neo", "Helvetica Neue", system-ui, sans-serif; }
+  .app { display: grid; grid-template-columns: 240px 1fr; grid-template-rows: 56px 1fr; width: 1440px; height: 900px; }
+
+  /* 왼쪽 메뉴 */
+  .side { grid-row: 1 / 3; background: var(--panel); border-right: 1px solid var(--line); display: flex; flex-direction: column; padding: 18px 16px; }
+  .brand { height: 20px; margin: 2px 0 28px 4px; }
+  .brand img { height: 16px; width: auto; display: block; }
+  .side .k { font: 10px/1 var(--mono); letter-spacing: .14em; color: var(--dim); margin: 0 0 10px 4px; }
+  .nav a { display: flex; align-items: center; gap: 10px; height: 38px; padding: 0 12px; border-radius: 8px; color: var(--muted); text-decoration: none; font-size: 13px; }
+  .nav a svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+  .nav a.on { background: rgba(164,107,255,.14); color: #fff; border: 1px solid rgba(164,107,255,.35); }
+  .side .foot { margin-top: auto; border-top: 1px solid var(--line); padding-top: 14px; }
+  .side .foot .k { margin-bottom: 8px; display: flex; justify-content: space-between; }
+  .side .foot .k b { color: var(--sky); font-weight: 600; }
+  .op { display: flex; align-items: center; gap: 10px; font-size: 12px; }
+  .op i { width: 28px; height: 28px; border-radius: 50%; background: var(--panel-2); border: 1px solid var(--line-2); }
+  .op small { display: block; color: var(--dim); font: 10px var(--mono); }
+
+  /* 상단 바 */
+  .top { display: flex; align-items: center; gap: 16px; padding: 0 20px; border-bottom: 1px solid var(--line); background: var(--panel); }
+  .top .zone { font-weight: 700; font-size: 14px; }
+  .chip { display: inline-flex; align-items: center; gap: 6px; height: 24px; padding: 0 9px; border-radius: 6px; border: 1px solid var(--line-2); background: var(--panel-2); font: 11px var(--mono); color: var(--muted); }
+  .chip .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); }
+  .top .time { font: 12px var(--mono); color: var(--muted); }
+  .top .sp { flex: 1; }
+  .top .ic { width: 28px; height: 28px; border-radius: 8px; border: 1px solid var(--line); display: grid; place-items: center; color: var(--muted); }
+  .top .ic svg { width: 15px; height: 15px; stroke: currentColor; fill: none; stroke-width: 1.7; }
+
+  /* 본문 */
+  .main { display: grid; grid-template-columns: 1fr 360px; grid-template-rows: 1fr 150px; gap: 14px; padding: 14px; min-height: 0; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 10px; min-height: 0; }
+  .map { position: relative; overflow: hidden; }
+  .map svg.bg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .map .bar { position: absolute; top: 12px; left: 12px; display: flex; gap: 8px; }
+  .seg { display: inline-flex; padding: 3px; border-radius: 7px; background: var(--panel-2); border: 1px solid var(--line); }
+  .seg span { padding: 4px 10px; border-radius: 5px; font-size: 12px; color: var(--muted); }
+  .seg span.on { background: rgba(255,255,255,.1); color: #fff; }
+  .tip { position: absolute; right: 16px; top: 400px; width: 250px; padding: 12px 14px; border-radius: 10px; background: rgba(11,12,23,.96); border: 1px solid rgba(244,95,200,.5); font-size: 12px; }
+  .tip .h { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; font: 12px var(--mono); color: #fff; }
+  .tip .tag { padding: 2px 6px; border-radius: 4px; background: rgba(244,95,200,.18); color: var(--pink); font-size: 10px; font-weight: 700; }
+  .tip .r { display: flex; justify-content: space-between; color: var(--muted); margin-top: 4px; }
+  .tip .r b { color: var(--pink); font: 700 15px var(--mono); }
+  .tip .r span.v { color: var(--sky); font: 11px var(--mono); }
+  .scale { position: absolute; left: 12px; bottom: 12px; display: flex; align-items: center; gap: 8px; font: 11px var(--mono); color: var(--muted); padding: 6px 10px; border-radius: 6px; background: rgba(11,12,23,.85); border: 1px solid var(--line); }
+  .scale i { display: block; width: 60px; height: 3px; background: var(--muted); border-radius: 2px; }
+  .coord { position: absolute; right: 12px; bottom: 12px; padding: 7px 10px; border-radius: 6px; background: rgba(11,12,23,.85); border: 1px solid var(--line); font: 11px var(--mono); color: var(--muted); }
+  .coord b { display: block; color: #fff; font-weight: 500; }
+
+  /* 로그 */
+  .log { display: flex; flex-direction: column; padding: 14px; }
+  .log .h { display: flex; align-items: center; gap: 8px; font-weight: 700; font-size: 13px; margin-bottom: 10px; }
+  .log .h .dot { width: 7px; height: 7px; border-radius: 50%; background: var(--sky); }
+  .log .h .t { margin-left: auto; font: 11px var(--mono); color: var(--dim); font-weight: 400; }
+  .tabs { display: flex; gap: 4px; margin-bottom: 10px; overflow: hidden; white-space: nowrap; }
+  .tabs span { padding: 4px 6px; border-radius: 6px; font-size: 10.5px; color: var(--muted); border: 1px solid transparent; }
+  .tabs span.on { color: var(--sky); border-color: rgba(127,168,255,.4); background: rgba(127,168,255,.08); }
+  .ev { padding: 10px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--panel-2); margin-bottom: 8px; }
+  .ev.hot { border-color: rgba(244,95,200,.5); background: rgba(244,95,200,.06); }
+  .ev .l1 { display: flex; align-items: center; gap: 8px; }
+  .ev .l1 time { font: 11px var(--mono); color: var(--muted); }
+  .ev .l1 .tag { padding: 2px 6px; border-radius: 4px; font-size: 10px; font-weight: 700; background: rgba(127,168,255,.12); color: var(--sky); }
+  .ev.hot .l1 .tag { background: rgba(244,95,200,.16); color: var(--pink); }
+  .ev .l1 .db { margin-left: auto; font: 600 13px var(--mono); color: #fff; }
+  .ev.hot .l1 .db { color: var(--pink); font-size: 16px; }
+  .ev .l2 { display: flex; justify-content: space-between; margin-top: 6px; font-size: 11px; color: var(--muted); }
+  .ev .l2 a { color: var(--muted); text-decoration: none; }
+  .ev.hot .l2 a { color: #fff; padding: 2px 8px; border-radius: 5px; border: 1px solid var(--line-2); }
+
+  /* 하단 지표 */
+  .kpis { grid-column: 1 / 3; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .kpi { padding: 14px 16px; display: flex; flex-direction: column; }
+  .kpi .l { display: flex; justify-content: space-between; align-items: center; font-size: 12px; color: var(--muted); }
+  .kpi .l span { font: 10px var(--mono); color: var(--sky); padding: 2px 6px; border-radius: 4px; background: rgba(127,168,255,.1); }
+  .kpi .v { margin-top: 10px; font: 700 30px/1 var(--mono); color: #fff; letter-spacing: -.02em; }
+  .kpi .v small { font-size: 13px; color: var(--muted); margin-left: 4px; font-weight: 400; }
+  .kpi .f { margin-top: auto; font-size: 11px; color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  .kpi .f b { color: var(--sky); font: 600 11px var(--mono); }
+  .kpi .f .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--sky); }
+  .kpi .chart { margin-top: 8px; flex: 1; }
+  .kpi .ax { display: flex; justify-content: space-between; font: 10px var(--mono); color: var(--dim); margin-top: 4px; }
+
+  /* 움직임: 감지 파동, 활성 센서 맥동, 새 로그 강조. 색은 브랜드 분홍과 하늘색만 쓴다. 숫자와 시계는 그대로 둔다. */
+  .ring { transform-box: fill-box; transform-origin: center; opacity: 0; animation: ripple 2.4s cubic-bezier(.2,.6,.4,1) infinite both; }
+  .ring.d1 { animation-delay: .8s; }
+  .ring.d2 { animation-delay: 1.6s; }
+  @keyframes ripple {
+    0% { transform: scale(1); opacity: 0; }
+    8% { opacity: .9; }
+    100% { transform: scale(13); opacity: 0; }
+  }
+  .wedge { animation: wedge 3s ease-in-out infinite; }
+  @keyframes wedge { 0%, 100% { opacity: .6; } 50% { opacity: 1; } }
+  .pin { transform-box: fill-box; transform-origin: center; animation: pin 1.6s ease-in-out infinite; }
+  @keyframes pin { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.25); } }
+  .live-dot { animation: blink 2.4s ease-in-out infinite; }
+  @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: .2; } }
+  .ev.hot { position: relative; overflow: hidden; isolation: isolate; }
+  .ev.hot::before { content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+    background: linear-gradient(90deg, rgba(244,95,200,0), rgba(244,95,200,.16), rgba(244,95,200,0));
+    transform: translateX(-100%); animation: sweep 6s ease-in-out 1s infinite; }
+  @keyframes sweep { 0% { transform: translateX(-100%); } 22%, 100% { transform: translateX(100%); } }
+  @media (prefers-reduced-motion: reduce) {
+    .ring, .wedge, .pin, .live-dot, .ev.hot::before { animation: none; }
+    .ring { opacity: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="app">
+  <aside class="side">
+    <div class="brand"><img src="../img/logo-wordmark.png" alt="CUSMOS"></div>
+    <p class="k" data-i="modules">CONTROL MODULES</p>
+    <nav class="nav">
+      <a class="on" href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="3"/></svg><span data-i="m1">실시간 관제</span></a>
+      <a href="#"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 3-6.7M3 4v5h5M12 7v5l3 2"/></svg><span data-i="m2">소음 기록</span></a>
+      <a href="#"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16h4"/></svg><span data-i="m3">민원 대응 리포트</span></a>
+      <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2"/><path d="M5 12a7 7 0 0 1 14 0M8 12a4 4 0 0 1 8 0"/></svg><span data-i="m4">센서 관리</span></a>
+      <a href="#"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19 12a7 7 0 0 0-.1-1l2-1.5-2-3.5-2.4 1a7 7 0 0 0-1.7-1L14.5 3h-5l-.4 2.5a7 7 0 0 0-1.7 1l-2.4-1-2 3.5 2 1.5a7 7 0 0 0 0 2l-2 1.5 2 3.5 2.4-1a7 7 0 0 0 1.7 1l.4 2.5h5l.4-2.5a7 7 0 0 0 1.7-1l2.4 1 2-3.5-2-1.5c.1-.3.1-.7.1-1z"/></svg><span data-i="m5">설정</span></a>
+    </nav>
+    <div class="foot">
+      <p class="k"><span data-i="node">TELEMETRY NODE</span><b data-i="online">SYSTEM ONLINE</b></p>
+      <div class="op"><i></i><div><span data-i="op">관제 요원 A</span><small>OP-40912</small></div></div>
+    </div>
+  </aside>
+
+  <header class="top">
+    <span class="zone" data-i="zone">시흥시 배곧동</span><span class="chip">ZONE-04</span>
+    <span class="time" data-i="time">2026.05.20 22:47:18 KST</span>
+    <span class="sp"></span>
+    <span class="chip"><i class="dot"></i><span data-i="status">센서 4대 정상 (4/4)</span></span>
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M6 8h4l5-4v16l-5-4H6zM18 9a4 4 0 0 1 0 6"/></svg></span>
+    <span class="ic"><svg viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 20h4"/></svg></span>
+    <span class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="3.5"/><path d="M5 20a7 7 0 0 1 14 0"/></svg></span>
+  </header>
+
+  <main class="main">
+    <section class="card map">
+      <svg class="bg" viewBox="0 0 812 560" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <pattern id="g" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="rgba(255,255,255,.035)"/></pattern>
+          <radialGradient id="pulse"><stop offset="0" stop-color="#F45FC8" stop-opacity=".35"/><stop offset="1" stop-color="#F45FC8" stop-opacity="0"/></radialGradient>
+        </defs>
+        <rect width="812" height="560" fill="#07080f"/>
+        <rect width="812" height="560" fill="url(#g)"/>
+        <!-- 공원 -->
+        <path d="M120 120 L250 100 L270 220 L140 240 Z" fill="rgba(127,168,255,.05)" stroke="rgba(127,168,255,.12)"/>
+        <path d="M640 110 L790 130 L770 230 L630 215 Z" fill="rgba(127,168,255,.05)" stroke="rgba(127,168,255,.12)"/>
+        <path d="M100 400 L240 390 L255 500 L120 520 Z" fill="rgba(127,168,255,.05)" stroke="rgba(127,168,255,.12)"/>
+        <!-- 건물 블록 -->
+        <g fill="rgba(255,255,255,.03)" stroke="rgba(255,255,255,.07)">
+          <rect x="300" y="60" width="90" height="110"/><rect x="420" y="60" width="130" height="90"/><rect x="300" y="300" width="100" height="90"/>
+          <rect x="430" y="330" width="120" height="120"/><rect x="590" y="300" width="100" height="90"/><rect x="590" y="420" width="140" height="80"/>
+          <rect x="60" y="280" width="90" height="70"/><rect x="620" y="40" width="120" height="50"/>
+        </g>
+        <!-- 도로 -->
+        <g stroke="rgba(255,255,255,.1)" stroke-width="12"><path d="M0 250H812M400 0V560M0 480H812M560 0V560"/></g>
+        <g stroke="rgba(255,255,255,.22)" stroke-width="1" stroke-dasharray="8 8"><path d="M0 250H812M400 0V560M0 480H812M560 0V560"/></g>
+        <!-- 도로명 -->
+        <g fill="rgba(255,255,255,.3)" font-size="9" font-family="monospace">
+          <text x="406" y="34" data-i="rd1">배곧중앙로</text><text x="120" y="244" data-i="rd2">해송십리로</text><text x="410" y="540" data-i="rd3">배곧중앙로 남단</text>
+          <text x="140" y="180" data-i="pk1">배곧생명공원</text><text x="660" y="180" data-i="pk2">배곧숲마을 완충녹지</text>
+        </g>
+        <!-- 센서 -->
+        <g font-size="9" font-family="monospace" fill="rgba(255,255,255,.75)">
+          <circle cx="400" cy="120" r="5" fill="#7FA8FF"/><text x="410" y="124">SN-02 · 61dB</text>
+          <circle cx="560" cy="250" r="5" fill="#7FA8FF"/><text x="570" y="254">SN-03 · 58dB</text>
+          <circle cx="400" cy="480" r="5" fill="#7FA8FF"/><text x="410" y="484">SN-04 · 54dB</text>
+        </g>
+        <!-- 활성 센서: 방향 부채꼴과 파동 -->
+        <path class="wedge" d="M400 250 L520 150 A150 150 0 0 1 548 230 Z" fill="rgba(244,95,200,.28)" stroke="rgba(244,95,200,.6)"/>
+        <circle cx="400" cy="250" r="110" fill="url(#pulse)"/>
+        <circle cx="400" cy="250" r="60" fill="none" stroke="rgba(244,95,200,.5)"/>
+        <circle cx="400" cy="250" r="100" fill="none" stroke="rgba(244,95,200,.25)" stroke-dasharray="4 6"/>
+        <circle class="ring" cx="400" cy="250" r="10" fill="none" stroke="#F45FC8" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        <circle class="ring d1" cx="400" cy="250" r="10" fill="none" stroke="#F45FC8" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        <circle class="ring d2" cx="400" cy="250" r="10" fill="none" stroke="#F45FC8" stroke-width="1.5" vector-effect="non-scaling-stroke"/>
+        <circle class="pin" cx="400" cy="250" r="9" fill="#F45FC8"/><circle cx="400" cy="250" r="3" fill="#fff"/>
+      </svg>
+      <div class="bar">
+        <div class="seg"><span class="on" data-i="v1">기본 벡터</span><span data-i="v2">소음 히트맵</span><span data-i="v3">CCTV 화각</span></div>
+        <div class="seg"><span data-i="thr">기준 임계치 &gt; 75.0 dB</span></div>
+      </div>
+      <div class="tip">
+        <div class="h"><span>SN-01 (ACTIVE)</span><span class="tag" data-i="over">임계치 초과</span></div>
+        <div class="r"><span data-i="lvl">초과 음압 레벨</span><b>84.2 dB</b></div>
+        <div class="r"><span data-i="loc1">배곧중앙로 사거리</span><span class="v">042° NE</span></div>
+      </div>
+      <div class="scale"><i></i>200m</div>
+      <div class="coord">COORDINATES (WGS84)<b>37.3684° N, 126.7241° E</b></div>
+    </section>
+
+    <section class="card log">
+      <div class="h"><i class="dot"></i><span data-i="logh">실시간 감지 로그</span><span class="chip"><i class="dot live-dot"></i>LIVE POLLING</span><span class="t">22:47:18</span></div>
+      <div class="tabs"><span class="on" data-i="t0">전체 (14)</span><span data-i="t1">이륜차 (8)</span><span data-i="t2">경적 (3)</span><span data-i="t3">공사음 (2)</span><span data-i="t4">이상음 (1)</span></div>
+      <div class="ev hot"><div class="l1"><time>22:47:05</time><span class="tag" data-i="c1">이륜차</span><span class="db">84.2 dB</span></div><div class="l2"><span data-i="e1">중심상가 북측 교차로 3번가</span><a href="#" data-i="cctv">CCTV 보기</a></div></div>
+      <div class="ev"><div class="l1"><time>22:45:19</time><span class="tag" data-i="c2">경적</span><span class="db">79.5 dB</span></div><div class="l2"><span data-i="e2">배곧로 사거리 남측 차로</span><a href="#" data-i="cctv">CCTV 보기</a></div></div>
+      <div class="ev"><div class="l1"><time>22:42:31</time><span class="tag" data-i="c1">이륜차</span><span class="db">88.1 dB</span></div><div class="l2"><span data-i="e3">배곧생명공원 해안도로 구간</span><a href="#" data-i="cctv">CCTV 보기</a></div></div>
+      <div class="ev"><div class="l1"><time>22:38:44</time><span class="tag" data-i="c4">이상음</span><span class="db">76.8 dB</span></div><div class="l2"><span data-i="e4">104동 후문 하역장 인근</span><a href="#" data-i="cctv">CCTV 보기</a></div></div>
+      <div class="ev"><div class="l1"><time>22:31:02</time><span class="tag" data-i="c3">공사음</span><span class="db">73.4 dB</span></div><div class="l2"><span data-i="e5">배곧 R&amp;D 센터 신축 현장</span><a href="#" data-i="cctv">CCTV 보기</a></div></div>
+    </section>
+
+    <section class="kpis">
+      <div class="card kpi"><div class="l"><span data-i="k1" style="all:unset" class="n">오늘 감지 건수</span><span>TOTAL</span></div><div class="v">142<small data-i="u1">건</small></div><div class="f"><b>+12.4%</b><span data-i="f1">전일 같은 시간 대비 (126건)</span></div></div>
+      <div class="card kpi"><div class="l"><span data-i="k2" style="all:unset" class="n">야간 감지 (22:00~06:00)</span><span>NIGHT</span></div><div class="v">38<small data-i="u1">건</small></div><div class="f"><i class="dot"></i><span data-i="f2">야간 특별 관리 구역 모드 켜짐</span></div></div>
+      <div class="card kpi"><div class="l"><span data-i="k3" style="all:unset" class="n">평균 소음 레벨 (Leq)</span><span>AVERAGE</span></div><div class="v">62.4<small>dB</small></div><div class="f"><span data-i="f3">주간 평균 58.1 dB · 야간 기준치 65 dB</span></div></div>
+      <div class="card kpi"><div class="l"><span data-i="k4" style="all:unset" class="n">시간대별 감지 추이 (24h)</span><span>PEAK 23h</span></div>
+        <svg class="chart" viewBox="0 0 260 48" preserveAspectRatio="none"><path d="M0 40 L30 34 L60 36 L90 26 L120 30 L150 22 L180 24 L210 12 L240 8 L260 10" fill="none" stroke="#7FA8FF" stroke-width="2"/><path d="M0 40 L30 34 L60 36 L90 26 L120 30 L150 22 L180 24 L210 12 L240 8 L260 10 V48 H0Z" fill="rgba(127,168,255,.12)"/><circle cx="240" cy="8" r="3" fill="#F45FC8"/></svg>
+        <div class="ax"><span>00h</span><span>06h</span><span>12h</span><span>18h</span><span>24h</span></div></div>
+    </section>
+  </main>
+</div>
+<script>
+  // ?lang=en|ja|de 로 열면 화면 글자를 그 언어로 바꾼다. 숫자는 모두 예시 값이다.
+  const I18N = {
+    en: { modules: "CONTROL MODULES", m1: "Live monitoring", m2: "Noise records", m3: "Complaint reports", m4: "Sensors", m5: "Settings", node: "TELEMETRY NODE", online: "SYSTEM ONLINE", op: "Operator A",
+      zone: "Siheung · Baegot", time: "2026-05-20 22:47:18 KST", status: "4 of 4 sensors online", v1: "Vectors", v2: "Noise heatmap", v3: "CCTV view", thr: "Threshold > 75.0 dB",
+      over: "Over threshold", lvl: "Peak sound level", loc1: "Baegot Central Rd. junction", logh: "Live detection log", t0: "All (14)", t1: "Motorcycle (8)", t2: "Horn (3)", t3: "Construction (2)", t4: "Abnormal (1)",
+      c1: "Motorcycle", c2: "Horn", c3: "Construction", c4: "Abnormal", cctv: "View CCTV", e1: "Central mall, north junction", e2: "Baegot Rd. junction, south lane", e3: "Baegot Park coastal road", e4: "Bldg 104 rear loading bay", e5: "Baegot R&D center site",
+      k1: "Detections today", k2: "Night detections (22:00–06:00)", k3: "Average level (Leq)", k4: "Detections by hour (24h)", u1: "", f1: "vs. same time yesterday (126)", f2: "Night zone mode on", f3: "Daytime avg 58.1 dB · night limit 65 dB",
+      rd1: "Baegot Central Rd.", rd2: "Haesong Simni-ro", rd3: "Baegot Central Rd. S", pk1: "Baegot Life Park", pk2: "Forest buffer green" },
+    ja: { modules: "CONTROL MODULES", m1: "リアルタイム管制", m2: "騒音記録", m3: "苦情対応レポート", m4: "センサー管理", m5: "設定", node: "TELEMETRY NODE", online: "SYSTEM ONLINE", op: "管制担当 A",
+      zone: "始興市 ペゴッ地区", time: "2026.05.20 22:47:18 KST", status: "センサー4台 正常 (4/4)", v1: "基本ベクトル", v2: "騒音ヒートマップ", v3: "CCTV画角", thr: "基準しきい値 > 75.0 dB",
+      over: "しきい値超過", lvl: "超過音圧レベル", loc1: "ペゴッ中央路 交差点", logh: "リアルタイム検知ログ", t0: "全体 (14)", t1: "二輪車 (8)", t2: "クラクション (3)", t3: "工事音 (2)", t4: "異常音 (1)",
+      c1: "二輪車", c2: "クラクション", c3: "工事音", c4: "異常音", cctv: "CCTVを見る", e1: "中心商店街 北側交差点", e2: "ペゴッ路交差点 南側車線", e3: "ペゴッ生命公園 海岸道路", e4: "104棟 裏門 荷役場付近", e5: "ペゴッ R&D センター 新築現場",
+      k1: "本日の検知件数", k2: "夜間検知 (22:00〜06:00)", k3: "平均騒音レベル (Leq)", k4: "時間帯別 検知推移 (24h)", u1: "件", f1: "前日同時刻比 (126件)", f2: "夜間特別管理区域モード ON", f3: "昼間平均 58.1 dB · 夜間基準 65 dB",
+      rd1: "ペゴッ中央路", rd2: "海松十里路", rd3: "ペゴッ中央路 南端", pk1: "ペゴッ生命公園", pk2: "森の緩衝緑地" },
+    de: { modules: "MODULE", m1: "Live-Überwachung", m2: "Lärmprotokoll", m3: "Beschwerdeberichte", m4: "Sensoren", m5: "Einstellungen", node: "TELEMETRIE", online: "SYSTEM ONLINE", op: "Leitstelle A",
+      zone: "Siheung · Baegot", time: "20.05.2026 22:47:18 KST", status: "4 von 4 Sensoren online", v1: "Vektoren", v2: "Lärm-Heatmap", v3: "CCTV-Sicht", thr: "Schwelle > 75,0 dB",
+      over: "Schwelle überschritten", lvl: "Spitzenpegel", loc1: "Kreuzung Baegot-Zentralstraße", logh: "Ereignisprotokoll (live)", t0: "Alle (14)", t1: "Motorrad (8)", t2: "Hupe (3)", t3: "Baulärm (2)", t4: "Anomalie (1)",
+      c1: "Motorrad", c2: "Hupe", c3: "Baulärm", c4: "Anomalie", cctv: "CCTV öffnen", e1: "Einkaufszentrum, Kreuzung Nord", e2: "Baegot-Straße, Südspur", e3: "Küstenstraße Baegot-Park", e4: "Gebäude 104, Ladehof", e5: "Baustelle F&E-Zentrum Baegot",
+      k1: "Ereignisse heute", k2: "Nachts (22–06 Uhr)", k3: "Mittelungspegel (Leq)", k4: "Ereignisse je Stunde (24 h)", u1: "", f1: "gegenüber Vortag, gleiche Zeit (126)", f2: "Nachtzonen-Modus aktiv", f3: "Tagesmittel 58,1 dB · Nachtgrenzwert 65 dB",
+      rd1: "Baegot-Zentralstraße", rd2: "Haesong-Simni-ro", rd3: "Baegot-Zentralstraße Süd", pk1: "Baegot-Park", pk2: "Grünpuffer" },
+  };
+  const lang = new URLSearchParams(location.search).get("lang");
+  if (I18N[lang]) {
+    document.documentElement.lang = lang;
+    document.querySelectorAll("[data-i]").forEach((el) => { const v = I18N[lang][el.dataset.i]; if (v !== undefined) el.textContent = v; });
+  }
+</script>
+</body>
+</html>

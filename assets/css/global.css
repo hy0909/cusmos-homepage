@@ -348,3 +348,15 @@ body[data-hero="dark"] .gh:not(.scrolled):not(.menu-open) .lang-btn { border-col
 .team-group .cols-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 @media (max-width: 960px) { .team-group .cols-3, .team-group .cols-4 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 600px) { .team-group .cols-2, .team-group .cols-3, .team-group .cols-4 { grid-template-columns: 1fr; } }
+
+/* 관제 화면 라이브 임베드: 1440×900 시안 화면(assets/dashboard)을 칸 너비에 맞춰 줄여 보여 준다.
+   JS가 줄이고 is-live를 붙이기 전이나 움직임 줄이기 설정에서는 정지 이미지(dash-fallback)를 보인다. */
+.dash-embed { position: relative; width: 100%; aspect-ratio: 1440 / 900; overflow: hidden; border-radius: inherit; background: #05060D; }
+.dash-embed iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+.dash-embed .dash-fallback { display: none; width: 100%; height: auto; }
+.dash-embed:not(.is-live) iframe { display: none; }
+.dash-embed:not(.is-live) .dash-fallback { display: block; }
+@media (prefers-reduced-motion: reduce) {
+  .dash-embed iframe { display: none; }
+  .dash-embed .dash-fallback { display: block; }
+}
