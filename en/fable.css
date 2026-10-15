@@ -33,25 +33,26 @@
 .f-jump:hover { background: rgba(255,255,255,.16); }
 .f-jump svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* 2. 성과 띠: 브랜드 그라데이션을 띠 전체에 깔아 페이지에서 채도가 가장 높은 면으로 만든다.
- * 글자는 모두 남색. 흰 글자는 하늘색 끝에서 대비가 2.35:1이라 쓰지 않는다. */
-.f-results { position: relative; background: var(--grad); color: var(--c-bg-dark); padding: var(--sec-pad) 0; overflow: hidden; }
+/* 2. 성과 띠: 남색 면 위에 숫자 묶음만 브랜드 그라데이션 상자로 둔다(D-2 안).
+ * 상자에는 남색 막 35%를 깔아 흰 글자 대비를 최저 4.9:1로 유지한다. 머리글은 흰색/연회색. */
+.f-results { position: relative; background: var(--c-bg-dark); color: #fff; padding: var(--sec-pad) 0; overflow: hidden; }
 .f-results + .f-sec { background: var(--c-bg-alt); }
 .f-results > .wrap { position: relative; }
 .f-results-head { max-width: 720px; margin-bottom: clamp(44px, 5vw, 64px); }
-/* 성과 제목 아래 참고 시장 한 문장(뉴욕시 311 민원). 남색 글자라 그라데이션 어디서나 5.8:1 이상 */
-.f-results-context { margin-top: 16px; font-size: var(--fs-lead); line-height: 1.5; font-weight: 500; color: var(--c-bg-dark); }
+.f-results-context { margin-top: 16px; font-size: var(--fs-lead); line-height: 1.5; font-weight: 500; color: rgba(255,255,255,.82); }
+.f-results .f-eyebrow-light { color: var(--c-on-dark-muted); }
+.f-results .f-h2-light { color: #fff; }
 .f-eyebrow-light { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--c-bg-dark); }
 .f-h2-light { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-bg-dark); }
-.f-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.f-result { padding: 0 clamp(20px, 3vw, 40px); border-left: 1px solid rgba(5,6,13,.28); }
+.f-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); padding: 40px clamp(20px, 3vw, 40px); border-radius: 20px; background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); }
+.f-result { padding: 0 clamp(20px, 3vw, 40px); border-left: 1px solid rgba(255,255,255,.35); }
 .f-result:first-child { padding-left: 0; border-left: 0; }
-.f-num { font-size: clamp(56px, 7vw, 92px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-bg-dark); }
+.f-num { font-size: clamp(56px, 7vw, 92px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: #fff; }
 .f-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
 .f-about { margin-right: 6px; font-size: .42em; font-weight: 600; letter-spacing: 0; vertical-align: .9em; }
-.f-result-label { margin-top: 16px; font-size: 18px; font-weight: 700; color: var(--c-bg-dark); }
-.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--c-bg-dark); }
-.f-result-src { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(5,6,13,.22); font-size: 14px; line-height: 1.55; font-weight: 500; color: var(--c-bg-dark); }
+.f-result-label { margin-top: 16px; font-size: 18px; font-weight: 700; color: #fff; }
+.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; font-weight: 500; color: #fff; }
+.f-result-src { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.3); font-size: 14px; line-height: 1.55; font-weight: 500; color: rgba(255,255,255,.88); }
 
 /* 공통 본문 블록 */
 .f-sec { padding: var(--sec-pad) 0; background: #fff; }
@@ -104,8 +105,9 @@
   .f-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
-  .f-results-grid { grid-template-columns: 1fr; gap: 40px; }
+  .f-results-grid { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; }
   .f-result, .f-result:first-child { padding: 0; border-left: 0; }
+  .f-result + .f-result { padding-top: 24px; border-top: 1px solid rgba(255,255,255,.3); }
   .f-jump-list { grid-template-columns: 1fr; }
   .f-jump { flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; min-height: 0; padding: 18px 20px; }
   .f-grid { grid-template-columns: 1fr; }
