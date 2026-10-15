@@ -351,7 +351,9 @@ body[data-hero="dark"] .gh:not(.scrolled):not(.menu-open) .lang-btn { border-col
 
 /* 관제 화면 라이브 임베드: 1440×900 시안 화면(assets/dashboard)을 칸 너비에 맞춰 줄여 보여 준다.
    JS가 줄이고 is-live를 붙이기 전이나 움직임 줄이기 설정에서는 정지 이미지(dash-fallback)를 보인다. */
-.dash-embed { position: relative; width: 100%; aspect-ratio: 1440 / 900; overflow: hidden; border-radius: inherit; background: #05060D; }
+/* 관제 화면 모서리: 작은 화면 12px, 큰 화면 16px. 감싸는 상자도 같은 값을 따른다 */
+figure:has(> .dash-embed), div:has(> .dash-embed) { border-radius: clamp(12px, 1.2vw, 16px); }
+.dash-embed { position: relative; width: 100%; aspect-ratio: 1440 / 900; overflow: hidden; border-radius: clamp(12px, 1.2vw, 16px); background: #05060D; }
 .dash-embed iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
 .dash-embed .dash-fallback { display: none; width: 100%; height: auto; }
 .dash-embed:not(.is-live) iframe { display: none; }
