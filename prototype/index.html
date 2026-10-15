@@ -213,9 +213,9 @@
   const $ = (s) => document.querySelector(s);
   const DESKTOP_W = 1280, MOBILE_W = 390, MOBILE_H = 800;
 
-  // before: 현재 사이트, after: 1차 프로토타입, fable: 전략 표를 다시 반영한 2차 시안
+  // before: 개선 전 메인(배포 전 사본), after: 1차 시안, fable: 2차 시안(지금 배포된 메인과 같음)
   function src(which) {
-    if (which === "before") return `../${state.lang}/index.html`;
+    if (which === "before") return `${state.lang}/before.html`;
     if (which === "fable") return `${state.lang}/fable.html`;
     return `${state.lang}/index.html`;
   }

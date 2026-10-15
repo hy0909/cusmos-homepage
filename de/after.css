@@ -1,0 +1,115 @@
+/* 독일어 개선 프로토타입 전용 스타일 (p- 접두사)
+ * 색은 브랜드 4색, 그라데이션, global.css 무채색만 쓴다. 장식 그라데이션은 쓰지 않는다. */
+
+/* 첫 화면: 어두운 배경과 사진 (hero-dark, 헤더는 흰 글자) */
+.p-hero { padding: calc(var(--header-h) + clamp(48px, 7vw, 96px)) 0 clamp(44px, 5.5vw, 72px); }
+.p-hero .eyebrow { margin-bottom: 16px; }
+.p-hero h1 { max-width: 760px; }
+.p-hero-text { max-width: 680px; margin-top: 22px; }
+.p-hero-text p { font-size: var(--fs-lead); line-height: 1.65; color: rgba(255, 255, 255, .75); }
+.p-hero-text p + p { margin-top: 14px; }
+.p-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; margin-top: 36px; }
+.p-hero-links { display: flex; flex-wrap: wrap; gap: 10px 24px; }
+
+/* 링크: 색과 밑줄로만 기능을 알린다. 어두운 첫 화면에서는 흰색 */
+.p-link { color: var(--c-accent); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
+.p-link:hover { color: var(--c-ink); }
+.p-hero .p-link { color: #fff; text-decoration-color: rgba(255, 255, 255, .6); }
+.p-hero .p-link:hover { color: #fff; text-decoration-color: #fff; }
+
+/* 주 버튼: 그라데이션 면. 그라데이션 위의 글자는 모두 흰색 */
+.p-btn { background: var(--grad); color: #fff; font-weight: 700; }
+.p-btn:hover { color: #fff; box-shadow: 0 10px 24px -14px rgba(5, 6, 13, .5); }
+
+/* 투명성 줄: 첫 화면 바로 아래 */
+.p-trust { background: var(--c-bg-alt); border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); padding: 18px 0; }
+.p-trust-list { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px 28px; }
+.p-trust-list > div { min-width: 0; }
+.p-trust dt { font-size: 12px; font-weight: 600; color: var(--c-muted); letter-spacing: .02em; }
+.p-trust dd { margin: 4px 0 0; font-size: 14px; color: var(--c-ink); line-height: 1.5; }
+.p-trust dd a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* 장: 번호 + 제목, 두 단 본문 (왼쪽 설명 60%, 오른쪽 근거 40%) */
+.p-ch { padding: clamp(56px, 7vw, 88px) 0; border-top: 1px solid var(--c-line); }
+.p-ch-head { display: flex; align-items: baseline; gap: 14px; margin-bottom: clamp(28px, 4vw, 44px); }
+.p-ch-head h2 { margin: 0; }
+.p-ch-no { flex: none; min-width: 0; font-family: var(--font-head); font-size: var(--fs-h2); line-height: 1.15; font-weight: 700; color: var(--c-accent); font-variant-numeric: tabular-nums; }
+.p-ch-body { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); gap: clamp(28px, 4vw, 56px); align-items: start; }
+.p-ch-text { max-width: 640px; }
+.p-ch-text p { font-size: var(--fs-body); line-height: 1.7; color: var(--c-text); }
+.p-ch-text p + p { margin-top: 1em; }
+.p-ch-ev { min-width: 0; }
+.p-ch-body > * { min-width: 0; }
+/* 두 단의 소제목은 모든 장에서 같은 모양 */
+.p-cap { font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--c-muted); margin-bottom: 14px; }
+.p-ch-text .p-cap { margin-bottom: 12px; }
+.p-ev .p-cap { margin-top: 0; }
+
+/* 큰 숫자 카드: 근거 칼럼에 세로로 쌓는다 */
+.p-stats { display: grid; gap: 28px; }
+.p-stats .stat { border-top: 2px solid var(--c-ink); padding-top: 18px; }
+
+/* 작동 단계: 세로 카드 3개, 각 카드 위에 보라 라벨 */
+.p-steps { list-style: none; margin: 0; padding: 0; display: grid; gap: 24px; }
+.p-step { border-top: 2px solid var(--c-ink); padding-top: 18px; min-width: 0; }
+.p-step-no { display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--c-accent); }
+.p-step h3 { margin-top: 6px; }
+.p-step p { margin-top: 8px; }
+.p-step ul { list-style: none; margin: 12px 0 0; padding: 0; }
+.p-step li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.6; color: var(--c-text); }
+.p-step li + li { margin-top: 4px; }
+.p-step li::before { content: ""; position: absolute; left: 0; top: .7em; width: 8px; height: 2px; background: var(--c-accent); }
+
+/* 표: 모든 표가 같은 모양과 같은 여백을 쓴다 */
+.p-table-wrap { border: 1px solid var(--c-line); border-radius: 6px; overflow-x: auto; background: #fff; }
+.p-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
+.p-table th, .p-table td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--c-line); }
+.p-table tr:last-child th, .p-table tr:last-child td { border-bottom: 0; }
+.p-table thead th { background: var(--c-bg-alt); font-size: 13px; font-weight: 600; color: var(--c-ink); }
+.p-table tbody th { font-weight: 600; color: var(--c-ink); }
+.p-table td { color: var(--c-text); }
+.p-table .tbd { font-size: inherit; }
+.p-table-note { margin-top: 12px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* 근거 그림 (작동 방식 도식) */
+.p-fig { margin: 0; border: 1px solid var(--c-line); border-radius: 6px; background: #fff; padding: 14px; }
+.p-fig svg { width: 100%; height: auto; }
+.p-fig figcaption { margin-top: 12px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* 사진: 문단 아래에 두고 설명 한 줄을 붙인다 (가로 최대 640px) */
+.p-photo { margin: 24px 0 0; max-width: 640px; }
+.p-photo img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 6px; background: var(--c-bg-alt); }
+.p-photo figcaption { margin-top: 10px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
+
+/* 화면 캡처: 16:10 비율을 지키고 칸 너비까지 넓힌다 */
+.p-photo.p-shot { max-width: 100%; }
+.p-photo.p-shot img { aspect-ratio: 16 / 10; }
+
+/* 주의 상자: 분홍 대신 무채색 면과 보라 선 */
+.p-notice { background: var(--c-bg-alt); border-left: 3px solid var(--c-accent); border-radius: 0 6px 6px 0; padding: 16px 20px; font-size: 15px; line-height: 1.6; color: var(--c-ink); }
+.p-notice strong { display: block; margin-bottom: 4px; }
+.p-ch-text .p-notice { margin-top: 20px; }
+
+/* 근거 블록 사이의 간격 */
+.p-ev > * + * { margin-top: 20px; }
+.p-ch-text .p-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 8px 24px; font-size: 15px; }
+
+/* 문의 띠: 장식 없이 문장과 버튼만 */
+.p-contact { border-top: 2px solid var(--c-ink); padding: clamp(48px, 6vw, 72px) 0; }
+.p-contact-in { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px 40px; }
+.p-contact-in h2 { font-size: var(--fs-h3); font-weight: 700; color: var(--c-ink); }
+.p-contact-in p { margin-top: 8px; color: var(--c-muted); max-width: 560px; }
+
+/* 좁은 화면: 두 단을 한 단으로 쌓고, 근거는 문단 아래 */
+@media (max-width: 900px) {
+  .p-trust-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p-ch-body { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 600px) {
+  .p-trust-list { grid-template-columns: 1fr; }
+  .p-hero-actions .btn { width: 100%; }
+  .p-hero-links { flex-direction: column; gap: 12px; }
+  .p-ch-head { gap: 10px; }
+  .p-table th, .p-table td { padding: 10px 12px; }
+  .p-contact-in .btn { width: 100%; }
+}

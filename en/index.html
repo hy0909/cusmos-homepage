@@ -6,197 +6,139 @@
 <title>CUSMOS | Hear what your city is telling you</title>
 <meta name="description" content="CUSMOS sensors identify what a sound is and where it came from, 24 hours a day. Smart city noise monitoring and industrial safety sound detection.">
 <meta property="og:title" content="CUSMOS | Hear what your city is telling you"><meta property="og:description" content="Edge AI acoustic sensors that identify a sound and locate where it came from."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
-<link rel="alternate" hreflang="en" href="../en/index.html">
-<link rel="alternate" hreflang="ja" href="../ja/index.html">
-<link rel="alternate" hreflang="de" href="../de/index.html">
-<link rel="alternate" hreflang="x-default" href="../en/index.html">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=6">
-<link rel="stylesheet" href="locale.css?v=9">
+<link rel="stylesheet" href="locale.css?v=10">
+<link rel="stylesheet" href="fable.css?v=1">
 </head>
 <body data-hero="dark">
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header"></header>
 <main id="main">
 
-  <!-- 1. 히어로: 어두운 도시 사진 위 큰 문구 하나 -->
-  <section class="hero hero-dark en-hero">
-    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1506426305266-2b7e740fd828?auto=format&fit=crop&w=1600&q=75" alt="Traffic light trails on a city street at night"></div>
-    <div class="wrap">
-      <span class="eyebrow">Smart city and industrial sound intelligence</span>
-      <h1 class="t-display reveal">The sound of the&nbsp;city,<br><span class="grad-text">as data</span></h1>
-      <p class="t-lead reveal d1">CUSMOS installs small AI acoustic sensors across cities and industrial sites. They identify where a sound came from and what it was, and keep a record you can use to assess the situation.</p>
-      <div class="btn-row reveal d2" style="margin-top:40px">
-        <a class="btn btn-primary btn-lg" href="contact.html">Book a demo</a>
-        <a class="btn btn-ghost-light btn-lg" href="#how">See how it works</a>
+  <!-- 1. 첫 화면: 문제 한 줄, 제목, 주요 버튼 1개, 기능 바로가기 3개 -->
+  <section class="f-hero">
+    <div class="f-hero-bg"><img src="https://images.unsplash.com/photo-1506426305266-2b7e740fd828?auto=format&fit=crop&w=1200&q=60" alt="Traffic light trails on a city street at night" width="1200" height="800" fetchpriority="high"></div>
+    <div class="wrap f-hero-inner">
+      <p class="f-problem">Noise complaints keep coming back, but most monitoring is still done by hand.</p>
+      <h1 class="f-h1">Find the source of every sound.</h1>
+      <div class="f-actions">
+        <a class="f-btn-main" href="contact.html">Book a demo</a>
       </div>
+      <nav class="f-jumps" aria-label="Jump to a feature">
+        <ul class="f-jump-list">
+          <li><a class="f-jump" href="#feat-city">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 7v10M11 4v16M15 7v10M19 10v4"/></svg>
+            <span>City Noise</span></a></li>
+          <li><a class="f-jump" href="#feat-industry">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg>
+            <span>Industrial Safety</span></a></li>
+          <li><a class="f-jump" href="#feat-ucam">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg>
+            <span>Fault Inspection</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 
-  <!-- 2. 성과 숫자 3개 -->
-  <section class="sec">
+  <!-- 2. 성과 띠: 브랜드 그라데이션이 쓰이는 유일한 본문 면 -->
+  <section class="f-results" aria-labelledby="results-title">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">Field results</span>
-        <h2 class="t-h2 reveal d1">Numbers from real installations</h2>
+      <div class="f-results-head">
+        <span class="f-eyebrow-light">Field results</span>
+        <h2 class="f-h2-light" id="results-title">Numbers from real installations</h2>
       </div>
-      <div class="grid g-3">
-        <div class="stat card reveal">
-          <div class="num"><span class="en-approx">About</span><span data-count="60">0</span><small>%</small></div>
-          <div class="label">Fewer noise complaints</div>
-          <div class="src">Installed area only, Siheung City, Dec 2025 to Jun 2026. Observation and guidance only, no enforcement.</div>
+      <div class="f-results-grid">
+        <div class="f-result">
+          <p class="f-num"><span class="f-about">About</span>60<small>%</small></p>
+          <p class="f-result-label">Fewer noise complaints</p>
+          <p class="f-result-src">Installed area only, Dec 2025 to Jun 2026, Siheung City.</p>
         </div>
-        <div class="stat card reveal d1">
-          <div class="num"><span data-count="95">0</span><small>%+</small></div>
-          <div class="label">Sound classification accuracy</div>
-          <div class="src">Siheung pilot target achieved, per our 2025 final company report.</div>
+        <div class="f-result">
+          <p class="f-num">95<small>%+</small></p>
+          <p class="f-result-label">Sound classification accuracy</p>
+          <p class="f-result-src">Siheung pilot target met, per our 2025 final company report.</p>
         </div>
-        <div class="stat card reveal d2">
-          <div class="num"><span data-count="30">0</span><small>%</small></div>
-          <div class="label">Fewer monitoring blind spots</div>
-          <div class="src">Korea Electric Power Corporation (KEPCO), Taean thermal power plant proof of concept.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 3. 작동 방식 3단계: 듣고, 찾고, 알린다 -->
-  <section class="sec sec-alt" id="how">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">How it works</span>
-        <h2 class="t-h2 reveal d1">Listen. Locate. Alert.</h2>
-        <p class="t-lead reveal d2">Each sensor analyzes sound on the device. Only the information you need goes to the server.</p>
-      </div>
-      <div class="split">
-        <div class="media wide reveal">
-          <img src="https://images.unsplash.com/photo-1782945217386-300f33f22069?auto=format&fit=crop&w=1600&q=75" alt="Rows of consoles and monitors in a control room (example scene, Florida)" loading="lazy">
-        </div>
-        <div class="en-steps">
-          <div class="en-step reveal">
-            <span class="en-step-no">01</span>
-            <div>
-              <h3>Listen</h3>
-              <p>Small edge AI sensors on existing poles listen all day, every day. No staff needs to be on site.</p>
-            </div>
-          </div>
-          <div class="en-step reveal d1">
-            <span class="en-step-no">02</span>
-            <div>
-              <h3>Locate</h3>
-              <p>Several microphones pick up the same sound. The sensor works out where it came from and AI names the type: motorcycle, horn, construction, or equipment fault.</p>
-            </div>
-          </div>
-          <div class="en-step reveal d2">
-            <span class="en-step-no">03</span>
-            <div>
-              <h3>Alert</h3>
-              <p>Your control room gets an alert on screen, and the nearest camera turns toward the spot. Every event is logged as evidence for complaint handling and policy.</p>
-            </div>
-          </div>
+        <div class="f-result">
+          <p class="f-num">30<small>%</small></p>
+          <p class="f-result-label">Fewer monitoring blind spots</p>
+          <p class="f-result-src">KEPCO Taean thermal power plant proof of concept.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 4. 솔루션 카드 3개 -->
-  <section class="sec">
+  <!-- 3. 기능 요약: 블록 3개. 각 블록은 효과 한 줄, 기능 한 줄, 상세 링크 순서 -->
+  <section class="f-sec f-features" id="features">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">Solutions</span>
-        <h2 class="t-h2 reveal d1">Three ways to put sound data to work</h2>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">How it works</span>
+        <h2 class="f-h2">Three ways to put sound data to work</h2>
+        <p>Each sensor analyzes sound on the device. Only the information you need goes to the server.</p>
       </div>
-      <div class="grid g-3">
-        <a class="card card-link reveal" href="solutions.html#city">
-          <div class="media"><img src="https://images.unsplash.com/photo-1666218758971-a88cf22930f2?auto=format&fit=crop&w=1200&q=75" alt="A city hall building with a large dome at dusk" loading="lazy"></div>
-          <div class="body">
-            <span class="badge">For cities</span>
-            <h3 class="t-h3">Smart city noise monitoring</h3>
-            <p>Place sensors where noise complaints keep coming back. Record the cause and timing to guide enforcement and fixes.</p>
-            <span class="link-arrow">Learn more</span>
+      <div class="f-grid">
+        <article class="f-card" id="feat-city">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1688646583123-16844c80e78a?auto=format&fit=crop&w=1200&q=75" alt="A woman in a white shirt works on a laptop at a table by a window" width="1200" height="800" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For cities</span>
+            <h3 class="f-h3">Smart city noise monitoring</h3>
+            <p class="f-effect">About 60% fewer noise complaints in the installed area.</p>
+            <p class="f-what">Records the sound type, level, and timing on existing poles.</p>
+            <a class="f-learn" href="solutions.html#city">Learn more &rarr;</a>
           </div>
-        </a>
-        <a class="card card-link reveal d1" href="solutions.html#industry">
-          <div class="media"><img src="https://images.unsplash.com/photo-1772299121503-cd62a57e3a26?auto=format&fit=crop&w=1200&q=75" alt="Workers in safety vests work inside a large empty industrial building" loading="lazy"></div>
-          <div class="body">
-            <span class="badge">For industry</span>
-            <h3 class="t-h3">Industrial safety sound detection</h3>
-            <p>Hear accident and equipment-fault sounds that cameras miss. The nearest CCTV turns to the spot and alerts the control room.</p>
-            <span class="link-arrow">Learn more</span>
+        </article>
+        <article class="f-card" id="feat-industry">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=75" alt="Seven construction workers in safety vests stand on a concrete deck at a building site" width="1200" height="800" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For industry</span>
+            <h3 class="f-h3">Industrial safety sound detection</h3>
+            <p class="f-effect">30% fewer monitoring blind spots in the KEPCO Taean proof of concept.</p>
+            <p class="f-what">Hears accident sounds and turns the nearest CCTV to the spot.</p>
+            <a class="f-learn" href="solutions.html#industry">Learn more &rarr;</a>
           </div>
-        </a>
-        <a class="card card-link reveal d2" href="solutions.html#ucam">
-          <div class="media"><img src="https://images.unsplash.com/photo-1660330589487-39cc0177ba89?auto=format&fit=crop&w=1200&q=75" alt="A technician in a neon-yellow shirt works on an electrical panel" loading="lazy"></div>
-          <div class="body">
-            <span class="badge">For inspection</span>
-            <h3 class="t-h3">Handheld ultrasonic camera</h3>
-            <p>After a sensor flags a fault, inspectors overlay ultrasound on the live camera view to pinpoint the problem.</p>
-            <span class="link-arrow">Learn more</span>
+        </article>
+        <article class="f-card" id="feat-ucam">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1660330589827-da8ab7dd3c02?auto=format&fit=crop&w=1200&q=75" alt="A technician in a navy hoodie and cap works on an electric meter" width="1200" height="800" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For inspection</span>
+            <h3 class="f-h3">Handheld ultrasonic camera</h3>
+            <p class="f-effect">Shows the exact spot of the fault on screen.</p>
+            <p class="f-what">Overlays ultrasound on the live camera view for inspectors.</p>
+            <a class="f-learn" href="solutions.html#ucam">Learn more &rarr;</a>
           </div>
-        </a>
+        </article>
+      </div>
+      <!-- 제어 화면 예시 (샘플 데이터) -->
+      <div class="media wide reveal" style="margin-top:56px;aspect-ratio:16/10"><div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=en" title="CUSMOS control screen, live view with sample data" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-en.jpg" alt="CUSMOS control screen with a sensor map and a live detection log" width="1920" height="1200" loading="lazy"></div></div>
+      <p class="note reveal">Screen shows sample data.</p>
+    </div>
+  </section>
+
+  <!-- 4. 대표 사례: 효과 숫자 먼저, 조건은 한 줄 -->
+  <section class="f-sec f-case">
+    <div class="wrap f-case-grid">
+      <div class="f-case-media">
+        <img src="https://images.unsplash.com/photo-1666969565832-b55bf42a900d?auto=format&fit=crop&w=1400&q=75" alt="Austin, Texas skyline over the river at dusk (example scene)" width="1400" height="788" loading="lazy">
+      </div>
+      <div class="f-case-body">
+        <span class="f-eyebrow">Featured case · Siheung City</span>
+        <p class="f-case-num"><span class="f-about">About</span>60<small>%</small></p>
+        <h2 class="f-h2">Fewer noise complaints in the installed area</h2>
+        <p class="f-lead">Motorcycle noise kept coming back on Baegot Haesong Sipli-ro. Four units recorded the cause and timing of each noise.</p>
+        <p class="f-conditions">Installed area only, Dec 2025 to Jun 2026. Observation and guidance only, no enforcement. Figure as verbally confirmed by Siheung City, Sep 2026.</p>
+        <a class="f-learn" href="cases.html#siheung">Read the full case &rarr;</a>
       </div>
     </div>
   </section>
 
-  <!-- 5. 대표 사례 하나 크게: 시흥 -->
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="split">
-        <div class="media wide reveal">
-          <img src="https://images.unsplash.com/photo-1666969565832-b55bf42a900d?auto=format&fit=crop&w=1600&q=75" alt="Example scene: the Austin skyline at dusk" loading="lazy">
-        </div>
-        <div>
-          <span class="eyebrow reveal">Featured case · Siheung City</span>
-          <h2 class="t-h2 reveal d1">Noise complaints fell about 60% in the installed area</h2>
-          <p class="t-lead reveal d2">Motorcycle noise kept coming back on Baegot Haesong Sipli-ro. We installed four units at four sites and recorded what caused each noise, and when.</p>
-          <div class="grid g-2 reveal d2" style="margin-top:36px">
-            <div class="stat"><div class="num"><span class="en-approx">About</span><span data-count="60">0</span><small>%</small></div><div class="label">Fewer complaints</div></div>
-            <div class="stat"><div class="num"><span data-count="95">0</span><small>%+</small></div><div class="label">Accuracy target met</div></div>
-          </div>
-          <p class="en-conditions reveal">Conditions: installed area only, Dec 2025 to Jun 2026. Observation and guidance only, with no enforcement. The complaint figure is as verbally confirmed by Siheung City in Sep 2026.</p>
-          <a class="link-arrow reveal" href="cases.html#siheung" style="margin-top:28px">Read the full case</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. 기존 측정소와 비교 -->
-  <section class="sec sec-alt">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">Why CUSMOS</span>
-        <h2 class="t-h2 reveal d1">Fixed stations are few and manual</h2>
-        <p class="t-lead reveal d2">Noise is the largest category of environmental complaints in Korea, at 46.5% in 2024. Yet 1,766 of the 1,828 sites in Korea's national noise network are still measured by hand.</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table class="table en-compare">
-          <thead>
-            <tr><th scope="col">Item</th><th scope="col">Traditional fixed station</th><th scope="col">CUSMOS sensor</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">Cost</th><td>About KRW 10 million per automatic station (2022, Daejeon project)</td><td>Compact unit that mounts on existing CCTV and vehicle-detection poles</td></tr>
-            <tr><th scope="row">Coverage</th><td>One automatic station per 500 m radius</td><td>Placed wherever complaints happen, as many units as needed</td></tr>
-            <tr><th scope="row">Measurement</th><td>Mostly manual. 96.6% of the national network</td><td>Automatic, 24 hours a day, with no staff on site</td></tr>
-            <tr><th scope="row">What you learn</th><td>Sound level</td><td>Sound type, sound level, and location</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="note reveal">The figures in this section are from Korea: the national noise network count, the 2022 Daejeon project, and the 2024 complaint share.</p>
-    </div>
-  </section>
-
-  <!-- 7. 문의 띠 -->
-  <section class="sec">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div class="inner">
-          <h2 class="t-h2">See what sound data shows for your site</h2>
-          <p>Tell us where you want to listen and what problem you need to solve. We will suggest a setup.</p>
-        </div>
-        <a class="btn btn-primary btn-lg" href="contact.html">Book a demo</a>
-      </div>
+  <!-- 5. 마지막 행동 유도: 한 문장과 버튼 1개 -->
+  <section class="f-final">
+    <div class="wrap f-final-inner">
+      <h2 class="f-h2-light">See what sound data shows for your site.</h2>
+      <a class="f-btn-main" href="contact.html">Book a demo</a>
     </div>
   </section>
 </main>
@@ -205,5 +147,16 @@
 <script src="site.js?v=9"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
+<script>
+  // 프로토타입은 base 태그를 쓰므로 #으로 시작하는 링크를 직접 스크롤 처리한다
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var el = document.getElementById(a.getAttribute("href").slice(1));
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: "smooth" });
+  });
+</script>
 </body>
 </html>

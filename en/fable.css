@@ -1,0 +1,107 @@
+/* 영어 2차 시안(Fable) 메인. 1차 시안(after.css)을 잇지 않고 f- 접두사로 따로 쓴다.
+ * 색은 브랜드 색(#05060D, #7FA8FF, #A46BFF, #F45FC8, --grad)과 global.css 무채색, 흰색·rgba만 쓴다.
+ * 브랜드 색은 성과 띠와 버튼에만 쓰고, 나머지는 남색·흰색·회색으로 둔다. */
+
+/* 포커스 표시도 브랜드 보라색으로 맞춘다 */
+:focus-visible { outline-color: #a46bff; }
+
+/* 섹션 간격: 데스크톱 96px 이상, 휴대폰은 72px */
+:root { --sec-pad: clamp(96px, 10vw, 136px); }
+
+/* 1. 첫 화면: 어두운 도시 사진, 제목, 주요 버튼 1개, 기능 바로가기 3개 */
+.f-hero { position: relative; overflow: hidden; background: var(--c-bg-dark); color: #fff; min-height: min(100svh, 900px); display: flex; align-items: center; padding: calc(var(--header-h) + 96px) 0 96px; }
+.f-hero-bg { position: absolute; inset: 0; }
+.f-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+.f-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.78) 50%, rgba(5,6,13,.5) 100%); }
+.f-hero-inner { position: relative; z-index: 1; width: 100%; }
+.f-problem { max-width: 620px; font-size: 18px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,.82); }
+.f-h1 { margin-top: 18px; max-width: 14ch; font-size: clamp(44px, 6.4vw, 84px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; color: #fff; }
+.f-actions { margin-top: 40px; }
+
+/* 주요 버튼: 그라데이션 위 글자는 흰색. 남색 막을 35% 깔아 흰 글자 대비를 확보한다 */
+.f-btn-main { display: inline-flex; align-items: center; justify-content: center; height: 60px; padding: 0 36px; border-radius: 999px; background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); color: #fff; text-shadow: 0 1px 2px rgba(5,6,13,.3); font-size: 18px; font-weight: 700; transition: transform .2s var(--ease), box-shadow .2s; }
+.f-btn-main:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 12px 30px -10px rgba(244,95,200,.6); }
+
+/* 기능 바로가기: 아이콘과 두 낱말 이름. 브랜드 색 없이 흰색 테두리로만 구분한다 */
+.f-jumps { margin-top: 56px; }
+.f-jump-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 900px; }
+.f-jump { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; min-height: 124px; padding: 22px 24px; border-radius: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 18px; font-weight: 650; transition: background .2s; }
+.f-jump:hover { background: rgba(255,255,255,.16); }
+.f-jump svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+/* 2. 성과 띠: 흰 바탕에 잉크색 글자. 바로 아래 기능 구역은 연회색으로 구분한다 */
+.f-results { position: relative; background: #fff; color: var(--c-ink); padding: var(--sec-pad) 0; overflow: hidden; }
+.f-results + .f-sec { background: var(--c-bg-alt); }
+.f-results > .wrap { position: relative; }
+.f-results-head { margin-bottom: clamp(40px, 5vw, 60px); }
+.f-eyebrow-light { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--c-muted); }
+.f-h2-light { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-ink); }
+.f-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.f-result { padding: 0 clamp(20px, 3vw, 40px); border-left: 1px solid var(--c-line); }
+.f-result:first-child { padding-left: 0; border-left: 0; }
+.f-num { font-size: clamp(56px, 7vw, 92px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-ink); }
+.f-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
+.f-about { margin-right: 6px; font-size: .42em; font-weight: 600; letter-spacing: 0; vertical-align: .9em; }
+.f-result-label { margin-top: 16px; font-size: 18px; font-weight: 650; color: var(--c-ink); }
+.f-result-src { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--c-muted); }
+
+/* 공통 본문 블록 */
+.f-sec { padding: var(--sec-pad) 0; background: #fff; }
+.f-eyebrow { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--c-muted); }
+.f-h2 { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-ink); }
+.f-sec-head { max-width: 720px; margin-bottom: clamp(44px, 5vw, 64px); }
+.f-sec-head p { margin-top: 16px; font-size: var(--fs-lead); color: var(--c-muted); }
+
+/* 3. 기능 블록: 효과 한 줄(굵게), 기능 한 줄, 상세 링크 순서 */
+.f-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.f-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid var(--c-line); border-radius: 20px; background: #fff; }
+.f-photo { aspect-ratio: 16 / 10; overflow: hidden; background: #f5f6fa; }
+.f-photo img { width: 100%; height: 100%; object-fit: cover; }
+.f-card-body { display: flex; flex: 1; flex-direction: column; gap: 12px; padding: 28px; }
+.f-tag { display: inline-flex; align-self: flex-start; align-items: center; height: 26px; padding: 0 10px; border-radius: 999px; background: #f5f6fa; color: var(--c-ink); font-size: 12px; font-weight: 600; }
+.f-h3 { font-size: clamp(19px, 1.6vw, 22px); line-height: 1.35; font-weight: 650; color: var(--c-ink); }
+.f-effect { font-size: 19px; line-height: 1.4; font-weight: 700; color: var(--c-ink); }
+.f-what { font-size: 16px; line-height: 1.55; color: var(--c-muted); }
+.f-learn { align-self: flex-start; margin-top: auto; padding-top: 8px; font-size: 16px; font-weight: 600; color: var(--c-ink); text-decoration: underline; text-decoration-color: var(--c-line-strong); text-underline-offset: 5px; }
+.f-learn:hover { text-decoration-color: var(--c-ink); }
+
+/* 4. 대표 사례: 효과 숫자 먼저, 조건은 한 줄 */
+.f-case { background: #fff; }
+.f-case-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 6vw, 88px); }
+.f-case-media { border-radius: 20px; overflow: hidden; background: #f5f6fa; aspect-ratio: 16 / 9; }
+.f-case-media img { width: 100%; height: 100%; object-fit: cover; }
+.f-case-body { display: flex; flex-direction: column; align-items: flex-start; }
+.f-case-num { font-size: clamp(72px, 9vw, 112px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-ink); }
+.f-case-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
+.f-case-body .f-about { color: var(--c-ink); }
+.f-case-body .f-h2 { margin-top: 16px; font-size: clamp(26px, 3vw, 38px); }
+.f-lead { margin-top: 16px; font-size: 17px; line-height: 1.6; color: var(--c-muted); }
+.f-conditions { margin-top: 20px; padding-left: 14px; border-left: 2px solid var(--c-line-strong); font-size: 14px; line-height: 1.55; color: var(--c-muted); }
+.f-case-body .f-learn { margin-top: 28px; }
+
+/* 5. 마지막 행동 유도: 남색 면에 한 문장과 버튼 1개 */
+.f-final { background: var(--c-bg-dark); padding: var(--sec-pad) 0; }
+.f-final-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px; }
+.f-final .f-h2-light { max-width: 640px; }
+
+/* 작은 화면 (375px 기준) */
+@media (max-width: 960px) {
+  .f-case-grid { grid-template-columns: 1fr; }
+  .f-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 760px) {
+  .f-results-grid { grid-template-columns: 1fr; gap: 40px; }
+  .f-result, .f-result:first-child { padding: 0; border-left: 0; }
+  .f-jump-list { grid-template-columns: 1fr; }
+  .f-jump { flex-direction: row; align-items: center; justify-content: flex-start; gap: 14px; min-height: 0; padding: 18px 20px; }
+  .f-grid { grid-template-columns: 1fr; }
+  .f-actions .f-btn-main, .f-final-inner .f-btn-main { width: 100%; }
+}
+@media (max-width: 600px) {
+  :root { --sec-pad: 72px; }
+  .f-hero { padding-bottom: 72px; }
+  .f-problem { font-size: 16px; }
+  .f-btn-main { height: 56px; padding: 0 24px; font-size: 17px; }
+  .f-jumps { margin-top: 40px; }
+  .f-jump { font-size: 17px; }
+}
