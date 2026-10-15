@@ -14,7 +14,7 @@
 | `en/` | 영어. 기본값 |
 | `ja/` | 일본어 |
 | `de/` | 독일어. 법적으로 필요한 Impressum, Datenschutz 포함 |
-| `ko/` | 개선 전 한국어 원본. 채용은 여기에만 있음 |
+| `ko/` | 한국어 사이트. 게시판과 채용은 없고 회사소개·기술·솔루션·도입 사례·도입 문의만 있음 |
 | `compare.html` | 개선 전 한국어와 개선 후 언어별 화면을 나란히 보는 비교 페이지 |
 
 나라마다 메뉴 순서, 메인 섹션 순서, 정보량, 색과 글꼴, 사람 이미지가 다릅니다. 기준과 사이트맵은 [docs/information-architecture.md](docs/information-architecture.md)에, 이미지 자리와 생성 프롬프트는 [docs/image-prompts.md](docs/image-prompts.md)에 있습니다.
