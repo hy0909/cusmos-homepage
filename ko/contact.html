@@ -7,7 +7,7 @@
 <meta name="description" content="커즈모스 솔루션 도입과 제휴를 문의해 주세요.">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
-<link rel="stylesheet" href="../assets/css/style.css?v=15">
+<link rel="stylesheet" href="../assets/css/style.css?v=16">
 </head>
 <body data-base="../">
 <header id="site-header"></header>
@@ -21,8 +21,7 @@
   </section>
   <section class="light" style="padding:clamp(56px,7vw,100px) 0 clamp(96px,10vw,160px)">
     <div class="wrap">
-      <div class="split top" style="grid-template-columns:1fr 2fr">
-        <dl class="contact-info" id="info"></dl>
+      <div style="max-width:840px">
         <form class="form" id="form">
           <div><label for="org">기관·회사명</label><input id="org" required></div>
           <div><label for="name">담당자</label><input id="name" required></div>
@@ -40,11 +39,9 @@
 </main>
 <footer id="site-footer"></footer>
 <script src="../assets/js/config.js?v=8"></script>
-<script src="../assets/js/common.js?v=10"></script>
+<script src="../assets/js/common.js?v=11"></script>
 <script>
   getData("site", {}).then((s) => {
-    const rows = [["이메일", s.email], ["전화", s.phone], ["주소", s.address]];
-    document.getElementById("info").innerHTML = rows.map((r) => `<div><dt>${r[0]}</dt><dd>${r[1] ? esc(r[1]) : '<span style="color:#9aa0b5;font-weight:400">준비 중입니다</span>'}</dd></div>`).join("");
     document.getElementById("form").addEventListener("submit", (e) => {
       e.preventDefault();
       if (!s.email) return alert("문의 메일 주소를 준비하고 있습니다. 잠시 후 다시 시도해 주세요.");

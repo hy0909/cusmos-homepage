@@ -1,12 +1,11 @@
 /* 헤더·푸터·공통 기능 */
 (function () {
   const NAV = [
-    { label: "회사소개", href: "company.html", children: [["회사 개요", "company.html#about"], ["비전", "company.html#vision"], ["팀", "company.html#team"], ["연혁", "company.html#history"], ["특허", "company.html#patent"], ["오시는 길", "company.html#location"]] },
+    // 회사소개는 한 페이지라 하위 목차를 두지 않는다
+    { label: "회사소개", href: "company.html", children: [] },
     { label: "기술", href: "technology.html", children: [["엣지 AI 음향센서", "technology.html#sensor"], ["마이크 배열 설계", "technology.html#array"], ["현장 분석·선별 전송", "technology.html#edge"], ["소리 맥락 데이터", "technology.html#data"]] },
     { label: "솔루션", href: "solutions.html", children: [["주요 사업 분야", "solutions.html#areas"], ["스마트시티 소음 관측", "solutions.html#city"], ["산업안전 이상음 탐지", "solutions.html#industry"], ["휴대용 초음파 카메라", "solutions.html#ucam"]] },
     { label: "도입 사례", href: "cases.html", children: [["시흥 배곧 이륜차 소음", "cases.html#siheung"], ["한전 태안화력 PoC", "cases.html#kepco"], ["도입 기관", "cases.html#clients"]] },
-    { label: "게시판", href: "news.html", children: [["공지사항", "notice.html"], ["뉴스", "news.html"], ["CI", "ci.html"]] },
-    { label: "채용", href: "careers.html", children: [["채용공고", "careers.html"], ["인재상", "culture.html"], ["복리후생", "culture.html#benefits"]] },
   ];
   window.CUSMOS_NAV = NAV;
 
@@ -15,7 +14,7 @@
   const BASE = document.body.dataset.base || "";
   // 언어 메뉴: 같은 페이지가 그 언어에 있으면 그 페이지로, 없으면 메인으로 간다
   const LANGS = [
-    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "notice.html", "news.html", "ci.html", "careers.html", "culture.html"] },
+    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html"] },
     { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
     { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
     { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
@@ -25,7 +24,7 @@
     return `${BASE}${l.code}/${l.pages.includes(cur) ? cur : "index.html"}`;
   };
   const page = location.pathname.split("/").pop() || "index.html";
-  const pageGroup = { "notice.html": "news.html", "ci.html": "news.html", "culture.html": "careers.html" }[page] || page;
+  const pageGroup = page;
 
   function header() {
     const el = document.getElementById("site-header");
@@ -40,7 +39,7 @@
         </a>
         <ul class="gnb">
           ${NAV.map((n) => `<li class="${n.href === pageGroup ? "current" : ""}"><a href="${n.href}">${n.label}</a>
-            <div class="sub">${n.children.map((c) => `<a href="${c[1]}">${c[0]}</a>`).join("")}</div></li>`).join("")}
+            ${n.children.length ? `<div class="sub">${n.children.map((c) => `<a href="${c[1]}">${c[0]}</a>`).join("")}</div>` : ""}</li>`).join("")}
         </ul>
         <div class="util">
           <div class="lang">
@@ -93,7 +92,9 @@
     const m = document.createElement("div");
     m.className = "m-nav";
     m.innerHTML = `<div class="m-top"><img src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS" style="height:15px;width:auto"><button class="m-close" aria-label="메뉴 닫기">×</button></div>
-      ${NAV.map((n) => `<details><summary>${n.label}</summary><ul>${n.children.map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></details>`).join("")}
+      ${NAV.map((n) => n.children.length
+        ? `<details><summary>${n.label}</summary><ul>${n.children.map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></details>`
+        : `<a class="m-link" href="${n.href}">${n.label}</a>`).join("")}
       <a class="btn btn-grad" href="contact.html">도입 문의</a>`;
     document.body.appendChild(m);
     el.querySelector(".menu-btn").addEventListener("click", () => { m.classList.add("open"); document.body.style.overflow = "hidden"; });
@@ -111,7 +112,7 @@
     el.innerHTML = `<div class="wrap">
       <div class="top">
         <div class="brand"><img class="word" src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS"><p>시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 회사입니다.</p></div>
-        <div class="cols">${NAV.map((n) => `<div><strong>${n.label}</strong><ul>${n.children.slice(0, 4).map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul></div>`).join("")}</div>
+        <div class="cols">${NAV.map((n) => `<div><strong>${n.children.length ? n.label : `<a href="${n.href}">${n.label}</a>`}</strong>${n.children.length ? `<ul>${n.children.slice(0, 4).map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul>` : ""}</div>`).join("")}</div>
       </div>
       <div class="bottom">
         <dl>${[["", site.company || "주식회사 커즈모스"], ...info].map((r) => `<div>${r[0] ? `<dt>${r[0]}</dt>` : ""}<dd>${esc(r[1])}</dd></div>`).join("")}</dl>

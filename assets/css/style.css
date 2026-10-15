@@ -143,6 +143,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .m-nav details[open] summary::after { transform: rotate(45deg); }
 .m-nav details ul { padding: 0 0 20px; display: grid; gap: 14px; }
 .m-nav details a { color: var(--muted); font-size: 16px; }
+/* 하위 목차가 없는 메뉴(회사소개)는 접기 없이 바로 링크 */
+.m-nav > a.m-link { display: block; padding: 22px 0; border-bottom: 1px solid var(--line); font-size: 22px; font-weight: 700; color: var(--text); }
 .m-nav .btn { width: 100%; margin-top: 32px; }
 
 /* ───────── 공통 섹션 ───────── */
