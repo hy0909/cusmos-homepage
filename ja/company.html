@@ -15,160 +15,253 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
 <header id="site-header"></header>
 
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="p-main f-main f-sub">
+
+  <nav class="f-zonebar" aria-label="ページ内の構成">
+    <ul class="f-zonebar-list">
+      <li><a href="#overview"><b>01</b>会社概要</a></li>
+      <li><a href="#vision"><b>02</b>ビジョン</a></li>
+      <li><a href="#team"><b>03</b>チーム</a></li>
+      <li><a href="#history"><b>04</b>沿革</a></li>
+      <li><a href="#patent"><b>05</b>特許・商標</a></li>
+      <li><a href="#access"><b>06</b>アクセス</a></li>
+    </ul>
+  </nav>
+
+  <section class="p-hero">
     <div class="wrap">
-      <div class="crumb reveal"><span>会社情報</span></div>
-      <h1 class="t-display reveal d1">街の問題を見つけ、<br>原因を突き止め、解決します</h1>
-      <p class="t-lead reveal d2">CUSMOSは、音から都市の問題を読み解く会社です。騒音苦情のように昔からある問題でも、根拠が足りないまま扱われてきた問題を、データで説明できるようにします。</p>
+      <span class="p-eyebrow">会社情報</span>
+      <h1>街の問題を見つけ、<br>原因を突き止め、解決します</h1>
+      <p class="p-lead">CUSMOSは、音から都市の問題を読み解く会社です。騒音苦情のように昔からある問題でも、根拠が足りないまま扱われてきた問題を、データで説明できるようにします。</p>
+      <nav class="f-map" aria-label="このページの構成">
+        <span class="f-map-k">このページの構成</span>
+        <ol class="f-map-list">
+          <li><a href="#overview"><b>01</b>会社概要</a></li>
+          <li><a href="#vision"><b>02</b>ビジョン</a></li>
+          <li><a href="#team"><b>03</b>チーム</a></li>
+          <li><a href="#history"><b>04</b>沿革</a></li>
+          <li><a href="#patent"><b>05</b>特許・商標</a></li>
+          <li><a href="#access"><b>06</b>アクセス</a></li>
+        </ol>
+      </nav>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="ページ内ナビゲーション"><div class="wrap"><ul>
-    <li><a href="#overview">会社概要</a></li>
-    <li><a href="#vision">ビジョン</a></li>
-    <li><a href="#team">チーム</a></li>
-    <li><a href="#history">沿革</a></li>
-    <li><a href="#patent">特許・商標</a></li>
-    <li><a href="#access">アクセス</a></li>
-  </ul></div></nav>
-
-  <!-- 회사 개요 -->
-  <section class="sec" id="overview">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">会社概要</span>
-        <h2 class="t-h2 reveal d1">会社の基本情報</h2>
-      </div>
-      <div class="table-wrap reveal">
-        <table class="table">
-          <tbody>
-            <tr><th scope="row">社名</th><td>CUSMOS Inc.（韓国法人）</td></tr>
-            <tr><th scope="row">代表者</th><td>代表取締役 イ・チャンウ</td></tr>
-            <tr><th scope="row">所在地</th><td><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></td></tr>
-            <tr><th scope="row">電話</th><td><span data-site="phone">準備中</span></td></tr>
-            <tr><th scope="row">メール</th><td><span data-site="email">準備中</span></td></tr>
-            <tr><th scope="row">事業内容</th><td>エッジAI音響センサー、音響データの分析、スマートシティ・産業安全向けの導入システム</td></tr>
-            <tr><th scope="row">知的財産</th><td>特許3件、商標1件（<a href="#patent" class="link-arrow">詳細</a>）</td></tr>
-            <tr><th scope="row">設立</th><td>準備中</td></tr>
-            <tr><th scope="row">日本国内の窓口</th><td>準備中</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p class="ja-note reveal">会社情報の一部は準備中です。確認が取れ次第、順次掲載します。</p>
-      <figure class="ja-photo reveal" style="margin-top:36px"><div class="media wide"><img src="https://images.unsplash.com/photo-1606336782667-775252a0e5b0?auto=format&fit=crop&w=1600&q=75" alt="東京の高層ビルのガラス外壁（イメージ写真）" loading="lazy"></div><figcaption>イメージ写真（東京）。CUSMOSの本社は大韓民国 江原特別自治道 春川市にあります。</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- 비전 -->
-  <section class="sec sec-alt" id="vision">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">ビジョン</span>
-        <h2 class="t-h2 reveal d1">発見し、究明し、解決する</h2>
-        <p class="reveal d2">現場の音をデジタルデータに変え、人が現場に出向かなくても状況を判断できるようにします。</p>
-      </div>
-      <div class="ja-vision">
-        <div class="card reveal"><span class="k">01</span><h3 style="margin-top:8px">発見</h3><p>苦情や現場で繰り返される問題を見つけます。騒音は環境苦情でもっとも多いのに、判断の材料となる記録が不足していました。</p></div>
-        <div class="card reveal d1"><span class="k">02</span><h3 style="margin-top:8px">究明</h3><p>音の種類、場所、時間帯を記録し、何が問題だったのかを数字で示します。</p></div>
-        <div class="card reveal d2"><span class="k">03</span><h3 style="margin-top:8px">解決</h3><p>管制への通知、カメラとの連動、政策判断の資料まで、現場ですぐ使える形でお届けします。</p></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 팀 (역할만 표시) -->
-  <section class="sec" id="team">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">チーム</span>
-        <h2 class="t-h2 reveal d1">市場開拓からAI・エッジ・管制プラットフォームまでを一体で進める組織</h2>
-        <p class="reveal d2">環境分野の事業経験と政策・予算の知見に、AI・組み込み・プラットフォーム開発の専門性を組み合わせています。</p>
-      </div>
-      <div class="team-groups">
-        <div class="team-group"><h3 class="team-group-label">経営・市場拡大</h3><div class="ja-team cols-2"><div class="card reveal "><span class="role">代表取締役</span><strong>イ・チャンウ</strong><p>政府・国防分野のネットワークを生かした市場拡大<br>環境分野の事業経験25年</p></div><div class="card reveal d1"><span class="role">COO</span><strong>チョン・イング</strong><p>企業戦略・政策・予算・法務<br>行政法務環境学 修士、IT企業の経営12年</p></div></div></div>
-        <div class="team-group"><h3 class="team-group-label">コア技術・製品開発</h3><div class="ja-team cols-3"><div class="card reveal "><span class="role">CTO</span><strong>キム・ジフン</strong><p>自動運転・AI・マルチモーダル<br>大量データ処理とエッジAI<br>関連分野の経験11年</p></div><div class="card reveal d1"><span class="role">組み込みシステム開発</span><strong>チョ・イルホ</strong><p>Linux・RTOS・BSP・ドライバー<br>エッジ端末の最適化とシステムの安定化<br>KAIST物理学、組み込み分野の経験 約30年</p></div><div class="card reveal d2"><span class="role">管制プラットフォーム・データ開発</span><strong>シン・セゲ</strong><p>センサーデータの収集・保存・照会<br>リアルタイムのイベント・通知・履歴管理<br>AI・センサー融合の開発経験6年</p></div></div></div>
-        <div class="team-group"><h3 class="team-group-label">研究・実装・サービス</h3><div class="ja-team cols-3"><div class="card reveal "><span class="role">研究企画</span><strong>ホン・スンミン</strong><p>技術経営学 修士、AI関連の著書<br>研究・事業企画の経験17年</p></div><div class="card reveal d1"><span class="role">AI・組み込み開発</span><strong>アン・ダムギ</strong><p>自動運転AI、組み込み・ML<br>関連分野の経験8年</p></div><div class="card reveal d2"><span class="role">製品・サービスデザイン</span><strong>チョン・ダヘ</strong><p>産業デザイン、SW/HWの企画・デザイン<br>関連分野の経験9年</p></div></div></div>
-        <div class="team-group"><h3 class="team-group-label">専門顧問</h3><div class="ja-team cols-4"><div class="card reveal "><span class="role">国防顧問</span><strong>キム・ムンギョン</strong><p>元 韓国陸軍 第36歩兵師団長<br>軍の運用要件に基づく、国防分野での適用・実証の助言</p></div><div class="card reveal d1"><span class="role">顧問</span><strong>ホン・ヒソン</strong><p>HW・ユーザー設計</p></div><div class="card reveal d2"><span class="role">顧問</span><strong>チョン・チェミン</strong><p>サービス・マーケティング</p></div><div class="card reveal d3"><span class="role">顧問</span><strong>イ・ヨンソク</strong><p>環境・予測モデリング</p></div></div></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 연혁 -->
-  <section class="sec sec-alt" id="history">
-    <div class="wrap ja-two">
-      <div>
-        <span class="eyebrow reveal">沿革</span>
-        <h2 class="t-h2 reveal d1">歩んできた道のり</h2>
-        <p class="t-lead reveal d2" style="margin-top:14px">研究室を出て、実際の都市と発電所で技術を検証しています。</p>
-      </div>
-      <ol class="ja-timeline">
-        <li class="reveal"><div class="when">2026年9月</div><div class="what">始興市ペゴッ地区の設置地域で、騒音苦情が約60%減ったことを確認</div><div class="desc">取り締まりを行わず、観測と案内だけで得た結果</div></li>
-        <li class="reveal"><div class="when">2025年12月</div><div class="what">始興市ペゴッ地区で二輪車騒音の実証を開始</div><div class="desc">始興市の承認を得て、4か所に装置4台を設置</div></li>
-        <li class="reveal"><div class="when">2025年12月</div><div class="what">春川市・始興市・麟蹄郡と購入契約を締結</div><div class="desc">府省庁横断統合ヘルスケア協会と、研究開発の業務協定</div></li>
-        <li class="reveal"><div class="when">2025年</div><div class="what">創業中心大学の支援事業を実施</div></li>
-        <li class="reveal"><div class="when">2022年</div><div class="what">「CUSMOS」の商標を出願</div></li>
-      </ol>
-    </div>
-  </section>
-
-  <!-- 특허 -->
-  <section class="sec" id="patent">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">特許・商標</span>
-        <h2 class="t-h2 reveal d1">特許と知的財産権</h2>
-        <p class="reveal d2">番号は、韓国での特許・商標の登録・出願番号です。</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table class="table ja-patent-table">
-          <thead><tr><th scope="col">区分</th><th scope="col">名称</th><th scope="col">登録・出願番号</th></tr></thead>
-          <tbody>
-            <tr><td>特許</td><td>マイクロフォンアレイと座標変換技法を用いる音源追跡方法およびシステム</td><td>10-1645135</td></tr>
-            <tr><td>特許</td><td>音響処理方法、これを実行するための記録媒体および装置</td><td>10-1773401</td></tr>
-            <tr><td>特許</td><td>音響センサーを用いた着弾点推定方法および装置</td><td>10-1997387</td></tr>
-            <tr><td>商標</td><td>CUSMOS</td><td>2022-0087318</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <!-- 오시는 길 -->
-  <section class="sec sec-alt" id="access">
-    <div class="wrap ja-two">
-      <div>
-        <span class="eyebrow reveal">アクセス</span>
-        <h2 class="t-h2 reveal d1">お問い合わせ先</h2>
-        <p class="t-lead reveal d2" style="margin-top:14px">お問い合わせはフォームから受け付けています。電話とメールの窓口は準備中です。</p>
-      </div>
-      <div class="table-wrap reveal">
-        <table class="table">
-          <tbody>
-            <tr><th scope="row">所在地</th><td><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></td></tr>
-            <tr><th scope="row">電話</th><td><span data-site="phone">準備中</span></td></tr>
-            <tr><th scope="row">メール</th><td><span data-site="email">準備中</span></td></tr>
-            <tr><th scope="row">受付時間</th><td>準備中</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec sec-alt ja-cta" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div>
-          <h2 class="t-h2">会社や技術の詳細を知りたい方へ</h2>
-          <p>資料請求も、お問い合わせフォームから受け付けています。</p>
+  <!-- 01 会社概要: 메인 08과 같은 표에 전화·메일·설립·일본 창구 행을 더함 -->
+  <section class="p-zone" id="overview">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">01</span>
+        <h2>会社概要</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>会社の基本情報と、準備中の項目</p>
+      </header>
+      <div class="p-body">
+        <div class="p-table-wrap">
+          <table class="p-table f-table" aria-label="会社概要">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">社名</th><td>CUSMOS Inc.（韓国法人）</td></tr>
+              <tr><th scope="row">代表者</th><td>代表取締役 イ・チャンウ</td></tr>
+              <tr><th scope="row">所在地</th><td><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></td></tr>
+              <tr><th scope="row">電話</th><td><span data-site="phone">準備中</span></td></tr>
+              <tr><th scope="row">メール</th><td><span data-site="email">準備中</span></td></tr>
+              <tr><th scope="row">事業内容</th><td>エッジAI音響センサー、音響データの分析、スマートシティ・産業安全向けの導入システム</td></tr>
+              <tr><th scope="row">知的財産</th><td>特許3件、商標1件（<a href="#patent" class="link-arrow">詳細</a>）</td></tr>
+              <tr><th scope="row">設立</th><td>準備中</td></tr>
+              <tr><th scope="row">日本国内の窓口</th><td>準備中</td></tr>
+            </tbody>
+          </table>
         </div>
+        <p class="p-note">会社情報の一部は準備中です。確認が取れ次第、順次掲載します。</p>
+        <figure class="p-fig f-shot">
+          <img src="https://images.unsplash.com/photo-1606336782667-775252a0e5b0?auto=format&fit=crop&w=1600&q=75" alt="東京の高層ビルのガラス外壁（イメージ写真）" loading="lazy">
+          <figcaption>イメージ写真（東京）。CUSMOSの本社は大韓民国 江原特別自治道 春川市にあります。</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02 ビジョン -->
+  <section class="p-zone is-alt" id="vision">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">02</span>
+        <h2>ビジョン</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>発見し、究明し、解決する。3つの段階の意味</p>
+      </header>
+      <div class="p-body">
+        <p>現場の音をデジタルデータに変え、人が現場に出向かなくても状況を判断できるようにします。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table" aria-label="ビジョンの3段階">
+            <thead>
+              <tr><th scope="col">段階</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><span class="f-no">01</span>発見</th><td>苦情や現場で繰り返される問題を見つけます。騒音は環境苦情でもっとも多いのに、判断の材料となる記録が不足していました。</td></tr>
+              <tr><th scope="row"><span class="f-no">02</span>究明</th><td>音の種類、場所、時間帯を記録し、何が問題だったのかを数字で示します。</td></tr>
+              <tr><th scope="row"><span class="f-no">03</span>解決</th><td>管制への通知、カメラとの連動、政策判断の資料まで、現場ですぐ使える形でお届けします。</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03 チーム: 역할별 표 -->
+  <section class="p-zone" id="team">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">03</span>
+        <h2>チーム</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>市場開拓からAI・エッジ・管制プラットフォームまでを一体で進める組織</p>
+      </header>
+      <div class="p-body">
+        <p>環境分野の事業経験と政策・予算の知見に、AI・組み込み・プラットフォーム開発の専門性を組み合わせています。</p>
+
+        <h3 class="p-sub-h">経営・市場拡大</h3>
+        <div class="p-table-wrap">
+          <table class="p-table f-table f-table-3" aria-label="経営・市場拡大">
+            <thead><tr><th scope="col">役割</th><th scope="col">氏名</th><th scope="col">経歴</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">代表取締役</th><td data-label="氏名">イ・チャンウ</td><td data-label="経歴">政府・国防分野のネットワークを生かした市場拡大。環境分野の事業経験25年</td></tr>
+              <tr><th scope="row">COO</th><td data-label="氏名">チョン・イング</td><td data-label="経歴">企業戦略・政策・予算・法務。行政法務環境学 修士、IT企業の経営12年</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="p-sub-h">コア技術・製品開発</h3>
+        <div class="p-table-wrap">
+          <table class="p-table f-table f-table-3" aria-label="コア技術・製品開発">
+            <thead><tr><th scope="col">役割</th><th scope="col">氏名</th><th scope="col">経歴</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">CTO</th><td data-label="氏名">キム・ジフン</td><td data-label="経歴">自動運転・AI・マルチモーダル。大量データ処理とエッジAI。関連分野の経験11年</td></tr>
+              <tr><th scope="row">組み込みシステム開発</th><td data-label="氏名">チョ・イルホ</td><td data-label="経歴">Linux・RTOS・BSP・ドライバー。エッジ端末の最適化とシステムの安定化。KAIST物理学、組み込み分野の経験 約30年</td></tr>
+              <tr><th scope="row">管制プラットフォーム・データ開発</th><td data-label="氏名">シン・セゲ</td><td data-label="経歴">センサーデータの収集・保存・照会。リアルタイムのイベント・通知・履歴管理。AI・センサー融合の開発経験6年</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="p-sub-h">研究・実装・サービス</h3>
+        <div class="p-table-wrap">
+          <table class="p-table f-table f-table-3" aria-label="研究・実装・サービス">
+            <thead><tr><th scope="col">役割</th><th scope="col">氏名</th><th scope="col">経歴</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">研究企画</th><td data-label="氏名">ホン・スンミン</td><td data-label="経歴">技術経営学 修士、AI関連の著書。研究・事業企画の経験17年</td></tr>
+              <tr><th scope="row">AI・組み込み開発</th><td data-label="氏名">アン・ダムギ</td><td data-label="経歴">自動運転AI、組み込み・ML。関連分野の経験8年</td></tr>
+              <tr><th scope="row">製品・サービスデザイン</th><td data-label="氏名">チョン・ダヘ</td><td data-label="経歴">産業デザイン、SW/HWの企画・デザイン。関連分野の経験9年</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="p-sub-h">専門顧問</h3>
+        <div class="p-table-wrap">
+          <table class="p-table f-table f-table-3" aria-label="専門顧問">
+            <thead><tr><th scope="col">役割</th><th scope="col">氏名</th><th scope="col">経歴</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">国防顧問</th><td data-label="氏名">キム・ムンギョン</td><td data-label="経歴">元 韓国陸軍 第36歩兵師団長。軍の運用要件に基づく、国防分野での適用・実証の助言</td></tr>
+              <tr><th scope="row">顧問</th><td data-label="氏名">ホン・ヒソン</td><td data-label="経歴">HW・ユーザー設計</td></tr>
+              <tr><th scope="row">顧問</th><td data-label="氏名">チョン・チェミン</td><td data-label="経歴">サービス・マーケティング</td></tr>
+              <tr><th scope="row">顧問</th><td data-label="氏名">イ・ヨンソク</td><td data-label="経歴">環境・予測モデリング</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 沿革 -->
+  <section class="p-zone is-alt" id="history">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">04</span>
+        <h2>沿革</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>研究室を出て、実際の都市と発電所で技術を検証してきた歩み</p>
+      </header>
+      <div class="p-body">
+        <ol class="p-timeline">
+          <li><div class="p-when">2026年9月</div><div class="p-what">始興市ペゴッ地区の設置地域で、騒音苦情が約60%減ったことを確認</div><div class="p-desc">取り締まりを行わず、観測と案内だけで得た結果</div></li>
+          <li><div class="p-when">2025年12月</div><div class="p-what">始興市ペゴッ地区で二輪車騒音の実証を開始</div><div class="p-desc">始興市の承認を得て、4か所に装置4台を設置</div></li>
+          <li><div class="p-when">2025年12月</div><div class="p-what">春川市・始興市・麟蹄郡と購入契約を締結</div><div class="p-desc">府省庁横断統合ヘルスケア協会と、研究開発の業務協定</div></li>
+          <li><div class="p-when">2025年</div><div class="p-what">創業中心大学の支援事業を実施</div></li>
+          <li><div class="p-when">2022年</div><div class="p-what">「CUSMOS」の商標を出願</div></li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- 05 特許・商標 -->
+  <section class="p-zone" id="patent">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">05</span>
+        <h2>特許・商標</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>韓国で登録・出願した特許3件と商標1件</p>
+      </header>
+      <div class="p-body">
+        <p>番号は、韓国での特許・商標の登録・出願番号です。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table f-table-3" aria-label="特許・商標">
+            <thead><tr><th scope="col">区分</th><th scope="col">名称</th><th scope="col">登録・出願番号</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">特許</th><td data-label="名称">マイクロフォンアレイと座標変換技法を用いる音源追跡方法およびシステム</td><td data-label="登録・出願番号">10-1645135</td></tr>
+              <tr><th scope="row">特許</th><td data-label="名称">音響処理方法、これを実行するための記録媒体および装置</td><td data-label="登録・出願番号">10-1773401</td></tr>
+              <tr><th scope="row">特許</th><td data-label="名称">音響センサーを用いた着弾点推定方法および装置</td><td data-label="登録・出願番号">10-1997387</td></tr>
+              <tr><th scope="row">商標</th><td data-label="名称">CUSMOS</td><td data-label="登録・出願番号">2022-0087318</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 06 アクセス -->
+  <section class="p-zone is-alt" id="access">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">06</span>
+        <h2>アクセス</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>所在地と問い合わせ先、受付時間</p>
+      </header>
+      <div class="p-body">
+        <p>お問い合わせはフォームから受け付けています。電話とメールの窓口は準備中です。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table" aria-label="アクセス">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">所在地</th><td><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></td></tr>
+              <tr><th scope="row">電話</th><td><span data-site="phone">準備中</span></td></tr>
+              <tr><th scope="row">メール</th><td><span data-site="email">準備中</span></td></tr>
+              <tr><th scope="row">受付時間</th><td>準備中</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="p-zone" id="contact">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">窓口</span>
+        <h2>資料請求・<br>お問い合わせ</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>会社や技術の詳細を知りたい方の連絡先</p>
+      </header>
+      <div class="p-body">
+        <p class="p-cta-line">会社や技術の詳細を知りたい方はご連絡ください。資料請求も、お問い合わせフォームから受け付けています。</p>
         <div class="btn-row">
-          <a class="btn btn-light btn-lg" href="contact.html#request">資料請求</a>
-          <a class="btn btn-ghost-light btn-lg" href="contact.html#inquiry">お問い合わせ</a>
+          <a class="btn btn-primary btn-lg" href="contact.html#request">資料請求</a>
+          <a class="btn btn-outline btn-lg" href="contact.html#inquiry">お問い合わせフォーム</a>
         </div>
       </div>
     </div>
@@ -179,5 +272,6 @@
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=9"></script>
+<script src="zone.js?v=1"></script>
 </body>
 </html>

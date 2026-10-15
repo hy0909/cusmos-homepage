@@ -15,24 +15,43 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
 <header id="site-header"></header>
 
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="p-main f-main f-sub">
+
+  <!-- 구역 바: 게시판 3쪽 사이를 오가는 탭. 현재 쪽에 aria-current -->
+  <nav class="f-zonebar" aria-label="ニュース・お知らせメニュー">
+    <ul class="f-zonebar-list">
+      <li><a href="notice.html">お知らせ</a></li>
+      <li><a href="news.html" aria-current="true">ニュース</a></li>
+      <li><a href="ci.html">CI</a></li>
+    </ul>
+  </nav>
+
+  <section class="p-hero">
     <div class="wrap">
-      <nav class="crumb reveal" aria-label="パンくずリスト"><span>ニュース・お知らせ</span><span>/</span><span>ニュース</span></nav>
-      <h1 class="t-display reveal d1">ニュース</h1>
-      <p class="t-lead reveal d2">CUSMOSに関する報道やニュースを掲載しています。</p>
+      <span class="p-eyebrow">ニュース・お知らせ</span>
+      <h1>ニュース</h1>
+      <p class="p-lead">CUSMOSに関する報道やニュースを掲載しています。</p>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="ニュース・お知らせメニュー"><div class="wrap"><ul><li><a href="notice.html">お知らせ</a></li><li><a href="news.html" class="on" aria-current="page">ニュース</a></li><li><a href="ci.html">CI</a></li></ul></div></nav>
-
-  <section class="sec">
-    <div class="wrap"><div id="board" data-type="news"></div></div>
+  <section class="p-zone" id="board-zone">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">情報</span>
+        <h2>ニュース</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>CUSMOSに関する報道やニュース</p>
+      </header>
+      <div class="p-body">
+        <div id="board" data-type="news"></div>
+      </div>
+    </div>
   </section>
 </main>
 
@@ -41,5 +60,6 @@
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=9"></script>
 <script src="../assets/js/board-i18n.js?v=2"></script>
+<script src="zone.js?v=1"></script>
 </body>
 </html>

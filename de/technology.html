@@ -12,48 +12,154 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header id="site-header"></header>
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="f-sub">
+
+  <section class="f-page-hero">
     <div class="wrap">
-      <nav class="crumb reveal" aria-label="Pfad"><span>Technologie</span></nav>
-      <h1 class="t-display reveal d1">Vom Mikrofon bis zur Entscheidung</h1>
-      <p class="t-lead reveal d2">CUSMOS entwickelt Sensorhardware, Mikrofonarray, Edge-KI und Datenstruktur selbst. Die Leistung prüft das Unternehmen unter realen Einsatzbedingungen, nicht nur im Labor.</p>
+      <p class="eyebrow">Technologie</p>
+      <h1 class="t-display">Vom Mikrofon bis zur Entscheidung</h1>
+      <div class="p-hero-text">
+        <p>CUSMOS entwickelt Sensorhardware, Mikrofonarray, Edge-KI und Datenstruktur selbst. Die Leistung prüft das Unternehmen unter realen Einsatzbedingungen, nicht nur im Labor.</p>
+      </div>
+      <div class="p-hero-actions">
+        <div class="p-hero-links">
+          <a class="p-link" href="#sensor">Kapitel 1: Edge-KI-Schallsensor →</a>
+          <a class="p-link" href="#array">Kapitel 2: Mikrofonarray →</a>
+          <a class="p-link" href="#edge">Kapitel 3: Verarbeitung und Übertragung →</a>
+          <a class="p-link" href="#data">Kapitel 4: Kontextdaten →</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="Technologie auf dieser Seite">
-    <div class="wrap"><ul>
-      <li><a href="#sensor">Edge-KI-Schallsensor</a></li>
-      <li><a href="#array">Mikrofonarray</a></li>
-      <li><a href="#edge">Verarbeitung und Übertragung</a></li>
-      <li><a href="#data">Kontextdaten</a></li>
-    </ul></div>
-  </nav>
-
-  <!-- 센서 -->
-  <section class="sec" id="sensor">
+  <!-- 장 1: 센서 -->
+  <section class="p-ch" id="sensor">
     <div class="wrap">
-      <div class="split">
-        <figure class="media reveal" style="aspect-ratio:1/1;margin:0"><img src="../assets/img/product-sensor.jpg" alt="Edge-KI-Schallsensor mit integriertem Solarpanel" loading="lazy"></figure>
-        <div>
-          <p class="eyebrow reveal">Edge-KI-Schallsensor</p>
-          <h2 class="t-h2 reveal d1">Ein kleiner Sensor für den Einsatz im öffentlichen Raum</h2>
-          <p class="t-lead reveal d2" style="margin-top:20px">Der Sensor wertet Schall direkt im Gerät aus, deshalb müssen nicht alle Geräusche auf einen Server. Das Solarpanel ist in das Gerät integriert. Damit sind weniger Arbeiten für die Stromversorgung nötig.</p>
-          <p class="reveal d2" style="margin-top:16px">Zum Vergleich: Eine automatische Messstation ist teuer und deckt einen Radius von 500 m ab. Der Sensor ist kleiner und lässt sich an vielen Orten an vorhandenen Masten montieren.</p>
-          <div class="table-wrap reveal" style="margin-top:32px">
-            <table class="table">
+      <div class="p-ch-head"><span class="p-ch-no">1</span><h2 class="t-h2">Edge-KI-Schallsensor</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Aufbau</p>
+          <p>Der Sensor wertet Schall direkt im Gerät aus, deshalb müssen nicht alle Geräusche auf einen Server. Das Solarpanel ist in das Gerät integriert. Damit sind weniger Arbeiten für die Stromversorgung nötig.</p>
+          <p>Zum Vergleich: Eine automatische Messstation ist teuer und deckt einen Radius von 500 m ab. Der Sensor ist kleiner und lässt sich an vielen Orten an vorhandenen Masten montieren.</p>
+          <p>Tabelle 1 nennt die sechs Funktionen des Sensors. Angaben zu Abmessungen, Gewicht und Schutzart fehlen noch. Die technischen Daten für die Planung stehen auf der Startseite in Kapitel 4.</p>
+          <p class="p-links"><a class="p-link" href="index.html#daten">Technische Daten (Startseite, Kapitel 4) →</a></p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 1: Funktionen des Sensors</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
               <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Erfassung</th><td>Dauerbetrieb rund um die Uhr, ohne Personal vor Ort</td><td>CUSMOS, Okt. 2026</td></tr>
-                <tr><th scope="row">Ortung</th><td>Position und Richtung der Schallquelle</td><td>CUSMOS, Okt. 2026</td></tr>
-                <tr><th scope="row">Klassifikation</th><td>Motorradlärm, Hupen, Baustellenlärm, Auffälligkeiten an Anlagen</td><td>CUSMOS, Okt. 2026</td></tr>
-                <tr><th scope="row">Verarbeitung</th><td>Auswertung im Gerät, die KI läuft direkt auf dem Sensor</td><td>CUSMOS, Okt. 2026</td></tr>
-                <tr><th scope="row">Multimodal</th><td>Gemeinsame Auswertung mit Videodaten</td><td>CUSMOS, Okt. 2026</td></tr>
-                <tr><th scope="row">Datenauswertung</th><td>Auswertung nach Gebiet und Tageszeit über die gesammelten Daten</td><td>CUSMOS, Okt. 2026</td></tr>
+                <tr><th scope="row">Erfassung</th><td>Dauerbetrieb rund um die Uhr, ohne Personal vor Ort</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Ortung</th><td>Position und Richtung der Schallquelle</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Klassifikation</th><td>Motorradlärm, Hupen, Baustellenlärm, Auffälligkeiten an Anlagen</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Verarbeitung</th><td>Auswertung im Gerät, die KI läuft direkt auf dem Sensor</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Multimodal</th><td>Gemeinsame Auswertung mit Videodaten</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Datenauswertung</th><td>Auswertung nach Gebiet und Tageszeit über die gesammelten Daten</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="f-cap">Abbildung 1: Edge-KI-Schallsensor</p>
+          <figure class="p-photo">
+            <img src="../assets/img/product-sensor.jpg" alt="Edge-KI-Schallsensor mit integriertem Solarpanel" loading="lazy" width="818" height="739">
+            <figcaption>Sensor mit integriertem Solarpanel. Produktfoto von CUSMOS.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 장 2: 마이크 배열 -->
+  <section class="p-ch" id="array">
+    <div class="wrap">
+      <div class="p-ch-head"><span class="p-ch-no">2</span><h2 class="t-h2">Mikrofonarray</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Anordnung der Mikrofone</p>
+          <p>Nicht jeder Standort braucht dieselbe Anordnung. Abstand der Mikrofone und Signalverarbeitung richten sich danach, welche Geräusche am Standort erfasst werden sollen. Tabelle 2 zeigt die drei Anordnungen.</p>
+          <p class="p-cap">Von den Felddaten bis zur Leistungsprüfung</p>
+          <ol class="p-steps">
+            <li class="p-step"><span class="p-step-no">SCHRITT 1</span><h3 class="t-h3">Felddaten erheben</h3><p>Schalldaten werden an echten Standorten gesammelt, etwa in Siheung.</p></li>
+            <li class="p-step"><span class="p-step-no">SCHRITT 2</span><h3 class="t-h3">Signalverarbeitung und KI verbinden</h3><p>Die Signalverarbeitung des Arrays ermittelt die Position. Ein KI-Modell ordnet die Geräusche Klassen zu.</p></li>
+            <li class="p-step"><span class="p-step-no">SCHRITT 3</span><h3 class="t-h3">Leistung nach festgelegtem Prüfverfahren prüfen</h3><p>Die Genauigkeit der Klassifikation wird nach einem vorab festgelegten Prüfverfahren gemessen.</p></li>
+          </ol>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 2: Mikrofonabstand nach Ort und Geräuschart</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Weiter Abstand</th><td>Die Richtung ferner und tiefer Geräusche lässt sich genauer bestimmen. Geeignet für breite Straßen und offene Flächen.</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Enger Abstand</th><td>Hohe und nahe Geräusche lassen sich genau erfassen. Die Bauform bleibt klein, sodass der Sensor an vielen Standorten passt.</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Kombiniert</th><td>Weite und enge Abstände werden kombiniert, wenn an einem Ort mehrere Geräuscharten gleichzeitig auftreten.</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="f-cap">Abbildung 2: Prototyp mit Mikrofonarray und Kamera</p>
+          <figure class="p-photo">
+            <img src="../assets/img/product-cctv.jpg" alt="Prototyp mit Mikrofonarray und Kamera" width="1581" height="1134" loading="lazy">
+            <figcaption>Prototyp. Produktfoto von CUSMOS.</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 장 3: 현장 분석과 선별 전송 -->
+  <section class="p-ch" id="edge">
+    <div class="wrap">
+      <div class="p-ch-head"><span class="p-ch-no">3</span><h2 class="t-h2">Verarbeitung und Übertragung</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Prinzip</p>
+          <p>Geht jede Aufnahme auf einen Server, steigen Übertragungs- und Speicherkosten mit jedem Gerät. Der CUSMOS-Sensor wertet vor Ort aus. Übertragen werden nur die Analyseergebnisse und das Originalsignal des Ereignismoments.</p>
+          <p>Tabelle 3 zeigt das Datenvolumen eines Sensors pro Tag. Es handelt sich um einen Rechenwert. Die tatsächliche Einsparung bei der Übertragung hängt von Tarif und Betriebsbedingungen ab. Der Kommunikationsweg ist noch nicht angegeben.</p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 3: Datenvolumen eines Sensors pro Tag</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Dauerübertragung der Rohaudiodaten</th><td>2,76 GB</td><td>Rechenwert von CUSMOS. Annahmen: 16 kHz, 16 Bit, Mono, 24 Stunden</td></tr>
+                <tr><th scope="row">Übertragung nach Vorauswahl</th><td>147 MB</td><td>Rechenwert von CUSMOS. Übertragen werden 5 % der Rohdaten und die Analyseergebnisse</td></tr>
+                <tr><th scope="row">Rechnerische Einsparung</th><td>rund 95 %</td><td>Rechenwert. Die tatsächliche Einsparung hängt von Tarif und Betriebsbedingungen ab</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="p-table-note">Übertragen werden 5 % der Rohdaten, also das Originalsignal des Ereignismoments, und die Analyseergebnisse. Quelle: Rechenwert von CUSMOS mit den Annahmen aus der Tabelle.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 장 4: 맥락 데이터 -->
+  <section class="p-ch" id="data">
+    <div class="wrap">
+      <div class="p-ch-head"><span class="p-ch-no">4</span><h2 class="t-h2">Kontextdaten</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Schall, Ort und Entscheidung in einem Datensatz</p>
+          <p>Ein Dezibelwert allein sagt nicht, warum ein Geräusch stört. CUSMOS speichert Ort, Zeit und Prüfergebnis zusammen. Bei einem ähnlichen Fall später liegt damit ein früherer Vorgang als Vergleich vor. Tabelle 4 nennt die vier Bestandteile eines Datensatzes.</p>
+          <p class="p-links"><a class="p-link" href="solutions.html#city">Einsatz bei der Lärmerfassung in Städten →</a></p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 4: Bestandteile eines Datensatzes</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Beobachtung</th><td>Geräuschart, Pegel, Ort und Zeitpunkt</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Umgebung</th><td>Wohngebiet, Schule, Straße und andere Orte in der Nähe</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Bewertung</th><td>Prüfergebnis der zuständigen Stelle und Verlauf der Maßnahmen</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Kennzahlen</th><td>Lärmbelastung nach Gebiet und Wirkung von Maßnahmen</td><td>CUSMOS, Stand Okt. 2026</td></tr>
               </tbody>
             </table>
           </div>
@@ -62,103 +168,26 @@
     </div>
   </section>
 
-  <!-- 마이크 배열 -->
-  <section class="sec sec-alt" id="array">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Mikrofonarray</p>
-        <h2 class="t-h2 reveal d1">Der Mikrofonabstand richtet sich nach Ort und Geräuschart</h2>
-        <p class="reveal d2">Nicht jeder Standort braucht dieselbe Anordnung. Abstand der Mikrofone und Signalverarbeitung richten sich danach, welche Geräusche am Standort erfasst werden sollen.</p>
+  <section class="p-contact">
+    <div class="wrap p-contact-in">
+      <div>
+        <h2>Welcher Aufbau braucht Ihr Standort?</h2>
+        <p>Beschreiben Sie Standort, Geräuscharten und Ziel der Messung. Wir schlagen Ihnen dann einen passenden Aufbau vor.</p>
       </div>
-      <div class="grid g-3">
-        <div class="card reveal">
-          <div class="badge">Weiter Abstand</div>
-          <h3 class="t-h3" style="margin-top:16px">Für ferne und tiefe Geräusche</h3>
-          <p>Die Richtung ferner und tiefer Geräusche lässt sich genauer bestimmen. Geeignet für breite Straßen und offene Flächen.</p>
-        </div>
-        <div class="card reveal d1">
-          <div class="badge">Enger Abstand</div>
-          <h3 class="t-h3" style="margin-top:16px">Für hohe und nahe Geräusche</h3>
-          <p>Hohe und nahe Geräusche lassen sich genau erfassen. Die Bauform bleibt klein, sodass der Sensor an vielen Standorten passt.</p>
-        </div>
-        <div class="card reveal d2">
-          <div class="badge">Kombiniert</div>
-          <h3 class="t-h3" style="margin-top:16px">Für Standorte mit mehreren Geräuscharten</h3>
-          <p>Weite und enge Abstände werden kombiniert, wenn an einem Ort mehrere Geräuscharten gleichzeitig auftreten.</p>
-        </div>
-      </div>
-      <div class="split" style="margin-top:clamp(64px,8vw,120px)">
-        <figure class="media reveal" style="aspect-ratio:4/3;margin:0"><img src="../assets/img/product-cctv.jpg" alt="Prototyp mit Mikrofonarray und Kamera" loading="lazy"></figure>
-        <div>
-          <h3 class="t-h3 reveal">Von den Felddaten bis zur Leistungsprüfung</h3>
-          <ol class="de-steps" style="margin-top:24px">
-            <li class="reveal"><span class="de-no">SCHRITT 1</span><h3 class="t-h3">Felddaten erheben</h3><p>Schalldaten werden an echten Standorten gesammelt, etwa in Siheung.</p></li>
-            <li class="reveal d1"><span class="de-no">SCHRITT 2</span><h3 class="t-h3">Signalverarbeitung und KI verbinden</h3><p>Die Signalverarbeitung des Arrays ermittelt die Position. Ein KI-Modell ordnet die Geräusche Klassen zu.</p></li>
-            <li class="reveal d2"><span class="de-no">SCHRITT 3</span><h3 class="t-h3">Leistung nach festgelegtem Prüfverfahren prüfen</h3><p>Die Genauigkeit der Klassifikation wird nach einem vorab festgelegten Prüfverfahren gemessen.</p></li>
-          </ol>
-        </div>
-      </div>
+      <a class="btn p-btn" href="contact.html">Kontakt aufnehmen</a>
     </div>
   </section>
 
-  <!-- 현장 분석과 선별 전송 + 데이터량 계산 -->
-  <section class="sec" id="edge">
+  <aside class="f-legal" aria-labelledby="legal-title">
     <div class="wrap">
-      <div class="split top">
-        <div>
-          <p class="eyebrow reveal">Verarbeitung und Übertragung</p>
-          <h2 class="t-h2 reveal d1">Vor Ort auswerten, nur die nötigen Daten übertragen</h2>
-          <p class="t-lead reveal d2" style="margin-top:20px">Geht jede Aufnahme auf einen Server, steigen Übertragungs- und Speicherkosten mit jedem Gerät. Der CUSMOS-Sensor wertet vor Ort aus. Übertragen werden nur die Analyseergebnisse und das Originalsignal des Ereignismoments.</p>
-        </div>
-        <div class="card reveal d1" style="padding:clamp(28px,3.4vw,40px)">
-          <p class="de-table-caption">Datenvolumen eines Sensors pro Tag</p>
-          <div class="de-bars">
-            <div>
-              <div class="row"><span>Dauerübertragung der Rohaudiodaten</span><b>2,76 GB</b></div>
-              <div class="track"><div class="fill" style="width:100%"></div></div>
-            </div>
-            <div>
-              <div class="row"><span>Übertragung nach Vorauswahl (CUSMOS)</span><b>147 MB</b></div>
-              <div class="track"><div class="fill small" style="width:5.3%"></div></div>
-            </div>
-          </div>
-          <p class="row" style="margin-top:28px;font-size:15px"><span>Rechnerische Einsparung</span><b class="grad-text" style="font-size:24px">rund 95 %</b></p>
-          <div class="de-note-box">
-            <strong style="color:var(--c-ink)">Annahmen:</strong> 16 kHz, 16 Bit, Mono, 24 Stunden. Übertragen werden 5 % der Rohdaten, also das Originalsignal des Ereignismoments, und die Analyseergebnisse. Es handelt sich um einen Rechenwert. Die tatsächliche Einsparung bei der Übertragung hängt von Tarif und Betriebsbedingungen ab.
-          </div>
-        </div>
-      </div>
+      <h2 class="f-legal-title" id="legal-title">Rechtliche Hinweise</h2>
+      <ul class="f-legal-list">
+        <li><span>Impressum</span><a href="impressum.html">Impressum öffnen →</a></li>
+        <li><span>Datenschutzerklärung</span><a href="privacy.html">Datenschutzerklärung öffnen →</a></li>
+        <li><span>Prüfstatus</span>Entwurf. Rechtliche Prüfung ausstehend. Stand: Okt. 2026</li>
+      </ul>
     </div>
-  </section>
-
-  <!-- 맥락 데이터 -->
-  <section class="sec sec-alt" id="data">
-    <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Kontextdaten</p>
-        <h2 class="t-h2 reveal d1">Schall, Ort und Entscheidung in einem Datensatz</h2>
-        <p class="reveal d2">Ein Dezibelwert allein sagt nicht, warum ein Geräusch stört. CUSMOS speichert Ort, Zeit und Prüfergebnis zusammen. Bei einem ähnlichen Fall später liegt damit ein früherer Vorgang als Vergleich vor.</p>
-      </div>
-      <div class="grid g-4">
-        <div class="card reveal"><h3 class="t-h3">Beobachtung</h3><p>Geräuschart, Pegel, Ort und Zeitpunkt</p></div>
-        <div class="card reveal d1"><h3 class="t-h3">Umgebung</h3><p>Wohngebiet, Schule, Straße und andere Orte in der Nähe</p></div>
-        <div class="card reveal d2"><h3 class="t-h3">Bewertung</h3><p>Prüfergebnis der zuständigen Stelle und Verlauf der Maßnahmen</p></div>
-        <div class="card reveal d3"><h3 class="t-h3">Kennzahlen</h3><p>Lärmbelastung nach Gebiet und Wirkung von Maßnahmen</p></div>
-      </div>
-    </div>
-  </section>
-
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div style="max-width:640px">
-          <h2 class="t-h2">Welcher Aufbau braucht Ihr Standort?</h2>
-          <p>Beschreiben Sie Standort, Geräuscharten und Ziel der Messung.</p>
-        </div>
-        <a class="btn btn-light" href="contact.html">Kontakt aufnehmen</a>
-      </div>
-    </div>
-  </section>
+  </aside>
 </main>
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>

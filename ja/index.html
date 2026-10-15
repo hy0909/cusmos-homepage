@@ -16,7 +16,7 @@
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
 <link rel="stylesheet" href="after.css?v=3">
-<link rel="stylesheet" href="fable.css?v=5">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
@@ -468,46 +468,6 @@
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=9"></script>
-<script>
-  // #앵커 클릭은 이 페이지 안에서 부드럽게 이동시킨다 (scroll-margin-top이 헤더와 구역 바 높이를 뺀다)
-  document.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest('a[href^="#"]');
-    if (!a) return;
-    var id = a.getAttribute("href").slice(1);
-    var t = id && document.getElementById(id);
-    if (!t) return;
-    e.preventDefault();
-    t.scrollIntoView({ behavior: "smooth", block: "start" });
-    try { history.replaceState(null, "", "#" + id); } catch (err) { /* file:// 등에서 무시 */ }
-  });
-
-  // 구역 바: 화면 위쪽(헤더+바 아래의 얇은 띠)에 걸린 구역을 현재로 표시한다. 첫 화면·문의 구역에서는 표시가 없다
-  (function () {
-    var bar = document.querySelector(".f-zonebar");
-    if (!bar || !("IntersectionObserver" in window)) return;
-    var list = bar.querySelector(".f-zonebar-list");
-    var links = Array.prototype.slice.call(bar.querySelectorAll('a[href^="#"]'));
-    var zones = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); }).filter(Boolean);
-    var seen = {};
-    function show(id) {
-      links.forEach(function (a) {
-        var on = a.getAttribute("href") === "#" + id;
-        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
-        if (on && list.scrollWidth > list.clientWidth) {
-          var lr = list.getBoundingClientRect(), ar = a.getBoundingClientRect();
-          list.scrollBy({ left: ar.left - lr.left - (lr.width - ar.width) / 2, behavior: "smooth" });
-        }
-      });
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
-      var cur = "";
-      zones.forEach(function (z) { if (seen[z.id]) cur = z.id; });
-      show(cur);
-      if (!cur && list.scrollLeft) list.scrollTo({ left: 0, behavior: "smooth" });
-    }, { rootMargin: "-110px 0px -84% 0px", threshold: 0 });
-    zones.forEach(function (z) { io.observe(z); });
-  })();
-</script>
+<script src="zone.js?v=1"></script>
 </body>
 </html>

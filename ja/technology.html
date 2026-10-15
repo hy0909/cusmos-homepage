@@ -15,145 +15,192 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
 <header id="site-header"></header>
 
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="p-main f-main f-sub">
+
+  <nav class="f-zonebar" aria-label="ページ内の構成">
+    <ul class="f-zonebar-list">
+      <li><a href="#sensor"><b>01</b>エッジAI音響センサー</a></li>
+      <li><a href="#array"><b>02</b>マイクアレイ設計</a></li>
+      <li><a href="#edge"><b>03</b>現場分析と選別送信</a></li>
+      <li><a href="#data"><b>04</b>音・場所・判断の記録</a></li>
+    </ul>
+  </nav>
+
+  <section class="p-hero">
     <div class="wrap">
-      <div class="crumb reveal"><span>技術</span></div>
-      <h1 class="t-display reveal d1">音の検知から、判断までの技術</h1>
-      <p class="t-lead reveal d2">センサーのハードウェア、マイクアレイ、現場のAI、データの構造まで、自社で設計しています。設置環境が変わっても性能を保てるよう、実際の設置現場で検証しています。</p>
+      <span class="p-eyebrow">技術</span>
+      <h1>音の検知から、判断までの技術</h1>
+      <p class="p-lead">センサーのハードウェア、マイクアレイ、現場のAI、データの構造まで、自社で設計しています。設置環境が変わっても性能を保てるよう、実際の設置現場で検証しています。</p>
+      <nav class="f-map" aria-label="このページの構成">
+        <span class="f-map-k">このページの構成</span>
+        <ol class="f-map-list">
+          <li><a href="#sensor"><b>01</b>エッジAI音響センサー</a></li>
+          <li><a href="#array"><b>02</b>マイクアレイ設計</a></li>
+          <li><a href="#edge"><b>03</b>現場分析と選別送信</a></li>
+          <li><a href="#data"><b>04</b>音・場所・判断の記録</a></li>
+        </ol>
+      </nav>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="ページ内ナビゲーション"><div class="wrap"><ul>
-    <li><a href="#sensor">エッジAI音響センサー</a></li>
-    <li><a href="#array">マイクアレイ設計</a></li>
-    <li><a href="#edge">現場分析と選別送信</a></li>
-    <li><a href="#data">音・場所・判断の記録</a></li>
-  </ul></div></nav>
+  <!-- 01 エッジAI音響センサー: 메인 02 機能과 같은 표·사진 배치 -->
+  <section class="p-zone" id="sensor">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">01</span>
+        <h2>エッジAI音響センサー</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>都市の各所に設置する小型センサーの構造と、6つの機能</p>
+      </header>
+      <div class="p-body">
+        <div class="p-split">
+          <div>
+            <p>音はセンサー内で分析するため、すべての音をサーバーに送る必要はありません。太陽光パネルと一体型の構造で、電源工事の負担を減らせます。</p>
+            <div class="p-table-wrap f-mt">
+              <table class="p-table f-table" aria-label="エッジAI音響センサーの機能">
+                <thead>
+                  <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+                </thead>
+                <tbody>
+                  <tr><th scope="row">リアルタイム検知</th><td>人手をかけず、24時間の常時測定</td></tr>
+                  <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算</td></tr>
+                  <tr><th scope="row">AI分類</th><td>二輪車・クラクション・工事音・設備の異常音などを分類</td></tr>
+                  <tr><th scope="row">エッジ処理</th><td>センサー内でAIの推論を実行</td></tr>
+                  <tr><th scope="row">マルチモーダル</th><td>映像など別のセンサーと組み合わせて判断</td></tr>
+                  <tr><th scope="row">データ分析</th><td>蓄積した記録を、地域別・時間帯別に分析</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <figure class="p-fig">
+            <img src="../assets/img/product-sensor.jpg" alt="エッジAI音響センサー本体" loading="lazy" width="818" height="739">
+            <figcaption>エッジAI音響センサー本体</figcaption>
+          </figure>
+        </div>
+        <p class="p-note">測定方式、電源、データ量の条件は<a href="index.html#spec" class="link-arrow">トップページの「仕様」</a>にまとめています。</p>
+      </div>
+    </div>
+  </section>
 
-  <!-- 엣지 AI 음향센서 -->
-  <section class="sec" id="sensor">
-    <div class="wrap">
-      <div class="split">
-        <div class="media reveal"><img src="../assets/img/product-sensor.jpg" alt="エッジAI音響センサー本体" loading="lazy"></div>
-        <div>
-          <span class="eyebrow reveal">エッジAI音響センサー</span>
-          <h2 class="t-h2 reveal d1">都市の各所に設置する<br>小型のエッジAI音響センサー</h2>
-          <p class="t-lead reveal d2">音はセンサー内で分析するため、すべての音をサーバーに送る必要はありません。太陽光パネルと一体型の構造で、電源工事の負担を減らせます。</p>
-          <div class="table-wrap reveal" style="margin-top:24px">
-            <table class="table">
+  <!-- 02 マイクアレイ設計 -->
+  <section class="p-zone is-alt" id="array">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">02</span>
+        <h2>マイクアレイ設計</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>目的の音と現場に合わせたマイクの間隔と、性能検証の手順</p>
+      </header>
+      <div class="p-body">
+        <p>すべての現場で同じ配列を使うわけではありません。どの音を、どこで捉えるかに応じて、マイクの間隔と信号処理の方法を決めます。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table f-table-3" aria-label="マイクの間隔と用途">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">条件・備考</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">広い間隔</th><td>遠くで鳴る音や低い音の方向を、より正確に見分けます。</td><td data-label="条件・備考">広い道路や開けた空間に向いています。</td></tr>
+              <tr><th scope="row">狭い間隔</th><td>高い音や近くの音を細かく捉えます。</td><td data-label="条件・備考">装置を小さくできるため、設置場所の制約が少なくなります。</td></tr>
+              <tr><th scope="row">複合間隔</th><td>広い間隔と狭い間隔を組み合わせます。</td><td data-label="条件・備考">複数の種類の音が同時に鳴る現場に対応します。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3 class="p-sub-h">現場データの収集から性能検証まで</h3>
+        <div class="p-split">
+          <div class="p-table-wrap">
+            <table class="p-table f-table" aria-label="性能検証の手順">
+              <thead>
+                <tr><th scope="col">段階</th><th scope="col">内容</th></tr>
+              </thead>
               <tbody>
-                <tr><th scope="row">リアルタイム検知</th><td>人手をかけず、24時間の常時測定</td></tr>
-                <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算</td></tr>
-                <tr><th scope="row">AI分類</th><td>二輪車・クラクション・工事音・設備の異常音などを分類</td></tr>
-                <tr><th scope="row">エッジ処理</th><td>センサー内でAIの推論を実行</td></tr>
-                <tr><th scope="row">マルチモーダル</th><td>映像など別のセンサーと組み合わせて判断</td></tr>
-                <tr><th scope="row">データ分析</th><td>蓄積した記録を、地域別・時間帯別に分析</td></tr>
+                <tr><th scope="row"><span class="f-no">01</span>現場データの収集</th><td>始興市ペゴッ地区などの実際の設置現場で、騒音データを集めます。</td></tr>
+                <tr><th scope="row"><span class="f-no">02</span>信号処理とAIの設計</th><td>マイクアレイの信号処理で位置を求め、AIモデルで音の種類を分類します。</td></tr>
+                <tr><th scope="row"><span class="f-no">03</span>試験による性能検証</th><td>あらかじめ定めた試験の基準に沿って、音の分類性能を確認します。</td></tr>
               </tbody>
             </table>
           </div>
+          <figure class="p-fig">
+            <img src="../assets/img/product-cctv.jpg" alt="マイクアレイとカメラを組み合わせた試作機" width="1581" height="1134" loading="lazy">
+            <figcaption>マイクアレイとカメラを組み合わせた試作機</figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 마이크 배열 -->
-  <section class="sec sec-alt" id="array">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">マイクアレイ</span>
-        <h2 class="t-h2 reveal d1">目的の音と現場に合わせて、<br>マイクの間隔を設計します</h2>
-        <p class="reveal d2">すべての現場で同じ配列を使うわけではありません。どの音を、どこで捉えるかに応じて、マイクの間隔と信号処理の方法を決めます。</p>
-      </div>
-      <div class="grid g-3">
-        <div class="card reveal">
-          <h3>広い間隔</h3>
-          <p>遠くで鳴る音や低い音の方向を、より正確に見分けます。広い道路や開けた空間に向いています。</p>
+  <!-- 03 現場分析と選別送信: 데이터량을 표로 -->
+  <section class="p-zone" id="edge">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">03</span>
+        <h2>現場分析と選別送信</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>現場で先に分析し、必要な音だけを送る仕組みと、データ量の計算条件</p>
+      </header>
+      <div class="p-body">
+        <p>映像や音声をすべてサーバーに送る方式では、通信費と保存費用が増え続けます。CUSMOSのセンサーは、現場での分析結果と、事象が起きた瞬間の原音だけを選んで送ります。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table f-table-3" aria-label="センサー1台が1日に送るデータ量">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">条件・備考</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">原音を続けて送信</th><td>2.76 GB／日</td><td data-label="条件・備考">16kHz・16bitモノラルの原音を24時間送り続けた場合の計算値</td></tr>
+              <tr><th scope="row">CUSMOSの選別送信</th><td>147 MB／日</td><td data-label="条件・備考">原音の5%と分析結果だけを送ると仮定した計算値</td></tr>
+              <tr><th scope="row">削減率</th><td>約95%減</td><td data-label="条件・備考">通信費の実際の削減率は、料金プランや運用条件によって変わります。</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="card reveal d1">
-          <h3>狭い間隔</h3>
-          <p>高い音や近くの音を細かく捉えます。装置を小さくできるため、設置場所の制約が少なくなります。</p>
-        </div>
-        <div class="card reveal d2">
-          <h3>複合間隔</h3>
-          <p>広い間隔と狭い間隔を組み合わせて、複数の種類の音が同時に鳴る現場に対応します。</p>
-        </div>
-      </div>
-      <div class="split ja-block" style="margin-top:56px">
-        <div class="media reveal"><img src="../assets/img/product-cctv.jpg" alt="マイクアレイとカメラを組み合わせた試作機" loading="lazy"></div>
-        <div>
-          <h3 class="t-h3 reveal">現場データの収集から性能検証まで</h3>
-          <ol class="ja-steps-v reveal" style="margin-top:20px">
-            <li><span class="no">01</span><div><strong>現場データの収集</strong><p>始興市ペゴッ地区などの実際の設置現場で、騒音データを集めます。</p></div></li>
-            <li><span class="no">02</span><div><strong>信号処理とAIを組み合わせた設計</strong><p>マイクアレイの信号処理で位置を求め、AIモデルで音の種類を分類します。</p></div></li>
-            <li><span class="no">03</span><div><strong>試験による性能検証</strong><p>あらかじめ定めた試験の基準に沿って、音の分類性能を確認します。</p></div></li>
-          </ol>
-        </div>
+        <p class="p-note">通信方式は確認中です。確認でき次第、掲載します。</p>
       </div>
     </div>
   </section>
 
-  <!-- 현장 분석·선별 전송 -->
-  <section class="sec" id="edge">
-    <div class="wrap">
-      <div class="split">
-        <div>
-          <span class="eyebrow reveal">現場での分析と選別送信</span>
-          <h2 class="t-h2 reveal d1">現場で先に分析し、<br>必要な音だけを送ります</h2>
-          <p class="t-lead reveal d2">映像や音声をすべてサーバーに送る方式では、通信費と保存費用が増え続けます。CUSMOSのセンサーは、現場での分析結果と、事象が起きた瞬間の原音だけを選んで送ります。</p>
+  <!-- 04 音・場所・判断の記録 -->
+  <section class="p-zone is-alt" id="data">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">04</span>
+        <h2>音・場所・判断の記録</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>音・場所・判断の記録を一つにつなぐ理由と、記録の4つの要素</p>
+      </header>
+      <div class="p-body">
+        <p>騒音レベルの数値だけでは、住民がなぜ困っているのかを説明しにくいものです。CUSMOSは、音が発生した場所と時刻、担当者が下した判断を一緒に記録します。似た出来事が起きたとき、過去の記録を根拠として使えます。</p>
+        <div class="p-table-wrap f-mt">
+          <table class="p-table f-table" aria-label="記録の要素">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">観測</th><td>音の種類、大きさ、位置、時刻</td></tr>
+              <tr><th scope="row">空間</th><td>住宅地、学校、道路など、周辺の生活空間の情報</td></tr>
+              <tr><th scope="row">判断</th><td>担当者の検討結果と、対応の履歴</td></tr>
+              <tr><th scope="row">指標</th><td>地域ごとの騒音の影響と、施策の効果の評価</td></tr>
+            </tbody>
+          </table>
         </div>
-        <div class="card reveal" style="padding:clamp(24px,3vw,36px)">
-          <p class="t-small t-muted">センサー1台が1日に送るデータ量</p>
-          <div class="ja-bars" style="margin-top:20px">
-            <div>
-              <div class="row"><span>原音を続けて送信</span><b>2.76 GB</b></div>
-              <div class="bar"><i style="width:100%"></i></div>
-            </div>
-            <div>
-              <div class="row"><span>CUSMOSの選別送信</span><b>147 MB</b></div>
-              <div class="bar on"><i style="width:5.3%"></i></div>
-            </div>
-          </div>
-          <div class="ja-k">約95%減</div>
-          <p class="ja-note" style="margin-top:14px">16kHz・16bitモノラルの原音を基準にした計算値です。原音の5%と分析結果だけを送ると仮定しています。通信費の実際の削減率は、料金プランや運用条件によって変わります。</p>
-        </div>
+        <p class="p-note"><a href="solutions.html#city" class="link-arrow">スマートシティ騒音観測</a>での活用例を見る</p>
       </div>
     </div>
   </section>
 
-  <!-- 소리 맥락 데이터 -->
-  <section class="sec sec-alt" id="data">
-    <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">音・場所・判断の記録</span>
-        <h2 class="t-h2 reveal d1">音・場所・判断の記録を<br>一つにつなぎます</h2>
-        <p class="reveal d2">騒音レベルの数値だけでは、住民がなぜ困っているのかを説明しにくいものです。CUSMOSは、音が発生した場所と時刻、担当者が下した判断を一緒に記録します。似た出来事が起きたとき、過去の記録を根拠として使えます。</p>
-      </div>
-      <div class="grid g-4">
-        <div class="card reveal"><h3>観測</h3><p>音の種類、大きさ、位置、時刻</p></div>
-        <div class="card reveal d1"><h3>空間</h3><p>住宅地、学校、道路など、周辺の生活空間の情報</p></div>
-        <div class="card reveal d2"><h3>判断</h3><p>担当者の検討結果と、対応の履歴</p></div>
-        <div class="card reveal d3"><h3>指標</h3><p>地域ごとの騒音の影響と、施策の効果の評価</p></div>
-      </div>
-      <p class="ja-note reveal"><a href="solutions.html#city" class="link-arrow">スマートシティ騒音観測</a>での活用例を見る</p>
-    </div>
-  </section>
-
-  <section class="sec sec-alt ja-cta" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div>
-          <h2 class="t-h2">技術の詳細や検証の条件を<br>知りたい方はご連絡ください</h2>
-          <p>資料請求も、お問い合わせフォームから受け付けています。</p>
-        </div>
+  <section class="p-zone" id="contact">
+    <div class="wrap p-grid">
+      <header class="p-head">
+        <span class="p-num">窓口</span>
+        <h2>資料請求・<br>お問い合わせ</h2>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>技術の詳細や検証の条件の問い合わせ先</p>
+      </header>
+      <div class="p-body">
+        <p class="p-cta-line">技術の詳細や検証の条件を知りたい方はご連絡ください。資料請求も、お問い合わせフォームから受け付けています。</p>
         <div class="btn-row">
-          <a class="btn btn-light btn-lg" href="contact.html#request">資料請求</a>
-          <a class="btn btn-ghost-light btn-lg" href="contact.html#inquiry">お問い合わせ</a>
+          <a class="btn btn-primary btn-lg" href="contact.html#request">資料請求</a>
+          <a class="btn btn-outline btn-lg" href="contact.html#inquiry">お問い合わせフォーム</a>
         </div>
       </div>
     </div>
@@ -164,5 +211,6 @@
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=9"></script>
+<script src="zone.js?v=1"></script>
 </body>
 </html>

@@ -116,3 +116,23 @@ body.header-hidden .f-zonebar { top: 0; }
   .f-table td[data-label]::before { content: attr(data-label) "："; font-weight: 700; color: var(--c-muted); }
   .f-map-list { gap: 4px 10px; }
 }
+
+/* 11. 하위 페이지 (main.f-sub): 첫 화면은 문구와 구역 목차만 두고, 구역 틀·표·구역 바는 메인과 같다 */
+.f-sub .p-hero { padding-top: 36px; padding-bottom: 32px; }
+.f-sub .p-hero .p-lead { max-width: 680px; }
+.f-sub .p-hero .f-map { margin-top: 24px; }
+.f-sub .p-hero .btn-row { margin-top: 20px; }
+/* 구역 바가 다른 페이지로 가는 링크(お知らせ·ニュース·CI)일 때의 현재 표시도 같은 모양 */
+.f-sub .p-body > .p-fig + .p-note { margin-top: 12px; }
+/* 어두운 바탕의 제품 사진 (携帯型超音波カメラ) */
+.f-dark { background: var(--c-bg-dark); padding: clamp(24px, 4vw, 48px); }
+.f-dark img { display: block; width: 100%; height: auto; }
+/* 표 안의 이름(팀 표): 이름은 굵게, 경력은 아래 줄 */
+.f-table .f-name { display: block; font-weight: 700; color: var(--c-ink); }
+.f-table .f-sub-line { display: block; margin-top: 2px; font-size: 13px; color: var(--c-muted); }
+/* 양식: 구역 본문 안에서 2열 그대로. 안내문과 양식 사이 간격 */
+.f-sub .p-body > .form { margin-top: 20px; }
+/* 사례 표(p-row)에서 수치 뒤의 조건 */
+.f-sub .p-row dd .p-src { color: var(--c-muted); }
+/* 게시판: 구역 본문 안에서 그대로 쓴다. 목록 윗선은 구역 틀의 선과 겹치지 않게 1px */
+.f-sub .b-list { border-top-width: 1px; }

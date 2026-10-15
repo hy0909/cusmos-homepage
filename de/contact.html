@@ -12,103 +12,135 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header id="site-header"></header>
-<main id="main">
-  <section class="page-hero">
-    <div class="wrap">
-      <nav class="crumb reveal" aria-label="Pfad"><span>Kontakt</span></nav>
-      <h1 class="t-display reveal d1">Kontakt</h1>
-      <p class="t-lead reveal d2">Beschreiben Sie Einsatzort, Geräuscharten und Ziel der Messung. Wir prüfen Ihre Angaben und melden uns anschließend.</p>
-    </div>
-  </section>
+<main id="main" class="f-sub">
 
-  <section class="sec">
+  <section class="f-page-hero">
     <div class="wrap">
-      <div class="split top de-contact-split">
-        <div class="reveal">
-          <h2 class="t-h3">Anschrift und Kontakt</h2>
-          <dl class="de-dl" id="info" style="margin-top:20px;grid-template-columns:1fr"></dl>
-          <div style="margin-top:28px">
-            <p class="t-small" style="font-weight:600;color:var(--c-ink)">Ansprechpartner</p>
-            <p class="t-small" style="margin-top:6px"><span class="tbd">Angabe folgt (Name und Funktion)</span></p>
-          </div>
-          <!-- 회의실 예시 사진: 뮌헨, CUSMOS 사무실 아님 -->
-          <figure class="de-photo reveal d2" style="margin-top:32px">
-            <img src="https://images.unsplash.com/photo-1497366616365-e78dd380d3dd?auto=format&fit=crop&w=900&q=75" width="900" height="600" alt="Heller Besprechungsraum mit Holztisch und Stühlen vor großen Fenstern" loading="lazy">
-            <figcaption>Beispielszene: Besprechungsraum in München. Symbolbild, kein Standort von CUSMOS.</figcaption>
-          </figure>
+      <p class="eyebrow">Kontakt</p>
+      <h1 class="t-display">Kontakt</h1>
+      <div class="p-hero-text">
+        <p>Beschreiben Sie Einsatzort, Geräuscharten und Ziel der Messung. Wir prüfen Ihre Angaben und melden uns anschließend.</p>
+      </div>
+      <div class="p-hero-actions">
+        <div class="p-hero-links">
+          <a class="p-link" href="#anfrage">Kapitel 1: Anfrage →</a>
+          <a class="p-link" href="privacy.html">Datenschutzerklärung →</a>
         </div>
-
-        <form class="form reveal d1" id="form">
-          <div>
-            <label for="salutation">Anrede <span class="opt">(optional)</span></label>
-            <select id="salutation">
-              <option value="">Bitte wählen</option>
-              <option>Frau</option>
-              <option>Herr</option>
-              <option>Divers</option>
-            </select>
-          </div>
-          <div>
-            <label for="first">Vorname <span class="req">*</span></label>
-            <input id="first" autocomplete="given-name" required>
-          </div>
-          <div>
-            <label for="last">Nachname <span class="req">*</span></label>
-            <input id="last" autocomplete="family-name" required>
-          </div>
-          <div>
-            <label for="org">Organisation <span class="req">*</span></label>
-            <input id="org" autocomplete="organization" required>
-          </div>
-          <div>
-            <label for="mail">E-Mail <span class="req">*</span></label>
-            <input id="mail" type="email" autocomplete="email" required>
-          </div>
-          <div>
-            <label for="tel">Telefon <span class="opt">(optional)</span></label>
-            <input id="tel" type="tel" autocomplete="tel">
-          </div>
-          <div class="full">
-            <label for="topic">Thema <span class="req">*</span></label>
-            <select id="topic" required>
-              <option value="">Bitte wählen</option>
-              <option>Lärmerfassung in Städten</option>
-              <option>Auffällige Geräusche in Anlagen erkennen</option>
-              <option>Tragbare Ultraschallkamera</option>
-              <option>Sonstiges oder Zusammenarbeit</option>
-            </select>
-          </div>
-          <div class="full">
-            <label for="msg">Nachricht <span class="req">*</span></label>
-            <textarea id="msg" required placeholder="Standort, Geräuscharten, Größe des Messgebiets und gewünschter Zeitraum"></textarea>
-          </div>
-          <div class="full check">
-            <input id="consent" type="checkbox" required>
-            <label for="consent" style="font-weight:400;margin:0;color:var(--c-muted)">Ich habe die <a href="privacy.html">Datenschutzerklärung</a> gelesen und bin damit einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. <span class="req">*</span></label>
-          </div>
-          <div class="full">
-            <button class="btn btn-primary" type="submit">E-Mail-Programm öffnen <span aria-hidden="true">→</span></button>
-            <p class="de-form-note">Pflichtfelder sind mit * gekennzeichnet. Beim Absenden öffnet sich Ihr E-Mail-Programm mit den ausgefüllten Angaben. Die Angaben werden auf dieser Website nicht gespeichert.</p>
-          </div>
-        </form>
       </div>
     </div>
   </section>
+
+  <!-- 장 1: 문의 양식 (왼쪽) + 연락처 표와 안내 (오른쪽) -->
+  <section class="p-ch" id="anfrage">
+    <div class="wrap">
+      <div class="p-ch-head"><span class="p-ch-no">1</span><h2 class="t-h2">Anfrage</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Ihre Anfrage</p>
+          <p>Pflichtfelder sind mit * gekennzeichnet. Beim Absenden öffnet sich Ihr E-Mail-Programm mit den ausgefüllten Angaben. Die Angaben werden auf dieser Website nicht gespeichert.</p>
+          <form class="form" id="form">
+            <div>
+              <label for="salutation">Anrede <span class="opt">(optional)</span></label>
+              <select id="salutation">
+                <option value="">Bitte wählen</option>
+                <option>Frau</option>
+                <option>Herr</option>
+                <option>Divers</option>
+              </select>
+            </div>
+            <div>
+              <label for="first">Vorname <span class="req">*</span></label>
+              <input id="first" autocomplete="given-name" required>
+            </div>
+            <div>
+              <label for="last">Nachname <span class="req">*</span></label>
+              <input id="last" autocomplete="family-name" required>
+            </div>
+            <div>
+              <label for="org">Organisation <span class="req">*</span></label>
+              <input id="org" autocomplete="organization" required>
+            </div>
+            <div>
+              <label for="mail">E-Mail <span class="req">*</span></label>
+              <input id="mail" type="email" autocomplete="email" required>
+            </div>
+            <div>
+              <label for="tel">Telefon <span class="opt">(optional)</span></label>
+              <input id="tel" type="tel" autocomplete="tel">
+            </div>
+            <div class="full">
+              <label for="topic">Thema <span class="req">*</span></label>
+              <select id="topic" required>
+                <option value="">Bitte wählen</option>
+                <option>Lärmerfassung in Städten</option>
+                <option>Auffällige Geräusche in Anlagen erkennen</option>
+                <option>Tragbare Ultraschallkamera</option>
+                <option>Sonstiges oder Zusammenarbeit</option>
+              </select>
+            </div>
+            <div class="full">
+              <label for="msg">Nachricht <span class="req">*</span></label>
+              <textarea id="msg" required placeholder="Standort, Geräuscharten, Größe des Messgebiets und gewünschter Zeitraum"></textarea>
+            </div>
+            <div class="full check">
+              <input id="consent" type="checkbox" required>
+              <label for="consent" style="font-weight:400;margin:0;color:var(--c-muted)">Ich habe die <a href="privacy.html">Datenschutzerklärung</a> gelesen und bin damit einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage verarbeitet werden. <span class="req">*</span></label>
+            </div>
+            <div class="full">
+              <button class="btn p-btn" type="submit">E-Mail-Programm öffnen <span aria-hidden="true">→</span></button>
+            </div>
+          </form>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 1: Anschrift und Kontakt</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Anschrift</th><td id="loc-address"><span class="tbd">Angabe folgt</span></td><td>Angaben von CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Telefon</th><td id="loc-phone"><span class="tbd">Angabe folgt</span></td><td>Angaben von CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">E-Mail</th><td id="loc-email"><span class="tbd">Angabe folgt</span></td><td>Angaben von CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Ansprechpartner</th><td><span class="tbd">Angabe folgt (Name und Funktion)</span></td><td>Stand Okt. 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="f-cap">Hinweis zur Datenverarbeitung</p>
+          <div class="p-notice">
+            <strong>Keine Speicherung auf dieser Website.</strong>
+            Das Formular öffnet Ihr E-Mail-Programm. Die Angaben gehen als E-Mail an CUSMOS. Einzelheiten stehen in der <a class="p-link" href="privacy.html">Datenschutzerklärung</a>.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <aside class="f-legal" aria-labelledby="legal-title">
+    <div class="wrap">
+      <h2 class="f-legal-title" id="legal-title">Rechtliche Hinweise</h2>
+      <ul class="f-legal-list">
+        <li><span>Impressum</span><a href="impressum.html">Impressum öffnen →</a></li>
+        <li><span>Datenschutzerklärung</span><a href="privacy.html">Datenschutzerklärung öffnen →</a></li>
+        <li><span>Prüfstatus</span>Entwurf. Rechtliche Prüfung ausstehend. Stand: Okt. 2026</li>
+      </ul>
+    </div>
+  </aside>
 </main>
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=9"></script>
 <script>
-  // 회사 연락처: 값이 없으면 TBD로 표시
+  // 회사 연락처: 값이 있으면 표의 값 칸을 채우고, 없으면 TBD 그대로 둔다
   getSite().then((s) => {
-    const rows = [["Anschrift", s.address], ["Telefon", s.phone], ["E-Mail", s.email]];
-    document.getElementById("info").innerHTML = rows.map(([k, v]) =>
-      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">Angabe folgt</span>'}</dd></div>`).join("");
+    [["loc-address", s.address], ["loc-phone", s.phone], ["loc-email", s.email]].forEach(([id, v]) => {
+      if (v) document.getElementById(id).textContent = v;
+    });
   });
 
   // 양식: 메일 프로그램을 열어 내용을 채운다 (서버 저장 없음)

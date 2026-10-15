@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Technology | CUSMOS</title>
-<meta name="description" content="Edge AI acoustic sensors, microphone array design, on-site analysis with selective data sending, and context data. How CUSMOS technology works.">
+<meta name="description" content="Edge AI acoustic sensors, microphone array design, on-site analysis with selective data sending, context data, and how CUSMOS compares with fixed noise stations.">
 <meta property="og:title" content="Technology | CUSMOS"><meta property="og:description" content="Edge AI acoustic sensors, microphone array design, and on-site analysis."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
 <link rel="alternate" hreflang="en" href="../en/technology.html">
 <link rel="alternate" hreflang="ja" href="../ja/technology.html">
@@ -15,33 +15,91 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=14">
+<link rel="stylesheet" href="fable.css?v=8">
 </head>
-<body>
+<body data-hero="dark">
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header"></header>
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="f-sub">
+
+  <!-- 1. 첫 화면 -->
+  <section class="f-sub-hero">
     <div class="wrap">
-      <nav class="crumb" aria-label="Breadcrumb"><span>Technology</span></nav>
-      <h1 class="t-display reveal d1">From detecting a sound to explaining it</h1>
-      <p class="t-lead reveal d2">We design the sensor hardware, the microphone array, the on-device AI, and the data structure ourselves. We test in real installations, so performance holds up when conditions change.</p>
+      <span class="f-eyebrow-light">Technology</span>
+      <h1 class="f-h1">From detecting a sound to explaining it</h1>
+      <p class="f-lead-hero">We design the sensor hardware, the microphone array, the on-device AI, and the data structure ourselves. We test in real installations, so performance holds up when conditions change.</p>
+      <nav class="f-jumps" aria-label="On this page">
+        <ul class="f-jump-list">
+          <li><a class="f-jump" href="#sensor"><b>01</b><span>Edge AI sensor</span></a></li>
+          <li><a class="f-jump" href="#array"><b>02</b><span>Microphone array</span></a></li>
+          <li><a class="f-jump" href="#edge"><b>03</b><span>Edge processing</span></a></li>
+          <li><a class="f-jump" href="#data"><b>04</b><span>Context data</span></a></li>
+          <li><a class="f-jump" href="#compare"><b>05</b><span>Fixed stations vs CUSMOS</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="Page sections"><div class="wrap"><ul>
-    <li><a href="#sensor">Edge AI sensor</a></li><li><a href="#array">Microphone array</a></li><li><a href="#edge">Edge processing</a></li><li><a href="#data">Context data</a></li>
-  </ul></div></nav>
-
-  <!-- 센서 -->
-  <section class="sec sec-alt" id="sensor">
+  <!-- 2. 요약 블록 4개: 효과 한 줄, 기능 한 줄, 상세 구역 링크 -->
+  <section class="f-sec f-features" id="summary">
     <div class="wrap">
-      <div class="split">
-        <div class="spot-img media reveal" style="aspect-ratio:4/3"><img src="../assets/img/product-sensor.jpg" alt="Edge AI acoustic sensor"></div>
-        <div>
-          <span class="eyebrow reveal">Edge AI sensor</span>
-          <h2 class="t-h2 reveal d1">A small sensor that analyzes sound where it is installed</h2>
-          <p class="t-lead reveal d2">The sensor analyzes sound on the device, so it does not need to send every sound to a server. A solar panel is built into the unit, which reduces the power work needed at installation.</p>
-          <div class="table-wrap reveal" style="margin-top:36px">
+      <div class="f-sec-head">
+        <span class="f-eyebrow">At a glance</span>
+        <h2 class="f-h2">Four parts we build ourselves</h2>
+        <p>Hardware, array design, on-device software, and the data record. Pick a part to read the details below.</p>
+      </div>
+      <div class="f-grid f-grid-4">
+        <article class="f-card">
+          <div class="f-card-body">
+            <span class="f-tag">Hardware</span>
+            <h3 class="f-h3">Edge AI sensor</h3>
+            <p class="f-effect">Analyzes sound where it is installed.</p>
+            <p class="f-what">A small unit with a built-in solar panel that runs the AI on the device.</p>
+            <a class="f-learn" href="#sensor">See the details &rarr;</a>
+          </div>
+        </article>
+        <article class="f-card">
+          <div class="f-card-body">
+            <span class="f-tag">Array design</span>
+            <h3 class="f-h3">Microphone array</h3>
+            <p class="f-effect">Spacing set for each site.</p>
+            <p class="f-what">Wide, narrow, or mixed spacing, chosen by the sounds you need to detect and where.</p>
+            <a class="f-learn" href="#array">See the details &rarr;</a>
+          </div>
+        </article>
+        <article class="f-card">
+          <div class="f-card-body">
+            <span class="f-tag">Software</span>
+            <h3 class="f-h3">Edge processing</h3>
+            <p class="f-effect">About 95% less data, by calculation.</p>
+            <p class="f-what">Only the analysis results and the audio from each event leave the sensor.</p>
+            <a class="f-learn" href="#edge">See the details &rarr;</a>
+          </div>
+        </article>
+        <article class="f-card">
+          <div class="f-card-body">
+            <span class="f-tag">Data</span>
+            <h3 class="f-h3">Context data</h3>
+            <p class="f-effect">Sound, place, and decision in one record.</p>
+            <p class="f-what">Each event is stored with its surroundings and the reviewer's decision.</p>
+            <a class="f-learn" href="#data">See the details &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 01 센서 상세 -->
+  <section class="f-sec f-sec-alt" id="sensor">
+    <div class="wrap">
+      <div class="f-sec-head">
+        <span class="f-eyebrow">01 · Edge AI sensor</span>
+        <h2 class="f-h2">A small sensor that analyzes sound where it is installed</h2>
+      </div>
+      <div class="f-detail-grid">
+        <div class="f-detail-text">
+          <p>The sensor analyzes sound on the device, so it does not need to send every sound to a server. A solar panel is built into the unit, which reduces the power work needed at installation.</p>
+          <div class="table-wrap">
             <table class="table">
               <tbody>
                 <tr><th scope="row">Real-time detection</th><td>24-hour monitoring in place of manual measurement</td></tr>
@@ -54,56 +112,68 @@
             </table>
           </div>
         </div>
+        <figure class="f-figure">
+          <div class="f-figure-media"><img src="../assets/img/product-sensor.jpg" alt="Edge AI acoustic sensor" width="818" height="739" loading="lazy"></div>
+          <figcaption class="f-caption">The edge AI acoustic sensor with its built-in solar panel.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- 마이크 배열 -->
-  <section class="sec" id="array">
+  <!-- 4. 02 마이크 배열 상세 -->
+  <section class="f-sec" id="array">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">Microphone array</span>
-        <h2 class="t-h2 reveal d1">We set the microphone spacing for each site</h2>
-        <p class="t-lead reveal d2">We do not use one array design everywhere. We choose the spacing and signal processing based on which sounds you need to detect, and where.</p>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">02 · Microphone array</span>
+        <h2 class="f-h2">We set the microphone spacing for each site</h2>
+        <p class="f-effect">Spacing set for each site.</p>
+        <p>We do not use one array design everywhere. We choose the spacing and signal processing based on which sounds you need to detect, and where.</p>
       </div>
-      <div class="grid g-3">
-        <div class="card reveal">
+      <ol class="f-steps cols-3" style="margin-top:0" aria-label="Spacing options">
+        <li class="f-step">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="20" cy="30" r="6"/><circle cx="73" cy="30" r="6"/><circle cx="126" cy="30" r="6"/><circle cx="180" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Wide spacing</h3><p>Better at judging the direction of distant and low sounds. Suits wide roads and open areas.</p>
-        </div>
-        <div class="card reveal d1">
+          <h3>Wide spacing</h3><p>Better at judging the direction of distant and low sounds. Suits wide roads and open areas.</p>
+        </li>
+        <li class="f-step">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="70" cy="30" r="6"/><circle cx="90" cy="30" r="6"/><circle cx="110" cy="30" r="6"/><circle cx="130" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Narrow spacing</h3><p>Picks up high-pitched and nearby sounds precisely. The smaller unit fits tight spots.</p>
-        </div>
-        <div class="card reveal d2">
+          <h3>Narrow spacing</h3><p>Picks up high-pitched and nearby sounds precisely. The smaller unit fits tight spots.</p>
+        </li>
+        <li class="f-step">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="20" cy="30" r="6"/><circle cx="85" cy="30" r="6"/><circle cx="100" cy="30" r="6"/><circle cx="115" cy="30" r="6"/><circle cx="180" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Mixed spacing</h3><p>Combines wide and narrow spacing for sites where several kinds of sound occur together.</p>
-        </div>
-      </div>
-      <div class="split" style="margin-top:clamp(64px,8vw,120px)">
-        <div class="media reveal" style="aspect-ratio:4/3"><img src="../assets/img/product-cctv.jpg" alt="Prototype that combines a microphone array and a camera" loading="lazy"></div>
-        <div>
-          <h3 class="t-h2 reveal">How we test a design in the field</h3>
-          <ol class="en-timeline" style="margin-top:32px">
-            <li class="reveal"><div class="when">01</div><div><div class="what">Collect field data</div><div class="desc">We record noise at real sites, including Siheung.</div></div></li>
-            <li class="reveal"><div class="when">02</div><div><div class="what">Design signal processing and AI together</div><div class="desc">Array processing finds the location. An AI model classifies the sound.</div></div></li>
-            <li class="reveal"><div class="when">03</div><div><div class="what">Verify performance with tests</div><div class="desc">We check sound classification against the set test criteria.</div></div></li>
+          <h3>Mixed spacing</h3><p>Combines wide and narrow spacing for sites where several kinds of sound occur together.</p>
+        </li>
+      </ol>
+      <div class="f-detail-grid f-h3-block">
+        <div class="f-detail-text">
+          <h3 class="f-h3">How we test a design in the field</h3>
+          <ol class="en-timeline">
+            <li><div class="when">01</div><div><div class="what">Collect field data</div><div class="desc">We record noise at real sites, including Siheung.</div></div></li>
+            <li><div class="when">02</div><div><div class="what">Design signal processing and AI together</div><div class="desc">Array processing finds the location. An AI model classifies the sound.</div></div></li>
+            <li><div class="when">03</div><div><div class="what">Verify performance with tests</div><div class="desc">We check sound classification against the set test criteria.</div></div></li>
           </ol>
         </div>
+        <figure class="f-figure">
+          <div class="f-figure-media is-cover"><img src="../assets/img/product-cctv.jpg" alt="Prototype that combines a microphone array and a camera" width="1581" height="1134" loading="lazy"></div>
+          <figcaption class="f-caption">A prototype that combines a microphone array and a camera.</figcaption>
+        </figure>
       </div>
     </div>
   </section>
 
-  <!-- 엣지 처리 -->
-  <section class="sec sec-alt" id="edge">
+  <!-- 5. 03 엣지 처리 상세 -->
+  <section class="f-sec f-sec-alt" id="edge">
     <div class="wrap">
-      <div class="split">
-        <div>
-          <span class="eyebrow reveal">Edge processing</span>
-          <h2 class="t-h2 reveal d1">Analyze on site, and send only what matters</h2>
-          <p class="t-lead reveal d2">Sending all data to a server makes transmission and storage costs keep growing. Our sensors analyze on site and send only the results and the raw audio from the moment of an event.</p>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">03 · Edge processing</span>
+        <h2 class="f-h2">Analyze on site, and send only what matters</h2>
+        <p class="f-effect">About 95% less data, by calculation.</p>
+      </div>
+      <div class="f-detail-grid">
+        <div class="f-detail-text">
+          <p>Sending all data to a server makes transmission and storage costs keep growing. Our sensors analyze on site and send only the results and the raw audio from the moment of an event.</p>
+          <p>The figure is calculated from 16 kHz, 16-bit mono raw audio. It assumes only 5% of the raw audio is sent, along with the analysis results. This is not a measured saving. Actual communication costs depend on your plan and operating conditions.</p>
         </div>
-        <div class="card reveal" style="padding:clamp(28px,4vw,40px)">
+        <div class="f-panel">
           <p class="t-small t-muted">Data one sensor sends per day</p>
           <div class="en-bar" style="margin-top:28px">
             <div class="en-bar-top"><span>Raw audio, sent nonstop</span><b>2.76 GB</b></div>
@@ -113,39 +183,60 @@
             <div class="en-bar-top"><span>CUSMOS, selective sending</span><b>147 MB</b></div>
             <div class="en-bar-track"><div class="en-bar-fill is-small" style="width:5.3%"></div></div>
           </div>
-          <div class="k grad-text" style="margin-top:36px;font-size:clamp(32px,4vw,44px);font-weight:700">About 95% less</div>
-          <p class="note">Calculated from 16 kHz, 16-bit mono raw audio. It assumes only 5% of the raw audio is sent, along with the analysis results. This is not a measured saving. Actual communication costs depend on your plan and operating conditions.</p>
+          <p class="f-num-mid">About 95% less</p>
+          <p class="note">Calculated value, not a measured saving.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 데이터 -->
-  <section class="sec" id="data">
+  <!-- 6. 04 데이터 상세 -->
+  <section class="f-sec" id="data">
     <div class="wrap">
-      <div class="sec-head">
-        <span class="eyebrow reveal">Context data</span>
-        <h2 class="t-h2 reveal d1">Sound, place, and decision in one record</h2>
-        <p class="t-lead reveal d2">A decibel reading alone rarely explains why residents are upset. CUSMOS records where and when a sound happened and what was decided, so the next similar case has a precedent.</p>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">04 · Context data</span>
+        <h2 class="f-h2">Sound, place, and decision in one record</h2>
+        <p>A decibel reading alone rarely explains why residents are upset. CUSMOS records where and when a sound happened and what was decided, so the next similar case has a precedent.</p>
       </div>
-      <div class="grid g-4">
-        <div class="card reveal"><h3 class="t-h3">Observation</h3><p>Sound type, level, location, and time</p></div>
-        <div class="card reveal d1"><h3 class="t-h3">Surroundings</h3><p>Nearby homes, schools, and roads</p></div>
-        <div class="card reveal d2"><h3 class="t-h3">Decision</h3><p>The reviewer's judgment and the follow-up action</p></div>
-        <div class="card reveal d3"><h3 class="t-h3">Indicators</h3><p>Regional noise impact and whether a policy worked</p></div>
-      </div>
+      <ol class="f-steps" style="margin-top:0" aria-label="What one record holds">
+        <li class="f-step"><span class="f-step-no">01</span><h3>Observation</h3><p>Sound type, level, location, and time</p></li>
+        <li class="f-step"><span class="f-step-no">02</span><h3>Surroundings</h3><p>Nearby homes, schools, and roads</p></li>
+        <li class="f-step"><span class="f-step-no">03</span><h3>Decision</h3><p>The reviewer's judgment and the follow-up action</p></li>
+        <li class="f-step"><span class="f-step-no">04</span><h3>Indicators</h3><p>Regional noise impact and whether a policy worked</p></li>
+      </ol>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
+  <!-- 7. 05 비교표: 메인에서 뺀 고정 측정소 비교를 여기에 둔다 -->
+  <section class="f-sec f-sec-alt" id="compare">
     <div class="wrap">
-      <div class="cta-band reveal">
-        <div class="inner">
-          <h2 class="t-h2">Start with your site conditions.</h2>
-          <p>Send us the details, and we will suggest a setup.</p>
-        </div>
-        <a class="btn btn-primary btn-lg" href="contact.html">Book a demo</a>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">05 · Fixed stations vs CUSMOS</span>
+        <h2 class="f-h2">Fixed stations are few and manual</h2>
+        <p>Noise is the largest category of environmental complaints in Korea, at 46.5% in 2024. Yet 1,766 of the 1,828 sites in Korea's national noise network are still measured by hand.</p>
       </div>
+      <div class="table-wrap">
+        <table class="table en-compare">
+          <thead>
+            <tr><th scope="col">Item</th><th scope="col">Traditional fixed station</th><th scope="col">CUSMOS sensor</th></tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Cost</th><td>About KRW 10 million per automatic station (2022, Daejeon project)</td><td>Compact unit that mounts on existing CCTV and vehicle-detection poles</td></tr>
+            <tr><th scope="row">Coverage</th><td>One automatic station per 500 m radius</td><td>Placed wherever complaints happen, as many units as needed</td></tr>
+            <tr><th scope="row">Measurement</th><td>Mostly manual. 96.6% of the national network</td><td>Automatic, 24 hours a day, with no staff on site</td></tr>
+            <tr><th scope="row">What you learn</th><td>Sound level</td><td>Sound type, sound level, and location</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">The figures in this section are from Korea: the national noise network count, the 2022 Daejeon project, and the 2024 complaint share.</p>
+    </div>
+  </section>
+
+  <!-- 8. 마지막 행동 유도 -->
+  <section class="f-final">
+    <div class="wrap f-final-inner">
+      <h2 class="f-h2-light">Start with your site conditions. We will suggest a setup.</h2>
+      <a class="f-btn-main" href="contact.html">Book a demo</a>
     </div>
   </section>
 </main>

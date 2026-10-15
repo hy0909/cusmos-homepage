@@ -54,3 +54,27 @@ body { --c-accent: #05060d; }
   .p-table tbody th { width: auto; }
   .f-legal-list li { grid-template-columns: 1fr; gap: 2px; }
 }
+
+/* 하위 페이지 (main.f-sub): 첫 화면은 사진 없이 밝은 바탕에 문구와 장 목차. 장·표·문의 띠·법적 고지는 메인과 같다 */
+.f-page-hero { padding: calc(var(--header-h) + clamp(40px, 6vw, 72px)) 0 clamp(36px, 5vw, 56px); border-bottom: 1px solid var(--c-line); background: #fff; }
+.f-page-hero .eyebrow { margin-bottom: 16px; color: var(--c-muted); }
+.f-page-hero h1 { max-width: 760px; }
+.f-page-hero .p-hero-text p { color: var(--c-text); }
+.f-page-hero .p-hero-actions { margin-top: 28px; }
+.f-page-hero .p-hero-links { gap: 10px 24px; }
+.f-page-hero .p-link { color: var(--c-ink); text-decoration-color: var(--c-line-strong); }
+.f-page-hero .p-link:hover { text-decoration-color: var(--c-ink); }
+/* 첫 장은 첫 화면의 아래 선과 겹치지 않게 위 선을 뺀다 */
+.f-sub .f-page-hero + .p-ch { border-top: 0; }
+/* 어두운 바탕의 제품 사진 (Ultraschallkamera) */
+.f-fig-dark { background: var(--c-bg-dark); padding: clamp(24px, 4vw, 48px); border-radius: 6px; }
+.f-fig-dark img { display: block; width: 100%; height: auto; }
+/* 표 안의 이름(팀 표): 이름은 굵게, 경력은 아래 줄 */
+.p-table .f-name { display: block; font-weight: 600; color: var(--c-ink); }
+.p-table .f-sub-line { display: block; margin-top: 2px; font-size: 13px; color: var(--c-muted); }
+/* 사진·그림 아래 짧은 설명은 모든 장에서 같은 모양 */
+.p-photo.p-site img { aspect-ratio: auto; object-fit: unset; }
+/* 양식: 문단 칸(최대 640px)에 두고 2열 그대로. 안내 문단과 양식 사이 간격 */
+.p-ch-text > .form { margin-top: 24px; }
+/* 연혁 목록: 작동 단계와 같은 모양, 날짜 라벨 */
+.p-steps .p-step-date { display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--c-ink); font-variant-numeric: tabular-nums; }

@@ -12,88 +12,155 @@
 <link rel="alternate" hreflang="x-default" href="../en/solutions.html">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=14">
+<link rel="stylesheet" href="fable.css?v=8">
 </head>
-<body>
+<body data-hero="dark">
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header"></header>
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="f-sub">
+
+  <!-- 1. 첫 화면: 남색 면, 제목, 한 줄 설명, 구역 바로가기 3개 -->
+  <section class="f-sub-hero">
     <div class="wrap">
-      <nav class="crumb" aria-label="Breadcrumb"><span>Solutions</span></nav>
-      <h1 class="t-display reveal d1">One sound technology, three uses</h1>
-      <p class="t-lead reveal d2">We set up the same acoustic technology for city noise, industrial safety, and equipment inspection.</p>
+      <span class="f-eyebrow-light">Solutions</span>
+      <h1 class="f-h1">One sound technology, three uses</h1>
+      <p class="f-lead-hero">We set up the same acoustic technology for city noise, industrial safety, and equipment inspection.</p>
+      <nav class="f-jumps" aria-label="On this page">
+        <ul class="f-jump-list">
+          <li><a class="f-jump" href="#city"><b>01</b><span>Smart city noise</span></a></li>
+          <li><a class="f-jump" href="#industry"><b>02</b><span>Industrial safety</span></a></li>
+          <li><a class="f-jump" href="#ucam"><b>03</b><span>Ultrasonic camera</span></a></li>
+        </ul>
+      </nav>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="Page sections"><div class="wrap"><ul>
-    <li><a href="#city">Smart city noise</a></li><li><a href="#industry">Industrial safety</a></li><li><a href="#ucam">Ultrasonic camera</a></li>
-  </ul></div></nav>
-
-  <!-- 스마트시티 -->
-  <section class="sec" id="city">
+  <!-- 2. 요약 블록: 메인의 기능 블록과 같은 모양. 각 블록은 효과 한 줄, 기능 한 줄, 상세 구역 링크 -->
+  <section class="f-sec f-features" id="summary">
     <div class="wrap">
-      <div class="split">
-        <div>
-          <span class="eyebrow reveal">Smart city</span>
-          <h2 class="t-h2 reveal d1">Smart city noise monitoring</h2>
-          <p class="t-lead reveal d2">We place sensors where noise complaints keep coming back. Each one logs what made the noise, where it came from, and when. Officials can then choose enforcement hours and places, and decide where to add noise barriers or other facilities, without sending a crew to every complaint.</p>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">At a glance</span>
+        <h2 class="f-h2">Three ways we use sound</h2>
+        <p>Each sensor analyzes sound on the device. Only the analysis results and the audio from each event are sent out. Pick a use to read the details below.</p>
+      </div>
+      <div class="f-grid">
+        <article class="f-card">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1688646583123-16844c80e78a?auto=format&fit=crop&w=640&q=75" srcset="https://images.unsplash.com/photo-1688646583123-16844c80e78a?auto=format&fit=crop&w=640&q=75 1x, https://images.unsplash.com/photo-1688646583123-16844c80e78a?auto=format&fit=crop&w=1280&q=75 2x" alt="A woman in a white shirt works on a laptop at a table by a window" width="640" height="427" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For cities</span>
+            <h3 class="f-h3">Smart city noise monitoring</h3>
+            <p class="f-effect">Officials see where and when noise happens, block by block.</p>
+            <p class="f-what">Sensors on existing poles log the type, level, location, and time of each noise event.</p>
+            <a class="f-learn" href="#city">See the details &rarr;</a>
+          </div>
+        </article>
+        <article class="f-card">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=640&q=75" srcset="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=640&q=75 1x, https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1280&q=75 2x" alt="Seven construction workers in safety vests stand on a concrete deck at a building site" width="640" height="427" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For industry</span>
+            <h3 class="f-h3">Industrial safety sound detection</h3>
+            <p class="f-effect">Spots incidents outside the camera's view.</p>
+            <p class="f-what">Sensors find where an abnormal sound came from and turn the nearest CCTV toward it.</p>
+            <a class="f-learn" href="#industry">See the details &rarr;</a>
+          </div>
+        </article>
+        <article class="f-card">
+          <div class="f-photo"><img src="https://images.unsplash.com/photo-1660330589827-da8ab7dd3c02?auto=format&fit=crop&w=640&q=75" srcset="https://images.unsplash.com/photo-1660330589827-da8ab7dd3c02?auto=format&fit=crop&w=640&q=75 1x, https://images.unsplash.com/photo-1660330589827-da8ab7dd3c02?auto=format&fit=crop&w=1280&q=75 2x" alt="A technician in a navy hoodie and cap works on an electric meter" width="640" height="427" loading="lazy"></div>
+          <div class="f-card-body">
+            <span class="f-tag">For inspection</span>
+            <h3 class="f-h3">Handheld ultrasonic camera</h3>
+            <p class="f-effect">Inspectors can pinpoint a fault on screen.</p>
+            <p class="f-what">Overlays the spots where ultrasound comes from on the live camera image.</p>
+            <a class="f-learn" href="#ucam">See the details &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. 01 스마트시티 상세 -->
+  <section class="f-sec f-sec-alt" id="city">
+    <div class="wrap">
+      <div class="f-sec-head">
+        <span class="f-eyebrow">01 · Smart city</span>
+        <h2 class="f-h2">Smart city noise monitoring</h2>
+        <p class="f-effect">Officials see where and when noise happens, block by block.</p>
+      </div>
+      <div class="f-detail-grid">
+        <div class="f-detail-text">
+          <p>We place sensors where noise complaints keep coming back. Each one logs what made the noise, where it came from, and when. Officials can then choose enforcement hours and places, and decide where to add noise barriers or other facilities, without sending a crew to every complaint.</p>
+          <div class="table-wrap">
+            <table class="table">
+              <tbody>
+                <tr><th scope="row">Sounds we detect</th><td>Motorcycle noise, construction noise, car horns, and everyday noise in complaint areas</td></tr>
+                <tr><th scope="row">Where it is installed</th><td>Existing poles, such as CCTV poles and vehicle-detection poles. No new site is needed.</td></tr>
+                <tr><th scope="row">What the control screen shows</th><td>Live monitoring, a record of noise by site and hour, and reports on complaint responses</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>In the Siheung pilot, complaints in the installed area fell about 60% between Dec 2025 and Jun 2026, with guidance only and no enforcement. <a class="f-learn" href="cases.html#siheung">Read the Siheung case &rarr;</a></p>
         </div>
-        <div class="media reveal" style="aspect-ratio:16/10"><img src="https://images.unsplash.com/photo-1585978075589-fc6561e20296?auto=format&fit=crop&w=1600&q=75" alt="A downtown street with traffic signals and cars on a rainy day" loading="lazy"></div>
+        <figure class="f-figure">
+          <div class="f-figure-media is-cover"><img src="https://images.unsplash.com/photo-1585978075589-fc6561e20296?auto=format&fit=crop&w=1200&q=75" alt="A downtown street with traffic signals and cars on a rainy day" width="1200" height="750" loading="lazy"></div>
+          <figcaption class="f-caption">A downtown street on a rainy day. Stock photo, not a CUSMOS installation.</figcaption>
+        </figure>
       </div>
-      <div class="grid g-3" style="margin-top:clamp(56px,7vw,96px)">
-        <div class="card reveal"><h3 class="t-h3">Residents</h3><p>See how often noise happens on your street at night, and how that compares with other areas.</p></div>
-        <div class="card reveal d1"><h3 class="t-h3">Local government</h3><p>Choose enforcement hours and places, and where to add facilities, based on records.</p></div>
-        <div class="card reveal d2"><h3 class="t-h3">Policy makers</h3><p>Turn the records into everyday noise indicators, and check whether a policy is working.</p></div>
-      </div>
-      <div class="table-wrap reveal" style="margin-top:48px">
-        <table class="table">
-          <tbody>
-            <tr><th scope="row">Sounds we detect</th><td>Motorcycle noise, construction noise, car horns, and everyday noise in complaint areas</td></tr>
-            <tr><th scope="row">Where it is installed</th><td>Existing poles, such as CCTV poles and vehicle-detection poles. No new site is needed.</td></tr>
-            <tr><th scope="row">What the control screen shows</th><td>Live monitoring, a record of noise by site and hour, and reports on complaint responses</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <ol class="f-steps cols-3" aria-label="Who uses the records">
+        <li class="f-step"><span class="f-step-no">RESIDENTS</span><h3>See your street</h3><p>See how often noise happens on your street at night, and how that compares with other areas.</p></li>
+        <li class="f-step"><span class="f-step-no">LOCAL GOVERNMENT</span><h3>Decide from records</h3><p>Choose enforcement hours and places, and where to add facilities, based on records.</p></li>
+        <li class="f-step"><span class="f-step-no">POLICY MAKERS</span><h3>Check whether a policy works</h3><p>Turn the records into everyday noise indicators, and check whether a policy is working.</p></li>
+      </ol>
       <!-- 제어 화면 예시 (샘플 데이터) -->
-      <div class="media reveal" style="margin-top:48px;aspect-ratio:16/10"><div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=en" title="CUSMOS control screen, live view with sample data" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-en.jpg" alt="CUSMOS control screen with a sensor map and a live detection log" width="1920" height="1200" loading="lazy"></div></div>
-      <p class="note reveal">The control screen above shows sample data.</p>
+      <div class="media wide reveal f-dash"><div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=en" title="CUSMOS control screen, live view with sample data" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-en.jpg" alt="CUSMOS control screen with a sensor map and a live detection log" width="1920" height="1200" loading="lazy"></div></div>
+      <p class="note reveal f-dash-note">The control screen above shows sample data.</p>
     </div>
   </section>
 
-  <!-- 산업안전 -->
-  <section class="sec sec-alt" id="industry">
+  <!-- 4. 02 산업안전 상세 -->
+  <section class="f-sec" id="industry">
     <div class="wrap">
-      <div class="split">
-        <div class="media reveal" style="aspect-ratio:4/3;background:#fff"><img src="../assets/img/illust-plant-en.png" alt="How sound sensors detect an abnormal sound at a power plant and turn the CCTV toward it" style="object-fit:contain" loading="lazy"></div>
-        <div>
-          <span class="eyebrow reveal">Industrial safety</span>
-          <h2 class="t-h2 reveal d1">Industrial safety sound detection</h2>
-          <p class="t-lead reveal d2">A camera sees only what its lens points at. Our sensors listen across a wider area. When they hear an accident sound or an equipment fault, they find where it came from and turn the nearest camera toward it.</p>
-          <p class="t-lead reveal d3" style="margin-top:18px">Korea's Serious Accidents Punishment Act now covers workplaces with fewer than 50 employees. That makes it more important to catch an incident early and keep a record of how it was handled.</p>
+      <div class="f-sec-head">
+        <span class="f-eyebrow">02 · Industrial safety</span>
+        <h2 class="f-h2">Industrial safety sound detection</h2>
+        <p class="f-effect">Spots incidents outside the camera's view.</p>
+      </div>
+      <div class="f-detail-grid">
+        <div class="f-detail-text">
+          <p>A camera sees only what its lens points at. Our sensors listen across a wider area. When they hear an accident sound or an equipment fault, they find where it came from and turn the nearest camera toward it.</p>
+          <p>Korea's Serious Accidents Punishment Act now covers workplaces with fewer than 50 employees. That makes it more important to catch an incident early and keep a record of how it was handled.</p>
+          <p><a class="f-learn" href="cases.html#kepco">Read the KEPCO Taean plant PoC &rarr;</a></p>
         </div>
+        <figure class="f-figure">
+          <div class="f-figure-media"><img src="../assets/img/illust-plant-en.png" alt="How sound sensors detect an abnormal sound at a power plant and turn the CCTV toward it" width="1200" height="1053" loading="lazy"></div>
+          <figcaption class="f-caption">How a sensor locates an abnormal sound at a power plant and turns the nearest CCTV toward it.</figcaption>
+        </figure>
       </div>
-      <h3 class="t-h3 reveal" style="margin-top:clamp(64px,8vw,110px)">What happens when a sensor hears an abnormal sound</h3>
-      <div class="grid g-4" style="margin-top:28px">
-        <div class="card reveal"><div class="en-k">01</div><h3 class="t-h3">Abnormal sound</h3><p>An accident sound or an equipment fault starts somewhere on site.</p></div>
-        <div class="card reveal d1"><div class="en-k">02</div><h3 class="t-h3">Detect and locate</h3><p>The sensor identifies the sound and works out where it came from.</p></div>
-        <div class="card reveal d2"><div class="en-k">03</div><h3 class="t-h3">CCTV link</h3><p>The nearest camera turns to that spot.</p></div>
-        <div class="card reveal d3"><div class="en-k">04</div><h3 class="t-h3">Control room alert</h3><p>The control room receives an alert with video, and the event is saved to the log.</p></div>
-      </div>
+      <h3 class="f-h3 f-h3-block">What happens when a sensor hears an abnormal sound</h3>
+      <ol class="f-steps">
+        <li class="f-step"><span class="f-step-no">01</span><h3>Abnormal sound</h3><p>An accident sound or an equipment fault starts somewhere on site.</p></li>
+        <li class="f-step"><span class="f-step-no">02</span><h3>Detect and locate</h3><p>The sensor identifies the sound and works out where it came from.</p></li>
+        <li class="f-step"><span class="f-step-no">03</span><h3>CCTV link</h3><p>The nearest camera turns to that spot.</p></li>
+        <li class="f-step"><span class="f-step-no">04</span><h3>Control room alert</h3><p>The control room receives an alert with video, and the event is saved to the log.</p></li>
+      </ol>
     </div>
   </section>
 
-  <!-- 초음파 카메라 -->
-  <section class="sec" id="ucam">
+  <!-- 5. 03 초음파 카메라 상세 -->
+  <section class="f-sec f-sec-alt" id="ucam">
     <div class="wrap">
-      <div class="split">
-        <div>
-          <span class="eyebrow reveal">Ultrasonic camera</span>
-          <h2 class="t-h2 reveal d1">Handheld ultrasonic camera</h2>
-          <p class="t-lead reveal d2">When a sensor flags a sign of trouble, an inspector takes this camera to the site. It overlays the spots where ultrasound comes from on the image of the equipment, so the fault is easy to find.</p>
-          <div class="table-wrap reveal" style="margin-top:36px">
+      <div class="f-sec-head">
+        <span class="f-eyebrow">03 · Inspection</span>
+        <h2 class="f-h2">Handheld ultrasonic camera</h2>
+        <p class="f-effect">Inspectors can pinpoint a fault on screen.</p>
+      </div>
+      <div class="f-detail-grid">
+        <div class="f-detail-text">
+          <p>When a sensor flags a sign of trouble, an inspector takes this camera to the site. It overlays the spots where ultrasound comes from on the image of the equipment, so the fault is easy to find.</p>
+          <div class="table-wrap">
             <table class="table">
               <tbody>
                 <tr><th scope="row">Display</th><td>7-inch screen</td></tr>
@@ -104,26 +171,25 @@
             </table>
           </div>
         </div>
-        <div class="en-dark-panel reveal"><img src="../assets/img/product-ucam-front.png" alt="Front view of the handheld ultrasonic camera"></div>
+        <figure class="f-figure">
+          <div class="f-figure-media is-dark"><img src="../assets/img/product-ucam-front.png" alt="Front view of the handheld ultrasonic camera" width="998" height="580" loading="lazy"></div>
+          <figcaption class="f-caption">Front view of the handheld ultrasonic camera.</figcaption>
+        </figure>
       </div>
-      <div class="grid g-4" style="margin-top:clamp(56px,7vw,96px)">
-        <div class="card reveal"><div class="en-k">01</div><p>Detect an abnormal sound with the handheld camera</p></div>
-        <div class="card reveal d1"><div class="en-k">02</div><p>Process the sound signal</p></div>
-        <div class="card reveal d2"><div class="en-k">03</div><p>Overlay the sound image on the camera image</p></div>
-        <div class="card reveal d3"><div class="en-k">04</div><p>Find the problem spot on screen</p></div>
-      </div>
+      <ol class="f-steps" aria-label="How the camera is used">
+        <li class="f-step"><span class="f-step-no">01</span><h3>Detect</h3><p>Detect an abnormal sound with the handheld camera.</p></li>
+        <li class="f-step"><span class="f-step-no">02</span><h3>Process</h3><p>Process the sound signal.</p></li>
+        <li class="f-step"><span class="f-step-no">03</span><h3>Overlay</h3><p>Overlay the sound image on the camera image.</p></li>
+        <li class="f-step"><span class="f-step-no">04</span><h3>Find</h3><p>Find the problem spot on screen.</p></li>
+      </ol>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div class="inner">
-          <h2 class="t-h2">We will suggest a setup for your site.</h2>
-          <p>Tell us where you want to install and what problem you need to solve.</p>
-        </div>
-        <a class="btn btn-primary btn-lg" href="contact.html">Book a demo</a>
-      </div>
+  <!-- 6. 마지막 행동 유도: 메인과 같은 남색 면 -->
+  <section class="f-final">
+    <div class="wrap f-final-inner">
+      <h2 class="f-h2-light">Tell us where you want to install. We will suggest a setup.</h2>
+      <a class="f-btn-main" href="contact.html">Book a demo</a>
     </div>
   </section>
 </main>

@@ -12,138 +12,187 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=10">
 <link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
 <header id="site-header"></header>
-<main id="main">
-  <section class="page-hero">
+<main id="main" class="f-sub">
+
+  <section class="f-page-hero">
     <div class="wrap">
-      <nav class="crumb reveal" aria-label="Pfad"><span>Referenzen</span></nav>
-      <h1 class="t-display reveal d1">Erprobt in einer Stadt und einem Kraftwerk</h1>
-      <p class="t-lead reveal d2">Beide Projekte liefen in Südkorea. Zu jeder Zahl stehen Messbedingungen, Zeitraum und Quelle. Pilotergebnisse sind keine Zusage für andere Standorte.</p>
+      <p class="eyebrow">Referenzen</p>
+      <h1 class="t-display">Erprobt in einer Stadt und einem Kraftwerk</h1>
+      <div class="p-hero-text">
+        <p>Beide Projekte liefen in Südkorea. Zu jeder Zahl stehen Messbedingungen, Zeitraum und Quelle. Pilotergebnisse sind keine Zusage für andere Standorte.</p>
+      </div>
+      <div class="p-hero-actions">
+        <div class="p-hero-links">
+          <a class="p-link" href="#siheung">Kapitel 1: Stadt Siheung →</a>
+          <a class="p-link" href="#kepco">Kapitel 2: KEPCO, Kraftwerk Taean →</a>
+          <a class="p-link" href="#clients">Kapitel 3: Referenzkunden →</a>
+        </div>
+      </div>
     </div>
   </section>
 
-  <nav class="sub-nav" aria-label="Referenzen auf dieser Seite">
-    <div class="wrap"><ul>
-      <li><a href="#siheung">Stadt Siheung: Motorradlärm</a></li>
-      <li><a href="#kepco">KEPCO: Kraftwerk Taean</a></li>
-      <li><a href="#clients">Referenzkunden</a></li>
-    </ul></div>
-  </nav>
-
-  <!-- 시흥 -->
-  <section class="sec" id="siheung">
+  <!-- 장 1: 시흥 -->
+  <section class="p-ch" id="siheung">
     <div class="wrap">
-      <div class="split top">
-        <div>
-          <p class="eyebrow reveal">Referenz 01 · Stadt Siheung</p>
-          <h2 class="t-h2 reveal d1">Pilotprojekt Motorradlärm im Stadtteil Baegot</h2>
-          <p class="t-lead reveal d2" style="margin-top:20px">In Baegot an der Haesong-simni-ro gab es immer wieder Beschwerden über Motorradlärm. An den Masten wurden Sensoren installiert, die Geräuschart und Tageszeit erfassen. Es gab nur Beobachtung und Hinweise, keine Kontrollen.</p>
-          <div class="table-wrap reveal" style="margin-top:32px">
-            <table class="table">
+      <div class="p-ch-head"><span class="p-ch-no">1</span><h2 class="t-h2">Stadt Siheung: Motorradlärm</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Pilotprojekt im Stadtteil Baegot</p>
+          <p>In Baegot an der Haesong-simni-ro gab es immer wieder Beschwerden über Motorradlärm. An den Masten wurden Sensoren installiert, die Geräuschart und Tageszeit erfassen. Es gab nur Beobachtung und Hinweise, keine Kontrollen.</p>
+          <p>Die Stadt Siheung erteilte die erste Genehmigung für den Zeitraum 1. Dez. 2025 bis 27. Feb. 2026. Der Betrieb lief danach weiter. Vier Geräte an vier Standorten wurden an Masten der Verkehrsdetektion montiert. Die Rahmendaten stehen in Tabelle 1.</p>
+          <p>Der Rückgang der Beschwerden gilt nur für das Installationsgebiet. Welchen Anteil Beobachtung und Hinweise am Verhalten hatten, wird gesondert untersucht. Für andere Gebiete liegt kein Ergebnis vor. Die Messwerte stehen in den Ergebnissen zu diesem Kapitel.</p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Ergebnisse: Messwerte im Pilotprojekt Siheung</p>
+          <div class="p-stats">
+            <div class="stat reveal">
+              <div class="num"><small>ca.&nbsp;</small><span data-count="60">60</span><small>&nbsp;%</small></div>
+              <div class="label">weniger Lärmbeschwerden im Installationsgebiet</div>
+              <div class="src">Quelle: Stadt Siheung, mündliche Bestätigung, Stand Sep. 2026. Messzeitraum Dez. 2025 bis Juni 2026, nur im Installationsgebiet</div>
+            </div>
+            <div class="stat reveal d1">
+              <div class="num"><small>über&nbsp;</small><span data-count="95">95</span><small>&nbsp;%</small></div>
+              <div class="label">Genauigkeit der Klassifikation, Zielwert erreicht</div>
+              <div class="src">Quelle: Abschlussbericht 2025 des Unternehmens (Eigenbericht). Pilotprojekt Siheung</div>
+            </div>
+            <div class="stat reveal d2">
+              <div class="num"><small>ca.&nbsp;</small><span data-count="88">88</span><small>&nbsp;%</small></div>
+              <div class="label">Leistung bei Wind und Regen</div>
+              <div class="src">Werte aus dem Pilotbetrieb unter verschiedenen Wetterbedingungen. Messmethode: <span class="tbd">Angabe folgt</span></div>
+            </div>
+            <div class="stat reveal d3">
+              <div class="num"><span data-count="5.5">5,5</span><small>&nbsp;m</small></div>
+              <div class="label">Bezugsentfernung für den Schallpegel</div>
+              <div class="src">Pegel werden auf 5,5 m Abstand umgerechnet</div>
+            </div>
+          </div>
+          <p class="f-cap">Tabelle 1: Rahmendaten des Pilotprojekts</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Ort</th><td>Baegot, Stadt Siheung, Provinz Gyeonggi, Südkorea</td></tr>
-                <tr><th scope="row">Umfang</th><td>4 Standorte mit 4 Geräten</td></tr>
-                <tr><th scope="row">Montage</th><td>Masten der Verkehrsdetektion</td></tr>
-                <tr><th scope="row">Genehmigung</th><td>Erste Genehmigung: 1. Dez. 2025 bis 27. Feb. 2026. Der Betrieb lief danach weiter</td></tr>
-                <tr><th scope="row">Betriebsform</th><td>Nur Beobachtung und Hinweise, keine Kontrollen</td></tr>
+                <tr><th scope="row">Ort</th><td>Baegot, Stadt Siheung, Provinz Gyeonggi, Südkorea</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Umfang</th><td>4 Standorte mit 4 Geräten</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Montage</th><td>Masten der Verkehrsdetektion</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Genehmigung</th><td>Erste Genehmigung: 1. Dez. 2025 bis 27. Feb. 2026. Der Betrieb lief danach weiter</td><td>Stadt Siheung, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Betriebsform</th><td>Nur Beobachtung und Hinweise, keine Kontrollen</td><td>CUSMOS, Stand Okt. 2026</td></tr>
               </tbody>
             </table>
           </div>
-        </div>
-        <!-- 원본 현장 사진. 표지판 글자를 바꾼 합성본(case-siheung-de.jpg)은 쓰지 않는다 -->
-        <figure class="de-photo reveal">
-          <img src="../assets/img/case-siheung.jpg" alt="CUSMOS-Messeinheit an einem Mast im Stadtteil Baegot, Siheung, mit koreanischem Hinweisschild" loading="lazy">
-          <figcaption>CUSMOS-Messeinheit an einem Mast der Fahrzeugerkennung im Stadtteil Baegot, Siheung, während des Pilotprojekts zu Motorradlärm. Das koreanische Schild bedeutet „Pilotbetrieb Motorradlärm-Messung“. Aufnahme am Pilotstandort.</figcaption>
-        </figure>
-      </div>
-
-      <div class="grid g-4 de-results" style="margin-top:clamp(56px,7vw,96px)">
-        <div class="stat reveal">
-          <div class="num"><small>ca.&nbsp;</small><span data-count="60">0</span><small>&nbsp;%</small></div>
-          <div class="label">weniger Lärmbeschwerden im Installationsgebiet</div>
-          <div class="src">Quelle: Stadt Siheung, mündliche Bestätigung, Stand Sep. 2026. Messzeitraum Dez. 2025 bis Juni 2026, nur im Installationsgebiet</div>
-        </div>
-        <div class="stat reveal d1">
-          <div class="num"><small>über&nbsp;</small><span data-count="95">0</span><small>&nbsp;%</small></div>
-          <div class="label">Genauigkeit der Klassifikation, Zielwert erreicht</div>
-          <div class="src">Quelle: Abschlussbericht 2025 des Unternehmens (Eigenbericht). Pilotprojekt Siheung</div>
-        </div>
-        <div class="stat reveal d2">
-          <div class="num"><small>ca.&nbsp;</small><span data-count="88">0</span><small>&nbsp;%</small></div>
-          <div class="label">Leistung bei Wind und Regen</div>
-          <div class="src">Werte aus dem Pilotbetrieb unter verschiedenen Wetterbedingungen. Messmethode: <span class="tbd">Angabe folgt</span></div>
-        </div>
-        <div class="stat reveal d3">
-          <div class="num"><span data-count="5.5">0</span><small>&nbsp;m</small></div>
-          <div class="label">Bezugsentfernung für den Schallpegel</div>
-          <div class="src">Pegel werden auf 5,5 m Abstand umgerechnet</div>
+          <p class="f-cap">Abbildung 1: Messeinheit am Pilotstandort</p>
+          <!-- 원본 현장 사진. 표지판 글자를 바꾼 합성본(case-siheung-de.jpg)은 쓰지 않는다 -->
+          <figure class="p-photo p-site">
+            <img src="../assets/img/case-siheung.jpg" alt="CUSMOS-Messeinheit an einem Mast im Stadtteil Baegot, Siheung, mit koreanischem Hinweisschild" loading="lazy" width="922" height="502">
+            <figcaption>CUSMOS-Messeinheit an einem Mast der Fahrzeugerkennung im Stadtteil Baegot, Siheung, während des Pilotprojekts zu Motorradlärm. Das koreanische Schild bedeutet „Pilotbetrieb Motorradlärm-Messung“. Aufnahme am Pilotstandort.</figcaption>
+          </figure>
         </div>
       </div>
-      <p class="note reveal" style="margin-top:28px">Der Rückgang gilt nur für das Installationsgebiet. Welchen Anteil Beobachtung und Hinweise am Verhalten hatten, wird gesondert untersucht. Für andere Gebiete liegt kein Ergebnis vor.</p>
     </div>
   </section>
 
-  <!-- KEPCO -->
-  <section class="sec sec-alt" id="kepco">
+  <!-- 장 2: KEPCO -->
+  <section class="p-ch" id="kepco">
     <div class="wrap">
-      <div class="split top">
-        <figure class="media reveal" style="aspect-ratio:5/4;margin:0"><img src="../assets/img/case-kepco.jpg" alt="Im Kraftwerk Taean installierte CCTV-Kamera mit akustischer Anbindung" loading="lazy"></figure>
-        <div>
-          <p class="eyebrow reveal">Referenz 02 · Korea Electric Power Corporation (KEPCO)</p>
-          <h2 class="t-h2 reveal d1">CCTV mit Schallsensorik im Kraftwerk Taean</h2>
-          <p class="t-lead reveal d2" style="margin-top:20px">Im Wärmekraftwerk Taean wurde geprüft, ob Schall die CCTV-Überwachung sinnvoll ergänzt. CUSMOS entwickelte dafür eine Technik, die Gefahren über Schall erkennt, die nächste Kamera darauf ausrichtet und die Leitstelle benachrichtigt.</p>
-          <div class="grid g-2" style="margin-top:36px">
-            <div class="stat reveal" style="padding:0">
-              <div class="num">−<span data-count="30">0</span><small>&nbsp;%</small></div>
+      <div class="p-ch-head"><span class="p-ch-no">2</span><h2 class="t-h2">KEPCO: Kraftwerk Taean</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">CCTV mit Schallsensorik</p>
+          <p>Im Wärmekraftwerk Taean der Korea Electric Power Corporation (KEPCO) wurde geprüft, ob Schall die CCTV-Überwachung sinnvoll ergänzt. CUSMOS entwickelte dafür eine Technik, die Gefahren über Schall erkennt, die nächste Kamera darauf ausrichtet und die Leitstelle benachrichtigt.</p>
+          <p>In der Machbarkeitsprüfung (PoC) wurde die bestehende CCTV-Überwachung um Schalldaten ergänzt. Zeitraum und Messmethode der Prüfung sind noch nicht angegeben. Die Ergebnisse stehen in den Ergebnissen zu diesem Kapitel, die Rahmendaten in Tabelle 2.</p>
+          <p>Auf Grundlage des PoC entstand außerdem ein Echtzeit-Ultraschallbildsystem zur genauen Prüfung von Anlagenfehlern.</p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Ergebnisse: Machbarkeitsprüfung im Kraftwerk Taean</p>
+          <div class="p-stats">
+            <div class="stat reveal">
+              <div class="num">−<span data-count="30">30</span><small>&nbsp;%</small></div>
               <div class="label">Überwachungslücken</div>
               <div class="src">Machbarkeitsprüfung (PoC) im Vergleich zur bestehenden CCTV-Überwachung. Zeitraum und Messmethode: <span class="tbd">Angabe folgt</span></div>
             </div>
-            <div class="stat reveal d1" style="padding:0">
-              <div class="num">+<span data-count="25">0</span><small>&nbsp;%</small></div>
+            <div class="stat reveal d1">
+              <div class="num">+<span data-count="25">25</span><small>&nbsp;%</small></div>
               <div class="label">erkannte Ereignisse</div>
               <div class="src">Machbarkeitsprüfung (PoC) im Vergleich zur bestehenden CCTV-Überwachung. Zeitraum und Messmethode: <span class="tbd">Angabe folgt</span></div>
             </div>
           </div>
-          <p class="reveal" style="margin-top:32px">Auf Grundlage des PoC entstand außerdem ein Echtzeit-Ultraschallbildsystem zur genauen Prüfung von Anlagenfehlern.</p>
+          <p class="f-cap">Tabelle 2: Rahmendaten</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Auftraggeber</th><td>Korea Electric Power Corporation (KEPCO)</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Standort</th><td>Wärmekraftwerk Taean, Südkorea</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Inhalt</th><td>Machbarkeitsprüfung (PoC), Entwicklung und Lieferung einer Technik</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Weiterentwicklung</th><td>Echtzeit-Ultraschallbildsystem zur Prüfung von Anlagenfehlern</td><td>CUSMOS, Stand Okt. 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="f-cap">Abbildung 2: CCTV mit akustischer Anbindung</p>
+          <figure class="p-photo p-site">
+            <img src="../assets/img/case-kepco.jpg" alt="Im Kraftwerk Taean installierte CCTV-Kamera mit akustischer Anbindung" loading="lazy" width="1042" height="838">
+            <figcaption>Im Kraftwerk Taean installierte CCTV-Kamera mit akustischer Anbindung. Aufnahme am Standort.</figcaption>
+          </figure>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 고객 -->
-  <section class="sec" id="clients">
+  <!-- 장 3: 고객 -->
+  <section class="p-ch" id="clients">
     <div class="wrap">
-      <div class="sec-head">
-        <p class="eyebrow reveal">Referenzkunden</p>
-        <h2 class="t-h2 reveal d1">Öffentliche Stellen und Partner in Korea</h2>
-        <p class="reveal d2">Die Liste zeigt, mit wem CUSMOS zusammenarbeitet. Sie sagt nichts über Umfang oder Laufzeit einzelner Verträge.</p>
+      <div class="p-ch-head"><span class="p-ch-no">3</span><h2 class="t-h2">Referenzkunden</h2></div>
+      <div class="p-ch-body">
+        <div class="p-ch-text">
+          <p class="p-cap">Öffentliche Stellen und Partner in Korea</p>
+          <p>Tabelle 3 zeigt, mit wem CUSMOS zusammenarbeitet. Sie sagt nichts über Umfang oder Laufzeit einzelner Verträge.</p>
+          <p>Die Referenzen beziehen sich auf Projekte in Südkorea. Referenzen in Deutschland oder der EU: <span class="tbd">Angabe folgt</span></p>
+        </div>
+        <div class="p-ev">
+          <p class="f-cap">Tabelle 3: Referenzkunden</p>
+          <div class="p-table-wrap">
+            <table class="p-table">
+              <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
+              <tbody>
+                <tr><th scope="row">Korea Electric Power Corporation (KEPCO)</th><td>Pilotprojekt Taean: Entwicklung und Lieferung einer Technik</td><td>Öffentliche Einrichtung. CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Stadt Siheung</th><td>Pilotprojekt Motorradlärm, Kaufvertrag</td><td>Kommune. CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Stadt Chuncheon</th><td>Kaufvertrag</td><td>Kommune. CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Landkreis Inje</th><td>Kaufvertrag</td><td>Kommune. CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">Interministerielle Vereinigung für integrierte Gesundheitsversorgung</th><td>Kooperationsvereinbarung für Forschung und Entwicklung</td><td>Verband. CUSMOS, Stand Okt. 2026</td></tr>
+                <tr><th scope="row">JHC Chemical</th><td>Lieferung von Prozessleistungen</td><td>Unternehmen. CUSMOS, Stand Okt. 2026</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
-      <div class="de-partners reveal">
-        <div><div class="kind">Öffentliche Einrichtung</div><div class="who">Korea Electric Power Corporation (KEPCO)</div><div class="what">Pilotprojekt Taean: Entwicklung und Lieferung einer Technik</div></div>
-        <div><div class="kind">Kommune</div><div class="who">Stadt Siheung</div><div class="what">Pilotprojekt Motorradlärm, Kaufvertrag</div></div>
-        <div><div class="kind">Kommune</div><div class="who">Stadt Chuncheon</div><div class="what">Kaufvertrag</div></div>
-        <div><div class="kind">Kommune</div><div class="who">Landkreis Inje</div><div class="what">Kaufvertrag</div></div>
-        <div><div class="kind">Verband</div><div class="who">Interministerielle Vereinigung für integrierte Gesundheitsversorgung</div><div class="what">Kooperationsvereinbarung für Forschung und Entwicklung</div></div>
-        <div><div class="kind">Unternehmen</div><div class="who">JHC Chemical</div><div class="what">Lieferung von Prozessleistungen</div></div>
-      </div>
-      <p class="note reveal">Die Referenzen beziehen sich auf Projekte in Südkorea. Referenzen in Deutschland oder der EU: <span class="tbd">Angabe folgt</span></p>
     </div>
   </section>
 
-  <section class="sec" style="padding-top:0">
-    <div class="wrap">
-      <div class="cta-band reveal">
-        <div style="max-width:640px">
-          <h2 class="t-h2">Ein ähnlicher Fall an Ihrem Standort?</h2>
-          <p>Beschreiben Sie Ort, Geräuscharten und Ziel. Wir prüfen, ob ein Pilotprojekt infrage kommt.</p>
-        </div>
-        <a class="btn btn-light" href="contact.html">Kontakt aufnehmen</a>
+  <section class="p-contact">
+    <div class="wrap p-contact-in">
+      <div>
+        <h2>Ein ähnlicher Fall an Ihrem Standort?</h2>
+        <p>Beschreiben Sie Ort, Geräuscharten und Ziel. Wir prüfen, ob ein Pilotprojekt infrage kommt.</p>
       </div>
+      <a class="btn p-btn" href="contact.html">Kontakt aufnehmen</a>
     </div>
   </section>
+
+  <aside class="f-legal" aria-labelledby="legal-title">
+    <div class="wrap">
+      <h2 class="f-legal-title" id="legal-title">Rechtliche Hinweise</h2>
+      <ul class="f-legal-list">
+        <li><span>Impressum</span><a href="impressum.html">Impressum öffnen →</a></li>
+        <li><span>Datenschutzerklärung</span><a href="privacy.html">Datenschutzerklärung öffnen →</a></li>
+        <li><span>Prüfstatus</span>Entwurf. Rechtliche Prüfung ausstehend. Stand: Okt. 2026</li>
+      </ul>
+    </div>
+  </aside>
 </main>
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
