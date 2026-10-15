@@ -15,15 +15,18 @@
 .f-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.78) 50%, rgba(5,6,13,.5) 100%); }
 .f-hero-inner { position: relative; z-index: 1; width: 100%; }
 .f-problem { max-width: 620px; font-size: 18px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,.82); }
-.f-h1 { margin-top: 18px; max-width: 14ch; font-size: clamp(44px, 6.4vw, 84px); line-height: 1.04; letter-spacing: -0.035em; font-weight: 700; color: #fff; }
-.f-actions { margin-top: 40px; }
+.f-h1 { margin-top: 18px; max-width: 20ch; font-size: clamp(40px, 5.2vw, 70px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 700; color: #fff; }
+/* 첫 화면 설명 한 줄과 버튼 옆 성과 한 줄 */
+.f-lead-hero { margin-top: 22px; max-width: 580px; font-size: 18px; line-height: 1.55; color: rgba(255,255,255,.9); }
+.f-actions { margin-top: 36px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; }
+.f-proof { max-width: 340px; font-size: 15px; line-height: 1.5; color: rgba(255,255,255,.78); }
 
 /* 주요 버튼: 그라데이션 위 글자는 흰색. 남색 막을 35% 깔아 흰 글자 대비를 확보한다 */
 .f-btn-main { display: inline-flex; align-items: center; justify-content: center; height: 60px; padding: 0 36px; border-radius: 999px; background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); color: #fff; text-shadow: 0 1px 2px rgba(5,6,13,.3); font-size: 18px; font-weight: 700; transition: transform .2s var(--ease), box-shadow .2s; }
 .f-btn-main:hover { color: #fff; transform: translateY(-1px); box-shadow: 0 12px 30px -10px rgba(244,95,200,.6); }
 
 /* 기능 바로가기: 아이콘과 두 낱말 이름. 브랜드 색 없이 흰색 테두리로만 구분한다 */
-.f-jumps { margin-top: 56px; }
+.f-jumps { margin-top: 44px; }
 .f-jump-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 900px; }
 .f-jump { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; min-height: 124px; padding: 22px 24px; border-radius: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 18px; font-weight: 650; transition: background .2s; }
 .f-jump:hover { background: rgba(255,255,255,.16); }
@@ -43,6 +46,7 @@
 .f-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
 .f-about { margin-right: 6px; font-size: .42em; font-weight: 600; letter-spacing: 0; vertical-align: .9em; }
 .f-result-label { margin-top: 16px; font-size: 18px; font-weight: 650; color: var(--c-ink); }
+.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
 .f-result-src { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--c-muted); }
 
 /* 공통 본문 블록 */

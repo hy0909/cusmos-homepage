@@ -22,8 +22,8 @@ window.SITE = {
     {
       label: "Lösungen", href: "solutions.html",
       children: [
-        ["Lärmmonitoring in Städten", "solutions.html#city"],
-        ["Anomalieerkennung in der Industrie", "solutions.html#industry"],
+        ["Lärmerfassung in Städten", "solutions.html#city"],
+        ["Auffällige Geräusche in Anlagen erkennen", "solutions.html#industry"],
         ["Tragbare Ultraschallkamera", "solutions.html#ucam"],
       ],
     },

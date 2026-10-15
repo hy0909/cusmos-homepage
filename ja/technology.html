@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>技術 | CUSMOS</title>
-<meta name="description" content="エッジAI音響センサー、マイクアレイ設計、現場分析と選別送信、音の文脈データ。CUSMOSの中核技術と、現場での検証方法を掲載しています。">
+<meta name="description" content="エッジAI音響センサー、マイクアレイの設計、現場での分析と必要な音だけの送信、音・場所・判断の記録。CUSMOSの中核技術と検証の方法を掲載しています。">
 <meta property="og:title" content="技術 | CUSMOS"><meta property="og:description" content="エッジAI音響センサーからデータ設計まで、CUSMOSの中核技術"><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
 <link rel="alternate" hreflang="ja" href="technology.html">
 <link rel="alternate" hreflang="en" href="../en/technology.html">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=5">
+<link rel="stylesheet" href="locale.css?v=12">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
@@ -24,16 +24,16 @@
   <section class="page-hero">
     <div class="wrap">
       <div class="crumb reveal"><span>技術</span></div>
-      <h1 class="t-display reveal d1">音を聞くことから、<br>判断までの技術</h1>
-      <p class="t-lead reveal d2">センサーのハードウェア、マイクアレイ、現場のAI、データの構造まで、自社で設計しています。現場の条件が変わっても性能が保たれるよう、実際の設置環境で検証しています。</p>
+      <h1 class="t-display reveal d1">音の検知から、判断までの技術</h1>
+      <p class="t-lead reveal d2">センサーのハードウェア、マイクアレイ、現場のAI、データの構造まで、自社で設計しています。設置環境が変わっても性能を保てるよう、実際の設置現場で検証しています。</p>
     </div>
   </section>
 
   <nav class="sub-nav" aria-label="ページ内ナビゲーション"><div class="wrap"><ul>
     <li><a href="#sensor">エッジAI音響センサー</a></li>
     <li><a href="#array">マイクアレイ設計</a></li>
-    <li><a href="#edge">現場分析・選別送信</a></li>
-    <li><a href="#data">音の文脈データ</a></li>
+    <li><a href="#edge">現場分析と選別送信</a></li>
+    <li><a href="#data">音・場所・判断の記録</a></li>
   </ul></div></nav>
 
   <!-- 엣지 AI 음향센서 -->
@@ -44,16 +44,16 @@
         <div>
           <span class="eyebrow reveal">Edge AI Sensor</span>
           <h2 class="t-h2 reveal d1">都市の各所に設置する<br>小型のエッジAI音響センサー</h2>
-          <p class="t-lead reveal d2">音をセンサーの中で直接分析するため、すべての音をサーバーに送る必要がありません。太陽光パネルと一体になった構造なので、電源工事の負担も減らしています。</p>
+          <p class="t-lead reveal d2">音はセンサー内で分析するため、すべての音をサーバーに送る必要はありません。太陽光パネルと一体型の構造で、電源工事の負担を減らせます。</p>
           <div class="table-wrap reveal" style="margin-top:24px">
             <table class="table">
               <tbody>
-                <tr><th scope="row">リアルタイム検知</th><td>人の代わりに、24時間の常時測定</td></tr>
+                <tr><th scope="row">リアルタイム検知</th><td>人手をかけず、24時間の常時測定</td></tr>
                 <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算</td></tr>
                 <tr><th scope="row">AI分類</th><td>二輪車・クラクション・工事音・設備の異常音などを分類</td></tr>
-                <tr><th scope="row">エッジコンピューティング</th><td>センサーの中でAI推論を実行</td></tr>
-                <tr><th scope="row">マルチモーダルAI</th><td>映像などの別のセンサーと組み合わせて判断</td></tr>
-                <tr><th scope="row">ビッグデータ</th><td>蓄積した記録から、地域別・時間帯別に分析</td></tr>
+                <tr><th scope="row">エッジ処理</th><td>センサー内でAIの推論を実行</td></tr>
+                <tr><th scope="row">マルチモーダル</th><td>映像など別のセンサーと組み合わせて判断</td></tr>
+                <tr><th scope="row">データ分析</th><td>蓄積した記録を、地域別・時間帯別に分析</td></tr>
               </tbody>
             </table>
           </div>
@@ -68,7 +68,7 @@
       <div class="sec-head">
         <span class="eyebrow reveal">Microphone Array</span>
         <h2 class="t-h2 reveal d1">目的の音と現場に合わせて、<br>マイクの間隔を設計します</h2>
-        <p class="reveal d2">すべての現場に同じ配列を使うことはしません。どの音を、どこで捉えるのかによって、マイクの間隔と信号処理の方法を一緒に決めます。</p>
+        <p class="reveal d2">すべての現場で同じ配列を使うわけではありません。どの音を、どこで捉えるかに応じて、マイクの間隔と信号処理の方法を決めます。</p>
       </div>
       <div class="grid g-3">
         <div class="card reveal">
@@ -90,7 +90,7 @@
           <h3 class="t-h3 reveal">現場データの収集から性能検証まで</h3>
           <ol class="ja-steps-v reveal" style="margin-top:20px">
             <li><span class="no">01</span><div><strong>現場データの収集</strong><p>始興市ペゴッ地区などの実際の設置現場で、騒音データを集めます。</p></div></li>
-            <li><span class="no">02</span><div><strong>信号処理とAIの統合設計</strong><p>マイクアレイの信号処理で位置を求め、AIモデルで音の種類を分類します。</p></div></li>
+            <li><span class="no">02</span><div><strong>信号処理とAIを組み合わせた設計</strong><p>マイクアレイの信号処理で位置を求め、AIモデルで音の種類を分類します。</p></div></li>
             <li><span class="no">03</span><div><strong>試験による性能検証</strong><p>あらかじめ定めた試験の基準に沿って、音の分類性能を確認します。</p></div></li>
           </ol>
         </div>
@@ -105,7 +105,7 @@
         <div>
           <span class="eyebrow reveal">Edge Processing</span>
           <h2 class="t-h2 reveal d1">現場で先に分析し、<br>必要な音だけを送ります</h2>
-          <p class="t-lead reveal d2">CCTVのように、すべてのデータをサーバーに送ると、通信費と保存費用が増え続けます。CUSMOSのセンサーは、現場での分析結果と、事象が起きた瞬間の原音だけを選んで送ります。</p>
+          <p class="t-lead reveal d2">映像や音声をすべてサーバーに送る方式では、通信費と保存費用が増え続けます。CUSMOSのセンサーは、現場での分析結果と、事象が起きた瞬間の原音だけを選んで送ります。</p>
         </div>
         <div class="card reveal" style="padding:clamp(24px,3vw,36px)">
           <p class="t-small t-muted">センサー1台が1日に送るデータ量</p>
@@ -120,7 +120,7 @@
             </div>
           </div>
           <div class="ja-k">約95%減</div>
-          <p class="ja-note" style="margin-top:14px">16kHz・16bitモノラルの原音を基準にした計算値です。原音の5%と分析結果だけを送ると仮定しています。実際の通信費の削減率とは異なり、料金プランや運用条件によって変わります。</p>
+          <p class="ja-note" style="margin-top:14px">16kHz・16bitモノラルの原音を基準にした計算値です。原音の5%と分析結果だけを送ると仮定しています。通信費の実際の削減率は、料金プランや運用条件によって変わります。</p>
         </div>
       </div>
     </div>
@@ -132,13 +132,13 @@
       <div class="sec-head">
         <span class="eyebrow reveal">Context Data</span>
         <h2 class="t-h2 reveal d1">音・場所・判断の記録を<br>一つにつなぎます</h2>
-        <p class="reveal d2">騒音の数値だけでは、住民がなぜ困っているのかを説明しにくいものです。CUSMOSは、音が発生した場所と時間、担当者が下した判断を一緒に記録します。似た出来事が起きたときの根拠として使えます。</p>
+        <p class="reveal d2">騒音レベルの数値だけでは、住民がなぜ困っているのかを説明しにくいものです。CUSMOSは、音が発生した場所と時刻、担当者が下した判断を一緒に記録します。似た出来事が起きたとき、過去の記録を根拠として使えます。</p>
       </div>
       <div class="grid g-4">
-        <div class="card reveal"><h3>観測</h3><p>音の種類、大きさ、位置、時間</p></div>
+        <div class="card reveal"><h3>観測</h3><p>音の種類、大きさ、位置、時刻</p></div>
         <div class="card reveal d1"><h3>空間</h3><p>住宅地、学校、道路など、周辺の生活空間の情報</p></div>
         <div class="card reveal d2"><h3>判断</h3><p>担当者の検討結果と、対応の履歴</p></div>
-        <div class="card reveal d3"><h3>指標</h3><p>地域ごとの騒音の影響と、政策の効果の評価</p></div>
+        <div class="card reveal d3"><h3>指標</h3><p>地域ごとの騒音の影響と、施策の効果の評価</p></div>
       </div>
       <p class="ja-note reveal"><a href="solutions.html#city" class="link-arrow">スマートシティ騒音観測</a>での活用例を見る</p>
     </div>
@@ -148,8 +148,8 @@
     <div class="wrap">
       <div class="cta-band reveal">
         <div>
-          <h2 class="t-h2">技術の詳細や、検証の条件について<br>知りたい方はご連絡ください</h2>
-          <p>資料の請求も、お問い合わせフォームからご利用いただけます。</p>
+          <h2 class="t-h2">技術の詳細や検証の条件を<br>知りたい方はご連絡ください</h2>
+          <p>資料請求も、お問い合わせフォームから受け付けています。</p>
         </div>
         <div class="btn-row">
           <a class="btn btn-light btn-lg" href="contact.html#request">資料請求</a>
@@ -161,7 +161,7 @@
 </main>
 
 <footer id="site-footer"></footer>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
 </body>

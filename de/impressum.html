@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=7">
+<link rel="stylesheet" href="locale.css?v=12">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -68,14 +68,14 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
 <script>
   // 회사 정보: 값이 있으면 채우고, 없으면 TBD 그대로 둔다
   getSite().then((s) => {
     const put = (id, v) => { if (v) document.getElementById(id).textContent = v; };
-    put("ceo", "Changwoo Lee"); // fixed Latin-script name for the German page
+    put("ceo", "Changwoo Lee"); // 독일어 페이지는 CEO 이름을 라틴 문자로 고정한다
     put("bizno", s.bizNo);
     if (s.address) document.getElementById("addr").textContent = s.address;
     if (s.phone) document.getElementById("tel").textContent = s.phone;

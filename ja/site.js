@@ -13,7 +13,7 @@ window.SITE = {
   nav: [
     { label: "ソリューション", href: "solutions.html", children: [
       ["スマートシティ騒音観測", "solutions.html#city"],
-      ["産業安全 異常音検知", "solutions.html#industry"],
+      ["産業安全の異常音検知", "solutions.html#industry"],
       ["携帯型超音波カメラ", "solutions.html#ucam"],
     ] },
     { label: "導入事例", href: "cases.html", children: [
@@ -24,8 +24,8 @@ window.SITE = {
     { label: "技術", href: "technology.html", children: [
       ["エッジAI音響センサー", "technology.html#sensor"],
       ["マイクアレイ設計", "technology.html#array"],
-      ["現場分析・選別送信", "technology.html#edge"],
-      ["音の文脈データ", "technology.html#data"],
+      ["現場分析と選別送信", "technology.html#edge"],
+      ["音・場所・判断の記録", "technology.html#data"],
     ] },
     { label: "会社情報", href: "company.html", children: [
       ["会社概要", "company.html#overview"],
@@ -35,12 +35,12 @@ window.SITE = {
       ["特許・商標", "company.html#patent"],
       ["アクセス", "company.html#access"],
     ] },
-    { label: "掲示板", href: "news.html", children: [["お知らせ", "notice.html"], ["ニュース", "news.html"], ["CI", "ci.html"]] },
+    { label: "ニュース・お知らせ", href: "news.html", children: [["お知らせ", "notice.html"], ["ニュース", "news.html"], ["CI", "ci.html"]] },
   ],
   // 회사 주소를 이 나라 말로 적은 값. 관리자 DB의 한국어 주소 대신 보여 준다
   address: "大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号",
   cta: { label: "資料請求", href: "contact.html#request" },
-  tagline: "CUSMOSは、小型のエッジAI音響センサーで都市と産業現場の音の種類と発生場所を特定する、サウンドインテリジェンス企業です。",
+  tagline: "CUSMOSは、小型のエッジAI音響センサーで、都市と産業現場の音の種類と発生場所を特定する会社です。",
   legal: [],
   companyRows: (s) => [["メール", s.email], ["電話", s.phone], ["所在地", s.address]],
   pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },

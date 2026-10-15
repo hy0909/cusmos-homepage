@@ -5,16 +5,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Akustische Sensorik mit Edge-KI | CUSMOS</title>
-<meta name="description" content="CUSMOS entwickelt Edge-KI-Schallsensoren, die Lärmquellen klassifizieren und orten. Für Kommunen zum Lärmmonitoring, für Industrieanlagen zur Anomalieerkennung.">
-<meta property="og:title" content="Akustische Sensorik mit Edge-KI | CUSMOS"><meta property="og:description" content="Lärmquellen erkennen und orten, direkt am Sensor. Edge-KI-Schallsensoren für Städte und Industrie."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<meta name="description" content="CUSMOS entwickelt Edge-KI-Schallsensoren, die Geräusche erkennen, einer Klasse zuordnen und orten. Für Kommunen zur Lärmerfassung, für Industrieanlagen zur Erkennung auffälliger Geräusche.">
+<meta property="og:title" content="Akustische Sensorik mit Edge-KI | CUSMOS"><meta property="og:description" content="Lärmquellen erkennen und orten, direkt am Sensor. Edge-KI-Schallsensoren für Städte und Industrieanlagen."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
 <link rel="alternate" hreflang="en" href="../en/index.html"><link rel="alternate" hreflang="ja" href="../ja/index.html"><link rel="alternate" hreflang="de" href="index.html"><link rel="alternate" hreflang="x-default" href="../en/index.html">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=p5">
 <link rel="stylesheet" href="locale.css?v=p1">
-<link rel="stylesheet" href="../prototype/de/after.css?v=f2">
-<link rel="stylesheet" href="../prototype/de/fable.css?v=f1">
+<link rel="stylesheet" href="../prototype/de/after.css?v=p9">
+<link rel="stylesheet" href="../prototype/de/fable.css?v=f9">
 </head>
 <body data-hero="dark">
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -23,12 +23,12 @@
 
   <!-- 1. 첫 화면: 용도와 작동 방식, 기능 링크 (어두운 배경과 사진 유지) -->
   <section class="hero hero-dark p-hero">
-    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1554072675-66db59dba46f?auto=format&fit=crop&w=1600&q=75" alt="Breiter Boulevard in Berlin mit dem Brandenburger Tor im Hintergrund"></div>
+    <div class="hero-bg"><img src="https://images.unsplash.com/photo-1554072675-66db59dba46f?auto=format&fit=crop&w=1600&q=75" alt="Symbolbild: Boulevard in Berlin mit dem Brandenburger Tor im Hintergrund"></div>
     <div class="wrap">
       <p class="eyebrow">Akustische Sensorik mit Edge-KI</p>
       <h1 class="t-display">Lärmquellen erkennen und orten, direkt am Sensor</h1>
       <div class="p-hero-text">
-        <p>CUSMOS entwickelt Schallsensoren mit Edge-KI für Städte und Industrieanlagen. Jeder Sensor misst Geräusche rund um die Uhr, ordnet sie einer Klasse zu und ermittelt über ein Mikrofonarray ihren Ort.</p>
+        <p>CUSMOS setzt statt weniger teurer Messstationen auf ein dichtes Netz kleiner Schallsensoren. Jeder Sensor erkennt die Geräuschart, ermittelt den Ort und wertet die Daten direkt im Gerät aus.</p>
       </div>
       <div class="p-hero-actions">
         <a class="btn p-btn" href="contact.html">Kontakt aufnehmen</a>
@@ -48,7 +48,7 @@
         <div><dt>Anbieter</dt><dd>CUSMOS Inc. <span class="tbd">[TBD: Schreibweise prüfen]</span></dd></div>
         <div><dt>Datenverarbeitung</dt><dd>Im Sensor (Edge)</dd></div>
         <div><dt>Rechtliche Angaben</dt><dd><a href="privacy.html">Datenschutzerklärung</a>, <a href="impressum.html">Impressum</a></dd></div>
-        <div><dt>Stand der Angaben</dt><dd>Stand: 2026-10. Entwurf, rechtliche Prüfung ausstehend</dd></div>
+        <div><dt>Stand der Angaben</dt><dd>Stand: Okt. 2026. Entwurf, rechtliche Prüfung ausstehend</dd></div>
         <div><dt>Technik</dt><dd><a href="#daten">Technische Daten (Kapitel 4)</a></dd></div>
       </dl>
     </div>
@@ -60,32 +60,33 @@
       <div class="p-ch-head"><span class="p-ch-no">1</span><h2 class="t-h2">Problem</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>In Korea entfallen 46,5 Prozent aller Umweltbeschwerden auf Lärm und Vibrationen. Trotzdem wird Lärm oft ohne Messdaten bewertet. Von den Messstellen im nationalen Lärm- und Vibrationsnetz werden 96,6 Prozent manuell betrieben. Die Zahlen und ihre Quellen stehen in Tabelle 1.</p>
-          <p>Eine automatische Messstation kostet rund 10 Mio. KRW und deckt einen Radius von 500 m ab. Mit wenigen manuellen Messstellen erfährt man kaum, zu welcher Tageszeit und an welchem Ort ein Geräusch auftritt. Genau diese Lücke soll der Sensor schließen.</p>
+          <p class="p-cap">Ausgangslage</p>
+          <p>In Korea sind Lärm- und Vibrationsbeschwerden die häufigste Art von Umweltbeschwerden: 46,5 % im Jahr 2024. Gemessen wird trotzdem wenig. Von den Messstellen im nationalen Lärm- und Vibrationsnetz werden 96,6 % von Hand betrieben. Die Zahlen und ihre Quellen stehen in Tabelle 1.</p>
+          <p>Eine automatische Messstation ist teuer und deckt einen Radius von 500 m ab. Mit wenigen Messpunkten erfährt man kaum, zu welcher Uhrzeit und an welcher Straße ein Geräusch auftritt. Genau das brauchen Behörden, wenn sie Kontrollen, Lärmschutz oder Zeitregeln begründen wollen.</p>
+          <p>CUSMOS setzt deshalb auf viele kleine, günstige Sensoren, die dicht entlang der Straßen angebracht werden. Jedes Ereignis wird mit Geräuschart, Ort, Uhrzeit und Häufigkeit erfasst. So entsteht eine Entscheidungsgrundlage für das Ordnungsamt und das Umweltamt: wo kontrolliert werden sollte, wo sich Lärmschutz lohnt und zu welchen Stunden.</p>
           <!-- 사진 1: 도시 저녁 거리 (예시 사진, CUSMOS 사례 아님) -->
           <figure class="p-photo">
             <img src="https://images.unsplash.com/photo-1606126210582-3a17753188b9?auto=format&fit=crop&w=1600&q=75" alt="Pariser Platz in Berlin mit Radfahrern, E-Scootern und Fußgängern vor dem Brandenburger Tor" loading="lazy" width="1600" height="1067">
-            <figcaption>Beispielszene: Stadtverkehr am Pariser Platz, Berlin. Symbolbild, zeigt keinen Sensor-Standort und keine Kunden von CUSMOS.</figcaption>
+            <figcaption>Beispielszene: Stadtverkehr am Pariser Platz, Berlin. Symbolbild. Die Szene zeigt weder einen Sensorstandort noch einen Kunden von CUSMOS.</figcaption>
           </figure>
         </div>
         <div class="p-ev">
-          <p class="f-cap">Tabelle 1: Lärm als Anteil der Umweltbeschwerden und Messstationen</p>
+          <p class="f-cap">Tabelle 1: Anteil der Lärmbeschwerden und Aufbau des Messnetzes</p>
           <div class="p-stats">
             <div class="stat reveal">
-              <div class="num"><span data-count="46.5">46,5</span><small>%</small></div>
-              <div class="label">Anteil an allen Umweltbeschwerden, die auf Lärm und Vibrationen entfallen</div>
-              <div class="src">Quelle/Stand: Korea, Stand 2024</div>
+              <div class="num"><span data-count="46.5">46,5</span><small>&nbsp;%</small></div>
+              <div class="label">Anteil der Lärm- und Vibrationsbeschwerden an allen Umweltbeschwerden</div>
+              <div class="src">Quelle: Umweltbeschwerden in Korea, 2024: 147.829 Fälle. Höchstwert 2021: 185.204 Fälle</div>
             </div>
             <div class="stat reveal d1">
-              <div class="num"><span data-count="96.6">96,6</span><small>%</small></div>
-              <div class="label">Anteil der Messstellen im nationalen Lärm- und Vibrationsnetz, die manuell betrieben werden</div>
-              <div class="src">Quelle/Stand: Korea, 1.766 von 1.828 Messstellen im nationalen Netz</div>
+              <div class="num"><span data-count="96.6">96,6</span><small>&nbsp;%</small></div>
+              <div class="label">Anteil manuell betriebener Messstellen im nationalen Lärm- und Vibrationsnetz</div>
+              <div class="src">Quelle: Nationales Lärm- und Vibrationsnetz Korea. 1.766 von 1.828 Messstellen manuell, 62 automatisch</div>
             </div>
             <div class="stat reveal d2">
-              <div class="num"><span data-count="10">10</span><small>Mio. KRW</small></div>
-              <div class="label">Kosten für eine automatische Messstation</div>
-              <div class="src">Quelle/Stand: Projekt Daejeon, 2022. Eine Station je 500 m Radius</div>
+              <div class="num"><span data-count="500">500</span><small>&nbsp;m</small></div>
+              <div class="label">Radius, den eine automatische Messstation abdeckt</div>
+              <div class="src">Quelle: Projekt Daejeon, 2022. Eine Station je 500 m Radius</div>
             </div>
           </div>
         </div>
@@ -96,48 +97,49 @@
   <!-- 5. 장 2: 작동 방식 -->
   <section class="p-ch" id="funktion">
     <div class="wrap">
-      <div class="p-ch-head"><span class="p-ch-no">2</span><h2 class="t-h2">Funktionsweise</h2></div>
+      <div class="p-ch-head"><span class="p-ch-no">2</span><h2 class="t-h2">Funktionsprinzip</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>Der Sensor arbeitet in drei Schritten. Messung und Auswertung laufen im Gerät. Erst bei einem Ereignis geht eine Meldung an die Leitstelle. Der Ablauf ist in Abbildung 1 dargestellt, die Ansicht der Leitstelle in Abbildung 2.</p>
+          <p class="p-cap">Ablauf in drei Schritten</p>
+          <p>Der Sensor misst, klassifiziert und ortet den Schall direkt im Gerät. Erst wenn ein Ereignis erkannt wird, geht eine Meldung an die Leitstelle. Abbildung 1 zeigt den Ablauf, Abbildung 2 die Ansicht der Leitstelle.</p>
           <ol class="p-steps">
             <li class="p-step">
               <span class="p-step-no">SCHRITT 1</span>
-              <h3 class="t-h3">Der Sensor misst dauerhaft</h3>
-              <p>Der Sensor erfasst Schall rund um die Uhr, ohne Personal vor Ort. Er ist mit einem Solarpanel ausgestattet und lässt sich an bestehenden Masten montieren.</p>
+              <h3 class="t-h3">Der Sensor misst rund um die Uhr</h3>
+              <p>Er erfasst Schall ohne Personal vor Ort. Das Gerät hat ein integriertes Solarpanel und lässt sich an bestehenden Masten montieren.</p>
               <ul>
-                <li>Dauerbetrieb, rund um die Uhr</li>
-                <li>Integriertes Solarpanel</li>
+                <li>Dauerbetrieb rund um die Uhr</li>
+                <li>Solarpanel im Gerät integriert</li>
                 <li>Montage an CCTV- oder Verkehrsdetektionsmasten</li>
               </ul>
             </li>
             <li class="p-step">
               <span class="p-step-no">SCHRITT 2</span>
-              <h3 class="t-h3">Quelle klassifizieren und orten</h3>
-              <p>Mehrere Mikrofone erfassen dasselbe Ereignis. Aus dem Vergleich der Signale berechnet der Sensor Richtung und Position. Ein KI-Modell ordnet den Schall einer Klasse zu.</p>
+              <h3 class="t-h3">Geräusch zuordnen und orten</h3>
+              <p>Mehrere Mikrofone nehmen dasselbe Ereignis auf. Aus den Laufzeitunterschieden zwischen den Mikrofonen berechnet der Sensor Richtung und Position. Ein KI-Modell ordnet das Geräusch einer Klasse zu.</p>
               <ul>
-                <li>Klassen: Motorrad, Hupe, Baustelle, Anomalien an Anlagen</li>
+                <li>Klassen: Motorradlärm, Hupen, Baustellenlärm, Auffälligkeiten an Anlagen</li>
                 <li>Ortung über das Mikrofonarray</li>
-                <li>Auswertung im Gerät (Edge-Inferenz)</li>
+                <li>Auswertung direkt im Gerät</li>
               </ul>
             </li>
             <li class="p-step">
               <span class="p-step-no">SCHRITT 3</span>
-              <h3 class="t-h3">Ereignis melden und dokumentieren</h3>
-              <p>Bei einem Ereignis geht eine Meldung an die Leitstelle. Angeschlossene Kameras können auf den Ort ausgerichtet werden. Jedes Ereignis wird nach Zeit, Ort und Klasse protokolliert.</p>
+              <h3 class="t-h3">Ereignis melden und protokollieren</h3>
+              <p>Bei einem Ereignis erhält die Leitstelle eine Meldung. Angeschlossene Kameras lassen sich auf den Ort ausrichten. Jedes Ereignis wird nach Zeit, Ort und Geräuschklasse protokolliert.</p>
               <ul>
-                <li>Alarm in der Leitstelle, Kameraanbindung</li>
+                <li>Alarm an die Leitstelle, Anbindung an Kameras</li>
                 <li>Protokoll nach Zeit, Ort und Klasse</li>
               </ul>
             </li>
           </ol>
+          <p>Aus den Protokollen lässt sich ablesen, welche Geräuschart wo, zu welcher Uhrzeit und wie oft auftritt. Im Pilotprojekt Siheung ging die Zahl der Lärmbeschwerden im Installationsgebiet um ca. 60 % zurück (Dez. 2025 bis Juni 2026, nur Beobachtung und Hinweise, keine Kontrollen). Details dazu stehen in Kapitel 5.</p>
         </div>
         <div class="p-ev">
           <p class="f-cap">Abbildung 1: Ablauf von Messung, Ortung und Meldung</p>
           <figure class="p-fig">
             <svg viewBox="0 0 560 340" role="img" aria-labelledby="flow-title">
-              <title id="flow-title">Ablauf: Schall wird am Sensor gemessen, klassifiziert und geortet, danach geht die Meldung an die Leitstelle</title>
+              <title id="flow-title">Ablauf: Der Sensor misst, klassifiziert und ortet den Schall. Danach geht eine Meldung an die Leitstelle</title>
               <defs><marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0b0c17"/></marker></defs>
               <rect width="560" height="340" rx="6" fill="#ffffff" stroke="#e3e5ee"/>
               <path d="M187 0V340M373 0V340" stroke="#e3e5ee"/>
@@ -179,12 +181,12 @@
               <path d="M166 120H186" stroke="#0b0c17" stroke-width="1.5" marker-end="url(#ah)"/>
               <path d="M358 120H380" stroke="#0b0c17" stroke-width="1.5" marker-end="url(#ah)"/>
             </svg>
-            <figcaption>Schematische Darstellung. Die Angaben zu Klasse und Pegel sind ein Beispiel.</figcaption>
+            <figcaption>Schema. Klasse und Pegel im Bild sind Beispielwerte.</figcaption>
           </figure>
           <!-- 관제 화면 캡처: 샘플 데이터 -->
           <p class="f-cap" style="margin-top:32px">Abbildung 2: Ansicht der Leitstelle</p>
           <figure class="p-photo p-shot">
-            <div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=de" title="Live-Ansicht des Leitstellen-Bildschirms (Beispieldaten)" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-de.jpg" alt="Leitstellen-Bildschirm mit Karte der Schallquellen, Schwellenwert und Ereignisprotokoll" width="1920" height="1200" loading="lazy"></div>
+            <div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=de" title="Echtzeitansicht des Leitstellen-Bildschirms (Beispieldaten)" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-de.jpg" alt="Leitstellen-Bildschirm mit Karte der Schallquellen, Schwellenwert und Ereignisprotokoll" width="1920" height="1200" loading="lazy"></div>
             <figcaption>Bildschirm mit Beispieldaten.</figcaption>
           </figure>
         </div>
@@ -198,11 +200,11 @@
       <div class="p-ch-head"><span class="p-ch-no">3</span><h2 class="t-h2">Einsatzbedingungen</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>Die Sensoren sind für bestehende Infrastruktur gedacht. In Städten lassen sie sich an CCTV-Masten oder Masten der Verkehrsdetektion montieren. Ein integriertes Solarpanel versorgt das Gerät mit Strom.</p>
-          <p>Der Abstand der Mikrofone richtet sich nach dem Standort und nach den Geräuscharten, die dort erfasst werden sollen. Ferne und tiefe Geräusche verlangen einen weiten Abstand, nahe und hohe Geräusche einen engen.</p>
-          <p>In der Industrie erkennt der Sensor Unfallgeräusche und Anomalien an Anlagen und richtet die nächste Kamera auf die Stelle. Für die Prüfung vor Ort gibt es zusätzlich eine tragbare Ultraschallkamera.</p>
-          <p>Angaben zum Netzanschluss, zur Installationsdauer und zum Kommunikationsweg fehlen noch. Sie sind in Tabelle 2 als TBD markiert.</p>
+          <p class="p-cap">Voraussetzungen</p>
+          <p>Die Sensoren sind für bestehende Infrastruktur gedacht. In Städten werden sie an CCTV-Masten oder Masten der Verkehrsdetektion montiert. Ein integriertes Solarpanel versorgt das Gerät mit Strom.</p>
+          <p>Der Mikrofonabstand richtet sich nach Standort und Geräuschart. Ferne und tiefe Geräusche brauchen einen weiten Abstand, nahe und hohe einen engen.</p>
+          <p>In Industrieanlagen erkennt der Sensor Unfallgeräusche und auffällige Anlagengeräusche und richtet die nächste Kamera auf die Stelle aus. Für die Prüfung vor Ort gibt es außerdem eine tragbare Ultraschallkamera.</p>
+          <p>Angaben zu Netzanschluss, Installationsdauer und Kommunikationsweg fehlen noch. Sie sind in Tabelle 2 als TBD markiert.</p>
         </div>
         <div class="p-ev">
           <p class="f-cap">Tabelle 2: Einsatzbedingungen</p>
@@ -210,12 +212,12 @@
             <table class="p-table">
               <thead><tr><th scope="col">Bedingung</th><th scope="col">Angabe</th><th scope="col">Quelle/Stand</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Montageort</th><td>CCTV-Masten oder Masten der Verkehrsdetektion</td><td>Technologie, Lösungen</td></tr>
+                <tr><th scope="row">Montageort</th><td>CCTV-Masten oder Masten der Verkehrsdetektion</td><td>Seite Technologie</td></tr>
                 <tr><th scope="row">Stromversorgung</th><td>Solarpanel im Gerät integriert</td><td>Netzanschluss: <span class="tbd">[TBD]</span></td></tr>
-                <tr><th scope="row">Betrieb</th><td>Dauerbetrieb, rund um die Uhr, ohne Personal vor Ort</td><td>Technologie</td></tr>
-                <tr><th scope="row">Zielgeräusche</th><td>Motorradlärm, Baustellenlärm, Hupen, Anomalien an Anlagen</td><td>Lösungen</td></tr>
-                <tr><th scope="row">Ausgabe</th><td>Echtzeitübersicht in der Leitstelle, Auswertung nach Messstelle und Tageszeit</td><td>Lösungen</td></tr>
-                <tr><th scope="row">Genehmigung</th><td>Pilotprojekt Siheung: 01.12.2025 bis 27.02.2026</td><td>Referenz Siheung. Deutschland: <span class="tbd">[TBD]</span></td></tr>
+                <tr><th scope="row">Betrieb</th><td>Dauerbetrieb rund um die Uhr, ohne Personal vor Ort</td><td>Seite Technologie</td></tr>
+                <tr><th scope="row">Zielgeräusche</th><td>Motorradlärm, Baustellenlärm, Hupen, Auffälligkeiten an Anlagen</td><td>Seite Lösungen</td></tr>
+                <tr><th scope="row">Ausgabe</th><td>Echtzeitübersicht in der Leitstelle, Auswertung nach Messstelle und Tageszeit</td><td>Seite Lösungen</td></tr>
+                <tr><th scope="row">Genehmigung</th><td>Pilotprojekt Siheung: 1. Dez. 2025 bis 27. Feb. 2026</td><td>Referenz Siheung. Genehmigung in Deutschland: <span class="tbd">[TBD]</span></td></tr>
                 <tr><th scope="row">Installationsdauer</th><td><span class="tbd">[TBD]</span></td><td><span class="tbd">[TBD]</span></td></tr>
                 <tr><th scope="row">Kommunikationsweg</th><td><span class="tbd">[TBD]</span></td><td><span class="tbd">[TBD]</span></td></tr>
               </tbody>
@@ -232,18 +234,18 @@
             <div class="media"><img src="https://images.unsplash.com/photo-1561544238-580f35f73cf0?auto=format&fit=crop&w=900&q=75" alt="Wohnstraße in Berlin am Abend" loading="lazy" width="900" height="563"></div>
             <div class="body">
               <span class="tag">Kommunen (B2G)</span>
-              <h3 class="t-h3">Lärmmonitoring in Städten</h3>
-              <p>Motorradlärm, Hupen und Baulärm an Orten mit wiederkehrenden Beschwerden. Die Stelle erfährt, wann und wo die Quelle auftritt.</p>
-              <span class="link-arrow">Lösung ansehen</span>
+              <h3 class="t-h3">Lärmerfassung in Städten</h3>
+              <p>Motorradlärm, Hupen und Baustellenlärm an Orten mit wiederkehrenden Beschwerden. Die Behörde sieht, wann und wo die Quelle auftritt.</p>
+              <span class="link-arrow">Mehr erfahren</span>
             </div>
           </a>
           <a class="card card-link f-area" href="solutions.html#industry">
             <div class="media"><img src="https://images.unsplash.com/photo-1759384628232-134f0d2f154d?auto=format&fit=crop&w=900&q=75" alt="Industrieanlage in Duisburg mit Schornsteinen und Rauch über dem Fluss" loading="lazy" width="900" height="563"></div>
             <div class="body">
               <span class="tag">Industrie (B2B)</span>
-              <h3 class="t-h3">Anomalieerkennung in der Industrie</h3>
-              <p>Unfallgeräusche und Anomalien an Anlagen werden erkannt. Der Sensor ermittelt die Position und richtet die nächste Kamera darauf aus.</p>
-              <span class="link-arrow">Lösung ansehen</span>
+              <h3 class="t-h3">Auffällige Geräusche in Anlagen erkennen</h3>
+              <p>Unfallgeräusche und auffällige Anlagengeräusche werden erkannt. Der Sensor ermittelt den Ort und richtet die nächste Kamera darauf aus.</p>
+              <span class="link-arrow">Mehr erfahren</span>
             </div>
           </a>
           <a class="card card-link f-area" href="solutions.html#ucam">
@@ -252,7 +254,7 @@
               <span class="tag">Anlageninspektion (B2B)</span>
               <h3 class="t-h3">Tragbare Ultraschallkamera</h3>
               <p>Nach einem Sensorhinweis zeigt die Kamera im Bild, an welcher Stelle Ultraschall entsteht. So lässt sich die Fehlerstelle direkt finden.</p>
-              <span class="link-arrow">Lösung ansehen</span>
+              <span class="link-arrow">Mehr erfahren</span>
             </div>
           </a>
         </div>
@@ -267,9 +269,9 @@
       <div class="p-ch-head"><span class="p-ch-no">4</span><h2 class="t-h2">Technische Daten</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>Der Sensor misst im Dauerbetrieb und wertet den Schall im Gerät aus. Tabelle 3 nennt die Merkmale, die für die Planung wichtig sind. Die vollständigen Angaben stehen auf der Seite Technologie.</p>
-          <p>Das Datenvolumen ist ein Rechenwert unter festgelegten Annahmen, die in Tabelle 3 stehen. Die tatsächliche Kostenersparnis bei der Übertragung hängt von Tarif und Betriebsbedingungen ab. Angaben zu Abmessungen, Gewicht und Schutzart fehlen noch.</p>
+          <p class="p-cap">Kennwerte</p>
+          <p>Der Sensor misst im Dauerbetrieb und wertet den Schall im Gerät aus. Tabelle 3 nennt die Merkmale, die man für die Planung braucht. Die vollständigen Angaben stehen auf der Seite Technologie.</p>
+          <p>Das Datenvolumen ist ein Rechenwert unter den in Tabelle 3 genannten Annahmen. Die tatsächliche Einsparung bei der Übertragung hängt von Tarif und Betriebsbedingungen ab. Angaben zu Abmessungen, Gewicht und Schutzart fehlen noch.</p>
           <p class="p-links"><a class="p-link" href="technology.html">Technologie im Detail →</a></p>
         </div>
         <div class="p-ev">
@@ -278,20 +280,20 @@
             <table class="p-table">
               <thead><tr><th scope="col">Merkmal</th><th scope="col">Wert</th><th scope="col">Quelle/Stand</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Betrieb</th><td>Dauerbetrieb, rund um die Uhr, ohne Personal vor Ort</td><td>Technologie</td></tr>
-                <tr><th scope="row">Ortung</th><td>Richtung und Position der Schallquelle über ein Mikrofonarray</td><td>Abstand je nach Standort</td></tr>
-                <tr><th scope="row">Klassifikation</th><td>Motorrad, Hupe, Baustelle, Anomalien an Anlagen</td><td>KI-Modell im Sensor</td></tr>
-                <tr><th scope="row">Verarbeitung</th><td>Edge-Inferenz, die KI läuft im Gerät</td><td>Technologie</td></tr>
-                <tr><th scope="row">Multimodal</th><td>Gemeinsame Bewertung mit Videodaten</td><td>Technologie</td></tr>
-                <tr><th scope="row">Energieversorgung</th><td>Solarpanel im Gerät integriert</td><td>Netzanschluss: <span class="tbd">[TBD]</span></td></tr>
-                <tr><th scope="row">Montage</th><td>CCTV-Masten oder Masten der Verkehrsdetektion</td><td>Technologie</td></tr>
-                <tr><th scope="row">Datenvolumen</th><td>Rund 147 MB pro Tag und Sensor. Rechenwert bei 16 kHz, 16 Bit, Mono, 24 Stunden. Bei Dauerübertragung 2,76 GB</td><td>Rechenwert unter den genannten Annahmen</td></tr>
+                <tr><th scope="row">Betrieb</th><td>Dauerbetrieb rund um die Uhr, ohne Personal vor Ort</td><td>Seite Technologie</td></tr>
+                <tr><th scope="row">Ortung</th><td>Richtung und Position der Schallquelle über ein Mikrofonarray</td><td>Abstand je nach Standort, siehe Kapitel 3</td></tr>
+                <tr><th scope="row">Klassifikation</th><td>Motorradlärm, Hupen, Baustellenlärm, Auffälligkeiten an Anlagen</td><td>KI-Modell im Sensor</td></tr>
+                <tr><th scope="row">Verarbeitung</th><td>Auswertung im Gerät, die KI läuft direkt auf dem Sensor</td><td>Seite Technologie</td></tr>
+                <tr><th scope="row">Multimodal</th><td>Gemeinsame Auswertung mit Videodaten</td><td>Seite Technologie</td></tr>
+                <tr><th scope="row">Stromversorgung</th><td>Solarpanel im Gerät integriert</td><td>Netzanschluss: <span class="tbd">[TBD]</span></td></tr>
+                <tr><th scope="row">Montage</th><td>CCTV-Masten oder Masten der Verkehrsdetektion</td><td>Seite Technologie</td></tr>
+                <tr><th scope="row">Datenvolumen</th><td>Übertragen werden rund 147 MB pro Tag und Sensor. Ohne Vorauswahl wären es rund 2,76 GB Rohaudio. Annahmen: 16 kHz, 16 Bit, Mono, 24 Stunden</td><td>Rechenwert unter den genannten Annahmen</td></tr>
                 <tr><th scope="row">Abmessungen und Gewicht</th><td><span class="tbd">[TBD]</span></td><td><span class="tbd">[TBD]</span></td></tr>
                 <tr><th scope="row">Schutzart</th><td><span class="tbd">[TBD]</span></td><td><span class="tbd">[TBD]</span></td></tr>
               </tbody>
             </table>
           </div>
-          <p class="p-table-note">Übertragen werden 5 % der Rohdaten, also das Originalsignal des Ereignismoments, sowie die Analyseergebnisse. Quelle/Stand: Technologie, Tabelle 3.</p>
+          <p class="p-table-note">Übertragen werden 5 % der Rohdaten, also das Originalsignal des Ereignismoments, und die Analyseergebnisse. Quelle: Rechenwert von CUSMOS mit den Annahmen aus der Tabelle.</p>
         </div>
       </div>
     </div>
@@ -303,10 +305,10 @@
       <div class="p-ch-head"><span class="p-ch-no">5</span><h2 class="t-h2">Ergebnisse</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>Zwei Pilotprojekte in Südkorea haben die Leistung unter realen Bedingungen geprüft. In Siheung ging die Zahl der Lärmbeschwerden im Installationsgebiet um rund 60 Prozent zurück. Der Zeitraum war Dezember 2025 bis Juni 2026, und es gab nur Beobachtung und Hinweise, keine Kontrollen. Die Werte stehen in Tabelle 4.</p>
-          <p>Wie stark Beobachtung und Hinweise das Verhalten verändert haben, wird gesondert analysiert. Das Ziel von 95 Prozent bei der Klassifikation wurde laut Abschlussbericht des Unternehmens erreicht. Dabei handelt es sich um einen Eigenbericht. Bei KEPCO im Kraftwerk Taean lief eine Machbarkeitsprüfung mit CCTV.</p>
-          <p>Die Ergebnisse gelten für die jeweiligen Messbedingungen. Auf andere Standorte lassen sie sich nicht ohne Weiteres übertragen. Weitere Bedingungen stehen in Tabelle 5.</p>
+          <p class="p-cap">Referenzen und Pilotprojekte</p>
+          <p>Zwei Pilotprojekte in Südkorea haben die Leistung unter realen Bedingungen geprüft. In Siheung ging die Zahl der Lärmbeschwerden im Installationsgebiet um ca. 60 % zurück. Der Messzeitraum war Dezember 2025 bis Juni 2026. Es gab nur Beobachtung und Hinweise, keine Kontrollen. Die Werte stehen in Tabelle 4.</p>
+          <p>Wie stark Beobachtung und Hinweise das Verhalten verändert haben, wird gesondert analysiert. Das Ziel, eine Genauigkeit von 95 % oder mehr bei der Klassifikation zu erreichen, wurde laut Abschlussbericht des Unternehmens erreicht. Dabei handelt es sich um einen Eigenbericht. Im Kraftwerk Taean von KEPCO lief eine Machbarkeitsprüfung mit CCTV.</p>
+          <p>Die Werte gelten nur unter den genannten Messbedingungen. Auf andere Standorte lassen sie sich nicht ohne Weiteres übertragen. Weitere Bedingungen stehen in Tabelle 5.</p>
           <!-- 사진 2: 함부르크 사무실에서 보고서를 검토하는 두 사람 (예시 장면) -->
           <figure class="p-photo">
             <img src="https://images.unsplash.com/photo-1630673429477-186308ef87d0?auto=format&fit=crop&w=1600&q=75" alt="Zwei Personen sitzen an einem Holztisch und sehen gemeinsam auf einen Laptop" loading="lazy" width="1600" height="1067">
@@ -318,24 +320,24 @@
           <p class="f-cap">Tabelle 4: Messergebnisse der Pilotprojekte</p>
           <div class="p-stats">
             <div class="stat reveal">
-              <div class="num">ca. <span data-count="60">60</span><small>%</small></div>
-              <div class="label">weniger Lärmbeschwerden</div>
-              <div class="src">Quelle/Stand: Stadt Siheung, Baegot. Nur im Installationsgebiet, Dezember 2025 bis Juni 2026. Nur Beobachtung und Hinweise, keine Kontrollen. Bestätigung der Stadt, mündlich, Stand September 2026</div>
+              <div class="num">ca. <span data-count="60">60</span><small>&nbsp;%</small></div>
+              <div class="label">weniger Lärmbeschwerden im Installationsgebiet</div>
+              <div class="src">Quelle: Stadt Siheung, Baegot. Mündliche Bestätigung der Stadt, Stand Sep. 2026. Messzeitraum Dez. 2025 bis Juni 2026, nur im Installationsgebiet, nur Beobachtung und Hinweise</div>
             </div>
             <div class="stat reveal d1">
-              <div class="num"><span data-count="95">95</span><small>%+</small></div>
-              <div class="label">Genauigkeit der Klassifikation</div>
-              <div class="src">Quelle/Stand: Stadt Siheung. Zielwert laut Abschlussbericht 2025, Eigenbericht des Unternehmens</div>
+              <div class="num"><span data-count="95">95</span><small>&nbsp;%+</small></div>
+              <div class="label">Genauigkeit der Klassifikation, Zielwert erreicht</div>
+              <div class="src">Quelle: Abschlussbericht des Unternehmens, 2025 (Eigenbericht). Pilotprojekt Siheung</div>
             </div>
             <div class="stat reveal d2">
-              <div class="num"><span data-count="30">30</span><small>%↓</small></div>
+              <div class="num"><span data-count="30">30</span><small>&nbsp;%↓</small></div>
               <div class="label">weniger Überwachungslücken</div>
-              <div class="src">Quelle/Stand: KEPCO, Kraftwerk Taean. Machbarkeitsprüfung (PoC) mit CCTV. Zeitraum und Messmethode: <span class="tbd">[TBD]</span></div>
+              <div class="src">Quelle: KEPCO, Kraftwerk Taean. Machbarkeitsprüfung (PoC) mit CCTV. Zeitraum und Messmethode: <span class="tbd">[TBD]</span></div>
             </div>
             <div class="stat reveal d3">
-              <div class="num"><span data-count="25">25</span><small>%↑</small></div>
-              <div class="label">höhere Ereigniserkennung</div>
-              <div class="src">Quelle/Stand: KEPCO, Kraftwerk Taean. Machbarkeitsprüfung (PoC) mit CCTV. Zeitraum und Messmethode: <span class="tbd">[TBD]</span></div>
+              <div class="num"><span data-count="25">25</span><small>&nbsp;%↑</small></div>
+              <div class="label">mehr erkannte Ereignisse</div>
+              <div class="src">Quelle: KEPCO, Kraftwerk Taean. Machbarkeitsprüfung (PoC) mit CCTV. Zeitraum und Messmethode: <span class="tbd">[TBD]</span></div>
             </div>
           </div>
           <p class="f-cap">Tabelle 5: Weitere Bedingungen</p>
@@ -343,8 +345,8 @@
             <table class="p-table">
               <thead><tr><th scope="col">Merkmal</th><th scope="col">Angabe</th><th scope="col">Quelle/Stand</th></tr></thead>
               <tbody>
-                <tr><th scope="row">Leistung bei Wind und Regen</th><td>ca. 88 %</td><td>Betrieb unter verschiedenen Wetterbedingungen. Messmethode: <span class="tbd">[TBD]</span></td></tr>
-                <tr><th scope="row">Bezugsentfernung Schallpegel</th><td>5,5 m</td><td>Stadt Siheung. Pegel werden auf diese Entfernung umgerechnet</td></tr>
+                <tr><th scope="row">Leistung bei Wind und Regen</th><td>ca. 88 %</td><td>Werte aus dem Pilotbetrieb unter verschiedenen Wetterbedingungen. Messmethode: <span class="tbd">[TBD]</span></td></tr>
+                <tr><th scope="row">Bezugsentfernung Schallpegel</th><td>5,5 m</td><td>Pilotprojekt Siheung. Pegel werden auf diesen Abstand umgerechnet</td></tr>
               </tbody>
             </table>
           </div>
@@ -359,8 +361,8 @@
       <div class="p-ch-head"><span class="p-ch-no">6</span><h2 class="t-h2">Datenschutz und Sicherheit</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>Der Sensor wertet den Schall vor Ort aus. Zur Leitstelle gehen nur die Analyseergebnisse und das Originalsignal des Ereignismoments. Ein fortlaufender Mitschnitt wird nicht übertragen. Welche Daten wo verarbeitet werden, zeigt Tabelle 6.</p>
+          <p class="p-cap">Datenverarbeitung</p>
+          <p>Der Sensor wertet den Schall vor Ort aus. Zur Leitstelle gehen nur die Analyseergebnisse und das Originalsignal des Ereignismoments. Ein fortlaufender Mitschnitt wird nicht übertragen. Tabelle 6 zeigt, welche Daten wo verarbeitet werden.</p>
           <p>Rechtsgrundlage, Speicherfristen und Auftragsverarbeitung sind noch nicht abschließend geprüft. Eine Zertifizierung liegt nicht vor.</p>
           <div class="p-notice">
             <strong>Rechtliche Bewertung in Prüfung.</strong>
@@ -392,9 +394,9 @@
       <div class="p-ch-head"><span class="p-ch-no">7</span><h2 class="t-h2">Unternehmen</h2></div>
       <div class="p-ch-body">
         <div class="p-ch-text">
-          <p class="p-cap">Erläuterung</p>
-          <p>CUSMOS hat seinen Sitz in Südkorea. Das Team verbindet die Entwicklung von KI und Embedded-Systemen mit Hardwaredesign, Forschungsplanung und Geschäftsbetrieb.</p>
-          <p>Sensorhardware, Mikrofonarray, Edge-KI und Datenstruktur entwickelt das Unternehmen selbst. Eine Anschrift in Deutschland oder der EU ist noch nicht angegeben: <span class="tbd">[TBD]</span></p>
+          <p class="p-cap">Herkunft und Schutzrechte</p>
+          <p>Der Firmensitz ist in Südkorea. Das Team verbindet die Entwicklung von KI und Embedded-Systemen mit Hardwaredesign, Forschungsplanung und Geschäftsbetrieb.</p>
+          <p>Sensorhardware, Mikrofonarray, Edge-KI und Datenstruktur entwickelt CUSMOS selbst. Eine Anschrift in Deutschland oder der EU liegt noch nicht vor: <span class="tbd">[TBD]</span></p>
           <p>Die Schutzrechte stehen in Tabelle 7.</p>
           <p class="p-links"><a class="p-link" href="company.html">Unternehmen und Team →</a></p>
         </div>
@@ -423,7 +425,7 @@
     <div class="wrap p-contact-in">
       <div>
         <h2>Sie planen eine Lärmmessung an einem Standort?</h2>
-        <p>Beschreiben Sie den Standort, die Geräuscharten und das Ziel der Messung. Wir schlagen eine passende Konfiguration vor.</p>
+        <p>Beschreiben Sie Standort, Geräuscharten und Ziel der Messung. Wir schlagen Ihnen dann einen passenden Aufbau vor.</p>
       </div>
       <a class="btn p-btn" href="contact.html">Kontakt aufnehmen</a>
     </div>
@@ -436,14 +438,14 @@
       <ul class="f-legal-list">
         <li><span>Impressum</span><a href="impressum.html">Impressum öffnen →</a></li>
         <li><span>Datenschutzerklärung</span><a href="privacy.html">Datenschutzerklärung öffnen →</a></li>
-        <li><span>Prüfstatus</span>Entwurf. Rechtliche Prüfung ausstehend. Stand: 2026-10</li>
+        <li><span>Prüfstatus</span>Entwurf. Rechtliche Prüfung ausstehend. Stand: Okt. 2026</li>
       </ul>
     </div>
   </aside>
 
 </main>
 <footer id="site-footer"></footer>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=p1"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
 <script>

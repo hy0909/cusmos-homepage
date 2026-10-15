@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=9">
+<link rel="stylesheet" href="locale.css?v=12">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -24,7 +24,7 @@
     <div class="wrap">
       <nav class="crumb" aria-label="Breadcrumb"><span>Book a demo</span></nav>
       <h1 class="t-display reveal d1">Book a demo</h1>
-      <p class="t-lead reveal d2">Tell us where you want to listen and what problem you need to solve. We will suggest a setup for your site.</p>
+      <p class="t-lead reveal d2">Tell us where you want to install sensors and what problem you need to solve. We will suggest a setup for your site.</p>
     </div>
   </section>
 
@@ -59,7 +59,7 @@
           <input id="role" name="role" autocomplete="organization-title">
         </div>
         <div class="full">
-          <label for="topic">Interest</label>
+          <label for="topic">Area of interest</label>
           <select id="topic" name="interest">
             <option>Smart city noise monitoring</option>
             <option>Industrial safety sound detection</option>
@@ -69,7 +69,7 @@
         </div>
         <div class="full">
           <label for="msg">Message <span class="req" aria-hidden="true">*</span></label>
-          <textarea id="msg" name="message" required placeholder="Where do you want to install? What sound or problem do you need to detect? What scale are you considering?"></textarea>
+          <textarea id="msg" name="message" required placeholder="Where would you install? What sound or problem do you need to detect? What scale are you considering?"></textarea>
         </div>
         <div class="full">
           <button class="btn btn-primary btn-lg" type="submit">Request a demo</button>
@@ -80,12 +80,12 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
 <script>
   window.getSite().then((s) => {
-    const rows = [["Email", s.email], ["Tel", s.phone], ["Address", s.address]];
+    const rows = [["Email", s.email], ["Phone", s.phone], ["Address", s.address]];
     document.getElementById("info").innerHTML = rows
       .map(([k, v]) => `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">TBD</span>'}</dd></div>`)
       .join("");
@@ -97,7 +97,7 @@
       ["name", "Name"],
       ["role", "Role"],
       ["mail", "Work email"],
-      ["topic", "Interest"],
+      ["topic", "Area of interest"],
       ["msg", "Message"],
     ],
     noMail: "The contact email is not set yet. Please try again later.",

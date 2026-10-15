@@ -64,8 +64,8 @@ body { --c-accent: #05060d; }
 @media (max-width: 600px) {
   .f-toc-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .f-toc-list a { font-size: 14px; gap: 8px; padding-right: 6px; }
-  .p-table { font-size: 13px; }
-  .p-table th, .p-table td { padding: 9px 10px; }
+  .p-table { font-size: 13px; table-layout: fixed; }
+  .p-table th, .p-table td { padding: 9px 10px; overflow-wrap: anywhere; }
   .p-table tbody th { width: auto; }
   .f-legal-list li { grid-template-columns: 1fr; gap: 2px; }
 }

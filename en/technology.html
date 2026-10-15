@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=9">
+<link rel="stylesheet" href="locale.css?v=12">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -23,8 +23,8 @@
   <section class="page-hero">
     <div class="wrap">
       <nav class="crumb" aria-label="Breadcrumb"><span>Technology</span></nav>
-      <h1 class="t-display reveal d1">From hearing a sound to judging it</h1>
-      <p class="t-lead reveal d2">We design the sensor hardware, microphone array, on-site AI, and data structure ourselves. We test in real installation sites, so performance holds when conditions change.</p>
+      <h1 class="t-display reveal d1">From detecting a sound to explaining it</h1>
+      <p class="t-lead reveal d2">We design the sensor hardware, the microphone array, the on-device AI, and the data structure ourselves. We test in real installations, so performance holds up when conditions change.</p>
     </div>
   </section>
 
@@ -38,18 +38,18 @@
       <div class="split">
         <div class="spot-img media reveal" style="aspect-ratio:4/3"><img src="../assets/img/product-sensor.jpg" alt="Edge AI acoustic sensor"></div>
         <div>
-          <span class="eyebrow reveal">Edge AI IoT sensor</span>
-          <h2 class="t-h2 reveal d1">A small edge AI acoustic sensor for city streets</h2>
-          <p class="t-lead reveal d2">The sensor analyzes sound on the device, so it does not need to send every sound to a server. A solar panel is built into the unit, which cuts the work of running power.</p>
+          <span class="eyebrow reveal">Edge AI sensor</span>
+          <h2 class="t-h2 reveal d1">A small sensor that analyzes sound where it is installed</h2>
+          <p class="t-lead reveal d2">The sensor analyzes sound on the device, so it does not need to send every sound to a server. A solar panel is built into the unit, which reduces the power work needed at installation.</p>
           <div class="table-wrap reveal" style="margin-top:36px">
             <table class="table">
               <tbody>
                 <tr><th scope="row">Real-time detection</th><td>24-hour monitoring in place of manual measurement</td></tr>
                 <tr><th scope="row">Location</th><td>Estimates where a sound came from and its direction</td></tr>
                 <tr><th scope="row">AI classification</th><td>Motorcycles, horns, construction, and equipment faults</td></tr>
-                <tr><th scope="row">Edge computing</th><td>AI inference runs on the device</td></tr>
-                <tr><th scope="row">Multimodal AI</th><td>Judges together with video and other sensors</td></tr>
-                <tr><th scope="row">Big data</th><td>Analysis of stored records by region and hour</td></tr>
+                <tr><th scope="row">Edge computing</th><td>AI runs on the device itself</td></tr>
+                <tr><th scope="row">Multimodal AI</th><td>Combines sound with video and other sensors</td></tr>
+                <tr><th scope="row">Big data</th><td>Analyzes stored records by area and hour</td></tr>
               </tbody>
             </table>
           </div>
@@ -63,31 +63,31 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow reveal">Microphone array</span>
-        <h2 class="t-h2 reveal d1">We set microphone spacing for each site</h2>
-        <p class="t-lead reveal d2">We do not use one array for every site. Spacing and signal processing are chosen by which sounds you need to catch and where.</p>
+        <h2 class="t-h2 reveal d1">We set the microphone spacing for each site</h2>
+        <p class="t-lead reveal d2">We do not use one array design everywhere. We choose the spacing and signal processing based on which sounds you need to detect, and where.</p>
       </div>
       <div class="grid g-3">
         <div class="card reveal">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="20" cy="30" r="6"/><circle cx="73" cy="30" r="6"/><circle cx="126" cy="30" r="6"/><circle cx="180" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Wide spacing</h3><p>Better at telling the direction of distant and low sounds. Suits wide roads and open areas.</p>
+          <h3 class="t-h3">Wide spacing</h3><p>Better at judging the direction of distant and low sounds. Suits wide roads and open areas.</p>
         </div>
         <div class="card reveal d1">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="70" cy="30" r="6"/><circle cx="90" cy="30" r="6"/><circle cx="110" cy="30" r="6"/><circle cx="130" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Narrow spacing</h3><p>Captures high-pitched and nearby sounds precisely. A smaller unit that fits tight installation spots.</p>
+          <h3 class="t-h3">Narrow spacing</h3><p>Picks up high-pitched and nearby sounds precisely. The smaller unit fits tight spots.</p>
         </div>
         <div class="card reveal d2">
           <svg class="en-wave" viewBox="0 0 200 60" aria-hidden="true"><line x1="10" y1="30" x2="190" y2="30" stroke="rgba(11,12,23,.15)"/><g fill="#a46bff"><circle cx="20" cy="30" r="6"/><circle cx="85" cy="30" r="6"/><circle cx="100" cy="30" r="6"/><circle cx="115" cy="30" r="6"/><circle cx="180" cy="30" r="6"/></g></svg>
-          <h3 class="t-h3">Mixed spacing</h3><p>Combines wide and narrow spacing for sites where several kinds of sound happen at once.</p>
+          <h3 class="t-h3">Mixed spacing</h3><p>Combines wide and narrow spacing for sites where several kinds of sound occur together.</p>
         </div>
       </div>
       <div class="split" style="margin-top:clamp(64px,8vw,120px)">
         <div class="media reveal" style="aspect-ratio:4/3"><img src="../assets/img/product-cctv.jpg" alt="Prototype that combines a microphone array and a camera" loading="lazy"></div>
         <div>
-          <h3 class="t-h2 reveal">From field data to tested performance</h3>
+          <h3 class="t-h2 reveal">How we test a design in the field</h3>
           <ol class="en-timeline" style="margin-top:32px">
-            <li class="reveal"><div class="when">01</div><div><div class="what">Collect field data</div><div class="desc">We record noise at real installation sites, such as Siheung.</div></div></li>
-            <li class="reveal"><div class="when">02</div><div><div class="what">Design signal processing and AI together</div><div class="desc">Array signal processing finds the location, and an AI model classifies the sound.</div></div></li>
-            <li class="reveal"><div class="when">03</div><div><div class="what">Verify performance with tests</div><div class="desc">We check sound classification performance against set test criteria.</div></div></li>
+            <li class="reveal"><div class="when">01</div><div><div class="what">Collect field data</div><div class="desc">We record noise at real sites, including Siheung.</div></div></li>
+            <li class="reveal"><div class="when">02</div><div><div class="what">Design signal processing and AI together</div><div class="desc">Array processing finds the location. An AI model classifies the sound.</div></div></li>
+            <li class="reveal"><div class="when">03</div><div><div class="what">Verify performance with tests</div><div class="desc">We check sound classification against the set test criteria.</div></div></li>
           </ol>
         </div>
       </div>
@@ -100,21 +100,21 @@
       <div class="split">
         <div>
           <span class="eyebrow reveal">Edge processing</span>
-          <h2 class="t-h2 reveal d1">Analyze on site, send only the sounds that matter</h2>
-          <p class="t-lead reveal d2">A CCTV system sends all its data to a server, so transmission and storage costs keep growing. Our sensors send the analysis results and the raw audio from the moment of an event.</p>
+          <h2 class="t-h2 reveal d1">Analyze on site, and send only what matters</h2>
+          <p class="t-lead reveal d2">Sending all data to a server makes transmission and storage costs keep growing. Our sensors analyze on site and send only the results and the raw audio from the moment of an event.</p>
         </div>
         <div class="card reveal" style="padding:clamp(28px,4vw,40px)">
-          <p class="t-small t-muted">Data one sensor sends in a day</p>
+          <p class="t-small t-muted">Data one sensor sends per day</p>
           <div class="en-bar" style="margin-top:28px">
-            <div class="en-bar-top"><span>Raw audio, sent continuously</span><b>2.76 GB</b></div>
+            <div class="en-bar-top"><span>Raw audio, sent nonstop</span><b>2.76 GB</b></div>
             <div class="en-bar-track"><div class="en-bar-fill" style="width:100%"></div></div>
           </div>
           <div class="en-bar">
-            <div class="en-bar-top"><span>CUSMOS selective sending</span><b>147 MB</b></div>
+            <div class="en-bar-top"><span>CUSMOS, selective sending</span><b>147 MB</b></div>
             <div class="en-bar-track"><div class="en-bar-fill is-small" style="width:5.3%"></div></div>
           </div>
           <div class="k grad-text" style="margin-top:36px;font-size:clamp(32px,4vw,44px);font-weight:700">About 95% less</div>
-          <p class="note">Based on 16 kHz, 16-bit mono raw audio. This is a calculated figure that assumes only 5% of the raw audio is sent, along with the analysis results. Actual savings in communication costs will differ with your plan and operating conditions.</p>
+          <p class="note">Calculated from 16 kHz, 16-bit mono raw audio. It assumes only 5% of the raw audio is sent, along with the analysis results. This is not a measured saving. Actual communication costs depend on your plan and operating conditions.</p>
         </div>
       </div>
     </div>
@@ -125,14 +125,14 @@
     <div class="wrap">
       <div class="sec-head">
         <span class="eyebrow reveal">Context data</span>
-        <h2 class="t-h2 reveal d1">Sound, place, and decisions in one record</h2>
-        <p class="t-lead reveal d2">A decibel number alone rarely explains why residents are upset. CUSMOS records where and when a sound happened, and the decision made, so the next similar case has a basis.</p>
+        <h2 class="t-h2 reveal d1">Sound, place, and decision in one record</h2>
+        <p class="t-lead reveal d2">A decibel reading alone rarely explains why residents are upset. CUSMOS records where and when a sound happened and what was decided, so the next similar case has a precedent.</p>
       </div>
       <div class="grid g-4">
         <div class="card reveal"><h3 class="t-h3">Observation</h3><p>Sound type, level, location, and time</p></div>
-        <div class="card reveal d1"><h3 class="t-h3">Setting</h3><p>Nearby living spaces, such as homes, schools, and roads</p></div>
-        <div class="card reveal d2"><h3 class="t-h3">Decision</h3><p>The officer's review and the record of action taken</p></div>
-        <div class="card reveal d3"><h3 class="t-h3">Indicators</h3><p>Regional noise impact and a review of policy effect</p></div>
+        <div class="card reveal d1"><h3 class="t-h3">Surroundings</h3><p>Nearby homes, schools, and roads</p></div>
+        <div class="card reveal d2"><h3 class="t-h3">Decision</h3><p>The reviewer's judgment and the follow-up action</p></div>
+        <div class="card reveal d3"><h3 class="t-h3">Indicators</h3><p>Regional noise impact and whether a policy worked</p></div>
       </div>
     </div>
   </section>
@@ -141,8 +141,8 @@
     <div class="wrap">
       <div class="cta-band reveal">
         <div class="inner">
-          <h2 class="t-h2">Want to know what fits your site?</h2>
-          <p>Send us your site conditions and we will suggest a setup.</p>
+          <h2 class="t-h2">Start with your site conditions.</h2>
+          <p>Send us the details, and we will suggest a setup.</p>
         </div>
         <a class="btn btn-primary btn-lg" href="contact.html">Book a demo</a>
       </div>
@@ -150,7 +150,7 @@
   </section>
 </main>
 <footer id="site-footer"></footer>
-<script src="site.js?v=9"></script>
+<script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
 <script src="../assets/js/global.js?v=8"></script>
 </body>
