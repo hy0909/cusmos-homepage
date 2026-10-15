@@ -1,6 +1,7 @@
 /* 영어 2차 시안(Fable) 메인. 1차 시안(after.css)을 잇지 않고 f- 접두사로 따로 쓴다.
  * 색은 브랜드 색(#05060D, #7FA8FF, #A46BFF, #F45FC8, --grad)과 global.css 무채색, 흰색·rgba만 쓴다.
- * 브랜드 색은 성과 띠와 버튼에만 쓰고, 나머지는 남색·흰색·회색으로 둔다. */
+ * 브랜드 색은 성과 띠(그라데이션 전면)와 버튼에 쓰고, 나머지는 남색·흰색·회색으로 둔다.
+ * 그라데이션 위 글자는 남색(#05060D). 대비는 하늘 8.6:1, 보라 5.9:1, 분홍 7.1:1로 작은 글자 기준(4.5:1)도 넘는다. */
 
 /* 포커스 표시도 브랜드 보라색으로 맞춘다 */
 :focus-visible { outline-color: #a46bff; }
@@ -32,22 +33,23 @@
 .f-jump:hover { background: rgba(255,255,255,.16); }
 .f-jump svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
-/* 2. 성과 띠: 흰 바탕에 잉크색 글자. 바로 아래 기능 구역은 연회색으로 구분한다 */
-.f-results { position: relative; background: #fff; color: var(--c-ink); padding: var(--sec-pad) 0; overflow: hidden; }
+/* 2. 성과 띠: 브랜드 그라데이션을 띠 전체에 깔아 페이지에서 채도가 가장 높은 면으로 만든다.
+ * 글자는 모두 남색. 흰 글자는 하늘색 끝에서 대비가 2.35:1이라 쓰지 않는다. */
+.f-results { position: relative; background: var(--grad); color: var(--c-bg-dark); padding: var(--sec-pad) 0; overflow: hidden; }
 .f-results + .f-sec { background: var(--c-bg-alt); }
 .f-results > .wrap { position: relative; }
 .f-results-head { margin-bottom: clamp(40px, 5vw, 60px); }
-.f-eyebrow-light { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--c-muted); }
-.f-h2-light { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-ink); }
+.f-eyebrow-light { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--c-bg-dark); }
+.f-h2-light { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-bg-dark); }
 .f-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
-.f-result { padding: 0 clamp(20px, 3vw, 40px); border-left: 1px solid var(--c-line); }
+.f-result { padding: 0 clamp(20px, 3vw, 40px); border-left: 1px solid rgba(5,6,13,.28); }
 .f-result:first-child { padding-left: 0; border-left: 0; }
-.f-num { font-size: clamp(56px, 7vw, 92px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-ink); }
+.f-num { font-size: clamp(56px, 7vw, 92px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-bg-dark); }
 .f-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
 .f-about { margin-right: 6px; font-size: .42em; font-weight: 600; letter-spacing: 0; vertical-align: .9em; }
-.f-result-label { margin-top: 16px; font-size: 18px; font-weight: 650; color: var(--c-ink); }
-.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; color: var(--c-ink); }
-.f-result-src { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--c-muted); }
+.f-result-label { margin-top: 16px; font-size: 18px; font-weight: 700; color: var(--c-bg-dark); }
+.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; font-weight: 500; color: var(--c-bg-dark); }
+.f-result-src { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(5,6,13,.22); font-size: 14px; line-height: 1.55; font-weight: 500; color: var(--c-bg-dark); }
 
 /* 공통 본문 블록 */
 .f-sec { padding: var(--sec-pad) 0; background: #fff; }
@@ -86,7 +88,7 @@
 /* 5. 마지막 행동 유도: 남색 면에 한 문장과 버튼 1개 */
 .f-final { background: var(--c-bg-dark); padding: var(--sec-pad) 0; }
 .f-final-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px; }
-.f-final .f-h2-light { max-width: 640px; }
+.f-final .f-h2-light { max-width: 640px; color: var(--c-on-dark); }
 
 /* 작은 화면 (375px 기준) */
 @media (max-width: 960px) {

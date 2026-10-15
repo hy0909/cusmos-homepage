@@ -6,47 +6,51 @@
 <title>CUSMOS | Sound sensors for cities and industrial sites</title>
 <meta name="description" content="Small edge AI sensors that identify each sound and show where it came from, 24 hours a day. For city noise monitoring and industrial safety.">
 <meta property="og:title" content="CUSMOS | Sound sensors for cities and industrial sites"><meta property="og:description" content="Edge AI sound sensors that identify each sound and show where it came from."><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="en" href="../en/index.html">
+<link rel="alternate" hreflang="ja" href="../ja/index.html">
+<link rel="alternate" hreflang="de" href="../de/index.html">
+<link rel="alternate" hreflang="x-default" href="../en/index.html">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://images.unsplash.com">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=12">
-<link rel="stylesheet" href="fable.css?v=4">
+<link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="fable.css?v=6">
 </head>
 <body data-hero="dark">
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header"></header>
 <main id="main">
 
-  <!-- 1. 첫 화면: 문제 한 줄, 제목, 설명 한 줄, 주요 버튼 1개와 성과 한 줄, 기능 바로가기 3개 -->
+  <!-- 1. 첫 화면: 출처 있는 문제 한 줄, 6단어 제목, 설명 한 줄, 주요 버튼 1개와 성과 한 줄, 대표 기능 바로가기 3개 -->
   <section class="f-hero">
     <div class="f-hero-bg"><img src="https://images.unsplash.com/photo-1506426305266-2b7e740fd828?auto=format&fit=crop&w=1200&q=60" alt="Traffic light trails on a city street at night" width="1200" height="800" fetchpriority="high"></div>
     <div class="wrap f-hero-inner">
-      <p class="f-problem">Noise complaints keep coming in, but most cities still measure noise by hand, a few points at a time.</p>
-      <h1 class="f-h1">Know what each noise is and where it comes from.</h1>
-      <p class="f-lead-hero">Small sensors on existing poles measure a whole district around the clock. Each noise event is logged with its type, location, and time.</p>
+      <p class="f-problem">96.6% of Korea's national noise monitoring sites are still manual.</p>
+      <h1 class="f-h1">Pinpoint each noise: what, where, when.</h1>
+      <p class="f-lead-hero">Small sensors on existing poles cover a whole district around the clock.</p>
       <div class="f-actions">
         <a class="f-btn-main" href="contact.html">Book a demo</a>
-        <p class="f-proof">Siheung City pilot: about 60% fewer noise complaints in the installed area.</p>
+        <p class="f-proof">Siheung pilot: about 60% fewer complaints in the installed area.</p>
       </div>
-      <nav class="f-jumps" aria-label="Jump to a feature">
+      <nav class="f-jumps" aria-label="Key functions">
         <ul class="f-jump-list">
-          <li><a class="f-jump" href="#feat-city">
+          <li><a class="f-jump" href="technology.html#sensor">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 7v10M11 4v16M15 7v10M19 10v4"/></svg>
-            <span>City noise</span></a></li>
-          <li><a class="f-jump" href="#feat-industry">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6l8-3z"/></svg>
-            <span>Industrial safety</span></a></li>
-          <li><a class="f-jump" href="#feat-ucam">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l5 5"/></svg>
-            <span>Equipment inspection</span></a></li>
+            <span>24/7 detection</span></a></li>
+          <li><a class="f-jump" href="technology.html#array">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+            <span>Source location</span></a></li>
+          <li><a class="f-jump" href="technology.html#data">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15L6 16zM10 20.5a2 2 0 0 0 4 0"/></svg>
+            <span>Alerts and records</span></a></li>
         </ul>
       </nav>
     </div>
   </section>
 
-  <!-- 2. 성과 띠: 브랜드 그라데이션이 쓰이는 유일한 본문 면. 각 숫자 아래에 뜻 한 줄과 출처 한 줄 -->
+  <!-- 2. 성과 띠: 브랜드 그라데이션 전면(페이지에서 채도가 가장 높은 면) 위에 남색 글자. 모든 글자 대비 5.5:1 이상. 각 숫자 아래에 뜻 한 줄과 출처 한 줄 -->
   <section class="f-results" aria-labelledby="results-title">
     <div class="wrap">
       <div class="f-results-head">
@@ -63,7 +67,7 @@
         <div class="f-result">
           <p class="f-num">95<small>%+</small></p>
           <p class="f-result-label">Sound classification accuracy</p>
-          <p class="f-result-means">The sound type in each record is accurate enough to act on.</p>
+          <p class="f-result-means">Share of sounds the sensor labeled with the correct type.</p>
           <p class="f-result-src">Target met in the Siheung pilot, per our 2025 final company report.</p>
         </div>
         <div class="f-result">
