@@ -92,7 +92,7 @@
     el.innerHTML = `<div class="wrap">
       <div class="top">
         <div class="brand"><img src="${IMG}logo-wordmark.png" alt="CUSMOS"><p>${esc(S.tagline)}</p></div>
-        <div class="cols">${S.nav.map((n) => `<div><strong>${esc(n.label)}</strong><ul>${(n.children || []).slice(0, 4).map((c) => `<li><a href="${c[1]}">${esc(c[0])}</a></li>`).join("")}</ul></div>`).join("")}</div>
+        <div class="cols">${S.nav.map((n) => `<div><strong>${esc(n.label)}</strong><ul>${(n.children || []).map((c) => `<li><a href="${c[1]}">${esc(c[0])}</a></li>`).join("")}</ul></div>`).join("")}</div>
       </div>
       <div class="bottom">
         <div class="company">${rows.map((r) => `<span>${esc(r[0])} ${esc(r[1])}</span>`).join("")}</div>

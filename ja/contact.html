@@ -13,8 +13,8 @@
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=12">
+<link rel="stylesheet" href="../assets/css/global.css?v=10">
+<link rel="stylesheet" href="locale.css?v=13">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
@@ -58,7 +58,7 @@
         </div>
         <div class="full"><label for="rq-msg">ご希望の資料・内容</label><textarea id="rq-msg" name="msg" placeholder="例: 自治体向けのスマートシティ騒音観測の資料"></textarea></div>
         <div class="full">
-          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。 <span class="tbd">個人情報保護方針: TBD</span></span></label>
+          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。ご記入いただいた個人情報は、お問い合わせへの回答のみに使用し、第三者には提供しません。</span></label>
         </div>
         <div class="full"><button class="btn btn-primary btn-lg" type="submit">資料を請求する（メール）</button></div>
       </form>
@@ -73,9 +73,8 @@
         <h2 class="t-h2 reveal d1">導入のご相談</h2>
         <p class="t-lead reveal d2" style="margin-top:14px;font-size:14px">設置場所、対象となる音、規模などをお知らせください。内容を確認して、担当者からご連絡します。</p>
         <dl class="reveal d3" style="margin-top:28px;display:grid;gap:14px">
-          <div><dt>所在地</dt><dd><span data-site="address" class="tbd">TBD</span></dd></div>
-          <div><dt>電話</dt><dd><span data-site="phone" class="tbd">TBD</span>（受付時間 <span class="tbd">TBD</span>）</dd></div>
-          <div><dt>メール</dt><dd><span data-site="email" class="tbd">TBD</span></dd></div>
+          <div><dt>所在地</dt><dd><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></dd></div>
+          <div><dt>メール</dt><dd><span data-site="email">準備中</span></dd></div>
         </dl>
         <div class="media reveal d2" style="margin-top:28px"><img src="https://images.unsplash.com/photo-1756032433560-56547efed550?auto=format&fit=crop&w=1200&q=75" alt="机でメモを書く人" loading="lazy"><figcaption>イメージ写真</figcaption></div>
       </div>
@@ -96,7 +95,7 @@
         </div>
         <div class="full"><label for="iq-msg">お問い合わせ内容 <span class="req">必須</span></label><textarea id="iq-msg" name="msg" required placeholder="設置場所、対象となる音、想定している規模などをご記入ください。"></textarea></div>
         <div class="full">
-          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。 <span class="tbd">個人情報保護方針: TBD</span></span></label>
+          <label class="check"><input type="checkbox" required> <span>個人情報の取り扱いに同意します。ご記入いただいた個人情報は、お問い合わせへの回答のみに使用し、第三者には提供しません。</span></label>
         </div>
         <div class="full"><button class="btn btn-primary btn-lg" type="submit">メールで問い合わせる</button></div>
       </form>
@@ -107,7 +106,7 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=8"></script>
+<script src="../assets/js/global.js?v=9"></script>
 <script>
   // 양식 연결: 보내기 버튼을 누르면 메일 프로그램이 열리고 내용이 채워진다
   window.addEventListener("DOMContentLoaded", () => {

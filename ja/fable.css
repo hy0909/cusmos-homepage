@@ -1,32 +1,37 @@
 /* 일본어 메인 2차 시안 (fable). after.css 위에 덧씌운다.
  * 색: 브랜드 4색(#05060D, #7FA8FF, #A46BFF, #F45FC8)과 var(--grad), global.css 무채색, 흰색·rgba만 쓴다.
- * 브랜드 색은 번호·라벨·버튼·구역 바로가기 표시에만 쓴다. 그 밖의 글자는 잉크색이다. */
+ * 브랜드 보라(#A46BFF)는 큰 글자(구역 번호 20px 굵게)에만 쓴다. 작은 강조 글자는 global.css의 --c-accent(#7a45e6, 흰 바탕 5.5:1)를 그대로 쓴다. */
 
-/* 이 페이지 안에서 강조색을 브랜드 보라(#A46BFF)로 맞춘다 (global.css의 다른 색을 덮는다) */
-.f-main {
-  --c-accent: #A46BFF;
-  --c-accent-soft: rgba(164, 107, 255, .08);
-}
-.f-main .p-zone { scroll-margin-top: calc(var(--header-h) + 16px); }
+.f-main { --c-accent-soft: rgba(122, 69, 230, .08); padding-top: var(--header-h); }
+.f-main .p-hero { padding-top: 36px; }
+/* 구역 바(40px)와 헤더 높이만큼 앵커 위치를 내린다 */
+.f-main .p-zone { scroll-margin-top: calc(var(--header-h) + 56px); }
 .f-main .p-hero h1 { font-size: clamp(28px, 3.4vw, 42px); }
 
-/* 05 運用 관제 화면: 표와 간격을 두고, 폭은 720px까지 */
-.f-shot { margin-top: 24px; max-width: 720px; }
+/* 05 運用 관제 화면: 표와 같은 폭 */
+.f-shot { margin-top: 24px; }
 
 /* 공통 보조 */
 .f-mt { margin-top: 16px; }
 .f-mt-s { margin-top: 8px; }
 .f-no { display: block; font-size: 12px; font-weight: 700; letter-spacing: .06em; color: var(--c-accent); }
 
-/* 구역 라벨: 글자는 잉크색, 앞에 짧은 그라데이션 선 */
+/* 구역 라벨: 글자는 잉크색, 앞에 짧은 그라데이션 점 */
 .f-k { display: block; position: relative; padding-left: 14px; margin-bottom: 4px; font-size: 12px; font-weight: 700; letter-spacing: .04em; color: var(--c-ink); }
 .f-k::before { content: ""; position: absolute; left: 0; top: .35em; width: 6px; height: 6px; border-radius: 2px; background: var(--grad); }
 
-/* 번호는 크게 (큰 글씨 기준 대비를 맞춘다) */
-.f-main .p-num { font-size: 20px; line-height: 1.2; }
+/* 번호는 크게 (큰 글씨 기준 대비 3:1을 넘는 브랜드 보라) */
+.f-main .p-num { font-size: 20px; line-height: 1.2; color: #A46BFF; }
 
-/* 1. 첫 화면: 구역 목차 한 줄 */
-.f-map { margin-top: 14px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; }
+/* 1. 첫 화면: 문구 / 실적 / 사진 / 바로가기 / 구역 목차를 한 격자에 둔다. 좁은 화면에서는 바로가기가 실적·사진보다 먼저 와서 첫 화면에 들어온다 */
+.f-main .p-hero-grid { grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr); grid-template-areas: "copy img" "proof img" "jumps jumps" "map map"; gap: 24px clamp(28px, 4vw, 56px); align-items: start; }
+.f-main .p-hero-copy { grid-area: copy; }
+.f-main .p-hero-proof { grid-area: proof; }
+.f-main .p-hero-img { grid-area: img; align-self: center; }
+.f-main .p-jumps { grid-area: jumps; margin-top: 8px; }
+.f-main .f-map { grid-area: map; }
+.f-main .p-hero-proof .p-badges { margin-top: 0; }
+.f-map { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; }
 .f-map-k { font-weight: 700; color: var(--c-muted); }
 .f-map-list { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; padding: 0; margin: 0; }
 .f-map-list a { color: var(--c-ink); text-decoration: none; white-space: nowrap; }
@@ -34,9 +39,9 @@
 .f-map-list b { margin-right: 4px; color: var(--c-accent); font-weight: 700; font-variant-numeric: tabular-nums; }
 
 /* 헤더 아래 구역 바로가기 줄 (sticky). 좁은 화면에서는 가로로 밀어 보는 띠가 된다 */
-.f-zonebar { position: sticky; top: var(--header-h); z-index: 20; background: rgba(255, 255, 255, .96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c-line); }
+.f-zonebar { position: sticky; top: var(--header-h); z-index: 20; background: rgba(255, 255, 255, .96); backdrop-filter: blur(10px); border-bottom: 1px solid var(--c-line); transition: top .3s var(--ease); }
 body.header-hidden .f-zonebar { top: 0; }
-.f-zonebar-list { display: flex; gap: 2px; list-style: none; padding: 0 var(--gutter); margin: 0; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; max-width: calc(var(--wrap) + var(--gutter) * 2); }
+.f-zonebar-list { display: flex; gap: 2px; list-style: none; padding: 0 var(--gutter); margin: 0 auto; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; max-width: calc(var(--wrap) + var(--gutter) * 2); }
 .f-zonebar-list::-webkit-scrollbar { display: none; }
 .f-zonebar-list a { display: flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; font-size: 13px; color: var(--c-muted); text-decoration: none; white-space: nowrap; border-bottom: 2px solid transparent; }
 .f-zonebar-list a b { font-size: 12px; font-weight: 700; color: var(--c-muted); font-variant-numeric: tabular-nums; }
@@ -45,39 +50,30 @@ body.header-hidden .f-zonebar { top: 0; }
 .f-zonebar-list a[aria-current="true"] { color: var(--c-ink); font-weight: 700; border-bottom: 2px solid transparent; background: linear-gradient(#fff, #fff) padding-box, var(--grad) border-box; }
 .f-zonebar-list a[aria-current="true"] b { color: var(--c-accent); }
 
-/* 구역 바로가기 줄이 헤더 아래에 붙어 있으므로, 첫 화면 아래 여백을 줄인다 */
-.f-main .p-jumps { margin-top: 28px; }
-
 /* 2. 구역 공통 틀: 머리 3요소 (번호 / 제목 / 이 구역에서 알 수 있는 것) */
 .f-main .p-grid { align-items: start; }
 .f-main .p-head { position: relative; }
 
-/* 3. 표 공통: 항목 / 내용 / 조건·비고(또는 관련·담당) */
+/* 3. 표 공통: 항목 / 내용 / 조건·비고 */
 .f-table { table-layout: auto; }
 .f-table thead th { width: auto; font-size: 12px; font-weight: 700; color: var(--c-muted); background: #fff; border-bottom: 1px solid var(--c-line-strong); padding: 10px 14px; text-align: left; }
 .f-table tbody th { width: auto; min-width: 9em; }
 .f-table td, .f-table tbody th { padding: 12px 14px; }
 .f-table td { color: var(--c-muted); }
 .f-table td:nth-child(2) { color: var(--c-ink); }
-.f-table .tbd { white-space: nowrap; }
 .f-table .link-arrow { white-space: nowrap; }
 .p-table-wrap { background: #fff; }
-
-/* 사양표 항목 열은 짧게, 조건 열은 넓게 */
-#spec .f-table th[scope="row"] { width: 22%; }
-#spec .f-table td:nth-child(3) { width: 38%; font-size: 13px; line-height: 1.7; }
-
-/* 운용·흐름 표 */
-#operation .f-table th[scope="row"], #flow .f-table th[scope="row"] { width: 28%; }
+/* 항목 열은 짧게, 조건 열은 넓게. 2열 표는 항목 열 28% */
+.f-table th[scope="row"] { width: 28%; }
+.f-table-3 th[scope="row"] { width: 22%; }
+.f-table td:nth-child(3) { width: 38%; font-size: 13px; line-height: 1.7; }
 
 /* 4. 기능 구역: 표와 사진을 같은 구역에 */
 .f-main #function .p-split { grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.65fr); }
-.f-main #function .f-table th[scope="row"] { width: 30%; }
-.f-main #function .f-table td:nth-child(3) { width: 22%; }
 
 /* 5. 본문 링크 색은 잉크색, 밑줄로 구분 */
 .f-main .link-arrow { color: var(--c-ink); text-decoration: underline; text-underline-offset: 3px; }
-.f-main .p-note a, .f-main .p-body > p a { color: var(--c-ink); text-decoration: underline; text-underline-offset: 3px; }
+.f-main .p-note a, .f-main .p-body > p a, .f-main .p-ans a { color: var(--c-ink); text-decoration: underline; text-underline-offset: 3px; }
 
 /* 6. 라벨·태그: 브랜드 색 대신 무채색 */
 .f-main .p-tag { color: var(--c-ink); background: var(--c-bg-alt); border: 1px solid var(--c-line); }
@@ -89,39 +85,34 @@ body.header-hidden .f-zonebar { top: 0; }
 .f-main .p-jump:hover { background: var(--c-bg-alt); }
 .f-main .p-jump:hover strong { color: var(--c-ink); text-decoration: underline; }
 
-/* 7. 운용·흐름 표 안의 번호와 사례 수치 강조 */
+/* 7. 사례 수치 강조 */
 .f-main .p-row dd b { font-size: 20px; }
 
-/* 8. 연혁 점은 잉크색 (브랜드 색은 번호·라벨·버튼에만) */
-.f-main .p-timeline li::before { background: var(--c-ink); }
-.f-main .p-timeline .p-when { color: var(--c-ink); }
-
-/* 9. FAQ 기호는 잉크색 */
+/* 8. FAQ 기호는 잉크색 */
 .f-main .p-faq summary::after { color: var(--c-ink); }
 
-/* 10. 실적 한 줄 (문의 구역) */
-.f-proof { display: flex; flex-wrap: wrap; align-items: center; gap: 10px 16px; padding: 14px 18px; margin-bottom: 20px; border: 1px solid var(--c-line); border-radius: var(--radius); background: var(--c-bg-alt); }
-.f-proof-h { font-size: 13px; font-weight: 700; color: var(--c-ink); }
-.f-proof-list { display: flex; flex-wrap: wrap; gap: 6px 14px; list-style: none; padding: 0; margin: 0; font-size: 14px; color: var(--c-ink); }
-.f-proof-list li + li::before { content: "/"; margin-right: 14px; color: var(--c-line-strong); }
-.f-proof-list b { margin: 0 2px; font-size: 16px; font-weight: 700; }
+/* 9. 버튼: 흰 글씨 + 그라데이션 위에 남색 35% (대비 4.5:1 이상) */
+.f-main .btn-primary { color: #fff; background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); }
 
-/* 11. 버튼: 흰 글씨 + 그라데이션 (이 페이지 버튼 기준) */
-.f-main .btn-primary { color: #fff; background: var(--grad); }
-
-/* 12. 좁은 화면 (375px 기준 가로 스크롤 없이 쌓는다) */
+/* 10. 좁은 화면 */
 @media (max-width: 900px) {
-  .f-main .p-jumps { margin-top: 22px; }
+  .f-main .p-hero-grid { grid-template-columns: minmax(0, 1fr); grid-template-areas: "copy" "jumps" "proof" "img" "map"; gap: 20px; }
+  .f-main .p-jumps { margin-top: 0; }
   .f-main #function .p-split { grid-template-columns: minmax(0, 1fr); }
   .f-map { font-size: 12px; }
 }
 @media (max-width: 600px) {
+  .f-main .p-hero { padding-top: 24px; }
   .f-zonebar-list a { height: 38px; padding: 0 9px; font-size: 12px; }
-  .f-main .p-zone { scroll-margin-top: calc(var(--header-h) + 52px); }
-  /* 표는 바깥 상자(.p-table-wrap) 안에서만 밀린다. 페이지 전체는 가로로 밀리지 않는다 */
-  .f-table { min-width: 560px; }
-  .f-table thead th { width: auto; }
-  .f-proof { flex-direction: column; align-items: flex-start; }
-  .f-proof-list li + li::before { display: none; }
+  .f-main .p-zone { scroll-margin-top: calc(var(--header-h) + 50px); }
+  /* 표는 행마다 세로로 쌓는다: 항목명 → 내용 → 조건·비고(열 이름을 앞에 붙인다). 가로 스크롤은 만들지 않는다 */
+  .f-table, .f-table tbody, .f-table tr, .f-table th, .f-table td { display: block; }
+  .f-table thead { display: none; }
+  .f-table tr { padding: 12px 14px; border-bottom: 1px solid var(--c-line); }
+  .f-table tr:last-child { border-bottom: 0; }
+  .f-table th[scope="row"], .f-table-3 th[scope="row"] { width: auto; min-width: 0; padding: 0 0 4px; background: none; }
+  .f-table td, .f-table td:nth-child(3) { width: auto; padding: 0; border: 0; font-size: 14px; line-height: 1.7; }
+  .f-table td + td { margin-top: 6px; font-size: 13px; }
+  .f-table td[data-label]::before { content: attr(data-label) "："; font-weight: 700; color: var(--c-muted); }
   .f-map-list { gap: 4px 10px; }
 }

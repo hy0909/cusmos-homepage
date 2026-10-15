@@ -13,8 +13,8 @@
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="../assets/css/global.css?v=10">
+<link rel="stylesheet" href="locale.css?v=14">
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
@@ -42,7 +42,7 @@
           <p class="t-lead reveal d2">We turn the sound around a problem into data, so you can see what happened and act on it. We started with noise complaints, and the same method now covers industrial safety.</p>
         </div>
         <div class="grid g-3" style="grid-template-columns:1fr">
-          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div><h3 class="t-h3">Find</h3><p>We look for problems that keep coming back, in complaints and on site. In 2024, noise made up 46.5% of environmental complaints in Korea, the largest share, but few records exist to judge them.</p></div>
+          <div class="card reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></div><h3 class="t-h3">Find</h3><p>We look for problems that keep coming back, in complaints and on site. In 2024, noise made up 46.5% of environmental complaints in Korea, the largest share, but few records exist to judge them.</p><p class="en-src">Source: Korean environmental complaint statistics, 2024. Noise was the largest category.</p></div>
           <div class="card reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M3 12h3l3-8 4 16 3-8h5"/></svg></div><h3 class="t-h3">Explain</h3><p>We record each sound's type, level, location, and time, and show the cause in numbers.</p></div>
           <div class="card reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M5 12l5 5L20 7"/></svg></div><h3 class="t-h3">Solve</h3><p>We deliver alerts, camera links, and data for policy decisions, in a form teams can use on site right away.</p></div>
         </div>
@@ -106,7 +106,7 @@
           </tbody>
         </table>
       </div>
-      <p class="note reveal">Titles are unofficial English translations of the Korean registrations. Official English titles: <span class="tbd">TBD</span></p>
+      <p class="note reveal">Titles are unofficial English translations of the Korean registrations. <span class="tbd">Official English titles to be confirmed.</span></p>
     </div>
   </section>
 
@@ -128,7 +128,7 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=8"></script>
+<script src="../assets/js/global.js?v=9"></script>
 <script>
   window.getSite().then((s) => {
     const rows = [
@@ -140,7 +140,7 @@
       ["Email", s.email],
     ];
     document.getElementById("info").innerHTML = rows
-      .map(([k, v]) => `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">TBD</span>'}</dd></div>`)
+      .map(([k, v]) => `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">To be confirmed</span>'}</dd></div>`)
       .join("");
   });
 </script>

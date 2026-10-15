@@ -163,8 +163,8 @@ main > .sub-nav + .sec { border-top: 0; }
 .gh .logo img { height: 26px; }
 .gf .brand img { height: 45px; }
 
-/* 좁은 화면: 표 칸을 고정 너비로 나누고 긴 단어는 칸 안에서 줄바꿈 (가로 스크롤 방지) */
+/* 좁은 화면: 표 칸을 고정 너비로 나누고 긴 단어는 하이픈으로 나눠 줄바꿈 (가로 스크롤 방지) */
 @media (max-width: 600px) {
   .table { table-layout: fixed; }
-  .table th, .table td { overflow-wrap: anywhere; }
+  .table th, .table td { overflow-wrap: anywhere; hyphens: auto; }
 }

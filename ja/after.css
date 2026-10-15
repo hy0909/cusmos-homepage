@@ -89,7 +89,8 @@
 /* 사례 */
 .p-case + .p-case { margin-top: 40px; padding-top: 40px; border-top: 1px solid var(--c-line); }
 .p-case-top { display: grid; grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: 24px; align-items: start; }
-.p-case-img { border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-line); background: #fff; }
+.p-case-img { margin: 0; border-radius: var(--radius); overflow: hidden; border: 1px solid var(--c-line); background: #fff; }
+.p-case-img figcaption { padding: 10px 14px; font-size: 13px; line-height: 1.6; color: var(--c-muted); border-top: 1px solid var(--c-line); }
 .p-case-img img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; }
 .p-tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 12px; font-weight: 700; color: var(--c-accent); background: var(--c-accent-soft); }
 .p-case h3 { margin-top: 10px; font-size: 17px; line-height: 1.5; font-weight: 700; color: var(--c-ink); }
@@ -106,7 +107,7 @@
 
 /* 뉴스 목록 */
 .p-news { list-style: none; padding: 0; border-top: 1px solid var(--c-line); }
-.p-news li { display: grid; grid-template-columns: 84px 70px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--c-line); font-size: 14px; }
+.p-news li { display: grid; grid-template-columns: 96px 70px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 12px 0; border-bottom: 1px solid var(--c-line); font-size: 14px; }
 .p-news time { color: var(--c-muted); font-variant-numeric: tabular-nums; }
 .p-news .p-tag { justify-self: start; }
 .p-news a { color: var(--c-ink); }

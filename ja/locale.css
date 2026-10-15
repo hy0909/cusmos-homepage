@@ -150,6 +150,10 @@ body.ja .eyebrow { font-size: 12px; letter-spacing: 0.08em; margin-bottom: 10px;
 .ja-cta .btn-row { gap: 10px; }
 
 /* 서브 페이지 공통 */
+/* 사진 아래 보이는 설명문 (global.css의 .media figcaption은 사진 위 작은 흰 글씨라 쓰지 않는다) */
+.ja-photo { margin: 0; }
+.ja-photo figcaption { margin-top: 10px; font-size: 13px; line-height: 1.7; color: var(--c-muted); }
+.ja-steps-narrow { max-width: 760px; }
 .ja-sec-mini { padding: clamp(36px, 4.5vw, 60px) 0; }
 .ja-two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: start; }
 .ja-two .media { aspect-ratio: 4 / 3; }

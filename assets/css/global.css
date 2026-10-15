@@ -55,7 +55,7 @@ button, input, select, textarea { font: inherit; color: inherit; }
 button { background: none; border: 0; cursor: pointer; padding: 0; }
 h1, h2, h3, h4, p, figure { margin: 0; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
-:focus-visible { outline: 2px solid #b48cff; outline-offset: 3px; border-radius: 4px; }
+:focus-visible { outline: 2px solid #7a45e6; outline-offset: 3px; border-radius: 4px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: 16px; top: -60px; z-index: 100; background: var(--c-ink); color: #fff; padding: 10px 16px; border-radius: 8px; }
 .skip:focus { top: 12px; }
@@ -98,7 +98,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 .btn:hover { transform: translateY(-1px); }
 .btn-lg { height: 56px; padding: 0 28px; font-size: 17px; }
 .btn-sm { height: 40px; padding: 0 16px; font-size: 14px; }
-.btn-primary { background: var(--grad); color: #fff; }
+/* 그라데이션 위 흰 글자: 남색 막 35%를 깔아 하늘색 끝에서도 대비 4.9:1 이상(막 없이는 2.35:1) */
+.btn-primary { background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); color: #fff; }
 .btn-primary:hover { box-shadow: 0 12px 30px -10px rgba(244, 95, 200, .6); }
 .btn-dark { background: var(--c-ink); color: #fff; }
 .btn-outline { border-color: var(--c-line-strong); color: var(--c-ink); background: transparent; }

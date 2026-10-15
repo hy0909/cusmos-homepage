@@ -6,8 +6,8 @@
 /* 포커스 표시도 브랜드 보라색으로 맞춘다 */
 :focus-visible { outline-color: #a46bff; }
 
-/* 섹션 간격: 데스크톱 96px 이상, 휴대폰은 72px */
-:root { --sec-pad: clamp(96px, 10vw, 136px); }
+/* 섹션 간격: 데스크톱 96px 이상(1440px에서 158px, 개선 전 156px 이상), 휴대폰은 72px */
+:root { --sec-pad: clamp(96px, 11vw, 160px); }
 
 /* 1. 첫 화면: 어두운 도시 사진, 제목, 주요 버튼 1개, 기능 바로가기 3개 */
 .f-hero { position: relative; overflow: hidden; background: var(--c-bg-dark); color: #fff; min-height: min(100svh, 900px); display: flex; align-items: center; padding: calc(var(--header-h) + 96px) 0 96px; }
@@ -29,7 +29,7 @@
 /* 기능 바로가기: 아이콘과 두 낱말 이름. 브랜드 색 없이 흰색 테두리로만 구분한다 */
 .f-jumps { margin-top: 44px; }
 .f-jump-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; max-width: 900px; }
-.f-jump { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; min-height: 124px; padding: 22px 24px; border-radius: 16px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 18px; font-weight: 650; transition: background .2s; }
+.f-jump { display: flex; flex-direction: column; align-items: flex-start; justify-content: space-between; gap: 18px; min-height: 124px; padding: 22px 24px; border-radius: 20px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.24); color: #fff; font-size: 18px; font-weight: 650; transition: background .2s; }
 .f-jump:hover { background: rgba(255,255,255,.16); }
 .f-jump svg { width: 32px; height: 32px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
 
@@ -38,7 +38,9 @@
 .f-results { position: relative; background: var(--grad); color: var(--c-bg-dark); padding: var(--sec-pad) 0; overflow: hidden; }
 .f-results + .f-sec { background: var(--c-bg-alt); }
 .f-results > .wrap { position: relative; }
-.f-results-head { margin-bottom: clamp(40px, 5vw, 60px); }
+.f-results-head { max-width: 720px; margin-bottom: clamp(44px, 5vw, 64px); }
+/* 성과 제목 아래 참고 시장 한 문장(뉴욕시 311 민원). 남색 글자라 그라데이션 어디서나 5.8:1 이상 */
+.f-results-context { margin-top: 16px; font-size: var(--fs-lead); line-height: 1.5; font-weight: 500; color: var(--c-bg-dark); }
 .f-eyebrow-light { display: inline-block; margin-bottom: 14px; font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--c-bg-dark); }
 .f-h2-light { font-size: clamp(30px, 3.8vw, 48px); line-height: 1.12; letter-spacing: -0.03em; font-weight: 700; color: var(--c-bg-dark); }
 .f-results-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
@@ -70,12 +72,18 @@
 .f-what { font-size: 16px; line-height: 1.55; color: var(--c-muted); }
 .f-learn { align-self: flex-start; margin-top: auto; padding-top: 8px; font-size: 16px; font-weight: 600; color: var(--c-ink); text-decoration: underline; text-decoration-color: var(--c-line-strong); text-underline-offset: 5px; }
 .f-learn:hover { text-decoration-color: var(--c-ink); }
+/* 제어 화면 예시: 카드와 같은 20px 모서리, 카드 묶음과 같은 간격 */
+.f-dash { margin-top: 56px; aspect-ratio: 16 / 10; border-radius: 20px; }
+.f-dash-note { margin-top: 16px; }
 
 /* 4. 대표 사례: 효과 숫자 먼저, 조건은 한 줄 */
 .f-case { background: #fff; }
 .f-case-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); align-items: center; gap: clamp(32px, 6vw, 88px); }
+.f-case-figure { margin: 0; min-width: 0; }
 .f-case-media { border-radius: 20px; overflow: hidden; background: #f5f6fa; aspect-ratio: 16 / 9; }
 .f-case-media img { width: 100%; height: 100%; object-fit: cover; }
+/* 사진 설명: 작고 흐린 회색(#4a4f68, 흰 바탕 8.05:1) */
+.f-caption { margin-top: 12px; font-size: 14px; line-height: 1.55; color: var(--c-muted); }
 .f-case-body { display: flex; flex-direction: column; align-items: flex-start; }
 .f-case-num { font-size: clamp(72px, 9vw, 112px); line-height: 1; font-weight: 700; letter-spacing: -0.03em; color: var(--c-ink); }
 .f-case-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
@@ -85,7 +93,7 @@
 .f-conditions { margin-top: 20px; padding-left: 14px; border-left: 2px solid var(--c-line-strong); font-size: 14px; line-height: 1.55; color: var(--c-muted); }
 .f-case-body .f-learn { margin-top: 28px; }
 
-/* 5. 마지막 행동 유도: 남색 면에 한 문장과 버튼 1개 */
+/* 5. 마지막 행동 유도: 남색 면에 한 문장과 버튼 1개. 성과 띠와 같은 세로 여백·제목 크기로 한 묶음처럼 보이게 한다 */
 .f-final { background: var(--c-bg-dark); padding: var(--sec-pad) 0; }
 .f-final-inner { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 28px 40px; }
 .f-final .f-h2-light { max-width: 640px; color: var(--c-on-dark); }

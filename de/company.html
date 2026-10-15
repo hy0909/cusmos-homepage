@@ -10,8 +10,8 @@
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=12">
+<link rel="stylesheet" href="../assets/css/global.css?v=10">
+<link rel="stylesheet" href="locale.css?v=13">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -114,7 +114,7 @@
           </tbody>
         </table>
       </div>
-      <p class="note reveal">Schutzrechte in Deutschland oder der EU: <span class="tbd">[TBD]</span></p>
+      <p class="note reveal">Schutzrechte in Deutschland oder der EU: <span class="tbd">Angabe folgt</span></p>
     </div>
   </section>
 
@@ -125,12 +125,12 @@
         <div>
           <p class="eyebrow reveal">Standort</p>
           <h2 class="t-h2 reveal d1">Anschrift und Kontakt</h2>
-          <p class="t-lead reveal d2" style="margin-top:20px">Der Sitz des Unternehmens ist in Südkorea. Eine Anschrift in Deutschland oder der EU: <span class="tbd">[TBD]</span></p>
+          <p class="t-lead reveal d2" style="margin-top:20px">Der Sitz des Unternehmens ist in Südkorea. Eine Anschrift in Deutschland oder der EU: <span class="tbd">Angabe folgt</span></p>
         </div>
         <dl class="de-dl reveal" id="loc" style="margin:0">
-          <div><dt>Anschrift</dt><dd class="tbd">[TBD]</dd></div>
-          <div><dt>Telefon</dt><dd class="tbd">[TBD]</dd></div>
-          <div><dt>E-Mail</dt><dd class="tbd">[TBD]</dd></div>
+          <div><dt>Anschrift</dt><dd class="tbd">Angabe folgt</dd></div>
+          <div><dt>Telefon</dt><dd class="tbd">Angabe folgt</dd></div>
+          <div><dt>E-Mail</dt><dd class="tbd">Angabe folgt</dd></div>
         </dl>
       </div>
     </div>
@@ -139,13 +139,13 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=8"></script>
+<script src="../assets/js/global.js?v=9"></script>
 <script>
   // 회사 정보: 관리자 페이지 값이 있으면 채우고, 없으면 TBD 그대로 둔다
   getSite().then((s) => {
     const rows = [["Anschrift", s.address], ["Telefon", s.phone], ["E-Mail", s.email]];
     document.getElementById("loc").innerHTML = rows.map(([k, v]) =>
-      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">[TBD]</span>'}</dd></div>`).join("");
+      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">Angabe folgt</span>'}</dd></div>`).join("");
   });
 </script>
 </body>

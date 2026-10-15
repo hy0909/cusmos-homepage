@@ -17,7 +17,7 @@
    * 2) 접속 국가가 한국이면 한국어, 일본이면 일본어, 독일·오스트리아·스위스·리히텐슈타인이면 독일어
    * 3) 그 밖의 국가는 영어
    * 국가는 Cloudflare 접속 정보로 알아내고, 안 되면 GeoJS로 한 번 더 묻는다.
-   * 둘 다 1.5초 안에 답이 없으면 브라우저 언어 설정으로 대신 판단한다. */
+   * 두 서비스에 동시에 묻고 먼저 온 답을 쓴다. 1.5초 안에 답이 없으면 브라우저 언어 설정으로 대신 판단한다. */
   (function () {
     var OK = ["en", "ja", "de", "ko"];
     var BY_COUNTRY = { KR: "ko", JP: "ja", DE: "de", AT: "de", CH: "de", LI: "de" };
@@ -42,8 +42,10 @@
         .then(function (r) { if (!r.ok) throw 0; return r.text(); })
         .then(function (txt) { clearTimeout(t); var cc = read(txt); if (!cc) throw 0; return cc.toUpperCase(); });
     }
-    ask("https://www.cloudflare.com/cdn-cgi/trace", function (txt) { var m = txt.match(/^loc=([A-Z]{2})$/m); return m && m[1]; })
-      .catch(function () { return ask("https://get.geojs.io/v1/ip/country.json", function (txt) { return JSON.parse(txt).country; }); })
+    var a = ask("https://www.cloudflare.com/cdn-cgi/trace", function (txt) { var m = txt.match(/^loc=([A-Z]{2})$/m); return m && m[1]; });
+    var b = ask("https://get.geojs.io/v1/ip/country.json", function (txt) { return JSON.parse(txt).country; });
+    function first(ps) { return new Promise(function (res, rej) { var left = ps.length; ps.forEach(function (p) { p.then(res, function () { if (--left === 0) rej(); }); }); }); }
+    first([a, b])
       .then(function (cc) { go(BY_COUNTRY[cc] || "en"); })
       .catch(function () { go(byBrowser()); });
   })();

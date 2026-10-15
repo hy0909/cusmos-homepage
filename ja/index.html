@@ -1,20 +1,22 @@
 <!doctype html>
 <html lang="ja">
 <head>
-<!-- 프로토타입 기준 경로: 실제 일본어 페이지(ja/)처럼 상대 경로가 풀리게 한다 -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="robots" content="noindex">
 <title>都市と現場の音をデータに | CUSMOS</title>
 <meta name="description" content="CUSMOSは、小型のエッジAI音響センサーを都市や工場の各所に細かく設置し、音の種類と発生場所を特定します。騒音観測と異常音検知の仕組み、仕様、導入実績、会社概要を掲載しています。">
 <meta property="og:title" content="都市と現場の音をデータに | CUSMOS"><meta property="og:description" content="小型のエッジAI音響センサーで、音の種類と発生場所を特定するサウンドインテリジェンス"><meta property="og:image" content="../assets/img/bg-ribbon.jpg">
+<link rel="alternate" hreflang="en" href="../en/index.html">
+<link rel="alternate" hreflang="ja" href="../ja/index.html">
+<link rel="alternate" hreflang="de" href="../de/index.html">
+<link rel="alternate" hreflang="x-default" href="../en/index.html">
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=12">
-<link rel="stylesheet" href="after.css?v=2">
-<link rel="stylesheet" href="fable.css?v=4">
+<link rel="stylesheet" href="../assets/css/global.css?v=10">
+<link rel="stylesheet" href="locale.css?v=13">
+<link rel="stylesheet" href="after.css?v=3">
+<link rel="stylesheet" href="fable.css?v=5">
 </head>
 <body class="ja">
 <a class="skip" href="#main">本文へ移動</a>
@@ -22,12 +24,25 @@
 
 <main id="main" class="p-main f-main">
 
-  <!-- 0. 구역 바로가기 줄: 헤더 아래에 붙어 따라오며 현재 구역을 표시한다 -->
+  <!-- 0. 구역 바로가기 줄: 헤더 아래에 붙어 따라오며 현재 구역을 표시한다 (스크립트는 문서 끝) -->
+  <nav class="f-zonebar" aria-label="ページ内の構成">
+    <ul class="f-zonebar-list">
+      <li><a href="#issue"><b>01</b>課題</a></li>
+      <li><a href="#function"><b>02</b>機能</a></li>
+      <li><a href="#spec"><b>03</b>仕様</a></li>
+      <li><a href="#install"><b>04</b>設置</a></li>
+      <li><a href="#operation"><b>05</b>運用</a></li>
+      <li><a href="#flow"><b>06</b>導入の流れ</a></li>
+      <li><a href="#cases"><b>07</b>導入事例</a></li>
+      <li><a href="#company"><b>08</b>会社概要</a></li>
+      <li><a href="#faq"><b>09</b>よくあるご質問</a></li>
+    </ul>
+  </nav>
 
-  <!-- 1. 첫 화면: 제품 개요와 인물 사진, 주제별 바로가기 6개, 그 아래 구역 한 줄 목차 -->
+  <!-- 1. 첫 화면: 제품 개요와 사진, 주제별 바로가기 6개, 구역 한 줄 목차. 좁은 화면에서는 바로가기가 사진보다 먼저 온다 -->
   <section class="p-hero">
     <div class="wrap p-hero-grid">
-      <div>
+      <div class="p-hero-copy">
         <span class="p-eyebrow">スマートシティ・産業安全向けの音響センシング</span>
         <h1>街の音を、場所と時間の<br>わかるデータに</h1>
         <p class="p-lead">CUSMOSは、従来の自動測定所より小型で低コストのAI音響センサーを、街路や工場の各所に細かく設置します。音の種類、発生場所、時刻、発生頻度を自動で記録し、行政の判断材料や住民への情報として使える形で残します。</p>
@@ -35,6 +50,8 @@
           <a class="btn btn-primary btn-lg" href="contact.html#request">資料請求</a>
           <a class="btn btn-outline btn-lg" href="contact.html#inquiry">お問い合わせ</a>
         </div>
+      </div>
+      <div class="p-hero-proof">
         <div class="p-badges">
           <span class="p-badge-k">導入・実証</span>
           <ul class="p-badge-list">
@@ -49,8 +66,6 @@
       <div class="media p-hero-img">
         <img src="https://images.unsplash.com/photo-1540397990819-5197ccf2608a?auto=format&fit=crop&w=1600&q=75" alt="制御室で制御盤を確認する制服姿の係員（大阪、イメージ写真）">
       </div>
-    </div>
-    <div class="wrap">
       <nav class="p-jumps" aria-label="知りたい情報から探す">
         <p class="p-jumps-h">知りたい情報から探す</p>
         <a class="p-jump" href="#function"><strong>機能</strong><span>音の検知、位置推定、AI分類の仕組み</span></a>
@@ -58,7 +73,7 @@
         <a class="p-jump" href="#install"><strong>設置</strong><span>設置場所、既存設備、確認すること</span></a>
         <a class="p-jump" href="#operation"><strong>運用</strong><span>管制への通知、記録の見方、報告</span></a>
         <a class="p-jump" href="#cases"><strong>導入事例</strong><span>始興市とPoCの結果、数値の条件</span></a>
-        <a class="p-jump" href="#company"><strong>会社概要</strong><span>会社情報、沿革、特許・商標</span></a>
+        <a class="p-jump" href="#company"><strong>会社概要</strong><span>会社の基本情報と、詳細ページへの案内</span></a>
       </nav>
       <!-- 구역 목차: 01–09 모든 구역의 위치를 첫 화면에서 보여 준다 -->
       <nav class="f-map" aria-label="このページの構成">
@@ -72,34 +87,34 @@
           <li><a href="#flow"><b>06</b>導入の流れ</a></li>
           <li><a href="#cases"><b>07</b>導入事例</a></li>
           <li><a href="#company"><b>08</b>会社概要</a></li>
-          <li><a href="#faq"><b>09</b>よくある質問</a></li>
+          <li><a href="#faq"><b>09</b>よくあるご質問</a></li>
         </ol>
       </nav>
     </div>
   </section>
 
-  <!-- 2. お知らせ: 짧은 목록 (번호 없는 구역) -->
+  <!-- 2. お知らせ: 짧은 목록 (번호 없는 구역). 연혁은 company.html#history 에만 둔다 -->
   <section class="p-zone" id="news">
     <div class="wrap p-grid">
       <header class="p-head">
-        <span class="p-num">News</span>
+        <span class="p-num">情報</span>
         <h2>お知らせ</h2>
         <p class="p-sum"><span class="f-k">この項目でわかること</span>実証と契約の最近の動き</p>
       </header>
       <div class="p-body">
         <ul class="p-news">
-          <li><time datetime="2026-09">2026.09</time><span class="p-tag">実証結果</span><a href="cases.html#siheung">始興市ペゴッ地区の設置地域で、騒音苦情が約60%減少</a></li>
-          <li><time datetime="2025-12">2025.12</time><span class="p-tag">実証</span><a href="cases.html#siheung">始興市ペゴッ地区で、二輪車騒音の実証を開始（4か所・装置4台）</a></li>
-          <li><time datetime="2025-12">2025.12</time><span class="p-tag">契約</span><a href="company.html#history">春川市・始興市・麟蹄郡と購入契約を締結</a></li>
-          <li><time datetime="2025">2025</time><span class="p-tag">事業</span><a href="company.html#history">創業中心大学の支援事業を実施</a></li>
-          <li><time datetime="2022">2022</time><span class="p-tag">商標</span><a href="company.html#patent">「CUSMOS」の商標を出願</a></li>
+          <li><time datetime="2026-09">2026年9月</time><span class="p-tag">実証結果</span><a href="cases.html#siheung">始興市ペゴッ地区の実証結果（騒音苦情の減少）について、始興市から確認を得る</a></li>
+          <li><time datetime="2025-12">2025年12月</time><span class="p-tag">実証</span><a href="cases.html#siheung">始興市ペゴッ地区で、二輪車騒音の実証を開始</a></li>
+          <li><time datetime="2025-12">2025年12月</time><span class="p-tag">契約</span><a href="company.html#history">春川市・始興市・麟蹄郡と購入契約を締結</a></li>
+          <li><time datetime="2025">2025年</time><span class="p-tag">事業</span><a href="company.html#history">創業中心大学の支援事業を実施</a></li>
+          <li><time datetime="2022">2022年</time><span class="p-tag">商標</span><a href="company.html#patent">「CUSMOS」の商標を出願</a></li>
         </ul>
-        <p class="p-note">実証の数値は、設置地域に限った結果です。条件の詳細は<a href="cases.html" class="link-arrow">導入事例</a>で確認できます。</p>
+        <p class="p-note">沿革の全体は<a href="company.html#history" class="link-arrow">会社情報の沿革</a>で確認できます。</p>
       </div>
     </div>
   </section>
 
-  <!-- 3. 01 課題 -->
+  <!-- 3. 01 課題: 일본 통계(기획안 출처)를 첫 줄에, 한국 수치는 그 아래 -->
   <section class="p-zone is-alt" id="issue">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -108,18 +123,19 @@
         <p class="p-sum"><span class="f-k">この項目でわかること</span>騒音の苦情は多いのに、原因を判断できる記録が足りない</p>
       </header>
       <div class="p-body">
-        <p>韓国では、環境苦情のうち騒音・振動の苦情がもっとも多くなっています。一方で、いつ、どこで、どの音が原因で起きたのかを判断できる記録は、ほとんど残っていません。そのため、取り締まりの対象や防音施設の設置場所、時間規制は、根拠が少ないまま決めることになります。</p>
+        <p>日本では、2024年度に全国で受け付けた公害苦情のうち、騒音がもっとも多くなっています。韓国でも同じ傾向です。一方で、いつ、どこで、どの音が原因で起きたのかを判断できる記録は、ほとんど残っていません。そのため、取り締まりの対象や防音施設の設置場所、時間規制は、根拠が少ないまま決めることになります。</p>
         <dl class="p-list">
-          <div class="p-row"><dt>環境苦情に占める騒音・振動の割合</dt><dd><b>46.5%</b><span class="p-src">韓国 2024年、環境苦情の種類で最多</span></dd></div>
-          <div class="p-row"><dt>人が直接測る騒音測定地点の割合</dt><dd><b>96.6%</b><span class="p-src">韓国 全国1,828地点のうち1,766地点</span></dd></div>
-          <div class="p-row"><dt>自動測定所1か所の受け持ち範囲</dt><dd><b>半径500m</b><span class="p-src">韓国 2022年 大田（テジョン）の自動測定網事業。設置費用が高い据置型の測定所</span></dd></div>
+          <div class="p-row"><dt>公害苦情に占める騒音の割合（日本）</dt><dd><b>39.5%</b><span class="p-src">日本 2024年度。全国の公害苦情66,931件のうち騒音は18,811件で、典型7公害47,622件の中で最多（環境省・総務省統計局『日本の統計2026』17-10表）</span></dd></div>
+          <div class="p-row"><dt>環境苦情に占める騒音・振動の割合（韓国）</dt><dd><b>46.5%</b><span class="p-src">韓国 2024年、環境苦情の種類で最多</span></dd></div>
+          <div class="p-row"><dt>人が直接測る騒音測定地点の割合（韓国）</dt><dd><b>96.6%</b><span class="p-src">韓国 全国1,828地点のうち1,766地点</span></dd></div>
+          <div class="p-row"><dt>自動測定所1か所の受け持ち範囲（韓国）</dt><dd><b>半径500m</b><span class="p-src">韓国 2022年 大田（テジョン）の自動測定網事業。設置費用が高い据置型の測定所</span></dd></div>
         </dl>
-        <p class="p-note">※ 上記はすべて韓国の統計と事業資料の数値です。日本の状況を示すものではありません。</p>
+        <p class="p-note">※ 2段目以降は韓国の統計と事業資料の数値です。日本の状況を示すものではありません。</p>
       </div>
     </div>
   </section>
 
-  <!-- 4. 02 機能: 항목 6개를 항목·내용·관련 페이지 표로, 사진은 같은 구역 -->
+  <!-- 4. 02 機能: 항목·내용 표, 사진은 같은 구역. 자세한 설명은 기술 페이지 링크 하나로 -->
   <section class="p-zone" id="function">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -129,22 +145,23 @@
       </header>
       <div class="p-body p-split">
         <div>
-          <p>音はセンサーの中で分析するため、すべての音をサーバーに送る必要はありません。太陽光パネルと一体型の構造なので、電源工事の負担を減らせます。</p>
+          <p>音はセンサーの中で分析するため、すべての音をサーバーに送る必要はありません。</p>
           <div class="p-table-wrap f-mt">
             <table class="p-table f-table" aria-label="機能一覧">
               <thead>
-                <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">関連ページ</th></tr>
+                <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
               </thead>
               <tbody>
-                <tr><th scope="row">リアルタイム検知</th><td>人手をかけず、24時間休みなく測定します。</td><td><a class="link-arrow" href="technology.html">技術ページ</a></td></tr>
-                <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算します。</td><td><a class="link-arrow" href="technology.html">技術ページ</a></td></tr>
-                <tr><th scope="row">AI分類</th><td>二輪車、クラクション（警笛）、工事音、設備の異常音などを分類します。</td><td><a class="link-arrow" href="technology.html">技術ページ</a></td></tr>
-                <tr><th scope="row">エッジ処理</th><td>センサー内でAIの推論を行い、結果だけを送ります。</td><td><a class="link-arrow" href="technology.html">技術ページ</a></td></tr>
-                <tr><th scope="row">マルチモーダル</th><td>映像など別のセンサーと組み合わせて判断します。</td><td><a class="link-arrow" href="technology.html">技術ページ</a></td></tr>
-                <tr><th scope="row">データ分析</th><td>蓄積した記録を、地域別・時間帯別に分析します。</td><td><a class="link-arrow" href="solutions.html">用途別の説明</a></td></tr>
+                <tr><th scope="row">リアルタイム検知</th><td>人手をかけず、24時間休みなく測定します。</td></tr>
+                <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算します。</td></tr>
+                <tr><th scope="row">AI分類</th><td>捉えた音の種類を、センサー内のAIで分類します。</td></tr>
+                <tr><th scope="row">エッジ処理</th><td>センサー内でAIの推論を行い、結果だけを送ります。</td></tr>
+                <tr><th scope="row">マルチモーダル</th><td>映像など別のセンサーと組み合わせて判断します。</td></tr>
+                <tr><th scope="row">データ分析</th><td>蓄積した記録を、地域別・時間帯別に分析します。</td></tr>
               </tbody>
             </table>
           </div>
+          <p class="p-note"><a href="technology.html" class="link-arrow">技術ページで詳しく見る</a></p>
         </div>
         <figure class="p-fig">
           <img src="../assets/img/product-sensor.jpg" alt="エッジAI音響センサー本体" loading="lazy" width="818" height="739">
@@ -154,7 +171,7 @@
     </div>
   </section>
 
-  <!-- 5. 03 仕様: 항목·내용·조건·비고 3열 표 -->
+  <!-- 5. 03 仕様: 항목·내용·조건·비고 3열 표. 값이 없는 칸은 「確認中」, 두 칸 다 없는 행은 뺐다 -->
   <section class="p-zone is-alt" id="spec">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -165,32 +182,31 @@
       <div class="p-body">
         <h3 class="p-sub-h" id="spec-sensor">エッジAI音響センサー</h3>
         <div class="p-table-wrap">
-          <table class="p-table f-table" aria-labelledby="spec-sensor">
+          <table class="p-table f-table f-table-3" aria-labelledby="spec-sensor">
             <thead>
               <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">条件・備考</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">測定方式</th><td>マイクアレイで音を捉え、センサー内のAIで分類します。</td><td>マイクの間隔は、対象の音と設置場所に合わせて決めます。</td></tr>
-              <tr><th scope="row">分類対象</th><td>二輪車、クラクション（警笛）、工事音、設備の異常音</td><td>分類精度95%以上は、始興市の実証で目標達成が報告された数値です（2025年 最終報告書の基準）。</td></tr>
-              <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算します。精度 <span class="tbd">TBD</span></td><td>精度の評価条件 <span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">電源</th><td>太陽光パネル一体型</td><td>設置方向や日当たりの条件 <span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">設置先</th><td>CCTV支柱、車両検知システムの支柱など既存の設備</td><td>取り付けの可否は、現地調査で確認します。</td></tr>
-              <tr><th scope="row">1日あたりのデータ量</th><td>原音を送り続けた場合は2.76GB。必要な音だけを送った場合は147MB（約95%減）</td><td>16kHz・16bitモノラルの原音を基準にした計算値です。原音の5%と分析結果だけを送ると仮定しています。通信費の実際の削減率は、料金プランや運用条件で変わります。</td></tr>
-              <tr><th scope="row">外形寸法・質量</th><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">通信方式</th><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
+              <tr><th scope="row">測定方式</th><td>マイクアレイで音を捉え、センサー内のAIで分類します。</td><td data-label="条件・備考">マイクの間隔は、対象の音と設置場所に合わせて決めます。</td></tr>
+              <tr><th scope="row">分類対象</th><td>二輪車、クラクション（警笛）、工事音、設備の異常音</td><td data-label="条件・備考">分類精度95%以上は、始興市の実証で目標達成が報告された数値です（2025年 最終報告書の基準）。</td></tr>
+              <tr><th scope="row">位置推定</th><td>音が発生した位置と方向を計算します。</td><td data-label="条件・備考">精度と評価条件は確認中</td></tr>
+              <tr><th scope="row">電源</th><td>太陽光パネル一体型</td><td data-label="条件・備考">設置方向や日当たりの条件は確認中</td></tr>
+              <tr><th scope="row">設置先</th><td>CCTV支柱、車両検知システムの支柱など既存の設備</td><td data-label="条件・備考">取り付けの可否は、現地調査で確認します。</td></tr>
+              <tr><th scope="row">1日あたりのデータ量</th><td>原音を送り続けた場合は2.76GB。必要な音だけを送った場合は147MB（約95%減）</td><td data-label="条件・備考">16kHz・16bitモノラルの原音を基準にした計算値です。原音の5%と分析結果だけを送ると仮定しています。通信費の実際の削減率は、料金プランや運用条件で変わります。</td></tr>
             </tbody>
           </table>
         </div>
+        <p class="p-note">外形寸法・質量、通信方式は確認中です。確認でき次第、掲載します。</p>
 
         <h3 class="p-sub-h" id="spec-camera">携帯型超音波カメラ</h3>
         <div class="p-table-wrap">
-          <table class="p-table f-table" aria-labelledby="spec-camera">
+          <table class="p-table f-table f-table-3" aria-labelledby="spec-camera">
             <thead>
               <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">条件・備考</th></tr>
             </thead>
             <tbody>
               <tr><th scope="row">画面</th><td>7インチディスプレイ</td><td>—</td></tr>
-              <tr><th scope="row">連続使用時間</th><td>2時間以上</td><td>使用条件 <span class="tbd">TBD</span></td></tr>
+              <tr><th scope="row">連続使用時間</th><td>2時間以上</td><td data-label="条件・備考">使用条件は確認中</td></tr>
               <tr><th scope="row">センサー</th><td>マイクアレイ、カメラ、温度センサー</td><td>—</td></tr>
               <tr><th scope="row">機能</th><td>音響映像の録画、音声出力</td><td>—</td></tr>
             </tbody>
@@ -200,7 +216,7 @@
     </div>
   </section>
 
-  <!-- 6. 04 設置: 항목·내용·조건·비고 3열 표 -->
+  <!-- 6. 04 設置: 항목·내용·조건·비고 3열 표 + 확인 목록 (이 목록은 이 페이지에만 둔다) -->
   <section class="p-zone" id="install">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -210,20 +226,20 @@
       </header>
       <div class="p-body">
         <div class="p-table-wrap">
-          <table class="p-table f-table" aria-label="設置の条件">
+          <table class="p-table f-table f-table-3" aria-label="設置の条件">
             <thead>
               <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">条件・備考</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row">設置場所</th><td>CCTV支柱、車両検知システムの支柱など、既存の設備</td><td>使える既存設備があるかを、事前に確認します。</td></tr>
-              <tr><th scope="row">電源</th><td>太陽光パネル一体型のため、電源工事の負担を減らせます。</td><td>日当たりなどの条件 <span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">取り付け方法</th><td>既存の支柱に取り付け、測定を始めます。</td><td>支柱の状態は現地調査で確認します。</td></tr>
-              <tr><th scope="row">通信方式</th><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">工事期間</th><td><span class="tbd">TBD</span></td><td>期間は案件ごとに変わります。</td></tr>
-              <tr><th scope="row">必要な許可・手続き</th><td><span class="tbd">TBD</span></td><td>始興市の事例では、市の承認を受けてから設置しました（最初の承認期間は2025.12.01〜2026.02.27）。</td></tr>
+              <tr><th scope="row">設置場所</th><td>CCTV支柱、車両検知システムの支柱など、既存の設備</td><td data-label="条件・備考">使える既存設備があるかを、事前に確認します。</td></tr>
+              <tr><th scope="row">電源</th><td>太陽光パネル一体型のため、電源工事の負担を減らせます。</td><td data-label="条件・備考">日当たりなどの条件は確認中</td></tr>
+              <tr><th scope="row">取り付け方法</th><td>既存の支柱に取り付け、測定を始めます。</td><td data-label="条件・備考">支柱の状態は現地調査で確認します。</td></tr>
+              <tr><th scope="row">工事期間</th><td>確認中</td><td data-label="条件・備考">期間は案件ごとに変わります。</td></tr>
+              <tr><th scope="row">必要な許可・手続き</th><td>確認中</td><td data-label="条件・備考">始興市の事例では、市の承認を受けてから設置しました（最初の承認期間は2025年12月1日〜2026年2月27日）。</td></tr>
             </tbody>
           </table>
         </div>
+        <p class="p-note">通信方式は確認中です。</p>
 
         <h3 class="p-sub-h">導入前に確認したいこと</h3>
         <ul class="p-check">
@@ -236,27 +252,27 @@
     </div>
   </section>
 
-  <!-- 7. 05 運用: 번호·항목·내용·담당 표 -->
+  <!-- 7. 05 運用: 항목·내용 표 (담당 열은 값이 없어 뺐다) + 관제 화면 -->
   <section class="p-zone is-alt" id="operation">
     <div class="wrap p-grid">
       <header class="p-head">
         <span class="p-num">05</span>
         <h2>運用</h2>
-        <p class="p-sum"><span class="f-k">この項目でわかること</span>通知、記録、報告の流れと、それぞれの担当</p>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>通知、記録、報告の流れ</p>
       </header>
       <div class="p-body">
         <div class="p-table-wrap">
           <table class="p-table f-table" aria-label="運用の流れ">
             <thead>
-              <tr><th scope="col">項目</th><th scope="col">内容</th><th scope="col">担当</th></tr>
+              <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row"><span class="f-no">01</span>管制への通知</th><td>映像と一緒に管制室へ通知し、記録を残します。</td><td>管制室</td></tr>
-              <tr><th scope="row"><span class="f-no">02</span>カメラ連動</th><td>異常音が発生した位置にもっとも近いカメラを、その方向へ向けます。</td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">03</span>記録の確認</th><td>地点別・時間帯別の騒音記録を、画面で確認できます。</td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">04</span>苦情対応</th><td>苦情対応のレポートを作成します。</td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">05</span>施策への活用</th><td>蓄積したデータから生活騒音の指標を作り、施策の効果を評価します。</td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">06</span>運用サポート</th><td>記録の見方と運用の進め方をサポートします。対応の範囲と期間は <span class="tbd">TBD</span></td><td>CUSMOS</td></tr>
+              <tr><th scope="row"><span class="f-no">01</span>管制への通知</th><td>映像と一緒に管制室へ通知し、記録を残します。</td></tr>
+              <tr><th scope="row"><span class="f-no">02</span>カメラ連動</th><td>異常音が発生した位置にもっとも近いカメラを、その方向へ向けます。</td></tr>
+              <tr><th scope="row"><span class="f-no">03</span>記録の確認</th><td>地点別・時間帯別の騒音記録を、画面で確認できます。</td></tr>
+              <tr><th scope="row"><span class="f-no">04</span>苦情対応</th><td>苦情対応のレポートを作成します。</td></tr>
+              <tr><th scope="row"><span class="f-no">05</span>施策への活用</th><td>蓄積したデータから生活騒音の指標を作り、施策の効果を評価します。</td></tr>
+              <tr><th scope="row"><span class="f-no">06</span>運用サポート</th><td>CUSMOSが、記録の見方と運用の進め方をサポートします。対応の範囲と期間は確認中です。</td></tr>
             </tbody>
           </table>
         </div>
@@ -264,39 +280,38 @@
           <div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=ja" title="管制画面のライブ表示（サンプルデータ）" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-ja.jpg" alt="管制画面の例（サンプルデータ）" width="1920" height="1200" loading="lazy"></div>
           <figcaption>管制画面の例。表示しているのはサンプルデータです。</figcaption>
         </figure>
-        <p class="p-note">始興市の実証は、取り締まりを行わず、観測と案内だけで運用しました。</p>
       </div>
     </div>
   </section>
 
-  <!-- 8. 06 導入の流れ: 단계·내용·기간·담당 표 -->
+  <!-- 8. 06 導入の流れ: 단계·내용 표 (기간·담당 열은 값이 없어 뺐고, 아는 담당은 내용에 적었다) -->
   <section class="p-zone" id="flow">
     <div class="wrap p-grid">
       <header class="p-head">
         <span class="p-num">06</span>
         <h2>導入の流れ</h2>
-        <p class="p-sum"><span class="f-k">この項目でわかること</span>相談から運用サポートまでの4段階と、期間・担当</p>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>相談から運用サポートまでの4段階</p>
       </header>
       <div class="p-body">
         <div class="p-table-wrap">
           <table class="p-table f-table" aria-label="導入の流れ">
             <thead>
-              <tr><th scope="col">段階</th><th scope="col">内容</th><th scope="col">期間</th><th scope="col">担当</th></tr>
+              <tr><th scope="col">段階</th><th scope="col">内容</th></tr>
             </thead>
             <tbody>
-              <tr><th scope="row"><span class="f-no">STEP 01</span>ご相談</th><td>設置場所と解決したい課題をお聞きします。</td><td><span class="tbd">TBD</span></td><td>CUSMOS担当者（メールで連絡）</td></tr>
-              <tr><th scope="row"><span class="f-no">STEP 02</span>現地調査</th><td>音の環境と、CCTV支柱・車両検知支柱などの既存設備を確認します。</td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">STEP 03</span>設置</th><td>既存の支柱に取り付け、測定を始めます。</td><td><span class="tbd">TBD</span></td><td><span class="tbd">TBD</span></td></tr>
-              <tr><th scope="row"><span class="f-no">STEP 04</span>運用サポート</th><td>記録の見方と、運用の進め方をサポートします。</td><td><span class="tbd">TBD</span></td><td>CUSMOS</td></tr>
+              <tr><th scope="row"><span class="f-no">STEP 01</span>ご相談</th><td>設置場所と解決したい課題をお聞きします。CUSMOSの担当者がメールでご連絡します。</td></tr>
+              <tr><th scope="row"><span class="f-no">STEP 02</span>現地調査</th><td>音の環境と、取り付けに使える既存設備を確認します。</td></tr>
+              <tr><th scope="row"><span class="f-no">STEP 03</span>設置</th><td>既存の支柱に取り付け、測定を始めます。</td></tr>
+              <tr><th scope="row"><span class="f-no">STEP 04</span>運用サポート</th><td>CUSMOSが、記録の見方と運用の進め方をサポートします。</td></tr>
             </tbody>
           </table>
         </div>
-        <p class="p-note">※ 上記は一般的な導入の流れです。案件ごとに内容は変わります。</p>
+        <p class="p-note">※ 上記は一般的な導入の流れです。期間と担当は案件ごとに変わるため、ご相談の際にご案内します。</p>
       </div>
     </div>
   </section>
 
-  <!-- 9. 07 導入事例: 수치를 항목명·값·조건 목록으로 -->
+  <!-- 9. 07 導入事例: 수치를 항목명·값·조건 목록으로. 시흥 사진은 원본에 설명을 붙였다 -->
   <section class="p-zone is-alt" id="cases">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -308,7 +323,10 @@
 
         <article class="p-case">
           <div class="p-case-top">
-            <div class="p-case-img"><img src="../assets/img/case-siheung-ja.jpg" alt="始興市ペゴッ地区に設置した二輪車騒音の測定装置" loading="lazy" width="922" height="502"></div>
+            <figure class="p-case-img">
+              <img src="../assets/img/case-siheung.jpg" alt="始興市ペゴッ地区の車両検知用支柱に設置したCUSMOSの測定装置" loading="lazy" width="922" height="502">
+              <figcaption>始興市ペゴッ地区の車両検知用支柱に設置したCUSMOSの測定装置。看板の韓国語は「二輪車騒音測定 試験運用」の意味。実証現場で撮影</figcaption>
+            </figure>
             <div>
               <span class="p-tag">自治体・始興市</span>
               <h3>始興市ペゴッ地区 二輪車騒音の実証</h3>
@@ -317,8 +335,8 @@
           </div>
           <dl class="p-list">
             <div class="p-row"><dt>設置規模</dt><dd>4か所、装置4台（車両検知システムの支柱）</dd></div>
-            <div class="p-row"><dt>承認期間</dt><dd>2025.12.01〜2026.02.27（最初の承認）</dd></div>
-            <div class="p-row"><dt>設置地域の騒音苦情</dt><dd><b>約60%</b>の減少<span class="p-src">2025年12月〜2026年6月、設置地域に限る</span></dd></div>
+            <div class="p-row"><dt>承認期間</dt><dd>2025年12月1日〜2026年2月27日（最初の承認）</dd></div>
+            <div class="p-row"><dt>設置地域の騒音苦情</dt><dd><b>約60%</b>の減少<span class="p-src">2025年12月〜2026年6月</span></dd></div>
             <div class="p-row"><dt>音の分類精度</dt><dd><b>95%以上</b>目標達成の報告<span class="p-src">2025年 最終報告書の基準</span></dd></div>
             <div class="p-row"><dt>風・雨の条件での性能</dt><dd><b>約88%</b>気象条件ごとの運用を確認した結果</dd></div>
             <div class="p-row"><dt>騒音レベルの換算基準距離</dt><dd><b>5.5m</b>距離に応じて騒音レベルを補正するための基準</dd></div>
@@ -329,7 +347,10 @@
 
         <article class="p-case">
           <div class="p-case-top">
-            <div class="p-case-img"><img src="../assets/img/case-kepco.jpg" alt="泰安火力発電所の現場に設置した音響連動CCTV" loading="lazy" width="1042" height="838"></div>
+            <figure class="p-case-img">
+              <img src="../assets/img/case-kepco.jpg" alt="泰安火力発電所の現場に設置した音響連動CCTV" loading="lazy" width="1042" height="838">
+              <figcaption>泰安火力発電所の現場に設置した音響連動CCTV</figcaption>
+            </figure>
             <div>
               <span class="p-tag">公共機関・韓国電力公社</span>
               <h3>泰安火力発電所 音響連動の安全管理</h3>
@@ -350,44 +371,35 @@
     </div>
   </section>
 
-  <!-- 10. 08 会社概要: 표 + 연혁 -->
+  <!-- 10. 08 会社概要: 기본 정보 표만. 연혁·특허는 회사 페이지로 -->
   <section class="p-zone" id="company">
     <div class="wrap p-grid">
       <header class="p-head">
         <span class="p-num">08</span>
         <h2>会社概要</h2>
-        <p class="p-sum"><span class="f-k">この項目でわかること</span>会社の基本情報と沿革</p>
+        <p class="p-sum"><span class="f-k">この項目でわかること</span>会社の基本情報</p>
       </header>
       <div class="p-body">
         <div class="p-table-wrap">
-          <table class="p-table">
+          <table class="p-table f-table" aria-label="会社概要">
+            <thead>
+              <tr><th scope="col">項目</th><th scope="col">内容</th></tr>
+            </thead>
             <tbody>
               <tr><th scope="row">社名</th><td>CUSMOS Inc.（韓国法人）</td></tr>
               <tr><th scope="row">代表者</th><td>代表取締役 イ・チャンウ</td></tr>
-              <tr><th scope="row">所在地</th><td><span data-site="address" class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">電話</th><td><span data-site="phone" class="tbd">TBD</span></td></tr>
-              <tr><th scope="row">メール</th><td><span data-site="email" class="tbd">TBD</span></td></tr>
+              <tr><th scope="row">所在地</th><td><span data-site="address">大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号</span></td></tr>
               <tr><th scope="row">事業内容</th><td>エッジAI音響センサー、音響データの分析、スマートシティ・産業安全向けの導入システム</td></tr>
-              <tr><th scope="row">知的財産</th><td>特許3件、商標1件（<a href="company.html#patent" class="link-arrow">詳細</a>）</td></tr>
-              <tr><th scope="row">設立</th><td><span class="tbd">TBD</span></td></tr>
+              <tr><th scope="row">知的財産</th><td>特許3件、商標1件</td></tr>
             </tbody>
           </table>
         </div>
-
-        <h3 class="p-sub-h">沿革</h3>
-        <ol class="p-timeline">
-          <li><div class="p-when">2026.09</div><div class="p-what">始興市ペゴッ地区の設置地域で、騒音苦情が約60%減ったことを確認</div><div class="p-desc">取り締まりを行わず、観測と案内だけで得た結果</div></li>
-          <li><div class="p-when">2025.12</div><div class="p-what">始興市ペゴッ地区で二輪車騒音の実証を開始</div><div class="p-desc">始興市の承認を得て、4か所に装置4台を設置</div></li>
-          <li><div class="p-when">2025.12</div><div class="p-what">春川市・始興市・麟蹄郡と購入契約を締結</div><div class="p-desc">府省庁横断統合ヘルスケア協会と、研究開発の業務協定</div></li>
-          <li><div class="p-when">2025</div><div class="p-what">創業中心大学の支援事業を実施</div></li>
-          <li><div class="p-when">2022</div><div class="p-what">「CUSMOS」の商標を出願</div></li>
-        </ol>
-        <p class="p-note"><a href="company.html" class="link-arrow">会社情報の詳細</a></p>
+        <p class="p-note">沿革、特許・商標、チーム、アクセスは<a href="company.html" class="link-arrow">会社情報のページ</a>にまとめています。</p>
       </div>
     </div>
   </section>
 
-  <!-- 11. 09 よくあるご質問: 기존 5개 유지 + 3개 추가 -->
+  <!-- 11. 09 よくあるご質問: 답은 한 문장과 해당 구역 링크로 짧게 -->
   <section class="p-zone is-alt" id="faq">
     <div class="wrap p-grid">
       <header class="p-head">
@@ -398,32 +410,31 @@
       <div class="p-body p-faq">
         <details>
           <summary>センサーはどこに設置しますか。</summary>
-          <div class="p-ans"><p>CCTV支柱や車両検知支柱など、既存の設備に取り付ける設計です。</p></div>
+          <div class="p-ans"><p>既存の支柱などに取り付ける設計です。条件は<a href="#install">04 設置</a>の表をご覧ください。</p></div>
         </details>
         <details>
           <summary>電源はどうなっていますか。</summary>
-          <div class="p-ans"><p>太陽光パネルと一体型の構造のため、電源工事の負担を減らせます。</p></div>
+          <div class="p-ans"><p>電源工事の負担が少ない方式です。詳しくは<a href="#spec">03 仕様</a>の「電源」の行をご覧ください。</p></div>
         </details>
         <details>
           <summary>通信量やプライバシーはどう扱いますか。</summary>
-          <div class="p-ans"><p>音はセンサーの中で分析します。送るのは分析結果と、事象が起きた瞬間の原音だけです。</p><p>16kHz・16bitモノラルの原音を基準に計算すると、1日の送信量は2.76GBから147MBになり、約95%減ります。これは原音の5%と分析結果だけを送ると仮定した計算値です。通信費の実際の削減率は、料金プランや運用条件によって異なります。</p></div>
+          <div class="p-ans"><p>音はセンサーの中で分析し、サーバーには分析結果と、事象が起きた瞬間の原音だけを選んで送ります。音を常時送り続けることはありません。通信量の計算条件は<a href="#spec">03 仕様</a>の「1日あたりのデータ量」の行をご覧ください。</p></div>
         </details>
         <details>
           <summary>どの種類の音を分類できますか。</summary>
-          <div class="p-ans"><p>二輪車、クラクション（警笛）、工事音、設備の異常音などを分類します。</p></div>
+          <div class="p-ans"><p>対象の一覧は<a href="#spec">03 仕様</a>の「分類対象」の行にまとめています。</p></div>
         </details>
         <details>
           <summary>工場や発電所などの産業現場でも使えますか。</summary>
-          <div class="p-ans"><p>韓国電力公社の泰安火力発電所でPoC（概念実証）を行い、音響と連動した安全管理の技術を開発して納品しています。産業現場ごとの条件は、事前の現地調査で確認します。</p></div>
+          <div class="p-ans"><p>はい。発電所での実績は<a href="#cases">07 導入事例</a>をご覧ください。産業現場ごとの条件は、事前の現地調査で確認します。</p></div>
         </details>
-        <!-- 추가 1–3: 기존 하위 페이지 사실만 사용 -->
         <details>
           <summary>設置までに、どんな確認が必要ですか。</summary>
-          <div class="p-ans"><p>現地調査で、音の環境と既存設備（CCTV支柱、車両検知支柱など）を確認します。導入前に、設置場所、対象とする音、記録を見る担当者と画面を決めておくと、調査の準備が進めやすくなります。</p></div>
+          <div class="p-ans"><p>現地調査で、音の環境と既存設備を確認します。導入前に決めておきたいことは<a href="#install">04 設置</a>の「導入前に確認したいこと」をご覧ください。</p></div>
         </details>
         <details>
           <summary>始興市の実証は、どのような条件で行われましたか。</summary>
-          <div class="p-ans"><p>始興市ペゴッ地区の車両検知システムの支柱に、4か所・装置4台を設置しました。2025年12月から2026年6月までの結果です。苦情の減少は、設置地域に限った数値です。</p></div>
+          <div class="p-ans"><p>設置の規模、期間、数値ごとの条件は<a href="#cases">07 導入事例</a>の表にまとめています。</p></div>
         </details>
         <details>
           <summary>携帯型超音波カメラは、どんな場面で使いますか。</summary>
@@ -434,31 +445,20 @@
     </div>
   </section>
 
-  <!-- 12. 마지막 문의: 실적 한 줄 + 자료 요청 / 전화 / 양식 -->
+  <!-- 12. 마지막 문의: 한 줄 안내와 버튼 2개. 전화번호는 없으므로 적지 않는다 -->
   <section class="p-zone" id="contact">
     <div class="wrap p-grid">
       <header class="p-head">
-        <span class="p-num">Contact</span>
-        <h2>資料請求・お問い合わせ</h2>
+        <span class="p-num">窓口</span>
+        <h2>資料請求・<br>お問い合わせ</h2>
         <p class="p-sum"><span class="f-k">この項目でわかること</span>導入の検討と、資料請求の方法</p>
       </header>
       <div class="p-body">
-        <!-- 導入実績: 첫 화면과 같은 세 가지를 문의 직전에 다시 보여 준다 -->
-        <div class="f-proof">
-          <p class="f-proof-h">導入・実証</p>
-          <ul class="f-proof-list">
-            <li>自治体<b>3</b>団体と購入契約</li>
-            <li>始興市の実証で、設置地域の騒音苦情が<b>約60%</b>減少（※）</li>
-            <li>韓国電力公社 PoC</li>
-            <li>特許<b>3</b>件</li>
-          </ul>
-        </div>
-        <p class="p-cta-line">設置場所と解決したい課題をお知らせいただければ、構成案をご提案します。</p>
+        <p class="p-cta-line">設置場所と解決したい課題をお知らせいただければ、構成案をご提案します。ご連絡はメールで差し上げます。</p>
         <div class="btn-row">
           <a class="btn btn-primary btn-lg" href="contact.html#request">資料請求</a>
           <a class="btn btn-outline btn-lg" href="contact.html#inquiry">お問い合わせフォーム</a>
         </div>
-        <p class="p-cta-phone">お電話: <span data-site="phone" class="tbd">TBD</span>（受付時間 <span class="tbd">TBD</span>）</p>
       </div>
     </div>
   </section>
@@ -467,9 +467,9 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=8"></script>
+<script src="../assets/js/global.js?v=9"></script>
 <script>
-  // base 태그 때문에 #앵커가 실제 ja/index.html로 넘어가는 것을 막고, 이 페이지 안에서 이동시킨다
+  // #앵커 클릭은 이 페이지 안에서 부드럽게 이동시킨다 (scroll-margin-top이 헤더와 구역 바 높이를 뺀다)
   document.addEventListener("click", function (e) {
     var a = e.target.closest && e.target.closest('a[href^="#"]');
     if (!a) return;
@@ -481,6 +481,33 @@
     try { history.replaceState(null, "", "#" + id); } catch (err) { /* file:// 등에서 무시 */ }
   });
 
+  // 구역 바: 화면 위쪽(헤더+바 아래의 얇은 띠)에 걸린 구역을 현재로 표시한다. 첫 화면·문의 구역에서는 표시가 없다
+  (function () {
+    var bar = document.querySelector(".f-zonebar");
+    if (!bar || !("IntersectionObserver" in window)) return;
+    var list = bar.querySelector(".f-zonebar-list");
+    var links = Array.prototype.slice.call(bar.querySelectorAll('a[href^="#"]'));
+    var zones = links.map(function (a) { return document.getElementById(a.getAttribute("href").slice(1)); }).filter(Boolean);
+    var seen = {};
+    function show(id) {
+      links.forEach(function (a) {
+        var on = a.getAttribute("href") === "#" + id;
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+        if (on && list.scrollWidth > list.clientWidth) {
+          var lr = list.getBoundingClientRect(), ar = a.getBoundingClientRect();
+          list.scrollBy({ left: ar.left - lr.left - (lr.width - ar.width) / 2, behavior: "smooth" });
+        }
+      });
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) { seen[en.target.id] = en.isIntersecting; });
+      var cur = "";
+      zones.forEach(function (z) { if (seen[z.id]) cur = z.id; });
+      show(cur);
+      if (!cur && list.scrollLeft) list.scrollTo({ left: 0, behavior: "smooth" });
+    }, { rootMargin: "-110px 0px -84% 0px", threshold: 0 });
+    zones.forEach(function (z) { io.observe(z); });
+  })();
 </script>
 </body>
 </html>

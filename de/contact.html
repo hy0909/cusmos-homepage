@@ -10,8 +10,8 @@
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=9">
-<link rel="stylesheet" href="locale.css?v=12">
+<link rel="stylesheet" href="../assets/css/global.css?v=10">
+<link rel="stylesheet" href="locale.css?v=13">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -33,7 +33,7 @@
           <dl class="de-dl" id="info" style="margin-top:20px;grid-template-columns:1fr"></dl>
           <div style="margin-top:28px">
             <p class="t-small" style="font-weight:600;color:var(--c-ink)">Ansprechpartner</p>
-            <p class="t-small" style="margin-top:6px"><span class="tbd">[TBD: Name und Funktion]</span></p>
+            <p class="t-small" style="margin-top:6px"><span class="tbd">Angabe folgt (Name und Funktion)</span></p>
           </div>
           <!-- 회의실 예시 사진: 뮌헨, CUSMOS 사무실 아님 -->
           <figure class="de-photo reveal d2" style="margin-top:32px">
@@ -102,13 +102,13 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=12"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=8"></script>
+<script src="../assets/js/global.js?v=9"></script>
 <script>
   // 회사 연락처: 값이 없으면 TBD로 표시
   getSite().then((s) => {
     const rows = [["Anschrift", s.address], ["Telefon", s.phone], ["E-Mail", s.email]];
     document.getElementById("info").innerHTML = rows.map(([k, v]) =>
-      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">[TBD]</span>'}</dd></div>`).join("");
+      `<div><dt>${k}</dt><dd>${v ? esc(v) : '<span class="tbd">Angabe folgt</span>'}</dd></div>`).join("");
   });
 
   // 양식: 메일 프로그램을 열어 내용을 채운다 (서버 저장 없음)
