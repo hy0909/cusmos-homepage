@@ -10,8 +10,8 @@
 <link rel="icon" href="../assets/img/logo-symbol.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
-<link rel="stylesheet" href="../assets/css/global.css?v=5">
-<link rel="stylesheet" href="locale.css?v=7">
+<link rel="stylesheet" href="../assets/css/global.css?v=6">
+<link rel="stylesheet" href="locale.css?v=8">
 </head>
 <body>
 <a class="skip" href="#main">Zum Inhalt springen</a>
@@ -42,7 +42,7 @@
           <h2 class="t-h2 reveal d1">Lärmmonitoring in Städten</h2>
           <p class="t-lead reveal d2" style="margin-top:20px">An Orten mit wiederkehrenden Lärmbeschwerden erfasst der Sensor, welche Quelle wann und wo Lärm verursacht. Die zuständige Stelle kann Kontrollorte, Kontrollzeiten und Standorte für bauliche Maßnahmen auf Grundlage dieser Daten festlegen, ohne ständig vor Ort zu sein.</p>
         </div>
-        <figure class="media reveal" style="aspect-ratio:16/10;margin:0"><img src="../assets/img/case-siheung-en.jpg" alt="Im Stadtteil Baegot in Siheung installierte Messeinheit für Motorradlärm" loading="lazy"></figure>
+        <figure class="media reveal" style="aspect-ratio:16/10;margin:0"><img src="https://images.unsplash.com/photo-1680065362315-0b0582940c53?auto=format&fit=crop&w=900&q=75" alt="Bagger reißt ein mehrgeschossiges Gebäude in Berlin ab" loading="lazy"><figcaption>Beispielszene: Abriss in Berlin. Symbolbild.</figcaption></figure>
       </div>
       <div class="grid g-3" style="margin-top:clamp(48px,6vw,80px)">
         <div class="card reveal"><h3 class="t-h3">Bürgerinnen und Bürger</h3><p>Wie oft nachts Lärm vor der eigenen Tür auftritt und wie das im Vergleich mit anderen Gebieten aussieht.</p></div>
@@ -58,6 +58,11 @@
           </tbody>
         </table>
       </div>
+      <!-- 관제 화면: 제공 화면(Ausgabe) 설명 옆, 샘플 데이터 -->
+      <figure class="de-photo reveal" style="margin-top:40px;max-width:960px">
+        <div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=de" title="Live-Ansicht des Leitstellen-Bildschirms (Beispieldaten)" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-de.jpg" alt="Leitstellen-Bildschirm mit Karte der Schallquellen, Schwellenwert und Ereignisprotokoll" width="1920" height="1200" loading="lazy"></div>
+        <figcaption>Bildschirm mit Beispieldaten.</figcaption>
+      </figure>
       <p class="note reveal">Im Pilotprojekt Siheung sank die Zahl der Beschwerden im Installationsgebiet um etwa 60 %. Der Zeitraum war Dezember 2025 bis Juni 2026, und es gab nur Beobachtung und Hinweise, keine Kontrollen. <a href="cases.html#siheung" style="color:var(--c-accent);text-decoration:underline">Details zu Messbedingungen</a></p>
     </div>
   </section>
@@ -129,6 +134,6 @@
 <footer id="site-footer"></footer>
 <script src="site.js?v=9"></script>
 <script src="../assets/js/config.js?v=5"></script>
-<script src="../assets/js/global.js?v=7"></script>
+<script src="../assets/js/global.js?v=8"></script>
 </body>
 </html>

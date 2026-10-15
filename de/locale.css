@@ -78,7 +78,8 @@ main > .sub-nav + .sec { border-top: 0; }
 .sec-alt .card { border-color: var(--c-line); background: #fff; }
 .card-link:hover { box-shadow: none; border-color: var(--c-ink); }
 .card-link { border: 1px solid var(--c-line); }
-.card-link .media { aspect-ratio: 16 / 10; }
+.card-link .media { aspect-ratio: 16 / 10; width: 100%; }
+.card-link .media img { width: 100%; height: 100%; object-fit: cover; }
 .card-link .body .link-arrow { color: var(--c-accent); }
 .card-link .tag { font-size: 12px; font-weight: 600; letter-spacing: .04em; color: var(--c-accent); text-transform: none; }
 .de-dark-media { background: var(--c-bg-dark); }
@@ -141,6 +142,11 @@ main > .sub-nav + .sec { border-top: 0; }
 /* 사양 그림 */
 .de-figure { border: 1px solid var(--c-line); border-radius: 6px; background: var(--c-bg-alt); padding: clamp(16px, 2.4vw, 28px); }
 .de-figure svg { width: 100%; height: auto; }
+
+/* 사진 아래 짧은 설명 (예시 사진, 화면 캡처) */
+.de-photo { margin: 0; max-width: 640px; }
+.de-photo img { display: block; width: 100%; height: auto; border-radius: 6px; background: var(--c-bg-alt); }
+.de-photo figcaption { margin-top: 10px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 
 /* 모바일 */
 @media (max-width: 600px) {
