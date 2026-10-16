@@ -111,7 +111,7 @@
     el.className = "site-footer";
     el.innerHTML = `<div class="wrap">
       <div class="top">
-        <div class="brand"><img class="word" src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS"><p>시민의 문제를 발견하고, 원인을 밝히고, 해결책을 만드는 회사입니다.</p></div>
+        <div class="brand"><img class="word" src="${BASE}assets/img/logo-wordmark.png" alt="CUSMOS"><p>커즈모스는 도시와 산업 현장의 소리를 분석해 소음의 원인을 찾고, 현장의 문제를 해결하는 기술을 만듭니다.</p></div>
         <div class="cols">${NAV.map((n) => `<div><strong>${n.children.length ? n.label : `<a href="${n.href}">${n.label}</a>`}</strong>${n.children.length ? `<ul>${n.children.slice(0, 4).map((c) => `<li><a href="${c[1]}">${c[0]}</a></li>`).join("")}</ul>` : ""}</div>`).join("")}</div>
       </div>
       <div class="bottom">
