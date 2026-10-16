@@ -72,6 +72,7 @@
           <p>Giving us this information is up to you. If you do not send an enquiry, we cannot reply to it.</p>
           <h3>3.2 Technical data when pages load</h3>
           <p>When a page loads, our hosting provider, GitHub, receives your IP address, the page you requested, the time of the request, and details about your browser. The news, notices, and brand identity pages also read their content from Supabase, our database provider, which receives your IP address when those pages load. This website does not write any visitor data to Supabase.</p>
+          <p>If you open the start address without a language folder, your browser asks Cloudflare (<code>cloudflare.com/cdn-cgi/trace</code>) and GeoJS (<code>get.geojs.io</code>) at the same time which country the visit comes from. Both services receive your IP address. The site uses only the country code to send you to the matching language version and does not store it. If neither service answers in time, your browser language settings decide.</p>
           <h3>3.3 Your cookie choice</h3>
           <p>If you answer the cookie banner, your browser stores your choice and the date in its local storage under the name <code>cusmos-consent</code>. This choice stays in your browser and is not sent to us.</p>
         </section>
@@ -130,6 +131,12 @@
                   <td data-label="What it does">Stores the news, notices, and brand identity content shown on the site</td>
                   <td data-label="What it receives">IP address when those pages load</td>
                   <td data-label="Where"><span class="tbd">Server region: To be confirmed</span></td>
+                </tr>
+                <tr>
+                  <th scope="row">Cloudflare, Inc. and GeoJS</th>
+                  <td data-label="What it does">Tell the start page which country a visit comes from, to pick the language version</td>
+                  <td data-label="What it receives">IP address when the start address loads</td>
+                  <td data-label="Where"><span class="tbd">To be confirmed</span></td>
                 </tr>
                 <tr>
                   <th scope="row">Mail service provider</th>

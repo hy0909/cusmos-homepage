@@ -68,7 +68,7 @@ GitHub Pages에는 서버가 없어서 국가는 외부 서비스로 알아낸�
 | 회사 소개 | `company.html` | About | 会社情報 | Unternehmen | 회사소개 |
 | 문의 | `contact.html` | Book a demo | お問い合わせ・資料請求 | Kontakt | 도입 문의 |
 | 회사 표기 | `impressum.html` | | | Impressum | |
-| 개인정보 처리 방침 | `privacy.html` | | | Datenschutz | |
+| 개인정보 처리방침 | `privacy.html` | Privacy Policy | プライバシーポリシー | Datenschutz | 개인정보 처리방침 (푸터에 굵은 하늘색) |
 | 게시판 | `notice.html`, `news.html`, `ci.html` | News & notices | ニュース・お知らせ | Aktuelles | 없음 |
 | 채용 | (삭제) | | | | 없음 |
 
