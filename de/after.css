@@ -14,12 +14,12 @@
 /* 링크: 색과 밑줄로만 기능을 알린다. 어두운 첫 화면에서는 흰색 */
 .p-link { color: var(--c-accent); font-weight: 600; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; }
 .p-link:hover { color: var(--c-ink); }
-.p-hero .p-link { color: #fff; text-decoration-color: rgba(255, 255, 255, .6); }
-.p-hero .p-link:hover { color: #fff; text-decoration-color: #fff; }
+.p-hero .p-link { color: var(--gray-0); text-decoration-color: rgba(255, 255, 255, .6); }
+.p-hero .p-link:hover { color: var(--gray-0); text-decoration-color: var(--gray-0); }
 
 /* 주 버튼: 그라데이션 면. 그라데이션 위의 글자는 모두 흰색 */
-.p-btn { background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); color: #fff; font-weight: 700; }
-.p-btn:hover { color: #fff; box-shadow: 0 10px 24px -14px rgba(5, 6, 13, .5); }
+.p-btn { background: linear-gradient(rgba(5,6,13,.35), rgba(5,6,13,.35)), var(--grad); color: var(--gray-0); font-weight: 700; }
+.p-btn:hover { color: var(--gray-0); box-shadow: 0 10px 24px -14px rgba(5, 6, 13, .5); }
 
 /* 투명성 줄: 첫 화면 바로 아래 */
 .p-trust { background: var(--c-bg-alt); border-top: 1px solid var(--c-line); border-bottom: 1px solid var(--c-line); padding: 18px 0; }
@@ -66,7 +66,7 @@
 .p-ch-text .p-steps + p { margin-top: 28px; }
 
 /* 표: 모든 표가 같은 모양과 같은 여백을 쓴다 */
-.p-table-wrap { border: 1px solid var(--c-line); border-radius: 6px; overflow-x: auto; background: #fff; }
+.p-table-wrap { border: 1px solid var(--c-line); border-radius: 6px; overflow-x: auto; background: var(--gray-0); }
 .p-table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.5; }
 .p-table th, .p-table td { padding: 11px 14px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--c-line); }
 .p-table tr:last-child th, .p-table tr:last-child td { border-bottom: 0; }
@@ -77,7 +77,7 @@
 .p-table-note { margin-top: 12px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 
 /* 근거 그림 (작동 방식 도식) */
-.p-fig { margin: 0; border: 1px solid var(--c-line); border-radius: 6px; background: #fff; padding: 14px; }
+.p-fig { margin: 0; border: 1px solid var(--c-line); border-radius: 6px; background: var(--gray-0); padding: 14px; }
 .p-fig svg { width: 100%; height: auto; }
 .p-fig figcaption { margin-top: 12px; font-size: 13px; color: var(--c-muted); line-height: 1.6; }
 

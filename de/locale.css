@@ -23,7 +23,7 @@
 .btn { border: 0; }
 .btn-outline { background: var(--c-bg-alt); color: var(--c-ink); }
 .btn-outline:hover { background: var(--c-line); }
-.btn-ghost-light { background: rgba(255,255,255,.14); color: #fff; }
+.btn-ghost-light { background: rgba(255,255,255,.14); color: var(--gray-0); }
 .btn-ghost-light:hover { background: rgba(255,255,255,.22); }
 .lang-btn { border-radius: 6px; }
 
@@ -75,7 +75,7 @@ main > .sub-nav + .sec { border-top: 0; }
 
 /* 카드: 구분선 기반 */
 .card { border-radius: 6px; }
-.sec-alt .card { border-color: var(--c-line); background: #fff; }
+.sec-alt .card { border-color: var(--c-line); background: var(--gray-0); }
 .card-link:hover { box-shadow: none; border-color: var(--c-ink); }
 .card-link { border: 1px solid var(--c-line); }
 .card-link .media { aspect-ratio: 16 / 10; width: 100%; }

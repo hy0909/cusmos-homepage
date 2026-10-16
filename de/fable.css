@@ -3,7 +3,7 @@
 
 /* global.css의 --c-accent(브랜드 목록에 없는 진보라)는 이 페이지에서 잉크색으로 바꾼다.
    보라 #A46BFF는 큰 숫자와 작은 선에만 쓴다. 작은 글자에 쓰면 대비가 부족하다 */
-body { --c-accent: #05060d; }
+body { --c-accent: var(--navy); }
 
 /* 투명성 줄: 다섯 항목을 한 줄에 맞추고, 좁으면 자동으로 줄바꿈 */
 .p-trust-list { grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); }
@@ -36,10 +36,10 @@ body { --c-accent: #05060d; }
 
 /* 버튼: 평면. 그림자와 이동 효과 없이 그라데이션 면과 흰 글자 */
 .p-btn { font-size: 16px; }
-.p-btn:hover { box-shadow: none; transform: none; color: #fff; }
+.p-btn:hover { box-shadow: none; transform: none; color: var(--gray-0); }
 
 /* 법적 고지 상자: 문서 끝 앞에서 항상 보이는 목록 */
-.f-legal { border-top: 1px solid var(--c-line-strong); padding: clamp(40px, 5vw, 56px) 0; background: #fff; }
+.f-legal { border-top: 1px solid var(--c-line-strong); padding: clamp(40px, 5vw, 56px) 0; background: var(--gray-0); }
 .f-legal-title { font-family: var(--font-head); font-size: var(--fs-h3); font-weight: 700; color: var(--c-ink); margin: 0 0 16px; }
 .f-legal-list { list-style: none; margin: 0; padding: 0; border: 1px solid var(--c-line); border-radius: 6px; }
 .f-legal-list li { display: grid; grid-template-columns: minmax(160px, 220px) minmax(0, 1fr); gap: 4px 20px; padding: 14px 18px; font-size: 15px; line-height: 1.6; color: var(--c-text); }
@@ -56,7 +56,7 @@ body { --c-accent: #05060d; }
 }
 
 /* 하위 페이지 (main.f-sub): 첫 화면은 사진 없이 밝은 바탕에 문구와 장 목차. 장·표·문의 띠·법적 고지는 메인과 같다 */
-.f-page-hero { padding: calc(var(--header-h) + clamp(40px, 6vw, 72px)) 0 clamp(36px, 5vw, 56px); border-bottom: 1px solid var(--c-line); background: #fff; }
+.f-page-hero { padding: calc(var(--header-h) + clamp(40px, 6vw, 72px)) 0 clamp(36px, 5vw, 56px); border-bottom: 1px solid var(--c-line); background: var(--gray-0); }
 .f-page-hero .eyebrow { margin-bottom: 16px; color: var(--c-muted); }
 .f-page-hero h1 { max-width: 760px; }
 .f-page-hero .p-hero-text p { color: var(--c-text); }
