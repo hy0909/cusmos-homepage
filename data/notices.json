@@ -1,6 +1,36 @@
 {
   "items": [
     {
+      "id": "n-20261016-open-de",
+      "title": "Unsere neue Website ist online",
+      "date": "2026-10-16",
+      "pinned": true,
+      "published": true,
+      "body": "Die neue Website von CUSMOS ist online.\n\nHier sehen Sie, wie unsere Sensoren Geräusche erkennen und ihre Quelle orten, welche Ergebnisse das Pilotprojekt in Siheung und der Machbarkeitsnachweis (PoC) im Kraftwerk Taean von KEPCO gebracht haben und welche technischen Daten dahinterstehen. Neuigkeiten und Hinweise veröffentlichen wir künftig an dieser Stelle.\n\nFür Anfragen zu Pilotprojekten oder Kooperationen nutzen Sie bitte unser [Kontaktformular](contact.html).",
+      "attachments": [],
+      "lang": "de"
+    },
+    {
+      "id": "n-20261016-open-ja",
+      "title": "ホームページを公開しました",
+      "date": "2026-10-16",
+      "pinned": true,
+      "published": true,
+      "body": "CUSMOSのホームページを公開しました。\n\nセンサーが音の種類と発生場所を特定する仕組み、始興市での実証と韓国電力公社 泰安火力発電所でのPoCの結果、製品の仕様を掲載しています。今後は、このページで会社のニュースとお知らせをお伝えします。\n\n導入や提携のご相談は、[お問い合わせ](contact.html)ページからご連絡ください。",
+      "attachments": [],
+      "lang": "ja"
+    },
+    {
+      "id": "n-20261016-open-en",
+      "title": "Our new website is live",
+      "date": "2026-10-16",
+      "pinned": true,
+      "published": true,
+      "body": "We have launched the new CUSMOS website.\n\nYou can see how our sensors identify a noise and locate where it came from, what we found in the Siheung City pilot and the KEPCO Taean proof of concept, and the technical details behind both. We will post company news and notices on this page.\n\nTo talk about a pilot or a partnership, please use the [contact page](contact.html).",
+      "attachments": [],
+      "lang": "en"
+    },
+    {
       "id": "n-20261012-open",
       "title": "커즈모스 홈페이지를 새로 열었습니다",
       "date": "2026-10-12",
