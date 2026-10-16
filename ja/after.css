@@ -146,3 +146,9 @@
   .p-hero h1 { font-size: 28px; }
   .p-table th { width: 36%; }
 }
+
+/* 개인정보 처리방침 목록 (privacy.html) */
+.p-ul { margin: 12px 0 16px; padding-left: 1.3em; color: var(--c-muted); line-height: 1.8; }
+.p-ul li { list-style: disc; }
+.p-ul li + li { margin-top: 8px; }
+.p-ul strong { color: var(--c-ink); font-weight: 700; }

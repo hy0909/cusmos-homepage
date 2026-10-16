@@ -41,7 +41,7 @@ window.SITE = {
   address: "大韓民国 江原特別自治道 春川市 江原大学キル1 208-1号",
   cta: { label: "資料請求", href: "contact.html#request" },
   tagline: "CUSMOSは、小型のエッジAI音響センサーで、都市と産業現場の音の種類と発生場所を特定する会社です。",
-  legal: [],
+  legal: [["プライバシーポリシー", "privacy.html"]],
   companyRows: (s) => [["メール", s.email], ["電話", s.phone], ["所在地", s.address]],
   pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },
 };

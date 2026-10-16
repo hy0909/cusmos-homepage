@@ -37,7 +37,7 @@ window.SITE = {
   address: "Room 208-1, 1 Gangwondaehak-gil, Chuncheon-si, Gangwon State, Republic of Korea",
   cta: { label: "Book a demo", href: "contact.html" },
   tagline: "Sound intelligence for cities and industrial sites. Edge AI sensors that identify each sound and show where it came from.",
-  legal: [],
+  legal: [["Privacy Policy", "privacy.html"]],
   companyRows: (s) => [["Address", s.address], ["Phone", s.phone], ["Email", s.email]],
   pageGroup: { "notice.html": "news.html", "ci.html": "news.html", },
 };

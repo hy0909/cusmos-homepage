@@ -30,8 +30,21 @@
           <div class="full"><label for="topic">관심 솔루션</label>
             <select id="topic"><option>스마트시티 소음 관측</option><option>산업안전 이상음 탐지</option><option>휴대용 초음파 카메라</option><option>기타·제휴</option></select></div>
           <div class="full"><label for="msg">문의 내용</label><textarea id="msg" required placeholder="설치 장소, 대상 소음, 예상 규모 등을 적어 주세요."></textarea></div>
+          <div class="full" style="border:1px solid var(--ink-line);border-radius:12px;padding:20px 22px;background:#fff">
+            <p style="font-size:15px;font-weight:700;color:var(--ink)">개인정보 수집·이용 동의 (필수)</p>
+            <dl style="margin-top:12px;display:grid;grid-template-columns:auto 1fr;gap:8px 18px;font-size:14px;line-height:1.6;color:var(--ink-2)">
+              <dt style="font-weight:600;color:var(--ink)">수집·이용 목적</dt><dd style="margin:0">도입 문의 접수와 답변</dd>
+              <dt style="font-weight:600;color:var(--ink)">수집 항목</dt><dd style="margin:0">기관·회사명, 담당자, 이메일, 문의 내용(필수), 연락처, 관심 솔루션(선택)</dd>
+              <dt style="font-weight:600;color:var(--ink)">보유·이용 기간</dt><dd style="margin:0">문의 처리가 끝난 날부터 3년. 그 뒤 파기합니다.</dd>
+              <dt style="font-weight:600;color:var(--ink)">동의를 거부할 권리</dt><dd style="margin:0">동의하지 않으셔도 됩니다. 다만 이 양식으로는 문의를 보낼 수 없고, 이메일로 직접 보내셔야 합니다.</dd>
+            </dl>
+            <label style="display:flex;gap:10px;align-items:flex-start;margin:16px 0 0;font-size:15px;font-weight:400;color:var(--ink-2);cursor:pointer">
+              <input id="consent" type="checkbox" required style="width:18px;height:18px;margin:2px 0 0;padding:0;flex:none;accent-color:#0b0c17">
+              <span>위 내용을 확인했고, <a href="privacy.html" style="color:var(--ink);text-decoration:underline">개인정보 처리방침</a>에 따라 개인정보를 수집·이용하는 데 동의합니다.</span>
+            </label>
+          </div>
           <div class="full"><button class="btn" style="background:var(--ink);color:#fff" type="submit">메일로 보내기 <i class="arr"></i></button>
-            <p class="note" style="margin-top:12px">버튼을 누르면 사용하시는 메일 프로그램이 열리고, 적은 내용이 채워집니다.</p></div>
+            <p class="note" style="margin-top:12px">버튼을 누르면 사용하시는 메일 프로그램이 열리고, 적은 내용이 채워집니다. 보내기 전에 <a href="privacy.html" style="color:var(--ink);text-decoration:underline">개인정보 처리방침</a>을 확인해 주세요.</p></div>
         </form>
       </div>
     </div>
@@ -39,11 +52,13 @@
 </main>
 <footer id="site-footer"></footer>
 <script src="../assets/js/config.js?v=8"></script>
-<script src="../assets/js/common.js?v=11"></script>
+<script src="../assets/js/common.js?v=12"></script>
 <script>
   getData("site", {}).then((s) => {
     document.getElementById("form").addEventListener("submit", (e) => {
       e.preventDefault();
+      // 개인정보 수집·이용 동의를 해야만 보낼 수 있다
+      if (!document.getElementById("consent").checked) return alert("개인정보 수집·이용에 동의해 주셔야 문의를 보낼 수 있습니다.");
       if (!s.email) return alert("문의 메일 주소를 준비하고 있습니다. 잠시 후 다시 시도해 주세요.");
       const v = (id) => document.getElementById(id).value.trim();
       const body = `기관·회사명: ${v("org")}\n담당자: ${v("name")}\n연락처: ${v("tel")}\n이메일: ${v("mail")}\n관심 솔루션: ${v("topic")}\n\n${v("msg")}`;

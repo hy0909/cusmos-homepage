@@ -77,6 +77,7 @@
 .en-form-note { margin-top: 12px; font-size: 14px; color: var(--c-muted); }
 /* 제출 버튼 위 개인정보 안내 한 줄 (#4a4f68, 흰 바탕 8.05:1) */
 .en-privacy { margin-bottom: 16px; font-size: 14px; line-height: 1.55; color: var(--c-muted); }
+.en-privacy a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 3px; }
 
 /* 사진 설명 캡션과 출처 줄: 작고 흐린 회색 (#4a4f68, 흰 바탕 8.05:1) */
 .en-figure { margin: 0; min-width: 0; }
@@ -103,3 +104,35 @@
 
 /* 푸터 로고: 일본어·독일어판과 같은 45px (공통 18px의 2.5배) */
 .gf .brand img { height: 45px; }
+
+/* 개인정보 처리방침 본문 */
+.en-effective { margin-top: 18px; font-size: 15px; font-weight: 600; color: var(--c-ink); }
+.en-legal-wrap { max-width: 880px; }
+.en-toc { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px 28px; padding: 20px 24px; background: var(--c-bg-alt); border-radius: var(--radius); font-size: 15px; }
+.en-toc a { color: var(--c-ink); text-decoration: underline; text-decoration-color: var(--c-line-strong); text-underline-offset: 3px; }
+.en-toc a:hover { color: var(--c-accent); }
+.en-legal section + section { margin-top: 44px; }
+.en-legal h2 { font-size: 24px; font-weight: 700; color: var(--c-ink); margin-bottom: 14px; letter-spacing: -0.01em; scroll-margin-top: 100px; }
+.en-legal h3 { font-size: 17px; font-weight: 600; color: var(--c-ink); margin: 24px 0 8px; }
+.en-legal p + p { margin-top: 12px; }
+.en-legal ul { margin-top: 10px; }
+.en-legal ul li { position: relative; padding-left: 18px; }
+.en-legal ul li + li { margin-top: 6px; }
+.en-legal ul li::before { content: ""; position: absolute; left: 0; top: .65em; width: 8px; height: 2px; background: var(--c-accent); }
+.en-legal a { color: var(--c-accent); text-decoration: underline; text-underline-offset: 3px; }
+.en-legal code { font-size: .92em; background: var(--c-bg-alt); padding: 1px 6px; border-radius: 4px; overflow-wrap: anywhere; }
+.en-legal .table-wrap { margin-top: 14px; }
+.en-legal .table { font-size: 15px; }
+.en-legal .table tbody th { width: 30%; }
+.en-legal-note { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--c-line); font-size: 14px; color: var(--c-muted); }
+.en-legal-wrap .btn { margin-top: 4px; }
+@media (max-width: 600px) {
+  .en-toc { grid-template-columns: 1fr; padding: 18px; }
+  .en-legal .table thead { display: none; }
+  .en-legal .table, .en-legal .table tbody, .en-legal .table tr, .en-legal .table th, .en-legal .table td { display: block; width: 100%; }
+  .en-legal .table tr { padding: 14px 18px; border-bottom: 1px solid var(--c-line); }
+  .en-legal .table tr:last-child { border-bottom: 0; }
+  .en-legal .table th, .en-legal .table td { padding: 4px 0; border: 0; background: none; }
+  .en-legal .table tbody th { width: 100%; padding-bottom: 8px; }
+  .en-legal .table td::before { content: attr(data-label); display: block; font-size: 12px; font-weight: 600; color: var(--c-muted); margin-bottom: 2px; }
+}

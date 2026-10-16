@@ -14,10 +14,10 @@
   const BASE = document.body.dataset.base || "";
   // 언어 메뉴: 같은 페이지가 그 언어에 있으면 그 페이지로, 없으면 메인으로 간다
   const LANGS = [
-    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html"] },
-    { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
-    { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
-    { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html"] },
+    { code: "ko", label: "한국어", pages: ["index.html", "company.html", "technology.html", "solutions.html", "cases.html", "contact.html", "privacy.html"] },
+    { code: "en", label: "English", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html", "privacy.html"] },
+    { code: "ja", label: "日本語", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html", "privacy.html"] },
+    { code: "de", label: "Deutsch", pages: ["index.html", "solutions.html", "technology.html", "cases.html", "company.html", "contact.html", "notice.html", "news.html", "ci.html", "impressum.html", "privacy.html"] },
   ];
   const langHref = (l) => {
     const cur = location.pathname.split("/").pop() || "index.html";
@@ -116,7 +116,10 @@
       </div>
       <div class="bottom">
         <dl>${[["", site.company || "주식회사 커즈모스"], ...info].map((r) => `<div>${r[0] ? `<dt>${r[0]}</dt>` : ""}<dd>${esc(r[1])}</dd></div>`).join("")}</dl>
-        <span>© ${new Date().getFullYear()} CUSMOS. All rights reserved.</span>
+        <div style="display:flex;gap:24px;flex-wrap:wrap;align-items:center">
+          <a href="privacy.html" style="font-weight:700;color:var(--sky)">개인정보 처리방침</a>
+          <span>© ${new Date().getFullYear()} CUSMOS. All rights reserved.</span>
+        </div>
       </div></div>`;
   }
 
