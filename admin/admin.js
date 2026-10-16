@@ -340,8 +340,8 @@
       const pv = $("#pv");
       if (k === "ci") {
         pv.innerHTML = `<div class="cap">미리보기</div>${d.kind === "color"
-          ? `<div style="height:160px;border-radius:14px;background:${/^#[0-9a-f]{3,8}$/i.test(d.hex || "") ? d.hex : "#ddd"}"></div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.hex || "")} ${esc(d.description || "")}</div>`
-          : `<div style="height:220px;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:32px;background:${d.bg === "light" ? "#f5f6fa" : "#05060d"}">${d.preview ? `<img src="${esc(asset(d.preview))}" style="max-height:100%;max-width:70%">` : '<span style="color:#9aa0b5">이미지를 올려 주세요</span>'}</div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.description || "")}</div>`}`;
+          ? `<div style="height:160px;border-radius:14px;background:${/^#[0-9a-f]{3,8}$/i.test(d.hex || "") ? d.hex : "#e3e5ee"}"></div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.hex || "")} ${esc(d.description || "")}</div>`
+          : `<div style="height:220px;border-radius:14px;display:flex;align-items:center;justify-content:center;padding:32px;background:${d.bg === "light" ? "#f5f6fa" : "#05060d"}">${d.preview ? `<img src="${esc(asset(d.preview))}" style="max-height:100%;max-width:70%">` : '<span style="color:#9ba1bb">이미지를 올려 주세요</span>'}</div><h2 class="pt" style="margin-top:16px">${esc(d.title || "")}</h2><div class="pm">${esc(d.description || "")}</div>`}`;
         return;
       }
       const meta = k === "careers" ? [d.team, d.type, d.career, d.location, d.deadline ? `마감 ${fmtDate(d.deadline)}` : "상시 채용"] : [d.source, fmtDate(d.date)];
@@ -349,7 +349,7 @@
       pv.innerHTML = `<div class="cap">사이트 미리보기</div>
         ${d.thumbnail ? `<img src="${esc(asset(d.thumbnail))}" style="width:100%;border-radius:12px;margin-bottom:20px">` : ""}
         <h2 class="pt">${esc(d.title || "제목을 입력하세요")}</h2><div class="pm">${meta.filter(Boolean).map(esc).join(" · ")}</div>
-        <div class="md">${body || '<p style="color:#9aa0b5">본문이 여기에 보여요.</p>'}</div>
+        <div class="md">${body || '<p style="color:var(--ink-2)">본문이 여기에 보여요.</p>'}</div>
         ${(d.attachments || []).length ? `<p style="margin-top:24px;font-weight:600">첨부파일</p>${d.attachments.map((a) => `<div>📎 ${esc(a.name)}</div>`).join("")}` : ""}`;
     };
     draw();
