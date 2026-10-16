@@ -4,11 +4,11 @@
   --fs-item-title: 19px;
   --gap-item-title: 2px;
   --bg: var(--navy);
-  --bg-2: #0b0d1a;
+  --bg-2: var(--gray-100);
   --surface: var(--gray-90);
   --line: rgba(255, 255, 255, 0.09);
   --line-2: rgba(255, 255, 255, 0.16);
-  --text: #f3f4fa;
+  --text: var(--gray-5);
   --muted: var(--gray-30);
   --dim: var(--gray-50);
   --pink: #f45fc8;
@@ -178,7 +178,7 @@ section { position: relative; }
 }
 .hero .wrap { position: relative; z-index: 2; padding-bottom: clamp(80px, 12vh, 140px); }
 .hero h1 { font-size: calc(clamp(44px, 7.4vw, 104px) - 8pt); line-height: 1.08; font-weight: 800; letter-spacing: -0.045em; margin-top: 28px; }
-.hero p.lead { margin-top: 32px; max-width: 560px; font-size: clamp(17px, 1.5vw, 20px); color: #c4c8dc; }
+.hero p.lead { margin-top: 32px; max-width: 560px; font-size: clamp(17px, 1.5vw, 20px); color: var(--gray-20); }
 .hero .cta { margin-top: 44px; display: flex; gap: 12px; flex-wrap: wrap; }
 .hero .scroll-cue {
   position: absolute; right: var(--gutter); bottom: 48px; z-index: 2; display: flex; align-items: center; gap: 14px;

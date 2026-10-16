@@ -15,7 +15,7 @@
   --c-accent: #7a45e6;
   --c-accent-ink: var(--gray-0);
   --c-accent-soft: #f1eaff;
-  --c-on-dark: #f3f4fa;
+  --c-on-dark: var(--gray-5);
   --c-on-dark-muted: var(--gray-30);
   --pink: #f45fc8;
   --violet: #a46bff;
