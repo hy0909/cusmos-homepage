@@ -51,7 +51,6 @@
 .f-num small { margin-left: 4px; font-size: .45em; font-weight: 600; }
 .f-about { margin-right: 6px; font-size: .42em; font-weight: 600; letter-spacing: 0; vertical-align: .9em; }
 .f-result-label { margin-top: 16px; font-size: 18px; font-weight: 700; color: #fff; }
-.f-result-means { margin-top: 10px; font-size: 16px; line-height: 1.5; font-weight: 500; color: #fff; }
 .f-result-src { margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,.3); font-size: 14px; line-height: 1.55; font-weight: 500; color: rgba(255,255,255,.88); }
 
 /* 공통 본문 블록 */
