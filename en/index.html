@@ -14,29 +14,26 @@
 <link rel="stylesheet" href="../assets/css/fonts.css?v=1">
 <link rel="stylesheet" href="../assets/css/global.css?v=11">
 <link rel="stylesheet" href="locale.css?v=16">
-<link rel="stylesheet" href="fable.css?v=111">
+<link rel="stylesheet" href="fable.css?v=112">
 </head>
 <body data-hero="dark">
 <a class="skip" href="#main">Skip to content</a>
 <header id="site-header"></header>
 <main id="main">
 
-  <!-- 1. 첫 화면: 출처 있는 문제 한 줄, 6단어 제목, 설명 한 줄, 주요 버튼 1개와 성과 한 줄, 대표 기능 바로가기 3개 -->
+  <!-- 1. 첫 화면: 6단어 제목, 주요 버튼 1개, 대표 기능 바로가기 3개, 그 아래 작은 성과 한 줄 -->
   <section class="f-hero">
     <div class="f-hero-bg"><img src="../assets/img/photos/photo-1506426305266-2b7e740fd828-1200.jpg" srcset="../assets/img/photos/photo-1506426305266-2b7e740fd828-1200.jpg 1200w, ../assets/img/photos/photo-1506426305266-2b7e740fd828-1920.jpg 1920w" sizes="100vw" alt="Traffic light trails on a city street at night" width="1200" height="800" fetchpriority="high"></div>
     <div class="wrap f-hero-inner">
-      <p class="f-problem">96.6% of Korea's national noise monitoring sites are still manual.</p>
       <h1 class="f-h1">Pinpoint each noise: what, where, when.</h1>
-      <p class="f-lead-hero">Small sensors on existing poles cover a whole district around the clock.</p>
       <div class="f-actions">
         <a class="f-btn-main" href="contact.html">Book a demo</a>
-        <p class="f-proof">Siheung pilot: about 60% fewer complaints in the installed area.</p>
       </div>
       <nav class="f-jumps" aria-label="Key functions">
         <ul class="f-jump-list">
           <li><a class="f-jump" href="technology.html#sensor">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10v4M7 7v10M11 4v16M15 7v10M19 10v4"/></svg>
-            <span>24/7 detection</span></a></li>
+            <span>24/7 sound sensors</span></a></li>
           <li><a class="f-jump" href="technology.html#array">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-6.5-5.6-6.5-11a6.5 6.5 0 0 1 13 0c0 5.4-6.5 11-6.5 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
             <span>Source location</span></a></li>
@@ -45,6 +42,7 @@
             <span>Alerts and records</span></a></li>
         </ul>
       </nav>
+      <p class="f-proof">Siheung pilot: about 60% fewer complaints in the installed area.</p>
     </div>
   </section>
 
@@ -116,8 +114,18 @@
           </div>
         </article>
       </div>
-      <!-- 제어 화면 예시 (샘플 데이터) -->
+      <!-- 제어 화면 예시 (샘플 데이터): 제목 한 줄, 화면, 화면에서 볼 것 세 가지 -->
+      <div class="f-dash-head">
+        <span class="f-eyebrow">Control screen</span>
+        <h3 class="f-h2 f-dash-title">What operators see</h3>
+        <p>Alerts from the sensors appear on one control screen. Try the sample view below.</p>
+      </div>
       <div class="media wide reveal f-dash"><div class="dash-embed"><iframe src="../assets/dashboard/index.html?lang=en" title="CUSMOS control screen, live view with sample data" loading="lazy" tabindex="-1" aria-hidden="true"></iframe><img class="dash-fallback" src="../assets/img/dashboard-en.jpg" alt="CUSMOS control screen with a sensor map and a live detection log" width="1920" height="1200" loading="lazy"></div></div>
+      <ol class="f-steps cols-3 f-dash-points">
+        <li class="f-step"><span class="f-step-no">01</span><h3>Map and direction</h3><p>See where each sensor is and which way the latest sound came from. Switch to the noise heatmap or the CCTV view.</p></li>
+        <li class="f-step"><span class="f-step-no">02</span><h3>Live detection log</h3><p>Each event lists its type, level, place, and time. Filter by type. The sample log also has a CCTV view button.</p></li>
+        <li class="f-step"><span class="f-step-no">03</span><h3>Daily summary</h3><p>Detections today, night detections, and the average level, with an hourly chart.</p></li>
+      </ol>
       <p class="note reveal f-dash-note">The control screen above shows sample data.</p>
     </div>
   </section>

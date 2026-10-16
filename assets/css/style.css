@@ -525,6 +525,8 @@ body.header-visible .sub-tabs { top: var(--header-h); }
 @keyframes heroIn { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: none; } }
 
 /* 좁은 화면에서는 영상이 글 뒤로 들어오므로 아래쪽을 더 어둡게 덮어 글을 읽기 쉽게 한다 */
+/* 휴대폰: 메인 첫 화면 제목을 키운다. 375px에서 약 43px, 320px에서도 "도시의 소리를"이 한 줄에 들어간다 */
+@media (max-width: 760px) { .hero h1 { font-size: clamp(40px, 11.5vw, 56px); } }
 @media (max-width: 760px) { .hero::after { background: linear-gradient(180deg, rgba(5, 6, 13, .55) 0%, rgba(5, 6, 13, 0) 20%, rgba(5, 6, 13, .55) 45%, rgba(5, 6, 13, .95) 70%); } }
 
 /* 헤더 언어 메뉴 */
