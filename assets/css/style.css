@@ -264,9 +264,16 @@ section { position: relative; }
 /* 파트너 띠 */
 .partners { padding: 72px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
 .partners .label { text-align: center; font-size: 14px; color: var(--muted); margin-bottom: 36px; }
-.marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
-.marquee span { padding: 0 48px; font-size: clamp(22px, 2.4vw, 32px); font-weight: 700; color: #565b78; white-space: nowrap; letter-spacing: -0.02em; }
-.marquee span::after { content: "·"; margin-left: 96px; color: #33364c; }
+.marquee { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee .logo { flex: none; display: flex; align-items: center; justify-content: center; height: 88px; padding: 0 40px; margin-right: 16px; border-radius: 16px; background: var(--gray-0); }
+.marquee .logo img { display: block; width: auto; height: var(--h); }
+.marquee .logo.txt { font-size: 17px; font-weight: 700; color: var(--gray-70); letter-spacing: -0.02em; white-space: nowrap; }
+.partners:hover .marquee { animation-play-state: paused; }
+@media (max-width: 760px) {
+  .marquee .logo { height: 72px; padding: 0 28px; margin-right: 12px; }
+  .marquee .logo img { height: calc(var(--h) * .85); }
+  .marquee .logo.txt { font-size: 15px; }
+}
 @keyframes marquee { to { transform: translateX(-50%); } }
 
 /* 뉴스 카드 */
