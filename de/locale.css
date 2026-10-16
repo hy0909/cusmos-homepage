@@ -168,3 +168,4 @@ main > .sub-nav + .sec { border-top: 0; }
   .table { table-layout: fixed; }
   .table th, .table td { overflow-wrap: anywhere; hyphens: auto; }
 }
+.de-legal h2 a { color: inherit; }

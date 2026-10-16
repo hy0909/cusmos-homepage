@@ -115,3 +115,4 @@
   .p-table th, .p-table td { padding: 10px 12px; }
   .p-contact-in .btn { width: 100%; }
 }
+.p-ch-text a[target="_blank"] { color: var(--c-accent); text-decoration: underline; text-underline-offset: 3px; }
