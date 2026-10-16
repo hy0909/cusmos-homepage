@@ -136,3 +136,17 @@ body.header-hidden .f-zonebar { top: 0; }
 .f-sub .p-row dd .p-src { color: var(--c-muted); }
 /* 게시판: 구역 본문 안에서 그대로 쓴다. 목록 윗선은 구역 틀의 선과 겹치지 않게 1px */
 .f-sub .b-list { border-top-width: 1px; }
+
+/* 07 導入事例 아래 도입·연계 기관 로고 격자. 흰 타일에 원본 로고, 아래에 기관명·구분 */
+.pt-h { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--c-line); }
+.pt-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px 12px; }
+.pt-tile { display: flex; align-items: center; justify-content: center; height: 72px; padding: 0 16px; border: 1px solid var(--c-line); border-radius: 10px; background: var(--gray-0); }
+.pt-tile img { display: block; width: auto; max-width: 100%; height: var(--h); object-fit: contain; }
+.pt-txt { font-size: 14px; font-weight: 700; line-height: 1.4; text-align: center; color: var(--gray-70); word-break: keep-all; }
+.pt-name { margin: 8px 0 0; font-size: 14px; font-weight: 700; line-height: 1.5; color: var(--c-ink); }
+.pt-type { margin: 0; font-size: 13px; line-height: 1.5; color: var(--c-muted); }
+@media (max-width: 600px) {
+  .pt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pt-tile { height: 64px; padding: 0 12px; }
+  .pt-tile img { height: calc(var(--h) * .82); }
+}

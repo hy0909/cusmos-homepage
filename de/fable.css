@@ -78,3 +78,16 @@ body { --c-accent: var(--navy); }
 .p-ch-text > .form { margin-top: 24px; }
 /* 연혁 목록: 작동 단계와 같은 모양, 날짜 라벨 */
 .p-steps .p-step-date { display: block; font-size: 13px; font-weight: 600; letter-spacing: .04em; color: var(--c-ink); font-variant-numeric: tabular-nums; }
+
+/* Kapitel 5, Abbildung 3: Logos der Einrichtungen mit Name und Art, darunter die Quelle */
+.pt-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px 12px; }
+.pt-tile { display: flex; align-items: center; justify-content: center; height: 64px; padding: 0 12px; border: 1px solid var(--c-line); border-radius: 6px; background: var(--gray-0); }
+.pt-tile img { display: block; width: auto; max-width: 100%; height: var(--h); object-fit: contain; }
+.pt-txt { font-size: 13px; font-weight: 600; line-height: 1.35; text-align: center; color: var(--gray-70); word-break: keep-all; }
+.pt-name { margin: 8px 0 0; font-size: 13px; font-weight: 600; line-height: 1.4; color: var(--c-ink); hyphens: auto; }
+.pt-type { margin: 0; font-size: 13px; line-height: 1.4; color: var(--c-muted); }
+.pt-src { margin-top: 14px; font-size: 13px; line-height: 1.5; color: var(--c-muted); }
+@media (max-width: 600px) {
+  .pt-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .pt-tile img { height: calc(var(--h) * .85); }
+}
