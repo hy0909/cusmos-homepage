@@ -363,3 +363,26 @@ figure:has(> .dash-embed), div:has(> .dash-embed) { border-radius: clamp(12px, 1
   .dash-embed iframe { display: none; }
   .dash-embed .dash-fallback { display: block; }
 }
+
+/* 동의 창 (en/de, assets/js/consent.js). 아래쪽에 뜨는 띠 모양이고 화면 전체를 가리지 않는다. 버튼 두 개는 같은 모양이다. */
+.cc-banner { position: fixed; left: 16px; right: 16px; bottom: 16px; z-index: 900; max-width: 880px; margin: 0 auto; background: var(--c-bg-dark); color: var(--c-on-dark); border: 1px solid rgba(164,107,255,.5); border-radius: 16px; box-shadow: 0 12px 40px rgba(5,6,13,.35); }
+.cc-banner[hidden] { display: none; }
+.cc-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 24px; padding: 18px 22px; }
+.cc-text { flex: 1 1 360px; font-size: 15px; line-height: 1.55; color: var(--c-on-dark); }
+.cc-link { color: var(--sky); text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }
+.cc-actions { display: flex; gap: 10px; flex: 0 0 auto; }
+.cc-btn { min-width: 132px; height: 44px; padding: 0 22px; border-radius: 999px; border: 1px solid var(--c-on-dark); background: var(--c-on-dark); color: var(--c-bg-dark); font-size: 15px; font-weight: 600; cursor: pointer; }
+.cc-btn:hover { background: var(--sky); border-color: var(--sky); }
+.cc-banner :focus-visible { outline-color: var(--sky); }
+@media (prefers-reduced-motion: no-preference) {
+  .cc-banner:not([hidden]) { animation: cc-rise .3s var(--ease) both; }
+  .cc-btn { transition: background .2s, border-color .2s; }
+}
+@keyframes cc-rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@media (max-width: 520px) {
+  .cc-banner { left: 16px; right: 16px; bottom: 16px; }
+  .cc-inner { padding: 16px; gap: 14px; }
+  .cc-text { flex-basis: 100%; font-size: 14px; }
+  .cc-actions { width: 100%; }
+  .cc-btn { flex: 1 1 0; min-width: 0; padding: 0 12px; }
+}
