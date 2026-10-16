@@ -264,7 +264,7 @@ section { position: relative; }
 /* 파트너 띠 */
 .partners { padding: 72px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); overflow: hidden; }
 .partners .label { text-align: center; font-size: 14px; color: var(--muted); margin-bottom: 36px; }
-.marquee { display: flex; width: max-content; animation: marquee 48s linear infinite; }
+.marquee { display: flex; width: max-content; animation: marquee 112s linear infinite; }
 .marquee .logo { flex: none; display: flex; align-items: center; justify-content: center; height: 88px; padding: 0 40px; margin-right: 16px; border-radius: 16px; background: var(--gray-0); }
 .marquee .logo img { display: block; width: auto; height: var(--h); }
 .marquee .logo.txt { font-size: 17px; font-weight: 700; color: var(--gray-70); letter-spacing: -0.02em; white-space: nowrap; }
