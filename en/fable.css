@@ -12,8 +12,8 @@
 /* 1. 첫 화면: 어두운 도시 사진, 제목, 주요 버튼 1개, 기능 바로가기 3개 */
 .f-hero { position: relative; overflow: hidden; background: var(--c-bg-dark); color: #fff; min-height: min(100svh, 900px); display: flex; align-items: center; padding: calc(var(--header-h) + 96px) 0 96px; }
 .f-hero-bg { position: absolute; inset: 0; }
-.f-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
-.f-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,6,13,.94) 0%, rgba(5,6,13,.78) 50%, rgba(5,6,13,.5) 100%); }
+.f-hero-bg img, .f-hero-video { width: 100%; height: 100%; object-fit: cover; }
+.f-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(5,6,13,.9) 0%, rgba(5,6,13,.62) 50%, rgba(5,6,13,.2) 100%); } /* 오른쪽 도시 영상이 보이도록 막을 옅게 */
 .f-hero-inner { position: relative; z-index: 1; width: 100%; }
 .f-problem { max-width: 620px; font-size: 18px; font-weight: 500; line-height: 1.5; color: rgba(255,255,255,.82); }
 .f-h1 { margin-top: 18px; max-width: 20ch; font-size: clamp(40px, 5.2vw, 70px); line-height: 1.06; letter-spacing: -0.035em; font-weight: 700; color: #fff; }
@@ -119,6 +119,8 @@
 @media (max-width: 600px) {
   :root { --sec-pad: 72px; }
   .f-hero { padding-bottom: 72px; }
+  /* 좁은 화면은 글이 화면 끝까지 차므로 막을 고르게 깐다 */
+  .f-hero-bg::after { background: rgba(5,6,13,.72); }
   .f-problem { font-size: 16px; }
   .f-btn-main { height: 56px; padding: 0 24px; font-size: 17px; }
   .f-jumps { margin-top: 40px; }
